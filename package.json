@@ -1,5 +1,5 @@
 {
-  "name": "llt-migrations",
+  "name": "llt-mig",
   "version": "1.0.40",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -31,6 +31,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LedgerLineTech/llt-migrations.git"
+    "url": "git@github.com:devRishi33785/mig.git"
   }
 }
