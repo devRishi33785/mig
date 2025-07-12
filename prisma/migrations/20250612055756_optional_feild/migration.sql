@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "CoinDetails" ALTER COLUMN "chain" DROP NOT NULL,
+ALTER COLUMN "contractAddress" DROP NOT NULL,
+ALTER COLUMN "decimals" DROP NOT NULL;
