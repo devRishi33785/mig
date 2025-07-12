@@ -68,6 +68,26 @@ export type CoinDetails = $Result.DefaultSelection<Prisma.$CoinDetailsPayload>
  * 
  */
 export type UserWalletTransaction = $Result.DefaultSelection<Prisma.$UserWalletTransactionPayload>
+/**
+ * Model Deposits
+ * 
+ */
+export type Deposits = $Result.DefaultSelection<Prisma.$DepositsPayload>
+/**
+ * Model Withdraws
+ * 
+ */
+export type Withdraws = $Result.DefaultSelection<Prisma.$WithdrawsPayload>
+/**
+ * Model Beneficiaries
+ * 
+ */
+export type Beneficiaries = $Result.DefaultSelection<Prisma.$BeneficiariesPayload>
+/**
+ * Model TradingFees
+ * 
+ */
+export type TradingFees = $Result.DefaultSelection<Prisma.$TradingFeesPayload>
 
 /**
  * Enums
@@ -100,6 +120,81 @@ export const OperationType: {
 
 export type OperationType = (typeof OperationType)[keyof typeof OperationType]
 
+
+export const DepositState: {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  REJECTED: 'REJECTED',
+  COMPLETED: 'COMPLETED'
+};
+
+export type DepositState = (typeof DepositState)[keyof typeof DepositState]
+
+
+export const WithdrawState: {
+  PENDING: 'PENDING',
+  PROCESSING: 'PROCESSING',
+  COMPLETED: 'COMPLETED',
+  REJECTED: 'REJECTED'
+};
+
+export type WithdrawState = (typeof WithdrawState)[keyof typeof WithdrawState]
+
+
+export const TradingGroupState: {
+  ENABLED: 'ENABLED',
+  DISABLED: 'DISABLED'
+};
+
+export type TradingGroupState = (typeof TradingGroupState)[keyof typeof TradingGroupState]
+
+
+export const BeneficiaryState: {
+  PENDING: 'PENDING',
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED'
+};
+
+export type BeneficiaryState = (typeof BeneficiaryState)[keyof typeof BeneficiaryState]
+
+
+export const WalletKind: {
+  HOT: 'HOT',
+  COLD: 'COLD',
+  WARM: 'WARM'
+};
+
+export type WalletKind = (typeof WalletKind)[keyof typeof WalletKind]
+
+
+export const WalletStatus: {
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED'
+};
+
+export type WalletStatus = (typeof WalletStatus)[keyof typeof WalletStatus]
+
+
+export const OrderStatus: {
+  PENDING: 'PENDING',
+  PARTIALLY_FILLED: 'PARTIALLY_FILLED',
+  FILLED: 'FILLED',
+  CANCELED: 'CANCELED',
+  REJECTED: 'REJECTED'
+};
+
+export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
+
+
+export const OrderType: {
+  LIMIT: 'LIMIT',
+  MARKET: 'MARKET',
+  STOP_LIMIT: 'STOP_LIMIT',
+  STOP_MARKET: 'STOP_MARKET'
+};
+
+export type OrderType = (typeof OrderType)[keyof typeof OrderType]
+
 }
 
 export type Process = $Enums.Process
@@ -113,6 +208,38 @@ export const Role: typeof $Enums.Role
 export type OperationType = $Enums.OperationType
 
 export const OperationType: typeof $Enums.OperationType
+
+export type DepositState = $Enums.DepositState
+
+export const DepositState: typeof $Enums.DepositState
+
+export type WithdrawState = $Enums.WithdrawState
+
+export const WithdrawState: typeof $Enums.WithdrawState
+
+export type TradingGroupState = $Enums.TradingGroupState
+
+export const TradingGroupState: typeof $Enums.TradingGroupState
+
+export type BeneficiaryState = $Enums.BeneficiaryState
+
+export const BeneficiaryState: typeof $Enums.BeneficiaryState
+
+export type WalletKind = $Enums.WalletKind
+
+export const WalletKind: typeof $Enums.WalletKind
+
+export type WalletStatus = $Enums.WalletStatus
+
+export const WalletStatus: typeof $Enums.WalletStatus
+
+export type OrderStatus = $Enums.OrderStatus
+
+export const OrderStatus: typeof $Enums.OrderStatus
+
+export type OrderType = $Enums.OrderType
+
+export const OrderType: typeof $Enums.OrderType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -348,6 +475,46 @@ export class PrismaClient<
     * ```
     */
   get userWalletTransaction(): Prisma.UserWalletTransactionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.deposits`: Exposes CRUD operations for the **Deposits** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Deposits
+    * const deposits = await prisma.deposits.findMany()
+    * ```
+    */
+  get deposits(): Prisma.DepositsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.withdraws`: Exposes CRUD operations for the **Withdraws** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Withdraws
+    * const withdraws = await prisma.withdraws.findMany()
+    * ```
+    */
+  get withdraws(): Prisma.WithdrawsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.beneficiaries`: Exposes CRUD operations for the **Beneficiaries** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Beneficiaries
+    * const beneficiaries = await prisma.beneficiaries.findMany()
+    * ```
+    */
+  get beneficiaries(): Prisma.BeneficiariesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tradingFees`: Exposes CRUD operations for the **TradingFees** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TradingFees
+    * const tradingFees = await prisma.tradingFees.findMany()
+    * ```
+    */
+  get tradingFees(): Prisma.TradingFeesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -798,7 +965,11 @@ export namespace Prisma {
     TradingGroup: 'TradingGroup',
     GroupTrade: 'GroupTrade',
     CoinDetails: 'CoinDetails',
-    UserWalletTransaction: 'UserWalletTransaction'
+    UserWalletTransaction: 'UserWalletTransaction',
+    Deposits: 'Deposits',
+    Withdraws: 'Withdraws',
+    Beneficiaries: 'Beneficiaries',
+    TradingFees: 'TradingFees'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -817,7 +988,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "roles" | "userRoleMapping" | "coins" | "devices" | "userWallet" | "appConfig" | "tradingGroup" | "groupTrade" | "coinDetails" | "userWalletTransaction"
+      modelProps: "users" | "roles" | "userRoleMapping" | "coins" | "devices" | "userWallet" | "appConfig" | "tradingGroup" | "groupTrade" | "coinDetails" | "userWalletTransaction" | "deposits" | "withdraws" | "beneficiaries" | "tradingFees"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1635,6 +1806,302 @@ export namespace Prisma {
           }
         }
       }
+      Deposits: {
+        payload: Prisma.$DepositsPayload<ExtArgs>
+        fields: Prisma.DepositsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DepositsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DepositsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>
+          }
+          findFirst: {
+            args: Prisma.DepositsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DepositsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>
+          }
+          findMany: {
+            args: Prisma.DepositsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>[]
+          }
+          create: {
+            args: Prisma.DepositsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>
+          }
+          createMany: {
+            args: Prisma.DepositsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DepositsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>[]
+          }
+          delete: {
+            args: Prisma.DepositsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>
+          }
+          update: {
+            args: Prisma.DepositsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>
+          }
+          deleteMany: {
+            args: Prisma.DepositsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DepositsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DepositsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>[]
+          }
+          upsert: {
+            args: Prisma.DepositsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepositsPayload>
+          }
+          aggregate: {
+            args: Prisma.DepositsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDeposits>
+          }
+          groupBy: {
+            args: Prisma.DepositsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DepositsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DepositsCountArgs<ExtArgs>
+            result: $Utils.Optional<DepositsCountAggregateOutputType> | number
+          }
+        }
+      }
+      Withdraws: {
+        payload: Prisma.$WithdrawsPayload<ExtArgs>
+        fields: Prisma.WithdrawsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WithdrawsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WithdrawsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>
+          }
+          findFirst: {
+            args: Prisma.WithdrawsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WithdrawsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>
+          }
+          findMany: {
+            args: Prisma.WithdrawsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>[]
+          }
+          create: {
+            args: Prisma.WithdrawsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>
+          }
+          createMany: {
+            args: Prisma.WithdrawsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WithdrawsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>[]
+          }
+          delete: {
+            args: Prisma.WithdrawsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>
+          }
+          update: {
+            args: Prisma.WithdrawsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>
+          }
+          deleteMany: {
+            args: Prisma.WithdrawsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WithdrawsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WithdrawsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>[]
+          }
+          upsert: {
+            args: Prisma.WithdrawsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WithdrawsPayload>
+          }
+          aggregate: {
+            args: Prisma.WithdrawsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWithdraws>
+          }
+          groupBy: {
+            args: Prisma.WithdrawsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WithdrawsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WithdrawsCountArgs<ExtArgs>
+            result: $Utils.Optional<WithdrawsCountAggregateOutputType> | number
+          }
+        }
+      }
+      Beneficiaries: {
+        payload: Prisma.$BeneficiariesPayload<ExtArgs>
+        fields: Prisma.BeneficiariesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BeneficiariesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BeneficiariesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>
+          }
+          findFirst: {
+            args: Prisma.BeneficiariesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BeneficiariesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>
+          }
+          findMany: {
+            args: Prisma.BeneficiariesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>[]
+          }
+          create: {
+            args: Prisma.BeneficiariesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>
+          }
+          createMany: {
+            args: Prisma.BeneficiariesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BeneficiariesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>[]
+          }
+          delete: {
+            args: Prisma.BeneficiariesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>
+          }
+          update: {
+            args: Prisma.BeneficiariesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>
+          }
+          deleteMany: {
+            args: Prisma.BeneficiariesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BeneficiariesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BeneficiariesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>[]
+          }
+          upsert: {
+            args: Prisma.BeneficiariesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BeneficiariesPayload>
+          }
+          aggregate: {
+            args: Prisma.BeneficiariesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBeneficiaries>
+          }
+          groupBy: {
+            args: Prisma.BeneficiariesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BeneficiariesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BeneficiariesCountArgs<ExtArgs>
+            result: $Utils.Optional<BeneficiariesCountAggregateOutputType> | number
+          }
+        }
+      }
+      TradingFees: {
+        payload: Prisma.$TradingFeesPayload<ExtArgs>
+        fields: Prisma.TradingFeesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TradingFeesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TradingFeesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
+          }
+          findFirst: {
+            args: Prisma.TradingFeesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TradingFeesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
+          }
+          findMany: {
+            args: Prisma.TradingFeesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>[]
+          }
+          create: {
+            args: Prisma.TradingFeesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
+          }
+          createMany: {
+            args: Prisma.TradingFeesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TradingFeesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>[]
+          }
+          delete: {
+            args: Prisma.TradingFeesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
+          }
+          update: {
+            args: Prisma.TradingFeesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
+          }
+          deleteMany: {
+            args: Prisma.TradingFeesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TradingFeesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TradingFeesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>[]
+          }
+          upsert: {
+            args: Prisma.TradingFeesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
+          }
+          aggregate: {
+            args: Prisma.TradingFeesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTradingFees>
+          }
+          groupBy: {
+            args: Prisma.TradingFeesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TradingFeesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TradingFeesCountArgs<ExtArgs>
+            result: $Utils.Optional<TradingFeesCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1730,6 +2197,10 @@ export namespace Prisma {
     groupTrade?: GroupTradeOmit
     coinDetails?: CoinDetailsOmit
     userWalletTransaction?: UserWalletTransactionOmit
+    deposits?: DepositsOmit
+    withdraws?: WithdrawsOmit
+    beneficiaries?: BeneficiariesOmit
+    tradingFees?: TradingFeesOmit
   }
 
   /* Types for Logging */
@@ -1828,6 +2299,9 @@ export namespace Prisma {
     devices: number
     userWallet: number
     groupTrades: number
+    Deposits: number
+    Withdraws: number
+    Beneficiaries: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1835,6 +2309,9 @@ export namespace Prisma {
     devices?: boolean | UsersCountOutputTypeCountDevicesArgs
     userWallet?: boolean | UsersCountOutputTypeCountUserWalletArgs
     groupTrades?: boolean | UsersCountOutputTypeCountGroupTradesArgs
+    Deposits?: boolean | UsersCountOutputTypeCountDepositsArgs
+    Withdraws?: boolean | UsersCountOutputTypeCountWithdrawsArgs
+    Beneficiaries?: boolean | UsersCountOutputTypeCountBeneficiariesArgs
   }
 
   // Custom InputTypes
@@ -1874,6 +2351,27 @@ export namespace Prisma {
    */
   export type UsersCountOutputTypeCountGroupTradesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: GroupTradeWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountDepositsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DepositsWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountWithdrawsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WithdrawsWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountBeneficiariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BeneficiariesWhereInput
   }
 
 
@@ -1917,6 +2415,9 @@ export namespace Prisma {
     tradingGroupQuote: number
     coinDetails: number
     UserWallet: number
+    Deposits: number
+    Withdraws: number
+    Beneficiaries: number
   }
 
   export type CoinsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1924,6 +2425,9 @@ export namespace Prisma {
     tradingGroupQuote?: boolean | CoinsCountOutputTypeCountTradingGroupQuoteArgs
     coinDetails?: boolean | CoinsCountOutputTypeCountCoinDetailsArgs
     UserWallet?: boolean | CoinsCountOutputTypeCountUserWalletArgs
+    Deposits?: boolean | CoinsCountOutputTypeCountDepositsArgs
+    Withdraws?: boolean | CoinsCountOutputTypeCountWithdrawsArgs
+    Beneficiaries?: boolean | CoinsCountOutputTypeCountBeneficiariesArgs
   }
 
   // Custom InputTypes
@@ -1965,6 +2469,27 @@ export namespace Prisma {
     where?: UserWalletWhereInput
   }
 
+  /**
+   * CoinsCountOutputType without action
+   */
+  export type CoinsCountOutputTypeCountDepositsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DepositsWhereInput
+  }
+
+  /**
+   * CoinsCountOutputType without action
+   */
+  export type CoinsCountOutputTypeCountWithdrawsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WithdrawsWhereInput
+  }
+
+  /**
+   * CoinsCountOutputType without action
+   */
+  export type CoinsCountOutputTypeCountBeneficiariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BeneficiariesWhereInput
+  }
+
 
   /**
    * Count Type UserWalletCountOutputType
@@ -2003,10 +2528,12 @@ export namespace Prisma {
 
   export type TradingGroupCountOutputType = {
     trades: number
+    TradingFees: number
   }
 
   export type TradingGroupCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     trades?: boolean | TradingGroupCountOutputTypeCountTradesArgs
+    TradingFees?: boolean | TradingGroupCountOutputTypeCountTradingFeesArgs
   }
 
   // Custom InputTypes
@@ -2025,6 +2552,44 @@ export namespace Prisma {
    */
   export type TradingGroupCountOutputTypeCountTradesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: GroupTradeWhereInput
+  }
+
+  /**
+   * TradingGroupCountOutputType without action
+   */
+  export type TradingGroupCountOutputTypeCountTradingFeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TradingFeesWhereInput
+  }
+
+
+  /**
+   * Count Type BeneficiariesCountOutputType
+   */
+
+  export type BeneficiariesCountOutputType = {
+    withdraws: number
+  }
+
+  export type BeneficiariesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    withdraws?: boolean | BeneficiariesCountOutputTypeCountWithdrawsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BeneficiariesCountOutputType without action
+   */
+  export type BeneficiariesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BeneficiariesCountOutputType
+     */
+    select?: BeneficiariesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BeneficiariesCountOutputType without action
+   */
+  export type BeneficiariesCountOutputTypeCountWithdrawsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WithdrawsWhereInput
   }
 
 
@@ -2434,6 +2999,9 @@ export namespace Prisma {
     devices?: boolean | Users$devicesArgs<ExtArgs>
     userWallet?: boolean | Users$userWalletArgs<ExtArgs>
     groupTrades?: boolean | Users$groupTradesArgs<ExtArgs>
+    Deposits?: boolean | Users$DepositsArgs<ExtArgs>
+    Withdraws?: boolean | Users$WithdrawsArgs<ExtArgs>
+    Beneficiaries?: boolean | Users$BeneficiariesArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
@@ -2542,6 +3110,9 @@ export namespace Prisma {
     devices?: boolean | Users$devicesArgs<ExtArgs>
     userWallet?: boolean | Users$userWalletArgs<ExtArgs>
     groupTrades?: boolean | Users$groupTradesArgs<ExtArgs>
+    Deposits?: boolean | Users$DepositsArgs<ExtArgs>
+    Withdraws?: boolean | Users$WithdrawsArgs<ExtArgs>
+    Beneficiaries?: boolean | Users$BeneficiariesArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UsersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2554,6 +3125,9 @@ export namespace Prisma {
       devices: Prisma.$DevicesPayload<ExtArgs>[]
       userWallet: Prisma.$UserWalletPayload<ExtArgs>[]
       groupTrades: Prisma.$GroupTradePayload<ExtArgs>[]
+      Deposits: Prisma.$DepositsPayload<ExtArgs>[]
+      Withdraws: Prisma.$WithdrawsPayload<ExtArgs>[]
+      Beneficiaries: Prisma.$BeneficiariesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2984,6 +3558,9 @@ export namespace Prisma {
     devices<T extends Users$devicesArgs<ExtArgs> = {}>(args?: Subset<T, Users$devicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DevicesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userWallet<T extends Users$userWalletArgs<ExtArgs> = {}>(args?: Subset<T, Users$userWalletArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     groupTrades<T extends Users$groupTradesArgs<ExtArgs> = {}>(args?: Subset<T, Users$groupTradesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Deposits<T extends Users$DepositsArgs<ExtArgs> = {}>(args?: Subset<T, Users$DepositsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Withdraws<T extends Users$WithdrawsArgs<ExtArgs> = {}>(args?: Subset<T, Users$WithdrawsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Beneficiaries<T extends Users$BeneficiariesArgs<ExtArgs> = {}>(args?: Subset<T, Users$BeneficiariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3524,6 +4101,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: GroupTradeScalarFieldEnum | GroupTradeScalarFieldEnum[]
+  }
+
+  /**
+   * Users.Deposits
+   */
+  export type Users$DepositsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    where?: DepositsWhereInput
+    orderBy?: DepositsOrderByWithRelationInput | DepositsOrderByWithRelationInput[]
+    cursor?: DepositsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DepositsScalarFieldEnum | DepositsScalarFieldEnum[]
+  }
+
+  /**
+   * Users.Withdraws
+   */
+  export type Users$WithdrawsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    where?: WithdrawsWhereInput
+    orderBy?: WithdrawsOrderByWithRelationInput | WithdrawsOrderByWithRelationInput[]
+    cursor?: WithdrawsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WithdrawsScalarFieldEnum | WithdrawsScalarFieldEnum[]
+  }
+
+  /**
+   * Users.Beneficiaries
+   */
+  export type Users$BeneficiariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    where?: BeneficiariesWhereInput
+    orderBy?: BeneficiariesOrderByWithRelationInput | BeneficiariesOrderByWithRelationInput[]
+    cursor?: BeneficiariesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BeneficiariesScalarFieldEnum | BeneficiariesScalarFieldEnum[]
   }
 
   /**
@@ -5710,12 +6359,22 @@ export namespace Prisma {
     coinId: number | null
     rank: number | null
     volume: number | null
+    depositFee: number | null
+    withdrawFee: number | null
+    minDepositAmount: number | null
+    minWithdrawAmount: number | null
+    precision: number | null
   }
 
   export type CoinsSumAggregateOutputType = {
     coinId: bigint | null
     rank: number | null
     volume: number | null
+    depositFee: number | null
+    withdrawFee: number | null
+    minDepositAmount: number | null
+    minWithdrawAmount: number | null
+    precision: number | null
   }
 
   export type CoinsMinAggregateOutputType = {
@@ -5735,6 +6394,12 @@ export namespace Prisma {
     rank: number | null
     volume: number | null
     isVisible: boolean | null
+    depositFee: number | null
+    withdrawFee: number | null
+    minDepositAmount: number | null
+    minWithdrawAmount: number | null
+    precision: number | null
+    blockchainKey: string | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -5757,6 +6422,12 @@ export namespace Prisma {
     rank: number | null
     volume: number | null
     isVisible: boolean | null
+    depositFee: number | null
+    withdrawFee: number | null
+    minDepositAmount: number | null
+    minWithdrawAmount: number | null
+    precision: number | null
+    blockchainKey: string | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -5779,6 +6450,12 @@ export namespace Prisma {
     rank: number
     volume: number
     isVisible: number
+    depositFee: number
+    withdrawFee: number
+    minDepositAmount: number
+    minWithdrawAmount: number
+    precision: number
+    blockchainKey: number
     createdAt: number
     updatedAt: number
     deletedAt: number
@@ -5790,12 +6467,22 @@ export namespace Prisma {
     coinId?: true
     rank?: true
     volume?: true
+    depositFee?: true
+    withdrawFee?: true
+    minDepositAmount?: true
+    minWithdrawAmount?: true
+    precision?: true
   }
 
   export type CoinsSumAggregateInputType = {
     coinId?: true
     rank?: true
     volume?: true
+    depositFee?: true
+    withdrawFee?: true
+    minDepositAmount?: true
+    minWithdrawAmount?: true
+    precision?: true
   }
 
   export type CoinsMinAggregateInputType = {
@@ -5815,6 +6502,12 @@ export namespace Prisma {
     rank?: true
     volume?: true
     isVisible?: true
+    depositFee?: true
+    withdrawFee?: true
+    minDepositAmount?: true
+    minWithdrawAmount?: true
+    precision?: true
+    blockchainKey?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -5837,6 +6530,12 @@ export namespace Prisma {
     rank?: true
     volume?: true
     isVisible?: true
+    depositFee?: true
+    withdrawFee?: true
+    minDepositAmount?: true
+    minWithdrawAmount?: true
+    precision?: true
+    blockchainKey?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -5859,6 +6558,12 @@ export namespace Prisma {
     rank?: true
     volume?: true
     isVisible?: true
+    depositFee?: true
+    withdrawFee?: true
+    minDepositAmount?: true
+    minWithdrawAmount?: true
+    precision?: true
+    blockchainKey?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -5968,6 +6673,12 @@ export namespace Prisma {
     rank: number | null
     volume: number | null
     isVisible: boolean | null
+    depositFee: number | null
+    withdrawFee: number | null
+    minDepositAmount: number | null
+    minWithdrawAmount: number | null
+    precision: number | null
+    blockchainKey: string | null
     createdAt: Date
     updatedAt: Date | null
     deletedAt: Date | null
@@ -6009,6 +6720,12 @@ export namespace Prisma {
     rank?: boolean
     volume?: boolean
     isVisible?: boolean
+    depositFee?: boolean
+    withdrawFee?: boolean
+    minDepositAmount?: boolean
+    minWithdrawAmount?: boolean
+    precision?: boolean
+    blockchainKey?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -6016,6 +6733,9 @@ export namespace Prisma {
     tradingGroupQuote?: boolean | Coins$tradingGroupQuoteArgs<ExtArgs>
     coinDetails?: boolean | Coins$coinDetailsArgs<ExtArgs>
     UserWallet?: boolean | Coins$UserWalletArgs<ExtArgs>
+    Deposits?: boolean | Coins$DepositsArgs<ExtArgs>
+    Withdraws?: boolean | Coins$WithdrawsArgs<ExtArgs>
+    Beneficiaries?: boolean | Coins$BeneficiariesArgs<ExtArgs>
     _count?: boolean | CoinsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["coins"]>
 
@@ -6036,6 +6756,12 @@ export namespace Prisma {
     rank?: boolean
     volume?: boolean
     isVisible?: boolean
+    depositFee?: boolean
+    withdrawFee?: boolean
+    minDepositAmount?: boolean
+    minWithdrawAmount?: boolean
+    precision?: boolean
+    blockchainKey?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -6058,6 +6784,12 @@ export namespace Prisma {
     rank?: boolean
     volume?: boolean
     isVisible?: boolean
+    depositFee?: boolean
+    withdrawFee?: boolean
+    minDepositAmount?: boolean
+    minWithdrawAmount?: boolean
+    precision?: boolean
+    blockchainKey?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -6080,17 +6812,26 @@ export namespace Prisma {
     rank?: boolean
     volume?: boolean
     isVisible?: boolean
+    depositFee?: boolean
+    withdrawFee?: boolean
+    minDepositAmount?: boolean
+    minWithdrawAmount?: boolean
+    precision?: boolean
+    blockchainKey?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
   }
 
-  export type CoinsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "coinId" | "nameId" | "name" | "priceUsd" | "percentChange24h" | "percentChange1h" | "percentChange7d" | "priceBtc" | "volume24" | "volume24a" | "symbol" | "marketCapUsd" | "rank" | "volume" | "isVisible" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["coins"]>
+  export type CoinsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "coinId" | "nameId" | "name" | "priceUsd" | "percentChange24h" | "percentChange1h" | "percentChange7d" | "priceBtc" | "volume24" | "volume24a" | "symbol" | "marketCapUsd" | "rank" | "volume" | "isVisible" | "depositFee" | "withdrawFee" | "minDepositAmount" | "minWithdrawAmount" | "precision" | "blockchainKey" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["coins"]>
   export type CoinsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tradingGroupBase?: boolean | Coins$tradingGroupBaseArgs<ExtArgs>
     tradingGroupQuote?: boolean | Coins$tradingGroupQuoteArgs<ExtArgs>
     coinDetails?: boolean | Coins$coinDetailsArgs<ExtArgs>
     UserWallet?: boolean | Coins$UserWalletArgs<ExtArgs>
+    Deposits?: boolean | Coins$DepositsArgs<ExtArgs>
+    Withdraws?: boolean | Coins$WithdrawsArgs<ExtArgs>
+    Beneficiaries?: boolean | Coins$BeneficiariesArgs<ExtArgs>
     _count?: boolean | CoinsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CoinsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -6103,6 +6844,9 @@ export namespace Prisma {
       tradingGroupQuote: Prisma.$TradingGroupPayload<ExtArgs>[]
       coinDetails: Prisma.$CoinDetailsPayload<ExtArgs>[]
       UserWallet: Prisma.$UserWalletPayload<ExtArgs>[]
+      Deposits: Prisma.$DepositsPayload<ExtArgs>[]
+      Withdraws: Prisma.$WithdrawsPayload<ExtArgs>[]
+      Beneficiaries: Prisma.$BeneficiariesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6121,6 +6865,12 @@ export namespace Prisma {
       rank: number | null
       volume: number | null
       isVisible: boolean | null
+      depositFee: number | null
+      withdrawFee: number | null
+      minDepositAmount: number | null
+      minWithdrawAmount: number | null
+      precision: number | null
+      blockchainKey: string | null
       createdAt: Date
       updatedAt: Date | null
       deletedAt: Date | null
@@ -6522,6 +7272,9 @@ export namespace Prisma {
     tradingGroupQuote<T extends Coins$tradingGroupQuoteArgs<ExtArgs> = {}>(args?: Subset<T, Coins$tradingGroupQuoteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingGroupPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     coinDetails<T extends Coins$coinDetailsArgs<ExtArgs> = {}>(args?: Subset<T, Coins$coinDetailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CoinDetailsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     UserWallet<T extends Coins$UserWalletArgs<ExtArgs> = {}>(args?: Subset<T, Coins$UserWalletArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Deposits<T extends Coins$DepositsArgs<ExtArgs> = {}>(args?: Subset<T, Coins$DepositsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Withdraws<T extends Coins$WithdrawsArgs<ExtArgs> = {}>(args?: Subset<T, Coins$WithdrawsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Beneficiaries<T extends Coins$BeneficiariesArgs<ExtArgs> = {}>(args?: Subset<T, Coins$BeneficiariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6567,6 +7320,12 @@ export namespace Prisma {
     readonly rank: FieldRef<"Coins", 'Int'>
     readonly volume: FieldRef<"Coins", 'Int'>
     readonly isVisible: FieldRef<"Coins", 'Boolean'>
+    readonly depositFee: FieldRef<"Coins", 'Float'>
+    readonly withdrawFee: FieldRef<"Coins", 'Float'>
+    readonly minDepositAmount: FieldRef<"Coins", 'Float'>
+    readonly minWithdrawAmount: FieldRef<"Coins", 'Float'>
+    readonly precision: FieldRef<"Coins", 'Int'>
+    readonly blockchainKey: FieldRef<"Coins", 'String'>
     readonly createdAt: FieldRef<"Coins", 'DateTime'>
     readonly updatedAt: FieldRef<"Coins", 'DateTime'>
     readonly deletedAt: FieldRef<"Coins", 'DateTime'>
@@ -7051,6 +7810,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserWalletScalarFieldEnum | UserWalletScalarFieldEnum[]
+  }
+
+  /**
+   * Coins.Deposits
+   */
+  export type Coins$DepositsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    where?: DepositsWhereInput
+    orderBy?: DepositsOrderByWithRelationInput | DepositsOrderByWithRelationInput[]
+    cursor?: DepositsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DepositsScalarFieldEnum | DepositsScalarFieldEnum[]
+  }
+
+  /**
+   * Coins.Withdraws
+   */
+  export type Coins$WithdrawsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    where?: WithdrawsWhereInput
+    orderBy?: WithdrawsOrderByWithRelationInput | WithdrawsOrderByWithRelationInput[]
+    cursor?: WithdrawsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WithdrawsScalarFieldEnum | WithdrawsScalarFieldEnum[]
+  }
+
+  /**
+   * Coins.Beneficiaries
+   */
+  export type Coins$BeneficiariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    where?: BeneficiariesWhereInput
+    orderBy?: BeneficiariesOrderByWithRelationInput | BeneficiariesOrderByWithRelationInput[]
+    cursor?: BeneficiariesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BeneficiariesScalarFieldEnum | BeneficiariesScalarFieldEnum[]
   }
 
   /**
@@ -8169,19 +9000,23 @@ export namespace Prisma {
   }
 
   export type UserWalletAvgAggregateOutputType = {
-    amount: number | null
+    maxBalance: number | null
   }
 
   export type UserWalletSumAggregateOutputType = {
-    amount: number | null
+    maxBalance: number | null
   }
 
   export type UserWalletMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    amount: number | null
     coinId: string | null
     currency: string | null
+    status: $Enums.WalletStatus | null
+    maxBalance: number | null
+    blockchainKey: string | null
+    address: string | null
+    kind: $Enums.WalletKind | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -8190,9 +9025,13 @@ export namespace Prisma {
   export type UserWalletMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    amount: number | null
     coinId: string | null
     currency: string | null
+    status: $Enums.WalletStatus | null
+    maxBalance: number | null
+    blockchainKey: string | null
+    address: string | null
+    kind: $Enums.WalletKind | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -8201,9 +9040,14 @@ export namespace Prisma {
   export type UserWalletCountAggregateOutputType = {
     id: number
     userId: number
-    amount: number
     coinId: number
     currency: number
+    status: number
+    maxBalance: number
+    blockchainKey: number
+    address: number
+    kind: number
+    settings: number
     createdAt: number
     updatedAt: number
     deletedAt: number
@@ -8212,19 +9056,23 @@ export namespace Prisma {
 
 
   export type UserWalletAvgAggregateInputType = {
-    amount?: true
+    maxBalance?: true
   }
 
   export type UserWalletSumAggregateInputType = {
-    amount?: true
+    maxBalance?: true
   }
 
   export type UserWalletMinAggregateInputType = {
     id?: true
     userId?: true
-    amount?: true
     coinId?: true
     currency?: true
+    status?: true
+    maxBalance?: true
+    blockchainKey?: true
+    address?: true
+    kind?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -8233,9 +9081,13 @@ export namespace Prisma {
   export type UserWalletMaxAggregateInputType = {
     id?: true
     userId?: true
-    amount?: true
     coinId?: true
     currency?: true
+    status?: true
+    maxBalance?: true
+    blockchainKey?: true
+    address?: true
+    kind?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -8244,9 +9096,14 @@ export namespace Prisma {
   export type UserWalletCountAggregateInputType = {
     id?: true
     userId?: true
-    amount?: true
     coinId?: true
     currency?: true
+    status?: true
+    maxBalance?: true
+    blockchainKey?: true
+    address?: true
+    kind?: true
+    settings?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -8342,9 +9199,14 @@ export namespace Prisma {
   export type UserWalletGroupByOutputType = {
     id: string
     userId: string
-    amount: number
     coinId: string
     currency: string
+    status: $Enums.WalletStatus | null
+    maxBalance: number
+    blockchainKey: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings: JsonValue | null
     createdAt: Date
     updatedAt: Date | null
     deletedAt: Date | null
@@ -8372,9 +9234,14 @@ export namespace Prisma {
   export type UserWalletSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    amount?: boolean
     coinId?: boolean
     currency?: boolean
+    status?: boolean
+    maxBalance?: boolean
+    blockchainKey?: boolean
+    address?: boolean
+    kind?: boolean
+    settings?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -8387,9 +9254,14 @@ export namespace Prisma {
   export type UserWalletSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    amount?: boolean
     coinId?: boolean
     currency?: boolean
+    status?: boolean
+    maxBalance?: boolean
+    blockchainKey?: boolean
+    address?: boolean
+    kind?: boolean
+    settings?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -8400,9 +9272,14 @@ export namespace Prisma {
   export type UserWalletSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    amount?: boolean
     coinId?: boolean
     currency?: boolean
+    status?: boolean
+    maxBalance?: boolean
+    blockchainKey?: boolean
+    address?: boolean
+    kind?: boolean
+    settings?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -8413,15 +9290,20 @@ export namespace Prisma {
   export type UserWalletSelectScalar = {
     id?: boolean
     userId?: boolean
-    amount?: boolean
     coinId?: boolean
     currency?: boolean
+    status?: boolean
+    maxBalance?: boolean
+    blockchainKey?: boolean
+    address?: boolean
+    kind?: boolean
+    settings?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
   }
 
-  export type UserWalletOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "amount" | "coinId" | "currency" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["userWallet"]>
+  export type UserWalletOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "coinId" | "currency" | "status" | "maxBalance" | "blockchainKey" | "address" | "kind" | "settings" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["userWallet"]>
   export type UserWalletInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     coins?: boolean | CoinsDefaultArgs<ExtArgs>
     user?: boolean | UsersDefaultArgs<ExtArgs>
@@ -8447,9 +9329,14 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      amount: number
       coinId: string
       currency: string
+      status: $Enums.WalletStatus | null
+      maxBalance: number
+      blockchainKey: string | null
+      address: string
+      kind: $Enums.WalletKind
+      settings: Prisma.JsonValue | null
       createdAt: Date
       updatedAt: Date | null
       deletedAt: Date | null
@@ -8881,9 +9768,14 @@ export namespace Prisma {
   interface UserWalletFieldRefs {
     readonly id: FieldRef<"UserWallet", 'String'>
     readonly userId: FieldRef<"UserWallet", 'String'>
-    readonly amount: FieldRef<"UserWallet", 'Float'>
     readonly coinId: FieldRef<"UserWallet", 'String'>
     readonly currency: FieldRef<"UserWallet", 'String'>
+    readonly status: FieldRef<"UserWallet", 'WalletStatus'>
+    readonly maxBalance: FieldRef<"UserWallet", 'Float'>
+    readonly blockchainKey: FieldRef<"UserWallet", 'String'>
+    readonly address: FieldRef<"UserWallet", 'String'>
+    readonly kind: FieldRef<"UserWallet", 'WalletKind'>
+    readonly settings: FieldRef<"UserWallet", 'Json'>
     readonly createdAt: FieldRef<"UserWallet", 'DateTime'>
     readonly updatedAt: FieldRef<"UserWallet", 'DateTime'>
     readonly deletedAt: FieldRef<"UserWallet", 'DateTime'>
@@ -10352,8 +11244,26 @@ export namespace Prisma {
 
   export type AggregateTradingGroup = {
     _count: TradingGroupCountAggregateOutputType | null
+    _avg: TradingGroupAvgAggregateOutputType | null
+    _sum: TradingGroupSumAggregateOutputType | null
     _min: TradingGroupMinAggregateOutputType | null
     _max: TradingGroupMaxAggregateOutputType | null
+  }
+
+  export type TradingGroupAvgAggregateOutputType = {
+    amountPrecision: number | null
+    pricePrecision: number | null
+    minPrice: number | null
+    maxprice: number | null
+    minAmount: number | null
+  }
+
+  export type TradingGroupSumAggregateOutputType = {
+    amountPrecision: number | null
+    pricePrecision: number | null
+    minPrice: number | null
+    maxprice: number | null
+    minAmount: number | null
   }
 
   export type TradingGroupMinAggregateOutputType = {
@@ -10361,6 +11271,12 @@ export namespace Prisma {
     name: string | null
     baseCoinId: string | null
     quoteCoinId: string | null
+    amountPrecision: number | null
+    pricePrecision: number | null
+    minPrice: number | null
+    maxprice: number | null
+    minAmount: number | null
+    state: $Enums.TradingGroupState | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -10371,6 +11287,12 @@ export namespace Prisma {
     name: string | null
     baseCoinId: string | null
     quoteCoinId: string | null
+    amountPrecision: number | null
+    pricePrecision: number | null
+    minPrice: number | null
+    maxprice: number | null
+    minAmount: number | null
+    state: $Enums.TradingGroupState | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -10381,6 +11303,12 @@ export namespace Prisma {
     name: number
     baseCoinId: number
     quoteCoinId: number
+    amountPrecision: number
+    pricePrecision: number
+    minPrice: number
+    maxprice: number
+    minAmount: number
+    state: number
     createdAt: number
     updatedAt: number
     deletedAt: number
@@ -10388,11 +11316,33 @@ export namespace Prisma {
   }
 
 
+  export type TradingGroupAvgAggregateInputType = {
+    amountPrecision?: true
+    pricePrecision?: true
+    minPrice?: true
+    maxprice?: true
+    minAmount?: true
+  }
+
+  export type TradingGroupSumAggregateInputType = {
+    amountPrecision?: true
+    pricePrecision?: true
+    minPrice?: true
+    maxprice?: true
+    minAmount?: true
+  }
+
   export type TradingGroupMinAggregateInputType = {
     id?: true
     name?: true
     baseCoinId?: true
     quoteCoinId?: true
+    amountPrecision?: true
+    pricePrecision?: true
+    minPrice?: true
+    maxprice?: true
+    minAmount?: true
+    state?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -10403,6 +11353,12 @@ export namespace Prisma {
     name?: true
     baseCoinId?: true
     quoteCoinId?: true
+    amountPrecision?: true
+    pricePrecision?: true
+    minPrice?: true
+    maxprice?: true
+    minAmount?: true
+    state?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -10413,6 +11369,12 @@ export namespace Prisma {
     name?: true
     baseCoinId?: true
     quoteCoinId?: true
+    amountPrecision?: true
+    pricePrecision?: true
+    minPrice?: true
+    maxprice?: true
+    minAmount?: true
+    state?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -10457,6 +11419,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: TradingGroupAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TradingGroupSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: TradingGroupMinAggregateInputType
@@ -10487,6 +11461,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: TradingGroupCountAggregateInputType | true
+    _avg?: TradingGroupAvgAggregateInputType
+    _sum?: TradingGroupSumAggregateInputType
     _min?: TradingGroupMinAggregateInputType
     _max?: TradingGroupMaxAggregateInputType
   }
@@ -10496,10 +11472,18 @@ export namespace Prisma {
     name: string
     baseCoinId: string
     quoteCoinId: string
+    amountPrecision: number
+    pricePrecision: number
+    minPrice: number
+    maxprice: number
+    minAmount: number
+    state: $Enums.TradingGroupState
     createdAt: Date
     updatedAt: Date | null
     deletedAt: Date | null
     _count: TradingGroupCountAggregateOutputType | null
+    _avg: TradingGroupAvgAggregateOutputType | null
+    _sum: TradingGroupSumAggregateOutputType | null
     _min: TradingGroupMinAggregateOutputType | null
     _max: TradingGroupMaxAggregateOutputType | null
   }
@@ -10523,12 +11507,19 @@ export namespace Prisma {
     name?: boolean
     baseCoinId?: boolean
     quoteCoinId?: boolean
+    amountPrecision?: boolean
+    pricePrecision?: boolean
+    minPrice?: boolean
+    maxprice?: boolean
+    minAmount?: boolean
+    state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
     baseCoin?: boolean | CoinsDefaultArgs<ExtArgs>
     quoteCoin?: boolean | CoinsDefaultArgs<ExtArgs>
     trades?: boolean | TradingGroup$tradesArgs<ExtArgs>
+    TradingFees?: boolean | TradingGroup$TradingFeesArgs<ExtArgs>
     _count?: boolean | TradingGroupCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tradingGroup"]>
 
@@ -10537,6 +11528,12 @@ export namespace Prisma {
     name?: boolean
     baseCoinId?: boolean
     quoteCoinId?: boolean
+    amountPrecision?: boolean
+    pricePrecision?: boolean
+    minPrice?: boolean
+    maxprice?: boolean
+    minAmount?: boolean
+    state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -10549,6 +11546,12 @@ export namespace Prisma {
     name?: boolean
     baseCoinId?: boolean
     quoteCoinId?: boolean
+    amountPrecision?: boolean
+    pricePrecision?: boolean
+    minPrice?: boolean
+    maxprice?: boolean
+    minAmount?: boolean
+    state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -10561,16 +11564,23 @@ export namespace Prisma {
     name?: boolean
     baseCoinId?: boolean
     quoteCoinId?: boolean
+    amountPrecision?: boolean
+    pricePrecision?: boolean
+    minPrice?: boolean
+    maxprice?: boolean
+    minAmount?: boolean
+    state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
   }
 
-  export type TradingGroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "baseCoinId" | "quoteCoinId" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["tradingGroup"]>
+  export type TradingGroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "baseCoinId" | "quoteCoinId" | "amountPrecision" | "pricePrecision" | "minPrice" | "maxprice" | "minAmount" | "state" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["tradingGroup"]>
   export type TradingGroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     baseCoin?: boolean | CoinsDefaultArgs<ExtArgs>
     quoteCoin?: boolean | CoinsDefaultArgs<ExtArgs>
     trades?: boolean | TradingGroup$tradesArgs<ExtArgs>
+    TradingFees?: boolean | TradingGroup$TradingFeesArgs<ExtArgs>
     _count?: boolean | TradingGroupCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TradingGroupIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10588,12 +11598,19 @@ export namespace Prisma {
       baseCoin: Prisma.$CoinsPayload<ExtArgs>
       quoteCoin: Prisma.$CoinsPayload<ExtArgs>
       trades: Prisma.$GroupTradePayload<ExtArgs>[]
+      TradingFees: Prisma.$TradingFeesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       baseCoinId: string
       quoteCoinId: string
+      amountPrecision: number
+      pricePrecision: number
+      minPrice: number
+      maxprice: number
+      minAmount: number
+      state: $Enums.TradingGroupState
       createdAt: Date
       updatedAt: Date | null
       deletedAt: Date | null
@@ -10994,6 +12011,7 @@ export namespace Prisma {
     baseCoin<T extends CoinsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CoinsDefaultArgs<ExtArgs>>): Prisma__CoinsClient<$Result.GetResult<Prisma.$CoinsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     quoteCoin<T extends CoinsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CoinsDefaultArgs<ExtArgs>>): Prisma__CoinsClient<$Result.GetResult<Prisma.$CoinsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     trades<T extends TradingGroup$tradesArgs<ExtArgs> = {}>(args?: Subset<T, TradingGroup$tradesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    TradingFees<T extends TradingGroup$TradingFeesArgs<ExtArgs> = {}>(args?: Subset<T, TradingGroup$TradingFeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11027,6 +12045,12 @@ export namespace Prisma {
     readonly name: FieldRef<"TradingGroup", 'String'>
     readonly baseCoinId: FieldRef<"TradingGroup", 'String'>
     readonly quoteCoinId: FieldRef<"TradingGroup", 'String'>
+    readonly amountPrecision: FieldRef<"TradingGroup", 'Int'>
+    readonly pricePrecision: FieldRef<"TradingGroup", 'Int'>
+    readonly minPrice: FieldRef<"TradingGroup", 'Float'>
+    readonly maxprice: FieldRef<"TradingGroup", 'Float'>
+    readonly minAmount: FieldRef<"TradingGroup", 'Float'>
+    readonly state: FieldRef<"TradingGroup", 'TradingGroupState'>
     readonly createdAt: FieldRef<"TradingGroup", 'DateTime'>
     readonly updatedAt: FieldRef<"TradingGroup", 'DateTime'>
     readonly deletedAt: FieldRef<"TradingGroup", 'DateTime'>
@@ -11447,6 +12471,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: GroupTradeScalarFieldEnum | GroupTradeScalarFieldEnum[]
+  }
+
+  /**
+   * TradingGroup.TradingFees
+   */
+  export type TradingGroup$TradingFeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    where?: TradingFeesWhereInput
+    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
+    cursor?: TradingFeesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
   }
 
   /**
@@ -12642,7 +13690,6 @@ export namespace Prisma {
     id: string | null
     coinId: string | null
     chain: string | null
-    platformContractAddress: string | null
     platformDecimals: string | null
     blockCainSites: string | null
     assetPlatformId: string | null
@@ -12658,7 +13705,6 @@ export namespace Prisma {
     id: string | null
     coinId: string | null
     chain: string | null
-    platformContractAddress: string | null
     platformDecimals: string | null
     blockCainSites: string | null
     assetPlatformId: string | null
@@ -12674,7 +13720,6 @@ export namespace Prisma {
     id: number
     coinId: number
     chain: number
-    platformContractAddress: number
     platformDecimals: number
     blockCainSites: number
     assetPlatformId: number
@@ -12693,7 +13738,6 @@ export namespace Prisma {
     id?: true
     coinId?: true
     chain?: true
-    platformContractAddress?: true
     platformDecimals?: true
     blockCainSites?: true
     assetPlatformId?: true
@@ -12709,7 +13753,6 @@ export namespace Prisma {
     id?: true
     coinId?: true
     chain?: true
-    platformContractAddress?: true
     platformDecimals?: true
     blockCainSites?: true
     assetPlatformId?: true
@@ -12725,7 +13768,6 @@ export namespace Prisma {
     id?: true
     coinId?: true
     chain?: true
-    platformContractAddress?: true
     platformDecimals?: true
     blockCainSites?: true
     assetPlatformId?: true
@@ -12815,7 +13857,6 @@ export namespace Prisma {
     id: string
     coinId: string
     chain: string | null
-    platformContractAddress: string | null
     platformDecimals: string | null
     blockCainSites: string | null
     assetPlatformId: string | null
@@ -12849,7 +13890,6 @@ export namespace Prisma {
     id?: boolean
     coinId?: boolean
     chain?: boolean
-    platformContractAddress?: boolean
     platformDecimals?: boolean
     blockCainSites?: boolean
     assetPlatformId?: boolean
@@ -12867,7 +13907,6 @@ export namespace Prisma {
     id?: boolean
     coinId?: boolean
     chain?: boolean
-    platformContractAddress?: boolean
     platformDecimals?: boolean
     blockCainSites?: boolean
     assetPlatformId?: boolean
@@ -12885,7 +13924,6 @@ export namespace Prisma {
     id?: boolean
     coinId?: boolean
     chain?: boolean
-    platformContractAddress?: boolean
     platformDecimals?: boolean
     blockCainSites?: boolean
     assetPlatformId?: boolean
@@ -12903,7 +13941,6 @@ export namespace Prisma {
     id?: boolean
     coinId?: boolean
     chain?: boolean
-    platformContractAddress?: boolean
     platformDecimals?: boolean
     blockCainSites?: boolean
     assetPlatformId?: boolean
@@ -12916,7 +13953,7 @@ export namespace Prisma {
     deletedAt?: boolean
   }
 
-  export type CoinDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "coinId" | "chain" | "platformContractAddress" | "platformDecimals" | "blockCainSites" | "assetPlatformId" | "imageUrl" | "descripionId" | "contractAddress" | "categories" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["coinDetails"]>
+  export type CoinDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "coinId" | "chain" | "platformDecimals" | "blockCainSites" | "assetPlatformId" | "imageUrl" | "descripionId" | "contractAddress" | "categories" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["coinDetails"]>
   export type CoinDetailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     coin?: boolean | CoinsDefaultArgs<ExtArgs>
   }
@@ -12936,7 +13973,6 @@ export namespace Prisma {
       id: string
       coinId: string
       chain: string | null
-      platformContractAddress: string | null
       platformDecimals: string | null
       blockCainSites: string | null
       assetPlatformId: string | null
@@ -13374,7 +14410,6 @@ export namespace Prisma {
     readonly id: FieldRef<"CoinDetails", 'String'>
     readonly coinId: FieldRef<"CoinDetails", 'String'>
     readonly chain: FieldRef<"CoinDetails", 'String'>
-    readonly platformContractAddress: FieldRef<"CoinDetails", 'String'>
     readonly platformDecimals: FieldRef<"CoinDetails", 'String'>
     readonly blockCainSites: FieldRef<"CoinDetails", 'String'>
     readonly assetPlatformId: FieldRef<"CoinDetails", 'String'>
@@ -13826,6 +14861,7 @@ export namespace Prisma {
     walletId: string | null
     operations: $Enums.OperationType | null
     isAddition: boolean | null
+    orderId: string | null
     value: number | null
     signedValue: Decimal | null
     createdAt: Date | null
@@ -13838,6 +14874,7 @@ export namespace Prisma {
     walletId: string | null
     operations: $Enums.OperationType | null
     isAddition: boolean | null
+    orderId: string | null
     value: number | null
     signedValue: Decimal | null
     createdAt: Date | null
@@ -13850,6 +14887,7 @@ export namespace Prisma {
     walletId: number
     operations: number
     isAddition: number
+    orderId: number
     value: number
     signedValue: number
     createdAt: number
@@ -13874,6 +14912,7 @@ export namespace Prisma {
     walletId?: true
     operations?: true
     isAddition?: true
+    orderId?: true
     value?: true
     signedValue?: true
     createdAt?: true
@@ -13886,6 +14925,7 @@ export namespace Prisma {
     walletId?: true
     operations?: true
     isAddition?: true
+    orderId?: true
     value?: true
     signedValue?: true
     createdAt?: true
@@ -13898,6 +14938,7 @@ export namespace Prisma {
     walletId?: true
     operations?: true
     isAddition?: true
+    orderId?: true
     value?: true
     signedValue?: true
     createdAt?: true
@@ -13997,6 +15038,7 @@ export namespace Prisma {
     walletId: string
     operations: $Enums.OperationType
     isAddition: boolean
+    orderId: string
     value: number
     signedValue: Decimal
     createdAt: Date
@@ -14028,6 +15070,7 @@ export namespace Prisma {
     walletId?: boolean
     operations?: boolean
     isAddition?: boolean
+    orderId?: boolean
     value?: boolean
     signedValue?: boolean
     createdAt?: boolean
@@ -14041,6 +15084,7 @@ export namespace Prisma {
     walletId?: boolean
     operations?: boolean
     isAddition?: boolean
+    orderId?: boolean
     value?: boolean
     signedValue?: boolean
     createdAt?: boolean
@@ -14054,6 +15098,7 @@ export namespace Prisma {
     walletId?: boolean
     operations?: boolean
     isAddition?: boolean
+    orderId?: boolean
     value?: boolean
     signedValue?: boolean
     createdAt?: boolean
@@ -14067,6 +15112,7 @@ export namespace Prisma {
     walletId?: boolean
     operations?: boolean
     isAddition?: boolean
+    orderId?: boolean
     value?: boolean
     signedValue?: boolean
     createdAt?: boolean
@@ -14074,7 +15120,7 @@ export namespace Prisma {
     deletedAt?: boolean
   }
 
-  export type UserWalletTransactionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "walletId" | "operations" | "isAddition" | "value" | "signedValue" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["userWalletTransaction"]>
+  export type UserWalletTransactionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "walletId" | "operations" | "isAddition" | "orderId" | "value" | "signedValue" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["userWalletTransaction"]>
   export type UserWalletTransactionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userWallet?: boolean | UserWalletDefaultArgs<ExtArgs>
   }
@@ -14095,6 +15141,7 @@ export namespace Prisma {
       walletId: string
       operations: $Enums.OperationType
       isAddition: boolean
+      orderId: string
       value: number
       signedValue: Prisma.Decimal
       createdAt: Date
@@ -14528,6 +15575,7 @@ export namespace Prisma {
     readonly walletId: FieldRef<"UserWalletTransaction", 'String'>
     readonly operations: FieldRef<"UserWalletTransaction", 'OperationType'>
     readonly isAddition: FieldRef<"UserWalletTransaction", 'Boolean'>
+    readonly orderId: FieldRef<"UserWalletTransaction", 'String'>
     readonly value: FieldRef<"UserWalletTransaction", 'Float'>
     readonly signedValue: FieldRef<"UserWalletTransaction", 'Decimal'>
     readonly createdAt: FieldRef<"UserWalletTransaction", 'DateTime'>
@@ -14948,6 +15996,4775 @@ export namespace Prisma {
 
 
   /**
+   * Model Deposits
+   */
+
+  export type AggregateDeposits = {
+    _count: DepositsCountAggregateOutputType | null
+    _avg: DepositsAvgAggregateOutputType | null
+    _sum: DepositsSumAggregateOutputType | null
+    _min: DepositsMinAggregateOutputType | null
+    _max: DepositsMaxAggregateOutputType | null
+  }
+
+  export type DepositsAvgAggregateOutputType = {
+    amount: number | null
+    fee: number | null
+    blockNumber: number | null
+  }
+
+  export type DepositsSumAggregateOutputType = {
+    amount: number | null
+    fee: number | null
+    blockNumber: number | null
+  }
+
+  export type DepositsMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    coinId: string | null
+    amount: number | null
+    fee: number | null
+    txid: string | null
+    address: string | null
+    state: $Enums.DepositState | null
+    blockNumber: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+    completedAt: Date | null
+  }
+
+  export type DepositsMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    coinId: string | null
+    amount: number | null
+    fee: number | null
+    txid: string | null
+    address: string | null
+    state: $Enums.DepositState | null
+    blockNumber: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+    completedAt: Date | null
+  }
+
+  export type DepositsCountAggregateOutputType = {
+    id: number
+    userId: number
+    coinId: number
+    amount: number
+    fee: number
+    txid: number
+    address: number
+    state: number
+    blockNumber: number
+    createdAt: number
+    updatedAt: number
+    deletedAt: number
+    completedAt: number
+    _all: number
+  }
+
+
+  export type DepositsAvgAggregateInputType = {
+    amount?: true
+    fee?: true
+    blockNumber?: true
+  }
+
+  export type DepositsSumAggregateInputType = {
+    amount?: true
+    fee?: true
+    blockNumber?: true
+  }
+
+  export type DepositsMinAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    amount?: true
+    fee?: true
+    txid?: true
+    address?: true
+    state?: true
+    blockNumber?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    completedAt?: true
+  }
+
+  export type DepositsMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    amount?: true
+    fee?: true
+    txid?: true
+    address?: true
+    state?: true
+    blockNumber?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    completedAt?: true
+  }
+
+  export type DepositsCountAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    amount?: true
+    fee?: true
+    txid?: true
+    address?: true
+    state?: true
+    blockNumber?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    completedAt?: true
+    _all?: true
+  }
+
+  export type DepositsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Deposits to aggregate.
+     */
+    where?: DepositsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Deposits to fetch.
+     */
+    orderBy?: DepositsOrderByWithRelationInput | DepositsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DepositsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Deposits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Deposits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Deposits
+    **/
+    _count?: true | DepositsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DepositsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DepositsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DepositsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DepositsMaxAggregateInputType
+  }
+
+  export type GetDepositsAggregateType<T extends DepositsAggregateArgs> = {
+        [P in keyof T & keyof AggregateDeposits]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDeposits[P]>
+      : GetScalarType<T[P], AggregateDeposits[P]>
+  }
+
+
+
+
+  export type DepositsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DepositsWhereInput
+    orderBy?: DepositsOrderByWithAggregationInput | DepositsOrderByWithAggregationInput[]
+    by: DepositsScalarFieldEnum[] | DepositsScalarFieldEnum
+    having?: DepositsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DepositsCountAggregateInputType | true
+    _avg?: DepositsAvgAggregateInputType
+    _sum?: DepositsSumAggregateInputType
+    _min?: DepositsMinAggregateInputType
+    _max?: DepositsMaxAggregateInputType
+  }
+
+  export type DepositsGroupByOutputType = {
+    id: string
+    userId: string
+    coinId: string
+    amount: number
+    fee: number
+    txid: string | null
+    address: string | null
+    state: $Enums.DepositState
+    blockNumber: number | null
+    createdAt: Date
+    updatedAt: Date | null
+    deletedAt: Date | null
+    completedAt: Date | null
+    _count: DepositsCountAggregateOutputType | null
+    _avg: DepositsAvgAggregateOutputType | null
+    _sum: DepositsSumAggregateOutputType | null
+    _min: DepositsMinAggregateOutputType | null
+    _max: DepositsMaxAggregateOutputType | null
+  }
+
+  type GetDepositsGroupByPayload<T extends DepositsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DepositsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DepositsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DepositsGroupByOutputType[P]>
+            : GetScalarType<T[P], DepositsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DepositsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deposits"]>
+
+  export type DepositsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deposits"]>
+
+  export type DepositsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deposits"]>
+
+  export type DepositsSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+  }
+
+  export type DepositsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "coinId" | "amount" | "fee" | "txid" | "address" | "state" | "blockNumber" | "createdAt" | "updatedAt" | "deletedAt" | "completedAt", ExtArgs["result"]["deposits"]>
+  export type DepositsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }
+  export type DepositsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }
+  export type DepositsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }
+
+  export type $DepositsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Deposits"
+    objects: {
+      user: Prisma.$UsersPayload<ExtArgs>
+      coin: Prisma.$CoinsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      coinId: string
+      amount: number
+      fee: number
+      txid: string | null
+      address: string | null
+      state: $Enums.DepositState
+      blockNumber: number | null
+      createdAt: Date
+      updatedAt: Date | null
+      deletedAt: Date | null
+      completedAt: Date | null
+    }, ExtArgs["result"]["deposits"]>
+    composites: {}
+  }
+
+  type DepositsGetPayload<S extends boolean | null | undefined | DepositsDefaultArgs> = $Result.GetResult<Prisma.$DepositsPayload, S>
+
+  type DepositsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DepositsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DepositsCountAggregateInputType | true
+    }
+
+  export interface DepositsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Deposits'], meta: { name: 'Deposits' } }
+    /**
+     * Find zero or one Deposits that matches the filter.
+     * @param {DepositsFindUniqueArgs} args - Arguments to find a Deposits
+     * @example
+     * // Get one Deposits
+     * const deposits = await prisma.deposits.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DepositsFindUniqueArgs>(args: SelectSubset<T, DepositsFindUniqueArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Deposits that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DepositsFindUniqueOrThrowArgs} args - Arguments to find a Deposits
+     * @example
+     * // Get one Deposits
+     * const deposits = await prisma.deposits.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DepositsFindUniqueOrThrowArgs>(args: SelectSubset<T, DepositsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Deposits that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepositsFindFirstArgs} args - Arguments to find a Deposits
+     * @example
+     * // Get one Deposits
+     * const deposits = await prisma.deposits.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DepositsFindFirstArgs>(args?: SelectSubset<T, DepositsFindFirstArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Deposits that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepositsFindFirstOrThrowArgs} args - Arguments to find a Deposits
+     * @example
+     * // Get one Deposits
+     * const deposits = await prisma.deposits.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DepositsFindFirstOrThrowArgs>(args?: SelectSubset<T, DepositsFindFirstOrThrowArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Deposits that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepositsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Deposits
+     * const deposits = await prisma.deposits.findMany()
+     * 
+     * // Get first 10 Deposits
+     * const deposits = await prisma.deposits.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const depositsWithIdOnly = await prisma.deposits.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DepositsFindManyArgs>(args?: SelectSubset<T, DepositsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Deposits.
+     * @param {DepositsCreateArgs} args - Arguments to create a Deposits.
+     * @example
+     * // Create one Deposits
+     * const Deposits = await prisma.deposits.create({
+     *   data: {
+     *     // ... data to create a Deposits
+     *   }
+     * })
+     * 
+     */
+    create<T extends DepositsCreateArgs>(args: SelectSubset<T, DepositsCreateArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Deposits.
+     * @param {DepositsCreateManyArgs} args - Arguments to create many Deposits.
+     * @example
+     * // Create many Deposits
+     * const deposits = await prisma.deposits.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DepositsCreateManyArgs>(args?: SelectSubset<T, DepositsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Deposits and returns the data saved in the database.
+     * @param {DepositsCreateManyAndReturnArgs} args - Arguments to create many Deposits.
+     * @example
+     * // Create many Deposits
+     * const deposits = await prisma.deposits.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Deposits and only return the `id`
+     * const depositsWithIdOnly = await prisma.deposits.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DepositsCreateManyAndReturnArgs>(args?: SelectSubset<T, DepositsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Deposits.
+     * @param {DepositsDeleteArgs} args - Arguments to delete one Deposits.
+     * @example
+     * // Delete one Deposits
+     * const Deposits = await prisma.deposits.delete({
+     *   where: {
+     *     // ... filter to delete one Deposits
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DepositsDeleteArgs>(args: SelectSubset<T, DepositsDeleteArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Deposits.
+     * @param {DepositsUpdateArgs} args - Arguments to update one Deposits.
+     * @example
+     * // Update one Deposits
+     * const deposits = await prisma.deposits.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DepositsUpdateArgs>(args: SelectSubset<T, DepositsUpdateArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Deposits.
+     * @param {DepositsDeleteManyArgs} args - Arguments to filter Deposits to delete.
+     * @example
+     * // Delete a few Deposits
+     * const { count } = await prisma.deposits.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DepositsDeleteManyArgs>(args?: SelectSubset<T, DepositsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Deposits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepositsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Deposits
+     * const deposits = await prisma.deposits.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DepositsUpdateManyArgs>(args: SelectSubset<T, DepositsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Deposits and returns the data updated in the database.
+     * @param {DepositsUpdateManyAndReturnArgs} args - Arguments to update many Deposits.
+     * @example
+     * // Update many Deposits
+     * const deposits = await prisma.deposits.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Deposits and only return the `id`
+     * const depositsWithIdOnly = await prisma.deposits.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DepositsUpdateManyAndReturnArgs>(args: SelectSubset<T, DepositsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Deposits.
+     * @param {DepositsUpsertArgs} args - Arguments to update or create a Deposits.
+     * @example
+     * // Update or create a Deposits
+     * const deposits = await prisma.deposits.upsert({
+     *   create: {
+     *     // ... data to create a Deposits
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Deposits we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DepositsUpsertArgs>(args: SelectSubset<T, DepositsUpsertArgs<ExtArgs>>): Prisma__DepositsClient<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Deposits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepositsCountArgs} args - Arguments to filter Deposits to count.
+     * @example
+     * // Count the number of Deposits
+     * const count = await prisma.deposits.count({
+     *   where: {
+     *     // ... the filter for the Deposits we want to count
+     *   }
+     * })
+    **/
+    count<T extends DepositsCountArgs>(
+      args?: Subset<T, DepositsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DepositsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Deposits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepositsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DepositsAggregateArgs>(args: Subset<T, DepositsAggregateArgs>): Prisma.PrismaPromise<GetDepositsAggregateType<T>>
+
+    /**
+     * Group by Deposits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepositsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DepositsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DepositsGroupByArgs['orderBy'] }
+        : { orderBy?: DepositsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DepositsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDepositsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Deposits model
+   */
+  readonly fields: DepositsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Deposits.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DepositsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    coin<T extends CoinsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CoinsDefaultArgs<ExtArgs>>): Prisma__CoinsClient<$Result.GetResult<Prisma.$CoinsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Deposits model
+   */
+  interface DepositsFieldRefs {
+    readonly id: FieldRef<"Deposits", 'String'>
+    readonly userId: FieldRef<"Deposits", 'String'>
+    readonly coinId: FieldRef<"Deposits", 'String'>
+    readonly amount: FieldRef<"Deposits", 'Float'>
+    readonly fee: FieldRef<"Deposits", 'Float'>
+    readonly txid: FieldRef<"Deposits", 'String'>
+    readonly address: FieldRef<"Deposits", 'String'>
+    readonly state: FieldRef<"Deposits", 'DepositState'>
+    readonly blockNumber: FieldRef<"Deposits", 'Int'>
+    readonly createdAt: FieldRef<"Deposits", 'DateTime'>
+    readonly updatedAt: FieldRef<"Deposits", 'DateTime'>
+    readonly deletedAt: FieldRef<"Deposits", 'DateTime'>
+    readonly completedAt: FieldRef<"Deposits", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Deposits findUnique
+   */
+  export type DepositsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * Filter, which Deposits to fetch.
+     */
+    where: DepositsWhereUniqueInput
+  }
+
+  /**
+   * Deposits findUniqueOrThrow
+   */
+  export type DepositsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * Filter, which Deposits to fetch.
+     */
+    where: DepositsWhereUniqueInput
+  }
+
+  /**
+   * Deposits findFirst
+   */
+  export type DepositsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * Filter, which Deposits to fetch.
+     */
+    where?: DepositsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Deposits to fetch.
+     */
+    orderBy?: DepositsOrderByWithRelationInput | DepositsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Deposits.
+     */
+    cursor?: DepositsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Deposits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Deposits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Deposits.
+     */
+    distinct?: DepositsScalarFieldEnum | DepositsScalarFieldEnum[]
+  }
+
+  /**
+   * Deposits findFirstOrThrow
+   */
+  export type DepositsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * Filter, which Deposits to fetch.
+     */
+    where?: DepositsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Deposits to fetch.
+     */
+    orderBy?: DepositsOrderByWithRelationInput | DepositsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Deposits.
+     */
+    cursor?: DepositsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Deposits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Deposits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Deposits.
+     */
+    distinct?: DepositsScalarFieldEnum | DepositsScalarFieldEnum[]
+  }
+
+  /**
+   * Deposits findMany
+   */
+  export type DepositsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * Filter, which Deposits to fetch.
+     */
+    where?: DepositsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Deposits to fetch.
+     */
+    orderBy?: DepositsOrderByWithRelationInput | DepositsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Deposits.
+     */
+    cursor?: DepositsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Deposits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Deposits.
+     */
+    skip?: number
+    distinct?: DepositsScalarFieldEnum | DepositsScalarFieldEnum[]
+  }
+
+  /**
+   * Deposits create
+   */
+  export type DepositsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Deposits.
+     */
+    data: XOR<DepositsCreateInput, DepositsUncheckedCreateInput>
+  }
+
+  /**
+   * Deposits createMany
+   */
+  export type DepositsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Deposits.
+     */
+    data: DepositsCreateManyInput | DepositsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Deposits createManyAndReturn
+   */
+  export type DepositsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Deposits.
+     */
+    data: DepositsCreateManyInput | DepositsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Deposits update
+   */
+  export type DepositsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Deposits.
+     */
+    data: XOR<DepositsUpdateInput, DepositsUncheckedUpdateInput>
+    /**
+     * Choose, which Deposits to update.
+     */
+    where: DepositsWhereUniqueInput
+  }
+
+  /**
+   * Deposits updateMany
+   */
+  export type DepositsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Deposits.
+     */
+    data: XOR<DepositsUpdateManyMutationInput, DepositsUncheckedUpdateManyInput>
+    /**
+     * Filter which Deposits to update
+     */
+    where?: DepositsWhereInput
+    /**
+     * Limit how many Deposits to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Deposits updateManyAndReturn
+   */
+  export type DepositsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * The data used to update Deposits.
+     */
+    data: XOR<DepositsUpdateManyMutationInput, DepositsUncheckedUpdateManyInput>
+    /**
+     * Filter which Deposits to update
+     */
+    where?: DepositsWhereInput
+    /**
+     * Limit how many Deposits to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Deposits upsert
+   */
+  export type DepositsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Deposits to update in case it exists.
+     */
+    where: DepositsWhereUniqueInput
+    /**
+     * In case the Deposits found by the `where` argument doesn't exist, create a new Deposits with this data.
+     */
+    create: XOR<DepositsCreateInput, DepositsUncheckedCreateInput>
+    /**
+     * In case the Deposits was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DepositsUpdateInput, DepositsUncheckedUpdateInput>
+  }
+
+  /**
+   * Deposits delete
+   */
+  export type DepositsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+    /**
+     * Filter which Deposits to delete.
+     */
+    where: DepositsWhereUniqueInput
+  }
+
+  /**
+   * Deposits deleteMany
+   */
+  export type DepositsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Deposits to delete
+     */
+    where?: DepositsWhereInput
+    /**
+     * Limit how many Deposits to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Deposits without action
+   */
+  export type DepositsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deposits
+     */
+    select?: DepositsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deposits
+     */
+    omit?: DepositsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepositsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Withdraws
+   */
+
+  export type AggregateWithdraws = {
+    _count: WithdrawsCountAggregateOutputType | null
+    _avg: WithdrawsAvgAggregateOutputType | null
+    _sum: WithdrawsSumAggregateOutputType | null
+    _min: WithdrawsMinAggregateOutputType | null
+    _max: WithdrawsMaxAggregateOutputType | null
+  }
+
+  export type WithdrawsAvgAggregateOutputType = {
+    amount: number | null
+    fee: number | null
+    blockNumber: number | null
+  }
+
+  export type WithdrawsSumAggregateOutputType = {
+    amount: number | null
+    fee: number | null
+    blockNumber: number | null
+  }
+
+  export type WithdrawsMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    coinId: string | null
+    amount: number | null
+    fee: number | null
+    txid: string | null
+    address: string | null
+    state: $Enums.WithdrawState | null
+    blockNumber: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+    completedAt: Date | null
+    beneficiaryId: string | null
+  }
+
+  export type WithdrawsMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    coinId: string | null
+    amount: number | null
+    fee: number | null
+    txid: string | null
+    address: string | null
+    state: $Enums.WithdrawState | null
+    blockNumber: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+    completedAt: Date | null
+    beneficiaryId: string | null
+  }
+
+  export type WithdrawsCountAggregateOutputType = {
+    id: number
+    userId: number
+    coinId: number
+    amount: number
+    fee: number
+    txid: number
+    address: number
+    state: number
+    blockNumber: number
+    createdAt: number
+    updatedAt: number
+    deletedAt: number
+    completedAt: number
+    beneficiaryId: number
+    _all: number
+  }
+
+
+  export type WithdrawsAvgAggregateInputType = {
+    amount?: true
+    fee?: true
+    blockNumber?: true
+  }
+
+  export type WithdrawsSumAggregateInputType = {
+    amount?: true
+    fee?: true
+    blockNumber?: true
+  }
+
+  export type WithdrawsMinAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    amount?: true
+    fee?: true
+    txid?: true
+    address?: true
+    state?: true
+    blockNumber?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    completedAt?: true
+    beneficiaryId?: true
+  }
+
+  export type WithdrawsMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    amount?: true
+    fee?: true
+    txid?: true
+    address?: true
+    state?: true
+    blockNumber?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    completedAt?: true
+    beneficiaryId?: true
+  }
+
+  export type WithdrawsCountAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    amount?: true
+    fee?: true
+    txid?: true
+    address?: true
+    state?: true
+    blockNumber?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    completedAt?: true
+    beneficiaryId?: true
+    _all?: true
+  }
+
+  export type WithdrawsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Withdraws to aggregate.
+     */
+    where?: WithdrawsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Withdraws to fetch.
+     */
+    orderBy?: WithdrawsOrderByWithRelationInput | WithdrawsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WithdrawsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Withdraws from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Withdraws.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Withdraws
+    **/
+    _count?: true | WithdrawsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WithdrawsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WithdrawsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WithdrawsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WithdrawsMaxAggregateInputType
+  }
+
+  export type GetWithdrawsAggregateType<T extends WithdrawsAggregateArgs> = {
+        [P in keyof T & keyof AggregateWithdraws]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWithdraws[P]>
+      : GetScalarType<T[P], AggregateWithdraws[P]>
+  }
+
+
+
+
+  export type WithdrawsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WithdrawsWhereInput
+    orderBy?: WithdrawsOrderByWithAggregationInput | WithdrawsOrderByWithAggregationInput[]
+    by: WithdrawsScalarFieldEnum[] | WithdrawsScalarFieldEnum
+    having?: WithdrawsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WithdrawsCountAggregateInputType | true
+    _avg?: WithdrawsAvgAggregateInputType
+    _sum?: WithdrawsSumAggregateInputType
+    _min?: WithdrawsMinAggregateInputType
+    _max?: WithdrawsMaxAggregateInputType
+  }
+
+  export type WithdrawsGroupByOutputType = {
+    id: string
+    userId: string
+    coinId: string
+    amount: number
+    fee: number
+    txid: string | null
+    address: string
+    state: $Enums.WithdrawState
+    blockNumber: number | null
+    createdAt: Date
+    updatedAt: Date | null
+    deletedAt: Date | null
+    completedAt: Date | null
+    beneficiaryId: string | null
+    _count: WithdrawsCountAggregateOutputType | null
+    _avg: WithdrawsAvgAggregateOutputType | null
+    _sum: WithdrawsSumAggregateOutputType | null
+    _min: WithdrawsMinAggregateOutputType | null
+    _max: WithdrawsMaxAggregateOutputType | null
+  }
+
+  type GetWithdrawsGroupByPayload<T extends WithdrawsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WithdrawsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WithdrawsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WithdrawsGroupByOutputType[P]>
+            : GetScalarType<T[P], WithdrawsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WithdrawsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+    beneficiaryId?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    beneficiary?: boolean | Withdraws$beneficiaryArgs<ExtArgs>
+  }, ExtArgs["result"]["withdraws"]>
+
+  export type WithdrawsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+    beneficiaryId?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    beneficiary?: boolean | Withdraws$beneficiaryArgs<ExtArgs>
+  }, ExtArgs["result"]["withdraws"]>
+
+  export type WithdrawsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+    beneficiaryId?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    beneficiary?: boolean | Withdraws$beneficiaryArgs<ExtArgs>
+  }, ExtArgs["result"]["withdraws"]>
+
+  export type WithdrawsSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    amount?: boolean
+    fee?: boolean
+    txid?: boolean
+    address?: boolean
+    state?: boolean
+    blockNumber?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    completedAt?: boolean
+    beneficiaryId?: boolean
+  }
+
+  export type WithdrawsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "coinId" | "amount" | "fee" | "txid" | "address" | "state" | "blockNumber" | "createdAt" | "updatedAt" | "deletedAt" | "completedAt" | "beneficiaryId", ExtArgs["result"]["withdraws"]>
+  export type WithdrawsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    beneficiary?: boolean | Withdraws$beneficiaryArgs<ExtArgs>
+  }
+  export type WithdrawsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    beneficiary?: boolean | Withdraws$beneficiaryArgs<ExtArgs>
+  }
+  export type WithdrawsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    beneficiary?: boolean | Withdraws$beneficiaryArgs<ExtArgs>
+  }
+
+  export type $WithdrawsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Withdraws"
+    objects: {
+      user: Prisma.$UsersPayload<ExtArgs>
+      coin: Prisma.$CoinsPayload<ExtArgs>
+      beneficiary: Prisma.$BeneficiariesPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      coinId: string
+      amount: number
+      fee: number
+      txid: string | null
+      address: string
+      state: $Enums.WithdrawState
+      blockNumber: number | null
+      createdAt: Date
+      updatedAt: Date | null
+      deletedAt: Date | null
+      completedAt: Date | null
+      beneficiaryId: string | null
+    }, ExtArgs["result"]["withdraws"]>
+    composites: {}
+  }
+
+  type WithdrawsGetPayload<S extends boolean | null | undefined | WithdrawsDefaultArgs> = $Result.GetResult<Prisma.$WithdrawsPayload, S>
+
+  type WithdrawsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WithdrawsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WithdrawsCountAggregateInputType | true
+    }
+
+  export interface WithdrawsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Withdraws'], meta: { name: 'Withdraws' } }
+    /**
+     * Find zero or one Withdraws that matches the filter.
+     * @param {WithdrawsFindUniqueArgs} args - Arguments to find a Withdraws
+     * @example
+     * // Get one Withdraws
+     * const withdraws = await prisma.withdraws.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WithdrawsFindUniqueArgs>(args: SelectSubset<T, WithdrawsFindUniqueArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Withdraws that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WithdrawsFindUniqueOrThrowArgs} args - Arguments to find a Withdraws
+     * @example
+     * // Get one Withdraws
+     * const withdraws = await prisma.withdraws.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WithdrawsFindUniqueOrThrowArgs>(args: SelectSubset<T, WithdrawsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Withdraws that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WithdrawsFindFirstArgs} args - Arguments to find a Withdraws
+     * @example
+     * // Get one Withdraws
+     * const withdraws = await prisma.withdraws.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WithdrawsFindFirstArgs>(args?: SelectSubset<T, WithdrawsFindFirstArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Withdraws that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WithdrawsFindFirstOrThrowArgs} args - Arguments to find a Withdraws
+     * @example
+     * // Get one Withdraws
+     * const withdraws = await prisma.withdraws.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WithdrawsFindFirstOrThrowArgs>(args?: SelectSubset<T, WithdrawsFindFirstOrThrowArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Withdraws that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WithdrawsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Withdraws
+     * const withdraws = await prisma.withdraws.findMany()
+     * 
+     * // Get first 10 Withdraws
+     * const withdraws = await prisma.withdraws.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const withdrawsWithIdOnly = await prisma.withdraws.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WithdrawsFindManyArgs>(args?: SelectSubset<T, WithdrawsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Withdraws.
+     * @param {WithdrawsCreateArgs} args - Arguments to create a Withdraws.
+     * @example
+     * // Create one Withdraws
+     * const Withdraws = await prisma.withdraws.create({
+     *   data: {
+     *     // ... data to create a Withdraws
+     *   }
+     * })
+     * 
+     */
+    create<T extends WithdrawsCreateArgs>(args: SelectSubset<T, WithdrawsCreateArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Withdraws.
+     * @param {WithdrawsCreateManyArgs} args - Arguments to create many Withdraws.
+     * @example
+     * // Create many Withdraws
+     * const withdraws = await prisma.withdraws.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WithdrawsCreateManyArgs>(args?: SelectSubset<T, WithdrawsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Withdraws and returns the data saved in the database.
+     * @param {WithdrawsCreateManyAndReturnArgs} args - Arguments to create many Withdraws.
+     * @example
+     * // Create many Withdraws
+     * const withdraws = await prisma.withdraws.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Withdraws and only return the `id`
+     * const withdrawsWithIdOnly = await prisma.withdraws.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WithdrawsCreateManyAndReturnArgs>(args?: SelectSubset<T, WithdrawsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Withdraws.
+     * @param {WithdrawsDeleteArgs} args - Arguments to delete one Withdraws.
+     * @example
+     * // Delete one Withdraws
+     * const Withdraws = await prisma.withdraws.delete({
+     *   where: {
+     *     // ... filter to delete one Withdraws
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WithdrawsDeleteArgs>(args: SelectSubset<T, WithdrawsDeleteArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Withdraws.
+     * @param {WithdrawsUpdateArgs} args - Arguments to update one Withdraws.
+     * @example
+     * // Update one Withdraws
+     * const withdraws = await prisma.withdraws.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WithdrawsUpdateArgs>(args: SelectSubset<T, WithdrawsUpdateArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Withdraws.
+     * @param {WithdrawsDeleteManyArgs} args - Arguments to filter Withdraws to delete.
+     * @example
+     * // Delete a few Withdraws
+     * const { count } = await prisma.withdraws.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WithdrawsDeleteManyArgs>(args?: SelectSubset<T, WithdrawsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Withdraws.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WithdrawsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Withdraws
+     * const withdraws = await prisma.withdraws.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WithdrawsUpdateManyArgs>(args: SelectSubset<T, WithdrawsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Withdraws and returns the data updated in the database.
+     * @param {WithdrawsUpdateManyAndReturnArgs} args - Arguments to update many Withdraws.
+     * @example
+     * // Update many Withdraws
+     * const withdraws = await prisma.withdraws.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Withdraws and only return the `id`
+     * const withdrawsWithIdOnly = await prisma.withdraws.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WithdrawsUpdateManyAndReturnArgs>(args: SelectSubset<T, WithdrawsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Withdraws.
+     * @param {WithdrawsUpsertArgs} args - Arguments to update or create a Withdraws.
+     * @example
+     * // Update or create a Withdraws
+     * const withdraws = await prisma.withdraws.upsert({
+     *   create: {
+     *     // ... data to create a Withdraws
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Withdraws we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WithdrawsUpsertArgs>(args: SelectSubset<T, WithdrawsUpsertArgs<ExtArgs>>): Prisma__WithdrawsClient<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Withdraws.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WithdrawsCountArgs} args - Arguments to filter Withdraws to count.
+     * @example
+     * // Count the number of Withdraws
+     * const count = await prisma.withdraws.count({
+     *   where: {
+     *     // ... the filter for the Withdraws we want to count
+     *   }
+     * })
+    **/
+    count<T extends WithdrawsCountArgs>(
+      args?: Subset<T, WithdrawsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WithdrawsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Withdraws.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WithdrawsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WithdrawsAggregateArgs>(args: Subset<T, WithdrawsAggregateArgs>): Prisma.PrismaPromise<GetWithdrawsAggregateType<T>>
+
+    /**
+     * Group by Withdraws.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WithdrawsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WithdrawsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WithdrawsGroupByArgs['orderBy'] }
+        : { orderBy?: WithdrawsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WithdrawsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWithdrawsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Withdraws model
+   */
+  readonly fields: WithdrawsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Withdraws.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WithdrawsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    coin<T extends CoinsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CoinsDefaultArgs<ExtArgs>>): Prisma__CoinsClient<$Result.GetResult<Prisma.$CoinsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    beneficiary<T extends Withdraws$beneficiaryArgs<ExtArgs> = {}>(args?: Subset<T, Withdraws$beneficiaryArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Withdraws model
+   */
+  interface WithdrawsFieldRefs {
+    readonly id: FieldRef<"Withdraws", 'String'>
+    readonly userId: FieldRef<"Withdraws", 'String'>
+    readonly coinId: FieldRef<"Withdraws", 'String'>
+    readonly amount: FieldRef<"Withdraws", 'Float'>
+    readonly fee: FieldRef<"Withdraws", 'Float'>
+    readonly txid: FieldRef<"Withdraws", 'String'>
+    readonly address: FieldRef<"Withdraws", 'String'>
+    readonly state: FieldRef<"Withdraws", 'WithdrawState'>
+    readonly blockNumber: FieldRef<"Withdraws", 'Int'>
+    readonly createdAt: FieldRef<"Withdraws", 'DateTime'>
+    readonly updatedAt: FieldRef<"Withdraws", 'DateTime'>
+    readonly deletedAt: FieldRef<"Withdraws", 'DateTime'>
+    readonly completedAt: FieldRef<"Withdraws", 'DateTime'>
+    readonly beneficiaryId: FieldRef<"Withdraws", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Withdraws findUnique
+   */
+  export type WithdrawsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * Filter, which Withdraws to fetch.
+     */
+    where: WithdrawsWhereUniqueInput
+  }
+
+  /**
+   * Withdraws findUniqueOrThrow
+   */
+  export type WithdrawsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * Filter, which Withdraws to fetch.
+     */
+    where: WithdrawsWhereUniqueInput
+  }
+
+  /**
+   * Withdraws findFirst
+   */
+  export type WithdrawsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * Filter, which Withdraws to fetch.
+     */
+    where?: WithdrawsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Withdraws to fetch.
+     */
+    orderBy?: WithdrawsOrderByWithRelationInput | WithdrawsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Withdraws.
+     */
+    cursor?: WithdrawsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Withdraws from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Withdraws.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Withdraws.
+     */
+    distinct?: WithdrawsScalarFieldEnum | WithdrawsScalarFieldEnum[]
+  }
+
+  /**
+   * Withdraws findFirstOrThrow
+   */
+  export type WithdrawsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * Filter, which Withdraws to fetch.
+     */
+    where?: WithdrawsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Withdraws to fetch.
+     */
+    orderBy?: WithdrawsOrderByWithRelationInput | WithdrawsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Withdraws.
+     */
+    cursor?: WithdrawsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Withdraws from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Withdraws.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Withdraws.
+     */
+    distinct?: WithdrawsScalarFieldEnum | WithdrawsScalarFieldEnum[]
+  }
+
+  /**
+   * Withdraws findMany
+   */
+  export type WithdrawsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * Filter, which Withdraws to fetch.
+     */
+    where?: WithdrawsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Withdraws to fetch.
+     */
+    orderBy?: WithdrawsOrderByWithRelationInput | WithdrawsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Withdraws.
+     */
+    cursor?: WithdrawsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Withdraws from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Withdraws.
+     */
+    skip?: number
+    distinct?: WithdrawsScalarFieldEnum | WithdrawsScalarFieldEnum[]
+  }
+
+  /**
+   * Withdraws create
+   */
+  export type WithdrawsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Withdraws.
+     */
+    data: XOR<WithdrawsCreateInput, WithdrawsUncheckedCreateInput>
+  }
+
+  /**
+   * Withdraws createMany
+   */
+  export type WithdrawsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Withdraws.
+     */
+    data: WithdrawsCreateManyInput | WithdrawsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Withdraws createManyAndReturn
+   */
+  export type WithdrawsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Withdraws.
+     */
+    data: WithdrawsCreateManyInput | WithdrawsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Withdraws update
+   */
+  export type WithdrawsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Withdraws.
+     */
+    data: XOR<WithdrawsUpdateInput, WithdrawsUncheckedUpdateInput>
+    /**
+     * Choose, which Withdraws to update.
+     */
+    where: WithdrawsWhereUniqueInput
+  }
+
+  /**
+   * Withdraws updateMany
+   */
+  export type WithdrawsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Withdraws.
+     */
+    data: XOR<WithdrawsUpdateManyMutationInput, WithdrawsUncheckedUpdateManyInput>
+    /**
+     * Filter which Withdraws to update
+     */
+    where?: WithdrawsWhereInput
+    /**
+     * Limit how many Withdraws to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Withdraws updateManyAndReturn
+   */
+  export type WithdrawsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * The data used to update Withdraws.
+     */
+    data: XOR<WithdrawsUpdateManyMutationInput, WithdrawsUncheckedUpdateManyInput>
+    /**
+     * Filter which Withdraws to update
+     */
+    where?: WithdrawsWhereInput
+    /**
+     * Limit how many Withdraws to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Withdraws upsert
+   */
+  export type WithdrawsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Withdraws to update in case it exists.
+     */
+    where: WithdrawsWhereUniqueInput
+    /**
+     * In case the Withdraws found by the `where` argument doesn't exist, create a new Withdraws with this data.
+     */
+    create: XOR<WithdrawsCreateInput, WithdrawsUncheckedCreateInput>
+    /**
+     * In case the Withdraws was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WithdrawsUpdateInput, WithdrawsUncheckedUpdateInput>
+  }
+
+  /**
+   * Withdraws delete
+   */
+  export type WithdrawsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    /**
+     * Filter which Withdraws to delete.
+     */
+    where: WithdrawsWhereUniqueInput
+  }
+
+  /**
+   * Withdraws deleteMany
+   */
+  export type WithdrawsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Withdraws to delete
+     */
+    where?: WithdrawsWhereInput
+    /**
+     * Limit how many Withdraws to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Withdraws.beneficiary
+   */
+  export type Withdraws$beneficiaryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    where?: BeneficiariesWhereInput
+  }
+
+  /**
+   * Withdraws without action
+   */
+  export type WithdrawsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Beneficiaries
+   */
+
+  export type AggregateBeneficiaries = {
+    _count: BeneficiariesCountAggregateOutputType | null
+    _min: BeneficiariesMinAggregateOutputType | null
+    _max: BeneficiariesMaxAggregateOutputType | null
+  }
+
+  export type BeneficiariesMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    coinId: string | null
+    name: string | null
+    address: string | null
+    state: $Enums.BeneficiaryState | null
+    pin: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type BeneficiariesMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    coinId: string | null
+    name: string | null
+    address: string | null
+    state: $Enums.BeneficiaryState | null
+    pin: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type BeneficiariesCountAggregateOutputType = {
+    id: number
+    userId: number
+    coinId: number
+    name: number
+    address: number
+    state: number
+    pin: number
+    data: number
+    createdAt: number
+    updatedAt: number
+    deletedAt: number
+    _all: number
+  }
+
+
+  export type BeneficiariesMinAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    name?: true
+    address?: true
+    state?: true
+    pin?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type BeneficiariesMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    name?: true
+    address?: true
+    state?: true
+    pin?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type BeneficiariesCountAggregateInputType = {
+    id?: true
+    userId?: true
+    coinId?: true
+    name?: true
+    address?: true
+    state?: true
+    pin?: true
+    data?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    _all?: true
+  }
+
+  export type BeneficiariesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Beneficiaries to aggregate.
+     */
+    where?: BeneficiariesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Beneficiaries to fetch.
+     */
+    orderBy?: BeneficiariesOrderByWithRelationInput | BeneficiariesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BeneficiariesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Beneficiaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Beneficiaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Beneficiaries
+    **/
+    _count?: true | BeneficiariesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BeneficiariesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BeneficiariesMaxAggregateInputType
+  }
+
+  export type GetBeneficiariesAggregateType<T extends BeneficiariesAggregateArgs> = {
+        [P in keyof T & keyof AggregateBeneficiaries]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBeneficiaries[P]>
+      : GetScalarType<T[P], AggregateBeneficiaries[P]>
+  }
+
+
+
+
+  export type BeneficiariesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BeneficiariesWhereInput
+    orderBy?: BeneficiariesOrderByWithAggregationInput | BeneficiariesOrderByWithAggregationInput[]
+    by: BeneficiariesScalarFieldEnum[] | BeneficiariesScalarFieldEnum
+    having?: BeneficiariesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BeneficiariesCountAggregateInputType | true
+    _min?: BeneficiariesMinAggregateInputType
+    _max?: BeneficiariesMaxAggregateInputType
+  }
+
+  export type BeneficiariesGroupByOutputType = {
+    id: string
+    userId: string
+    coinId: string
+    name: string | null
+    address: string | null
+    state: $Enums.BeneficiaryState
+    pin: string | null
+    data: JsonValue | null
+    createdAt: Date
+    updatedAt: Date | null
+    deletedAt: Date | null
+    _count: BeneficiariesCountAggregateOutputType | null
+    _min: BeneficiariesMinAggregateOutputType | null
+    _max: BeneficiariesMaxAggregateOutputType | null
+  }
+
+  type GetBeneficiariesGroupByPayload<T extends BeneficiariesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BeneficiariesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BeneficiariesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BeneficiariesGroupByOutputType[P]>
+            : GetScalarType<T[P], BeneficiariesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BeneficiariesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    name?: boolean
+    address?: boolean
+    state?: boolean
+    pin?: boolean
+    data?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    withdraws?: boolean | Beneficiaries$withdrawsArgs<ExtArgs>
+    _count?: boolean | BeneficiariesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["beneficiaries"]>
+
+  export type BeneficiariesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    name?: boolean
+    address?: boolean
+    state?: boolean
+    pin?: boolean
+    data?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["beneficiaries"]>
+
+  export type BeneficiariesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    name?: boolean
+    address?: boolean
+    state?: boolean
+    pin?: boolean
+    data?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["beneficiaries"]>
+
+  export type BeneficiariesSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    coinId?: boolean
+    name?: boolean
+    address?: boolean
+    state?: boolean
+    pin?: boolean
+    data?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+  }
+
+  export type BeneficiariesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "coinId" | "name" | "address" | "state" | "pin" | "data" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["beneficiaries"]>
+  export type BeneficiariesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+    withdraws?: boolean | Beneficiaries$withdrawsArgs<ExtArgs>
+    _count?: boolean | BeneficiariesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BeneficiariesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }
+  export type BeneficiariesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    coin?: boolean | CoinsDefaultArgs<ExtArgs>
+  }
+
+  export type $BeneficiariesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Beneficiaries"
+    objects: {
+      user: Prisma.$UsersPayload<ExtArgs>
+      coin: Prisma.$CoinsPayload<ExtArgs>
+      withdraws: Prisma.$WithdrawsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      coinId: string
+      name: string | null
+      address: string | null
+      state: $Enums.BeneficiaryState
+      pin: string | null
+      data: Prisma.JsonValue | null
+      createdAt: Date
+      updatedAt: Date | null
+      deletedAt: Date | null
+    }, ExtArgs["result"]["beneficiaries"]>
+    composites: {}
+  }
+
+  type BeneficiariesGetPayload<S extends boolean | null | undefined | BeneficiariesDefaultArgs> = $Result.GetResult<Prisma.$BeneficiariesPayload, S>
+
+  type BeneficiariesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BeneficiariesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BeneficiariesCountAggregateInputType | true
+    }
+
+  export interface BeneficiariesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Beneficiaries'], meta: { name: 'Beneficiaries' } }
+    /**
+     * Find zero or one Beneficiaries that matches the filter.
+     * @param {BeneficiariesFindUniqueArgs} args - Arguments to find a Beneficiaries
+     * @example
+     * // Get one Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BeneficiariesFindUniqueArgs>(args: SelectSubset<T, BeneficiariesFindUniqueArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Beneficiaries that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BeneficiariesFindUniqueOrThrowArgs} args - Arguments to find a Beneficiaries
+     * @example
+     * // Get one Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BeneficiariesFindUniqueOrThrowArgs>(args: SelectSubset<T, BeneficiariesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Beneficiaries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BeneficiariesFindFirstArgs} args - Arguments to find a Beneficiaries
+     * @example
+     * // Get one Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BeneficiariesFindFirstArgs>(args?: SelectSubset<T, BeneficiariesFindFirstArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Beneficiaries that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BeneficiariesFindFirstOrThrowArgs} args - Arguments to find a Beneficiaries
+     * @example
+     * // Get one Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BeneficiariesFindFirstOrThrowArgs>(args?: SelectSubset<T, BeneficiariesFindFirstOrThrowArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Beneficiaries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BeneficiariesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.findMany()
+     * 
+     * // Get first 10 Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const beneficiariesWithIdOnly = await prisma.beneficiaries.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BeneficiariesFindManyArgs>(args?: SelectSubset<T, BeneficiariesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Beneficiaries.
+     * @param {BeneficiariesCreateArgs} args - Arguments to create a Beneficiaries.
+     * @example
+     * // Create one Beneficiaries
+     * const Beneficiaries = await prisma.beneficiaries.create({
+     *   data: {
+     *     // ... data to create a Beneficiaries
+     *   }
+     * })
+     * 
+     */
+    create<T extends BeneficiariesCreateArgs>(args: SelectSubset<T, BeneficiariesCreateArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Beneficiaries.
+     * @param {BeneficiariesCreateManyArgs} args - Arguments to create many Beneficiaries.
+     * @example
+     * // Create many Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BeneficiariesCreateManyArgs>(args?: SelectSubset<T, BeneficiariesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Beneficiaries and returns the data saved in the database.
+     * @param {BeneficiariesCreateManyAndReturnArgs} args - Arguments to create many Beneficiaries.
+     * @example
+     * // Create many Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Beneficiaries and only return the `id`
+     * const beneficiariesWithIdOnly = await prisma.beneficiaries.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BeneficiariesCreateManyAndReturnArgs>(args?: SelectSubset<T, BeneficiariesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Beneficiaries.
+     * @param {BeneficiariesDeleteArgs} args - Arguments to delete one Beneficiaries.
+     * @example
+     * // Delete one Beneficiaries
+     * const Beneficiaries = await prisma.beneficiaries.delete({
+     *   where: {
+     *     // ... filter to delete one Beneficiaries
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BeneficiariesDeleteArgs>(args: SelectSubset<T, BeneficiariesDeleteArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Beneficiaries.
+     * @param {BeneficiariesUpdateArgs} args - Arguments to update one Beneficiaries.
+     * @example
+     * // Update one Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BeneficiariesUpdateArgs>(args: SelectSubset<T, BeneficiariesUpdateArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Beneficiaries.
+     * @param {BeneficiariesDeleteManyArgs} args - Arguments to filter Beneficiaries to delete.
+     * @example
+     * // Delete a few Beneficiaries
+     * const { count } = await prisma.beneficiaries.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BeneficiariesDeleteManyArgs>(args?: SelectSubset<T, BeneficiariesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Beneficiaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BeneficiariesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BeneficiariesUpdateManyArgs>(args: SelectSubset<T, BeneficiariesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Beneficiaries and returns the data updated in the database.
+     * @param {BeneficiariesUpdateManyAndReturnArgs} args - Arguments to update many Beneficiaries.
+     * @example
+     * // Update many Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Beneficiaries and only return the `id`
+     * const beneficiariesWithIdOnly = await prisma.beneficiaries.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BeneficiariesUpdateManyAndReturnArgs>(args: SelectSubset<T, BeneficiariesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Beneficiaries.
+     * @param {BeneficiariesUpsertArgs} args - Arguments to update or create a Beneficiaries.
+     * @example
+     * // Update or create a Beneficiaries
+     * const beneficiaries = await prisma.beneficiaries.upsert({
+     *   create: {
+     *     // ... data to create a Beneficiaries
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Beneficiaries we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BeneficiariesUpsertArgs>(args: SelectSubset<T, BeneficiariesUpsertArgs<ExtArgs>>): Prisma__BeneficiariesClient<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Beneficiaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BeneficiariesCountArgs} args - Arguments to filter Beneficiaries to count.
+     * @example
+     * // Count the number of Beneficiaries
+     * const count = await prisma.beneficiaries.count({
+     *   where: {
+     *     // ... the filter for the Beneficiaries we want to count
+     *   }
+     * })
+    **/
+    count<T extends BeneficiariesCountArgs>(
+      args?: Subset<T, BeneficiariesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BeneficiariesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Beneficiaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BeneficiariesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BeneficiariesAggregateArgs>(args: Subset<T, BeneficiariesAggregateArgs>): Prisma.PrismaPromise<GetBeneficiariesAggregateType<T>>
+
+    /**
+     * Group by Beneficiaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BeneficiariesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BeneficiariesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BeneficiariesGroupByArgs['orderBy'] }
+        : { orderBy?: BeneficiariesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BeneficiariesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBeneficiariesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Beneficiaries model
+   */
+  readonly fields: BeneficiariesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Beneficiaries.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BeneficiariesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    coin<T extends CoinsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CoinsDefaultArgs<ExtArgs>>): Prisma__CoinsClient<$Result.GetResult<Prisma.$CoinsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    withdraws<T extends Beneficiaries$withdrawsArgs<ExtArgs> = {}>(args?: Subset<T, Beneficiaries$withdrawsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Beneficiaries model
+   */
+  interface BeneficiariesFieldRefs {
+    readonly id: FieldRef<"Beneficiaries", 'String'>
+    readonly userId: FieldRef<"Beneficiaries", 'String'>
+    readonly coinId: FieldRef<"Beneficiaries", 'String'>
+    readonly name: FieldRef<"Beneficiaries", 'String'>
+    readonly address: FieldRef<"Beneficiaries", 'String'>
+    readonly state: FieldRef<"Beneficiaries", 'BeneficiaryState'>
+    readonly pin: FieldRef<"Beneficiaries", 'String'>
+    readonly data: FieldRef<"Beneficiaries", 'Json'>
+    readonly createdAt: FieldRef<"Beneficiaries", 'DateTime'>
+    readonly updatedAt: FieldRef<"Beneficiaries", 'DateTime'>
+    readonly deletedAt: FieldRef<"Beneficiaries", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Beneficiaries findUnique
+   */
+  export type BeneficiariesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * Filter, which Beneficiaries to fetch.
+     */
+    where: BeneficiariesWhereUniqueInput
+  }
+
+  /**
+   * Beneficiaries findUniqueOrThrow
+   */
+  export type BeneficiariesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * Filter, which Beneficiaries to fetch.
+     */
+    where: BeneficiariesWhereUniqueInput
+  }
+
+  /**
+   * Beneficiaries findFirst
+   */
+  export type BeneficiariesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * Filter, which Beneficiaries to fetch.
+     */
+    where?: BeneficiariesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Beneficiaries to fetch.
+     */
+    orderBy?: BeneficiariesOrderByWithRelationInput | BeneficiariesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Beneficiaries.
+     */
+    cursor?: BeneficiariesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Beneficiaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Beneficiaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Beneficiaries.
+     */
+    distinct?: BeneficiariesScalarFieldEnum | BeneficiariesScalarFieldEnum[]
+  }
+
+  /**
+   * Beneficiaries findFirstOrThrow
+   */
+  export type BeneficiariesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * Filter, which Beneficiaries to fetch.
+     */
+    where?: BeneficiariesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Beneficiaries to fetch.
+     */
+    orderBy?: BeneficiariesOrderByWithRelationInput | BeneficiariesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Beneficiaries.
+     */
+    cursor?: BeneficiariesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Beneficiaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Beneficiaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Beneficiaries.
+     */
+    distinct?: BeneficiariesScalarFieldEnum | BeneficiariesScalarFieldEnum[]
+  }
+
+  /**
+   * Beneficiaries findMany
+   */
+  export type BeneficiariesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * Filter, which Beneficiaries to fetch.
+     */
+    where?: BeneficiariesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Beneficiaries to fetch.
+     */
+    orderBy?: BeneficiariesOrderByWithRelationInput | BeneficiariesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Beneficiaries.
+     */
+    cursor?: BeneficiariesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Beneficiaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Beneficiaries.
+     */
+    skip?: number
+    distinct?: BeneficiariesScalarFieldEnum | BeneficiariesScalarFieldEnum[]
+  }
+
+  /**
+   * Beneficiaries create
+   */
+  export type BeneficiariesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Beneficiaries.
+     */
+    data: XOR<BeneficiariesCreateInput, BeneficiariesUncheckedCreateInput>
+  }
+
+  /**
+   * Beneficiaries createMany
+   */
+  export type BeneficiariesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Beneficiaries.
+     */
+    data: BeneficiariesCreateManyInput | BeneficiariesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Beneficiaries createManyAndReturn
+   */
+  export type BeneficiariesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * The data used to create many Beneficiaries.
+     */
+    data: BeneficiariesCreateManyInput | BeneficiariesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Beneficiaries update
+   */
+  export type BeneficiariesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Beneficiaries.
+     */
+    data: XOR<BeneficiariesUpdateInput, BeneficiariesUncheckedUpdateInput>
+    /**
+     * Choose, which Beneficiaries to update.
+     */
+    where: BeneficiariesWhereUniqueInput
+  }
+
+  /**
+   * Beneficiaries updateMany
+   */
+  export type BeneficiariesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Beneficiaries.
+     */
+    data: XOR<BeneficiariesUpdateManyMutationInput, BeneficiariesUncheckedUpdateManyInput>
+    /**
+     * Filter which Beneficiaries to update
+     */
+    where?: BeneficiariesWhereInput
+    /**
+     * Limit how many Beneficiaries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Beneficiaries updateManyAndReturn
+   */
+  export type BeneficiariesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * The data used to update Beneficiaries.
+     */
+    data: XOR<BeneficiariesUpdateManyMutationInput, BeneficiariesUncheckedUpdateManyInput>
+    /**
+     * Filter which Beneficiaries to update
+     */
+    where?: BeneficiariesWhereInput
+    /**
+     * Limit how many Beneficiaries to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Beneficiaries upsert
+   */
+  export type BeneficiariesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Beneficiaries to update in case it exists.
+     */
+    where: BeneficiariesWhereUniqueInput
+    /**
+     * In case the Beneficiaries found by the `where` argument doesn't exist, create a new Beneficiaries with this data.
+     */
+    create: XOR<BeneficiariesCreateInput, BeneficiariesUncheckedCreateInput>
+    /**
+     * In case the Beneficiaries was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BeneficiariesUpdateInput, BeneficiariesUncheckedUpdateInput>
+  }
+
+  /**
+   * Beneficiaries delete
+   */
+  export type BeneficiariesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+    /**
+     * Filter which Beneficiaries to delete.
+     */
+    where: BeneficiariesWhereUniqueInput
+  }
+
+  /**
+   * Beneficiaries deleteMany
+   */
+  export type BeneficiariesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Beneficiaries to delete
+     */
+    where?: BeneficiariesWhereInput
+    /**
+     * Limit how many Beneficiaries to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Beneficiaries.withdraws
+   */
+  export type Beneficiaries$withdrawsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Withdraws
+     */
+    select?: WithdrawsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Withdraws
+     */
+    omit?: WithdrawsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WithdrawsInclude<ExtArgs> | null
+    where?: WithdrawsWhereInput
+    orderBy?: WithdrawsOrderByWithRelationInput | WithdrawsOrderByWithRelationInput[]
+    cursor?: WithdrawsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WithdrawsScalarFieldEnum | WithdrawsScalarFieldEnum[]
+  }
+
+  /**
+   * Beneficiaries without action
+   */
+  export type BeneficiariesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Beneficiaries
+     */
+    select?: BeneficiariesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Beneficiaries
+     */
+    omit?: BeneficiariesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BeneficiariesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TradingFees
+   */
+
+  export type AggregateTradingFees = {
+    _count: TradingFeesCountAggregateOutputType | null
+    _avg: TradingFeesAvgAggregateOutputType | null
+    _sum: TradingFeesSumAggregateOutputType | null
+    _min: TradingFeesMinAggregateOutputType | null
+    _max: TradingFeesMaxAggregateOutputType | null
+  }
+
+  export type TradingFeesAvgAggregateOutputType = {
+    maker: number | null
+    taker: number | null
+  }
+
+  export type TradingFeesSumAggregateOutputType = {
+    maker: number | null
+    taker: number | null
+  }
+
+  export type TradingFeesMinAggregateOutputType = {
+    id: string | null
+    groupId: string | null
+    userGroup: string | null
+    maker: number | null
+    taker: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type TradingFeesMaxAggregateOutputType = {
+    id: string | null
+    groupId: string | null
+    userGroup: string | null
+    maker: number | null
+    taker: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type TradingFeesCountAggregateOutputType = {
+    id: number
+    groupId: number
+    userGroup: number
+    maker: number
+    taker: number
+    createdAt: number
+    updatedAt: number
+    deletedAt: number
+    _all: number
+  }
+
+
+  export type TradingFeesAvgAggregateInputType = {
+    maker?: true
+    taker?: true
+  }
+
+  export type TradingFeesSumAggregateInputType = {
+    maker?: true
+    taker?: true
+  }
+
+  export type TradingFeesMinAggregateInputType = {
+    id?: true
+    groupId?: true
+    userGroup?: true
+    maker?: true
+    taker?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type TradingFeesMaxAggregateInputType = {
+    id?: true
+    groupId?: true
+    userGroup?: true
+    maker?: true
+    taker?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type TradingFeesCountAggregateInputType = {
+    id?: true
+    groupId?: true
+    userGroup?: true
+    maker?: true
+    taker?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    _all?: true
+  }
+
+  export type TradingFeesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TradingFees to aggregate.
+     */
+    where?: TradingFeesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TradingFees to fetch.
+     */
+    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TradingFeesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TradingFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TradingFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TradingFees
+    **/
+    _count?: true | TradingFeesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TradingFeesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TradingFeesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TradingFeesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TradingFeesMaxAggregateInputType
+  }
+
+  export type GetTradingFeesAggregateType<T extends TradingFeesAggregateArgs> = {
+        [P in keyof T & keyof AggregateTradingFees]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTradingFees[P]>
+      : GetScalarType<T[P], AggregateTradingFees[P]>
+  }
+
+
+
+
+  export type TradingFeesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TradingFeesWhereInput
+    orderBy?: TradingFeesOrderByWithAggregationInput | TradingFeesOrderByWithAggregationInput[]
+    by: TradingFeesScalarFieldEnum[] | TradingFeesScalarFieldEnum
+    having?: TradingFeesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TradingFeesCountAggregateInputType | true
+    _avg?: TradingFeesAvgAggregateInputType
+    _sum?: TradingFeesSumAggregateInputType
+    _min?: TradingFeesMinAggregateInputType
+    _max?: TradingFeesMaxAggregateInputType
+  }
+
+  export type TradingFeesGroupByOutputType = {
+    id: string
+    groupId: string
+    userGroup: string
+    maker: number
+    taker: number
+    createdAt: Date
+    updatedAt: Date | null
+    deletedAt: Date | null
+    _count: TradingFeesCountAggregateOutputType | null
+    _avg: TradingFeesAvgAggregateOutputType | null
+    _sum: TradingFeesSumAggregateOutputType | null
+    _min: TradingFeesMinAggregateOutputType | null
+    _max: TradingFeesMaxAggregateOutputType | null
+  }
+
+  type GetTradingFeesGroupByPayload<T extends TradingFeesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TradingFeesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TradingFeesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TradingFeesGroupByOutputType[P]>
+            : GetScalarType<T[P], TradingFeesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TradingFeesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    groupId?: boolean
+    userGroup?: boolean
+    maker?: boolean
+    taker?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tradingFees"]>
+
+  export type TradingFeesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    groupId?: boolean
+    userGroup?: boolean
+    maker?: boolean
+    taker?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tradingFees"]>
+
+  export type TradingFeesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    groupId?: boolean
+    userGroup?: boolean
+    maker?: boolean
+    taker?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tradingFees"]>
+
+  export type TradingFeesSelectScalar = {
+    id?: boolean
+    groupId?: boolean
+    userGroup?: boolean
+    maker?: boolean
+    taker?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+  }
+
+  export type TradingFeesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "groupId" | "userGroup" | "maker" | "taker" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["tradingFees"]>
+  export type TradingFeesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
+  }
+  export type TradingFeesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
+  }
+  export type TradingFeesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
+  }
+
+  export type $TradingFeesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TradingFees"
+    objects: {
+      tradingGroup: Prisma.$TradingGroupPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      groupId: string
+      userGroup: string
+      maker: number
+      taker: number
+      createdAt: Date
+      updatedAt: Date | null
+      deletedAt: Date | null
+    }, ExtArgs["result"]["tradingFees"]>
+    composites: {}
+  }
+
+  type TradingFeesGetPayload<S extends boolean | null | undefined | TradingFeesDefaultArgs> = $Result.GetResult<Prisma.$TradingFeesPayload, S>
+
+  type TradingFeesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TradingFeesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TradingFeesCountAggregateInputType | true
+    }
+
+  export interface TradingFeesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TradingFees'], meta: { name: 'TradingFees' } }
+    /**
+     * Find zero or one TradingFees that matches the filter.
+     * @param {TradingFeesFindUniqueArgs} args - Arguments to find a TradingFees
+     * @example
+     * // Get one TradingFees
+     * const tradingFees = await prisma.tradingFees.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TradingFeesFindUniqueArgs>(args: SelectSubset<T, TradingFeesFindUniqueArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TradingFees that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TradingFeesFindUniqueOrThrowArgs} args - Arguments to find a TradingFees
+     * @example
+     * // Get one TradingFees
+     * const tradingFees = await prisma.tradingFees.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TradingFeesFindUniqueOrThrowArgs>(args: SelectSubset<T, TradingFeesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TradingFees that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TradingFeesFindFirstArgs} args - Arguments to find a TradingFees
+     * @example
+     * // Get one TradingFees
+     * const tradingFees = await prisma.tradingFees.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TradingFeesFindFirstArgs>(args?: SelectSubset<T, TradingFeesFindFirstArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TradingFees that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TradingFeesFindFirstOrThrowArgs} args - Arguments to find a TradingFees
+     * @example
+     * // Get one TradingFees
+     * const tradingFees = await prisma.tradingFees.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TradingFeesFindFirstOrThrowArgs>(args?: SelectSubset<T, TradingFeesFindFirstOrThrowArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TradingFees that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TradingFeesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TradingFees
+     * const tradingFees = await prisma.tradingFees.findMany()
+     * 
+     * // Get first 10 TradingFees
+     * const tradingFees = await prisma.tradingFees.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tradingFeesWithIdOnly = await prisma.tradingFees.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TradingFeesFindManyArgs>(args?: SelectSubset<T, TradingFeesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TradingFees.
+     * @param {TradingFeesCreateArgs} args - Arguments to create a TradingFees.
+     * @example
+     * // Create one TradingFees
+     * const TradingFees = await prisma.tradingFees.create({
+     *   data: {
+     *     // ... data to create a TradingFees
+     *   }
+     * })
+     * 
+     */
+    create<T extends TradingFeesCreateArgs>(args: SelectSubset<T, TradingFeesCreateArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TradingFees.
+     * @param {TradingFeesCreateManyArgs} args - Arguments to create many TradingFees.
+     * @example
+     * // Create many TradingFees
+     * const tradingFees = await prisma.tradingFees.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TradingFeesCreateManyArgs>(args?: SelectSubset<T, TradingFeesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TradingFees and returns the data saved in the database.
+     * @param {TradingFeesCreateManyAndReturnArgs} args - Arguments to create many TradingFees.
+     * @example
+     * // Create many TradingFees
+     * const tradingFees = await prisma.tradingFees.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TradingFees and only return the `id`
+     * const tradingFeesWithIdOnly = await prisma.tradingFees.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TradingFeesCreateManyAndReturnArgs>(args?: SelectSubset<T, TradingFeesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TradingFees.
+     * @param {TradingFeesDeleteArgs} args - Arguments to delete one TradingFees.
+     * @example
+     * // Delete one TradingFees
+     * const TradingFees = await prisma.tradingFees.delete({
+     *   where: {
+     *     // ... filter to delete one TradingFees
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TradingFeesDeleteArgs>(args: SelectSubset<T, TradingFeesDeleteArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TradingFees.
+     * @param {TradingFeesUpdateArgs} args - Arguments to update one TradingFees.
+     * @example
+     * // Update one TradingFees
+     * const tradingFees = await prisma.tradingFees.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TradingFeesUpdateArgs>(args: SelectSubset<T, TradingFeesUpdateArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TradingFees.
+     * @param {TradingFeesDeleteManyArgs} args - Arguments to filter TradingFees to delete.
+     * @example
+     * // Delete a few TradingFees
+     * const { count } = await prisma.tradingFees.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TradingFeesDeleteManyArgs>(args?: SelectSubset<T, TradingFeesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TradingFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TradingFeesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TradingFees
+     * const tradingFees = await prisma.tradingFees.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TradingFeesUpdateManyArgs>(args: SelectSubset<T, TradingFeesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TradingFees and returns the data updated in the database.
+     * @param {TradingFeesUpdateManyAndReturnArgs} args - Arguments to update many TradingFees.
+     * @example
+     * // Update many TradingFees
+     * const tradingFees = await prisma.tradingFees.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TradingFees and only return the `id`
+     * const tradingFeesWithIdOnly = await prisma.tradingFees.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TradingFeesUpdateManyAndReturnArgs>(args: SelectSubset<T, TradingFeesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TradingFees.
+     * @param {TradingFeesUpsertArgs} args - Arguments to update or create a TradingFees.
+     * @example
+     * // Update or create a TradingFees
+     * const tradingFees = await prisma.tradingFees.upsert({
+     *   create: {
+     *     // ... data to create a TradingFees
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TradingFees we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TradingFeesUpsertArgs>(args: SelectSubset<T, TradingFeesUpsertArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TradingFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TradingFeesCountArgs} args - Arguments to filter TradingFees to count.
+     * @example
+     * // Count the number of TradingFees
+     * const count = await prisma.tradingFees.count({
+     *   where: {
+     *     // ... the filter for the TradingFees we want to count
+     *   }
+     * })
+    **/
+    count<T extends TradingFeesCountArgs>(
+      args?: Subset<T, TradingFeesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TradingFeesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TradingFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TradingFeesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TradingFeesAggregateArgs>(args: Subset<T, TradingFeesAggregateArgs>): Prisma.PrismaPromise<GetTradingFeesAggregateType<T>>
+
+    /**
+     * Group by TradingFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TradingFeesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TradingFeesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TradingFeesGroupByArgs['orderBy'] }
+        : { orderBy?: TradingFeesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TradingFeesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTradingFeesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TradingFees model
+   */
+  readonly fields: TradingFeesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TradingFees.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TradingFeesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tradingGroup<T extends TradingGroupDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TradingGroupDefaultArgs<ExtArgs>>): Prisma__TradingGroupClient<$Result.GetResult<Prisma.$TradingGroupPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TradingFees model
+   */
+  interface TradingFeesFieldRefs {
+    readonly id: FieldRef<"TradingFees", 'String'>
+    readonly groupId: FieldRef<"TradingFees", 'String'>
+    readonly userGroup: FieldRef<"TradingFees", 'String'>
+    readonly maker: FieldRef<"TradingFees", 'Float'>
+    readonly taker: FieldRef<"TradingFees", 'Float'>
+    readonly createdAt: FieldRef<"TradingFees", 'DateTime'>
+    readonly updatedAt: FieldRef<"TradingFees", 'DateTime'>
+    readonly deletedAt: FieldRef<"TradingFees", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TradingFees findUnique
+   */
+  export type TradingFeesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * Filter, which TradingFees to fetch.
+     */
+    where: TradingFeesWhereUniqueInput
+  }
+
+  /**
+   * TradingFees findUniqueOrThrow
+   */
+  export type TradingFeesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * Filter, which TradingFees to fetch.
+     */
+    where: TradingFeesWhereUniqueInput
+  }
+
+  /**
+   * TradingFees findFirst
+   */
+  export type TradingFeesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * Filter, which TradingFees to fetch.
+     */
+    where?: TradingFeesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TradingFees to fetch.
+     */
+    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TradingFees.
+     */
+    cursor?: TradingFeesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TradingFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TradingFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TradingFees.
+     */
+    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
+  }
+
+  /**
+   * TradingFees findFirstOrThrow
+   */
+  export type TradingFeesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * Filter, which TradingFees to fetch.
+     */
+    where?: TradingFeesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TradingFees to fetch.
+     */
+    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TradingFees.
+     */
+    cursor?: TradingFeesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TradingFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TradingFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TradingFees.
+     */
+    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
+  }
+
+  /**
+   * TradingFees findMany
+   */
+  export type TradingFeesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * Filter, which TradingFees to fetch.
+     */
+    where?: TradingFeesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TradingFees to fetch.
+     */
+    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TradingFees.
+     */
+    cursor?: TradingFeesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TradingFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TradingFees.
+     */
+    skip?: number
+    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
+  }
+
+  /**
+   * TradingFees create
+   */
+  export type TradingFeesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TradingFees.
+     */
+    data: XOR<TradingFeesCreateInput, TradingFeesUncheckedCreateInput>
+  }
+
+  /**
+   * TradingFees createMany
+   */
+  export type TradingFeesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TradingFees.
+     */
+    data: TradingFeesCreateManyInput | TradingFeesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TradingFees createManyAndReturn
+   */
+  export type TradingFeesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * The data used to create many TradingFees.
+     */
+    data: TradingFeesCreateManyInput | TradingFeesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TradingFees update
+   */
+  export type TradingFeesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TradingFees.
+     */
+    data: XOR<TradingFeesUpdateInput, TradingFeesUncheckedUpdateInput>
+    /**
+     * Choose, which TradingFees to update.
+     */
+    where: TradingFeesWhereUniqueInput
+  }
+
+  /**
+   * TradingFees updateMany
+   */
+  export type TradingFeesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TradingFees.
+     */
+    data: XOR<TradingFeesUpdateManyMutationInput, TradingFeesUncheckedUpdateManyInput>
+    /**
+     * Filter which TradingFees to update
+     */
+    where?: TradingFeesWhereInput
+    /**
+     * Limit how many TradingFees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TradingFees updateManyAndReturn
+   */
+  export type TradingFeesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * The data used to update TradingFees.
+     */
+    data: XOR<TradingFeesUpdateManyMutationInput, TradingFeesUncheckedUpdateManyInput>
+    /**
+     * Filter which TradingFees to update
+     */
+    where?: TradingFeesWhereInput
+    /**
+     * Limit how many TradingFees to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TradingFees upsert
+   */
+  export type TradingFeesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TradingFees to update in case it exists.
+     */
+    where: TradingFeesWhereUniqueInput
+    /**
+     * In case the TradingFees found by the `where` argument doesn't exist, create a new TradingFees with this data.
+     */
+    create: XOR<TradingFeesCreateInput, TradingFeesUncheckedCreateInput>
+    /**
+     * In case the TradingFees was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TradingFeesUpdateInput, TradingFeesUncheckedUpdateInput>
+  }
+
+  /**
+   * TradingFees delete
+   */
+  export type TradingFeesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+    /**
+     * Filter which TradingFees to delete.
+     */
+    where: TradingFeesWhereUniqueInput
+  }
+
+  /**
+   * TradingFees deleteMany
+   */
+  export type TradingFeesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TradingFees to delete
+     */
+    where?: TradingFeesWhereInput
+    /**
+     * Limit how many TradingFees to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TradingFees without action
+   */
+  export type TradingFeesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TradingFees
+     */
+    select?: TradingFeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TradingFees
+     */
+    omit?: TradingFeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TradingFeesInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -15037,6 +20854,12 @@ export namespace Prisma {
     rank: 'rank',
     volume: 'volume',
     isVisible: 'isVisible',
+    depositFee: 'depositFee',
+    withdrawFee: 'withdrawFee',
+    minDepositAmount: 'minDepositAmount',
+    minWithdrawAmount: 'minWithdrawAmount',
+    precision: 'precision',
+    blockchainKey: 'blockchainKey',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt'
@@ -15061,9 +20884,14 @@ export namespace Prisma {
   export const UserWalletScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    amount: 'amount',
     coinId: 'coinId',
     currency: 'currency',
+    status: 'status',
+    maxBalance: 'maxBalance',
+    blockchainKey: 'blockchainKey',
+    address: 'address',
+    kind: 'kind',
+    settings: 'settings',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt'
@@ -15090,6 +20918,12 @@ export namespace Prisma {
     name: 'name',
     baseCoinId: 'baseCoinId',
     quoteCoinId: 'quoteCoinId',
+    amountPrecision: 'amountPrecision',
+    pricePrecision: 'pricePrecision',
+    minPrice: 'minPrice',
+    maxprice: 'maxprice',
+    minAmount: 'minAmount',
+    state: 'state',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt'
@@ -15117,7 +20951,6 @@ export namespace Prisma {
     id: 'id',
     coinId: 'coinId',
     chain: 'chain',
-    platformContractAddress: 'platformContractAddress',
     platformDecimals: 'platformDecimals',
     blockCainSites: 'blockCainSites',
     assetPlatformId: 'assetPlatformId',
@@ -15138,6 +20971,7 @@ export namespace Prisma {
     walletId: 'walletId',
     operations: 'operations',
     isAddition: 'isAddition',
+    orderId: 'orderId',
     value: 'value',
     signedValue: 'signedValue',
     createdAt: 'createdAt',
@@ -15148,12 +20982,90 @@ export namespace Prisma {
   export type UserWalletTransactionScalarFieldEnum = (typeof UserWalletTransactionScalarFieldEnum)[keyof typeof UserWalletTransactionScalarFieldEnum]
 
 
+  export const DepositsScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    coinId: 'coinId',
+    amount: 'amount',
+    fee: 'fee',
+    txid: 'txid',
+    address: 'address',
+    state: 'state',
+    blockNumber: 'blockNumber',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt',
+    completedAt: 'completedAt'
+  };
+
+  export type DepositsScalarFieldEnum = (typeof DepositsScalarFieldEnum)[keyof typeof DepositsScalarFieldEnum]
+
+
+  export const WithdrawsScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    coinId: 'coinId',
+    amount: 'amount',
+    fee: 'fee',
+    txid: 'txid',
+    address: 'address',
+    state: 'state',
+    blockNumber: 'blockNumber',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt',
+    completedAt: 'completedAt',
+    beneficiaryId: 'beneficiaryId'
+  };
+
+  export type WithdrawsScalarFieldEnum = (typeof WithdrawsScalarFieldEnum)[keyof typeof WithdrawsScalarFieldEnum]
+
+
+  export const BeneficiariesScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    coinId: 'coinId',
+    name: 'name',
+    address: 'address',
+    state: 'state',
+    pin: 'pin',
+    data: 'data',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt'
+  };
+
+  export type BeneficiariesScalarFieldEnum = (typeof BeneficiariesScalarFieldEnum)[keyof typeof BeneficiariesScalarFieldEnum]
+
+
+  export const TradingFeesScalarFieldEnum: {
+    id: 'id',
+    groupId: 'groupId',
+    userGroup: 'userGroup',
+    maker: 'maker',
+    taker: 'taker',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt'
+  };
+
+  export type TradingFeesScalarFieldEnum = (typeof TradingFeesScalarFieldEnum)[keyof typeof TradingFeesScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -15170,6 +21082,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -15283,6 +21204,62 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'WalletStatus'
+   */
+  export type EnumWalletStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WalletStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'WalletStatus[]'
+   */
+  export type ListEnumWalletStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WalletStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'WalletKind'
+   */
+  export type EnumWalletKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WalletKind'>
+    
+
+
+  /**
+   * Reference to a field of type 'WalletKind[]'
+   */
+  export type ListEnumWalletKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WalletKind[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'TradingGroupState'
+   */
+  export type EnumTradingGroupStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TradingGroupState'>
+    
+
+
+  /**
+   * Reference to a field of type 'TradingGroupState[]'
+   */
+  export type ListEnumTradingGroupStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TradingGroupState[]'>
+    
+
+
+  /**
    * Reference to a field of type 'OperationType'
    */
   export type EnumOperationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OperationType'>
@@ -15307,6 +21284,48 @@ export namespace Prisma {
    * Reference to a field of type 'Decimal[]'
    */
   export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DepositState'
+   */
+  export type EnumDepositStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DepositState'>
+    
+
+
+  /**
+   * Reference to a field of type 'DepositState[]'
+   */
+  export type ListEnumDepositStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DepositState[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'WithdrawState'
+   */
+  export type EnumWithdrawStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WithdrawState'>
+    
+
+
+  /**
+   * Reference to a field of type 'WithdrawState[]'
+   */
+  export type ListEnumWithdrawStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WithdrawState[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'BeneficiaryState'
+   */
+  export type EnumBeneficiaryStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BeneficiaryState'>
+    
+
+
+  /**
+   * Reference to a field of type 'BeneficiaryState[]'
+   */
+  export type ListEnumBeneficiaryStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BeneficiaryState[]'>
     
   /**
    * Deep Input Types
@@ -15351,6 +21370,9 @@ export namespace Prisma {
     devices?: DevicesListRelationFilter
     userWallet?: UserWalletListRelationFilter
     groupTrades?: GroupTradeListRelationFilter
+    Deposits?: DepositsListRelationFilter
+    Withdraws?: WithdrawsListRelationFilter
+    Beneficiaries?: BeneficiariesListRelationFilter
   }
 
   export type UsersOrderByWithRelationInput = {
@@ -15388,6 +21410,9 @@ export namespace Prisma {
     devices?: DevicesOrderByRelationAggregateInput
     userWallet?: UserWalletOrderByRelationAggregateInput
     groupTrades?: GroupTradeOrderByRelationAggregateInput
+    Deposits?: DepositsOrderByRelationAggregateInput
+    Withdraws?: WithdrawsOrderByRelationAggregateInput
+    Beneficiaries?: BeneficiariesOrderByRelationAggregateInput
   }
 
   export type UsersWhereUniqueInput = Prisma.AtLeast<{
@@ -15428,6 +21453,9 @@ export namespace Prisma {
     devices?: DevicesListRelationFilter
     userWallet?: UserWalletListRelationFilter
     groupTrades?: GroupTradeListRelationFilter
+    Deposits?: DepositsListRelationFilter
+    Withdraws?: WithdrawsListRelationFilter
+    Beneficiaries?: BeneficiariesListRelationFilter
   }, "id" | "email">
 
   export type UsersOrderByWithAggregationInput = {
@@ -15642,6 +21670,12 @@ export namespace Prisma {
     rank?: IntNullableFilter<"Coins"> | number | null
     volume?: IntNullableFilter<"Coins"> | number | null
     isVisible?: BoolNullableFilter<"Coins"> | boolean | null
+    depositFee?: FloatNullableFilter<"Coins"> | number | null
+    withdrawFee?: FloatNullableFilter<"Coins"> | number | null
+    minDepositAmount?: FloatNullableFilter<"Coins"> | number | null
+    minWithdrawAmount?: FloatNullableFilter<"Coins"> | number | null
+    precision?: IntNullableFilter<"Coins"> | number | null
+    blockchainKey?: StringNullableFilter<"Coins"> | string | null
     createdAt?: DateTimeFilter<"Coins"> | Date | string
     updatedAt?: DateTimeNullableFilter<"Coins"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"Coins"> | Date | string | null
@@ -15649,6 +21683,9 @@ export namespace Prisma {
     tradingGroupQuote?: TradingGroupListRelationFilter
     coinDetails?: CoinDetailsListRelationFilter
     UserWallet?: UserWalletListRelationFilter
+    Deposits?: DepositsListRelationFilter
+    Withdraws?: WithdrawsListRelationFilter
+    Beneficiaries?: BeneficiariesListRelationFilter
   }
 
   export type CoinsOrderByWithRelationInput = {
@@ -15668,6 +21705,12 @@ export namespace Prisma {
     rank?: SortOrderInput | SortOrder
     volume?: SortOrderInput | SortOrder
     isVisible?: SortOrderInput | SortOrder
+    depositFee?: SortOrderInput | SortOrder
+    withdrawFee?: SortOrderInput | SortOrder
+    minDepositAmount?: SortOrderInput | SortOrder
+    minWithdrawAmount?: SortOrderInput | SortOrder
+    precision?: SortOrderInput | SortOrder
+    blockchainKey?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -15675,6 +21718,9 @@ export namespace Prisma {
     tradingGroupQuote?: TradingGroupOrderByRelationAggregateInput
     coinDetails?: CoinDetailsOrderByRelationAggregateInput
     UserWallet?: UserWalletOrderByRelationAggregateInput
+    Deposits?: DepositsOrderByRelationAggregateInput
+    Withdraws?: WithdrawsOrderByRelationAggregateInput
+    Beneficiaries?: BeneficiariesOrderByRelationAggregateInput
   }
 
   export type CoinsWhereUniqueInput = Prisma.AtLeast<{
@@ -15697,6 +21743,12 @@ export namespace Prisma {
     rank?: IntNullableFilter<"Coins"> | number | null
     volume?: IntNullableFilter<"Coins"> | number | null
     isVisible?: BoolNullableFilter<"Coins"> | boolean | null
+    depositFee?: FloatNullableFilter<"Coins"> | number | null
+    withdrawFee?: FloatNullableFilter<"Coins"> | number | null
+    minDepositAmount?: FloatNullableFilter<"Coins"> | number | null
+    minWithdrawAmount?: FloatNullableFilter<"Coins"> | number | null
+    precision?: IntNullableFilter<"Coins"> | number | null
+    blockchainKey?: StringNullableFilter<"Coins"> | string | null
     createdAt?: DateTimeFilter<"Coins"> | Date | string
     updatedAt?: DateTimeNullableFilter<"Coins"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"Coins"> | Date | string | null
@@ -15704,6 +21756,9 @@ export namespace Prisma {
     tradingGroupQuote?: TradingGroupListRelationFilter
     coinDetails?: CoinDetailsListRelationFilter
     UserWallet?: UserWalletListRelationFilter
+    Deposits?: DepositsListRelationFilter
+    Withdraws?: WithdrawsListRelationFilter
+    Beneficiaries?: BeneficiariesListRelationFilter
   }, "id" | "coinId">
 
   export type CoinsOrderByWithAggregationInput = {
@@ -15723,6 +21778,12 @@ export namespace Prisma {
     rank?: SortOrderInput | SortOrder
     volume?: SortOrderInput | SortOrder
     isVisible?: SortOrderInput | SortOrder
+    depositFee?: SortOrderInput | SortOrder
+    withdrawFee?: SortOrderInput | SortOrder
+    minDepositAmount?: SortOrderInput | SortOrder
+    minWithdrawAmount?: SortOrderInput | SortOrder
+    precision?: SortOrderInput | SortOrder
+    blockchainKey?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -15753,6 +21814,12 @@ export namespace Prisma {
     rank?: IntNullableWithAggregatesFilter<"Coins"> | number | null
     volume?: IntNullableWithAggregatesFilter<"Coins"> | number | null
     isVisible?: BoolNullableWithAggregatesFilter<"Coins"> | boolean | null
+    depositFee?: FloatNullableWithAggregatesFilter<"Coins"> | number | null
+    withdrawFee?: FloatNullableWithAggregatesFilter<"Coins"> | number | null
+    minDepositAmount?: FloatNullableWithAggregatesFilter<"Coins"> | number | null
+    minWithdrawAmount?: FloatNullableWithAggregatesFilter<"Coins"> | number | null
+    precision?: IntNullableWithAggregatesFilter<"Coins"> | number | null
+    blockchainKey?: StringNullableWithAggregatesFilter<"Coins"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Coins"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Coins"> | Date | string | null
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Coins"> | Date | string | null
@@ -15829,9 +21896,14 @@ export namespace Prisma {
     NOT?: UserWalletWhereInput | UserWalletWhereInput[]
     id?: StringFilter<"UserWallet"> | string
     userId?: StringFilter<"UserWallet"> | string
-    amount?: FloatFilter<"UserWallet"> | number
     coinId?: StringFilter<"UserWallet"> | string
     currency?: StringFilter<"UserWallet"> | string
+    status?: EnumWalletStatusNullableFilter<"UserWallet"> | $Enums.WalletStatus | null
+    maxBalance?: FloatFilter<"UserWallet"> | number
+    blockchainKey?: StringNullableFilter<"UserWallet"> | string | null
+    address?: StringFilter<"UserWallet"> | string
+    kind?: EnumWalletKindFilter<"UserWallet"> | $Enums.WalletKind
+    settings?: JsonNullableFilter<"UserWallet">
     createdAt?: DateTimeFilter<"UserWallet"> | Date | string
     updatedAt?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
@@ -15843,9 +21915,14 @@ export namespace Prisma {
   export type UserWalletOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    amount?: SortOrder
     coinId?: SortOrder
     currency?: SortOrder
+    status?: SortOrderInput | SortOrder
+    maxBalance?: SortOrder
+    blockchainKey?: SortOrderInput | SortOrder
+    address?: SortOrder
+    kind?: SortOrder
+    settings?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -15860,9 +21937,14 @@ export namespace Prisma {
     OR?: UserWalletWhereInput[]
     NOT?: UserWalletWhereInput | UserWalletWhereInput[]
     userId?: StringFilter<"UserWallet"> | string
-    amount?: FloatFilter<"UserWallet"> | number
     coinId?: StringFilter<"UserWallet"> | string
     currency?: StringFilter<"UserWallet"> | string
+    status?: EnumWalletStatusNullableFilter<"UserWallet"> | $Enums.WalletStatus | null
+    maxBalance?: FloatFilter<"UserWallet"> | number
+    blockchainKey?: StringNullableFilter<"UserWallet"> | string | null
+    address?: StringFilter<"UserWallet"> | string
+    kind?: EnumWalletKindFilter<"UserWallet"> | $Enums.WalletKind
+    settings?: JsonNullableFilter<"UserWallet">
     createdAt?: DateTimeFilter<"UserWallet"> | Date | string
     updatedAt?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
@@ -15874,9 +21956,14 @@ export namespace Prisma {
   export type UserWalletOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    amount?: SortOrder
     coinId?: SortOrder
     currency?: SortOrder
+    status?: SortOrderInput | SortOrder
+    maxBalance?: SortOrder
+    blockchainKey?: SortOrderInput | SortOrder
+    address?: SortOrder
+    kind?: SortOrder
+    settings?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -15893,9 +21980,14 @@ export namespace Prisma {
     NOT?: UserWalletScalarWhereWithAggregatesInput | UserWalletScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"UserWallet"> | string
     userId?: StringWithAggregatesFilter<"UserWallet"> | string
-    amount?: FloatWithAggregatesFilter<"UserWallet"> | number
     coinId?: StringWithAggregatesFilter<"UserWallet"> | string
     currency?: StringWithAggregatesFilter<"UserWallet"> | string
+    status?: EnumWalletStatusNullableWithAggregatesFilter<"UserWallet"> | $Enums.WalletStatus | null
+    maxBalance?: FloatWithAggregatesFilter<"UserWallet"> | number
+    blockchainKey?: StringNullableWithAggregatesFilter<"UserWallet"> | string | null
+    address?: StringWithAggregatesFilter<"UserWallet"> | string
+    kind?: EnumWalletKindWithAggregatesFilter<"UserWallet"> | $Enums.WalletKind
+    settings?: JsonNullableWithAggregatesFilter<"UserWallet">
     createdAt?: DateTimeWithAggregatesFilter<"UserWallet"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"UserWallet"> | Date | string | null
     deletedAt?: DateTimeNullableWithAggregatesFilter<"UserWallet"> | Date | string | null
@@ -15971,12 +22063,19 @@ export namespace Prisma {
     name?: StringFilter<"TradingGroup"> | string
     baseCoinId?: StringFilter<"TradingGroup"> | string
     quoteCoinId?: StringFilter<"TradingGroup"> | string
+    amountPrecision?: IntFilter<"TradingGroup"> | number
+    pricePrecision?: IntFilter<"TradingGroup"> | number
+    minPrice?: FloatFilter<"TradingGroup"> | number
+    maxprice?: FloatFilter<"TradingGroup"> | number
+    minAmount?: FloatFilter<"TradingGroup"> | number
+    state?: EnumTradingGroupStateFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
     baseCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
     quoteCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
     trades?: GroupTradeListRelationFilter
+    TradingFees?: TradingFeesListRelationFilter
   }
 
   export type TradingGroupOrderByWithRelationInput = {
@@ -15984,12 +22083,19 @@ export namespace Prisma {
     name?: SortOrder
     baseCoinId?: SortOrder
     quoteCoinId?: SortOrder
+    amountPrecision?: SortOrder
+    pricePrecision?: SortOrder
+    minPrice?: SortOrder
+    maxprice?: SortOrder
+    minAmount?: SortOrder
+    state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     deletedAt?: SortOrderInput | SortOrder
     baseCoin?: CoinsOrderByWithRelationInput
     quoteCoin?: CoinsOrderByWithRelationInput
     trades?: GroupTradeOrderByRelationAggregateInput
+    TradingFees?: TradingFeesOrderByRelationAggregateInput
   }
 
   export type TradingGroupWhereUniqueInput = Prisma.AtLeast<{
@@ -16000,12 +22106,19 @@ export namespace Prisma {
     NOT?: TradingGroupWhereInput | TradingGroupWhereInput[]
     baseCoinId?: StringFilter<"TradingGroup"> | string
     quoteCoinId?: StringFilter<"TradingGroup"> | string
+    amountPrecision?: IntFilter<"TradingGroup"> | number
+    pricePrecision?: IntFilter<"TradingGroup"> | number
+    minPrice?: FloatFilter<"TradingGroup"> | number
+    maxprice?: FloatFilter<"TradingGroup"> | number
+    minAmount?: FloatFilter<"TradingGroup"> | number
+    state?: EnumTradingGroupStateFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
     baseCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
     quoteCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
     trades?: GroupTradeListRelationFilter
+    TradingFees?: TradingFeesListRelationFilter
   }, "id" | "name">
 
   export type TradingGroupOrderByWithAggregationInput = {
@@ -16013,12 +22126,20 @@ export namespace Prisma {
     name?: SortOrder
     baseCoinId?: SortOrder
     quoteCoinId?: SortOrder
+    amountPrecision?: SortOrder
+    pricePrecision?: SortOrder
+    minPrice?: SortOrder
+    maxprice?: SortOrder
+    minAmount?: SortOrder
+    state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     deletedAt?: SortOrderInput | SortOrder
     _count?: TradingGroupCountOrderByAggregateInput
+    _avg?: TradingGroupAvgOrderByAggregateInput
     _max?: TradingGroupMaxOrderByAggregateInput
     _min?: TradingGroupMinOrderByAggregateInput
+    _sum?: TradingGroupSumOrderByAggregateInput
   }
 
   export type TradingGroupScalarWhereWithAggregatesInput = {
@@ -16029,6 +22150,12 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"TradingGroup"> | string
     baseCoinId?: StringWithAggregatesFilter<"TradingGroup"> | string
     quoteCoinId?: StringWithAggregatesFilter<"TradingGroup"> | string
+    amountPrecision?: IntWithAggregatesFilter<"TradingGroup"> | number
+    pricePrecision?: IntWithAggregatesFilter<"TradingGroup"> | number
+    minPrice?: FloatWithAggregatesFilter<"TradingGroup"> | number
+    maxprice?: FloatWithAggregatesFilter<"TradingGroup"> | number
+    minAmount?: FloatWithAggregatesFilter<"TradingGroup"> | number
+    state?: EnumTradingGroupStateWithAggregatesFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeWithAggregatesFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"TradingGroup"> | Date | string | null
     deletedAt?: DateTimeNullableWithAggregatesFilter<"TradingGroup"> | Date | string | null
@@ -16121,7 +22248,6 @@ export namespace Prisma {
     id?: StringFilter<"CoinDetails"> | string
     coinId?: StringFilter<"CoinDetails"> | string
     chain?: StringNullableFilter<"CoinDetails"> | string | null
-    platformContractAddress?: StringNullableFilter<"CoinDetails"> | string | null
     platformDecimals?: StringNullableFilter<"CoinDetails"> | string | null
     blockCainSites?: StringNullableFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableFilter<"CoinDetails"> | string | null
@@ -16139,7 +22265,6 @@ export namespace Prisma {
     id?: SortOrder
     coinId?: SortOrder
     chain?: SortOrderInput | SortOrder
-    platformContractAddress?: SortOrderInput | SortOrder
     platformDecimals?: SortOrderInput | SortOrder
     blockCainSites?: SortOrderInput | SortOrder
     assetPlatformId?: SortOrderInput | SortOrder
@@ -16160,7 +22285,6 @@ export namespace Prisma {
     NOT?: CoinDetailsWhereInput | CoinDetailsWhereInput[]
     coinId?: StringFilter<"CoinDetails"> | string
     chain?: StringNullableFilter<"CoinDetails"> | string | null
-    platformContractAddress?: StringNullableFilter<"CoinDetails"> | string | null
     platformDecimals?: StringNullableFilter<"CoinDetails"> | string | null
     blockCainSites?: StringNullableFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableFilter<"CoinDetails"> | string | null
@@ -16178,7 +22302,6 @@ export namespace Prisma {
     id?: SortOrder
     coinId?: SortOrder
     chain?: SortOrderInput | SortOrder
-    platformContractAddress?: SortOrderInput | SortOrder
     platformDecimals?: SortOrderInput | SortOrder
     blockCainSites?: SortOrderInput | SortOrder
     assetPlatformId?: SortOrderInput | SortOrder
@@ -16201,7 +22324,6 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"CoinDetails"> | string
     coinId?: StringWithAggregatesFilter<"CoinDetails"> | string
     chain?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
-    platformContractAddress?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
     platformDecimals?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
     blockCainSites?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
@@ -16222,6 +22344,7 @@ export namespace Prisma {
     walletId?: StringFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolFilter<"UserWalletTransaction"> | boolean
+    orderId?: StringFilter<"UserWalletTransaction"> | string
     value?: FloatFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"UserWalletTransaction"> | Date | string
@@ -16235,6 +22358,7 @@ export namespace Prisma {
     walletId?: SortOrder
     operations?: SortOrder
     isAddition?: SortOrder
+    orderId?: SortOrder
     value?: SortOrder
     signedValue?: SortOrder
     createdAt?: SortOrder
@@ -16251,6 +22375,7 @@ export namespace Prisma {
     walletId?: StringFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolFilter<"UserWalletTransaction"> | boolean
+    orderId?: StringFilter<"UserWalletTransaction"> | string
     value?: FloatFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"UserWalletTransaction"> | Date | string
@@ -16264,6 +22389,7 @@ export namespace Prisma {
     walletId?: SortOrder
     operations?: SortOrder
     isAddition?: SortOrder
+    orderId?: SortOrder
     value?: SortOrder
     signedValue?: SortOrder
     createdAt?: SortOrder
@@ -16284,11 +22410,386 @@ export namespace Prisma {
     walletId?: StringWithAggregatesFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeWithAggregatesFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolWithAggregatesFilter<"UserWalletTransaction"> | boolean
+    orderId?: StringWithAggregatesFilter<"UserWalletTransaction"> | string
     value?: FloatWithAggregatesFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalWithAggregatesFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeWithAggregatesFilter<"UserWalletTransaction"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"UserWalletTransaction"> | Date | string | null
     deletedAt?: DateTimeNullableWithAggregatesFilter<"UserWalletTransaction"> | Date | string | null
+  }
+
+  export type DepositsWhereInput = {
+    AND?: DepositsWhereInput | DepositsWhereInput[]
+    OR?: DepositsWhereInput[]
+    NOT?: DepositsWhereInput | DepositsWhereInput[]
+    id?: StringFilter<"Deposits"> | string
+    userId?: StringFilter<"Deposits"> | string
+    coinId?: StringFilter<"Deposits"> | string
+    amount?: FloatFilter<"Deposits"> | number
+    fee?: FloatFilter<"Deposits"> | number
+    txid?: StringNullableFilter<"Deposits"> | string | null
+    address?: StringNullableFilter<"Deposits"> | string | null
+    state?: EnumDepositStateFilter<"Deposits"> | $Enums.DepositState
+    blockNumber?: IntNullableFilter<"Deposits"> | number | null
+    createdAt?: DateTimeFilter<"Deposits"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    completedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    coin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
+  }
+
+  export type DepositsOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    user?: UsersOrderByWithRelationInput
+    coin?: CoinsOrderByWithRelationInput
+  }
+
+  export type DepositsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    coinId_txid?: DepositsCoinIdTxidCompoundUniqueInput
+    AND?: DepositsWhereInput | DepositsWhereInput[]
+    OR?: DepositsWhereInput[]
+    NOT?: DepositsWhereInput | DepositsWhereInput[]
+    userId?: StringFilter<"Deposits"> | string
+    coinId?: StringFilter<"Deposits"> | string
+    amount?: FloatFilter<"Deposits"> | number
+    fee?: FloatFilter<"Deposits"> | number
+    txid?: StringNullableFilter<"Deposits"> | string | null
+    address?: StringNullableFilter<"Deposits"> | string | null
+    state?: EnumDepositStateFilter<"Deposits"> | $Enums.DepositState
+    blockNumber?: IntNullableFilter<"Deposits"> | number | null
+    createdAt?: DateTimeFilter<"Deposits"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    completedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    coin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
+  }, "id" | "coinId_txid">
+
+  export type DepositsOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    _count?: DepositsCountOrderByAggregateInput
+    _avg?: DepositsAvgOrderByAggregateInput
+    _max?: DepositsMaxOrderByAggregateInput
+    _min?: DepositsMinOrderByAggregateInput
+    _sum?: DepositsSumOrderByAggregateInput
+  }
+
+  export type DepositsScalarWhereWithAggregatesInput = {
+    AND?: DepositsScalarWhereWithAggregatesInput | DepositsScalarWhereWithAggregatesInput[]
+    OR?: DepositsScalarWhereWithAggregatesInput[]
+    NOT?: DepositsScalarWhereWithAggregatesInput | DepositsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Deposits"> | string
+    userId?: StringWithAggregatesFilter<"Deposits"> | string
+    coinId?: StringWithAggregatesFilter<"Deposits"> | string
+    amount?: FloatWithAggregatesFilter<"Deposits"> | number
+    fee?: FloatWithAggregatesFilter<"Deposits"> | number
+    txid?: StringNullableWithAggregatesFilter<"Deposits"> | string | null
+    address?: StringNullableWithAggregatesFilter<"Deposits"> | string | null
+    state?: EnumDepositStateWithAggregatesFilter<"Deposits"> | $Enums.DepositState
+    blockNumber?: IntNullableWithAggregatesFilter<"Deposits"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Deposits"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Deposits"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"Deposits"> | Date | string | null
+    completedAt?: DateTimeNullableWithAggregatesFilter<"Deposits"> | Date | string | null
+  }
+
+  export type WithdrawsWhereInput = {
+    AND?: WithdrawsWhereInput | WithdrawsWhereInput[]
+    OR?: WithdrawsWhereInput[]
+    NOT?: WithdrawsWhereInput | WithdrawsWhereInput[]
+    id?: StringFilter<"Withdraws"> | string
+    userId?: StringFilter<"Withdraws"> | string
+    coinId?: StringFilter<"Withdraws"> | string
+    amount?: FloatFilter<"Withdraws"> | number
+    fee?: FloatFilter<"Withdraws"> | number
+    txid?: StringNullableFilter<"Withdraws"> | string | null
+    address?: StringFilter<"Withdraws"> | string
+    state?: EnumWithdrawStateFilter<"Withdraws"> | $Enums.WithdrawState
+    blockNumber?: IntNullableFilter<"Withdraws"> | number | null
+    createdAt?: DateTimeFilter<"Withdraws"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    completedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    beneficiaryId?: StringNullableFilter<"Withdraws"> | string | null
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    coin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
+    beneficiary?: XOR<BeneficiariesNullableScalarRelationFilter, BeneficiariesWhereInput> | null
+  }
+
+  export type WithdrawsOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrderInput | SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    beneficiaryId?: SortOrderInput | SortOrder
+    user?: UsersOrderByWithRelationInput
+    coin?: CoinsOrderByWithRelationInput
+    beneficiary?: BeneficiariesOrderByWithRelationInput
+  }
+
+  export type WithdrawsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    coinId_txid?: WithdrawsCoinIdTxidCompoundUniqueInput
+    AND?: WithdrawsWhereInput | WithdrawsWhereInput[]
+    OR?: WithdrawsWhereInput[]
+    NOT?: WithdrawsWhereInput | WithdrawsWhereInput[]
+    userId?: StringFilter<"Withdraws"> | string
+    coinId?: StringFilter<"Withdraws"> | string
+    amount?: FloatFilter<"Withdraws"> | number
+    fee?: FloatFilter<"Withdraws"> | number
+    txid?: StringNullableFilter<"Withdraws"> | string | null
+    address?: StringFilter<"Withdraws"> | string
+    state?: EnumWithdrawStateFilter<"Withdraws"> | $Enums.WithdrawState
+    blockNumber?: IntNullableFilter<"Withdraws"> | number | null
+    createdAt?: DateTimeFilter<"Withdraws"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    completedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    beneficiaryId?: StringNullableFilter<"Withdraws"> | string | null
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    coin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
+    beneficiary?: XOR<BeneficiariesNullableScalarRelationFilter, BeneficiariesWhereInput> | null
+  }, "id" | "coinId_txid">
+
+  export type WithdrawsOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrderInput | SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    beneficiaryId?: SortOrderInput | SortOrder
+    _count?: WithdrawsCountOrderByAggregateInput
+    _avg?: WithdrawsAvgOrderByAggregateInput
+    _max?: WithdrawsMaxOrderByAggregateInput
+    _min?: WithdrawsMinOrderByAggregateInput
+    _sum?: WithdrawsSumOrderByAggregateInput
+  }
+
+  export type WithdrawsScalarWhereWithAggregatesInput = {
+    AND?: WithdrawsScalarWhereWithAggregatesInput | WithdrawsScalarWhereWithAggregatesInput[]
+    OR?: WithdrawsScalarWhereWithAggregatesInput[]
+    NOT?: WithdrawsScalarWhereWithAggregatesInput | WithdrawsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Withdraws"> | string
+    userId?: StringWithAggregatesFilter<"Withdraws"> | string
+    coinId?: StringWithAggregatesFilter<"Withdraws"> | string
+    amount?: FloatWithAggregatesFilter<"Withdraws"> | number
+    fee?: FloatWithAggregatesFilter<"Withdraws"> | number
+    txid?: StringNullableWithAggregatesFilter<"Withdraws"> | string | null
+    address?: StringWithAggregatesFilter<"Withdraws"> | string
+    state?: EnumWithdrawStateWithAggregatesFilter<"Withdraws"> | $Enums.WithdrawState
+    blockNumber?: IntNullableWithAggregatesFilter<"Withdraws"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Withdraws"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Withdraws"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"Withdraws"> | Date | string | null
+    completedAt?: DateTimeNullableWithAggregatesFilter<"Withdraws"> | Date | string | null
+    beneficiaryId?: StringNullableWithAggregatesFilter<"Withdraws"> | string | null
+  }
+
+  export type BeneficiariesWhereInput = {
+    AND?: BeneficiariesWhereInput | BeneficiariesWhereInput[]
+    OR?: BeneficiariesWhereInput[]
+    NOT?: BeneficiariesWhereInput | BeneficiariesWhereInput[]
+    id?: StringFilter<"Beneficiaries"> | string
+    userId?: StringFilter<"Beneficiaries"> | string
+    coinId?: StringFilter<"Beneficiaries"> | string
+    name?: StringNullableFilter<"Beneficiaries"> | string | null
+    address?: StringNullableFilter<"Beneficiaries"> | string | null
+    state?: EnumBeneficiaryStateFilter<"Beneficiaries"> | $Enums.BeneficiaryState
+    pin?: StringNullableFilter<"Beneficiaries"> | string | null
+    data?: JsonNullableFilter<"Beneficiaries">
+    createdAt?: DateTimeFilter<"Beneficiaries"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Beneficiaries"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Beneficiaries"> | Date | string | null
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    coin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
+    withdraws?: WithdrawsListRelationFilter
+  }
+
+  export type BeneficiariesOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    state?: SortOrder
+    pin?: SortOrderInput | SortOrder
+    data?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    user?: UsersOrderByWithRelationInput
+    coin?: CoinsOrderByWithRelationInput
+    withdraws?: WithdrawsOrderByRelationAggregateInput
+  }
+
+  export type BeneficiariesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BeneficiariesWhereInput | BeneficiariesWhereInput[]
+    OR?: BeneficiariesWhereInput[]
+    NOT?: BeneficiariesWhereInput | BeneficiariesWhereInput[]
+    userId?: StringFilter<"Beneficiaries"> | string
+    coinId?: StringFilter<"Beneficiaries"> | string
+    name?: StringNullableFilter<"Beneficiaries"> | string | null
+    address?: StringNullableFilter<"Beneficiaries"> | string | null
+    state?: EnumBeneficiaryStateFilter<"Beneficiaries"> | $Enums.BeneficiaryState
+    pin?: StringNullableFilter<"Beneficiaries"> | string | null
+    data?: JsonNullableFilter<"Beneficiaries">
+    createdAt?: DateTimeFilter<"Beneficiaries"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Beneficiaries"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Beneficiaries"> | Date | string | null
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    coin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
+    withdraws?: WithdrawsListRelationFilter
+  }, "id">
+
+  export type BeneficiariesOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    state?: SortOrder
+    pin?: SortOrderInput | SortOrder
+    data?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    _count?: BeneficiariesCountOrderByAggregateInput
+    _max?: BeneficiariesMaxOrderByAggregateInput
+    _min?: BeneficiariesMinOrderByAggregateInput
+  }
+
+  export type BeneficiariesScalarWhereWithAggregatesInput = {
+    AND?: BeneficiariesScalarWhereWithAggregatesInput | BeneficiariesScalarWhereWithAggregatesInput[]
+    OR?: BeneficiariesScalarWhereWithAggregatesInput[]
+    NOT?: BeneficiariesScalarWhereWithAggregatesInput | BeneficiariesScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Beneficiaries"> | string
+    userId?: StringWithAggregatesFilter<"Beneficiaries"> | string
+    coinId?: StringWithAggregatesFilter<"Beneficiaries"> | string
+    name?: StringNullableWithAggregatesFilter<"Beneficiaries"> | string | null
+    address?: StringNullableWithAggregatesFilter<"Beneficiaries"> | string | null
+    state?: EnumBeneficiaryStateWithAggregatesFilter<"Beneficiaries"> | $Enums.BeneficiaryState
+    pin?: StringNullableWithAggregatesFilter<"Beneficiaries"> | string | null
+    data?: JsonNullableWithAggregatesFilter<"Beneficiaries">
+    createdAt?: DateTimeWithAggregatesFilter<"Beneficiaries"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Beneficiaries"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"Beneficiaries"> | Date | string | null
+  }
+
+  export type TradingFeesWhereInput = {
+    AND?: TradingFeesWhereInput | TradingFeesWhereInput[]
+    OR?: TradingFeesWhereInput[]
+    NOT?: TradingFeesWhereInput | TradingFeesWhereInput[]
+    id?: StringFilter<"TradingFees"> | string
+    groupId?: StringFilter<"TradingFees"> | string
+    userGroup?: StringFilter<"TradingFees"> | string
+    maker?: FloatFilter<"TradingFees"> | number
+    taker?: FloatFilter<"TradingFees"> | number
+    createdAt?: DateTimeFilter<"TradingFees"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
+    tradingGroup?: XOR<TradingGroupScalarRelationFilter, TradingGroupWhereInput>
+  }
+
+  export type TradingFeesOrderByWithRelationInput = {
+    id?: SortOrder
+    groupId?: SortOrder
+    userGroup?: SortOrder
+    maker?: SortOrder
+    taker?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    tradingGroup?: TradingGroupOrderByWithRelationInput
+  }
+
+  export type TradingFeesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    groupId_userGroup?: TradingFeesGroupIdUserGroupCompoundUniqueInput
+    AND?: TradingFeesWhereInput | TradingFeesWhereInput[]
+    OR?: TradingFeesWhereInput[]
+    NOT?: TradingFeesWhereInput | TradingFeesWhereInput[]
+    groupId?: StringFilter<"TradingFees"> | string
+    userGroup?: StringFilter<"TradingFees"> | string
+    maker?: FloatFilter<"TradingFees"> | number
+    taker?: FloatFilter<"TradingFees"> | number
+    createdAt?: DateTimeFilter<"TradingFees"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
+    tradingGroup?: XOR<TradingGroupScalarRelationFilter, TradingGroupWhereInput>
+  }, "id" | "groupId_userGroup">
+
+  export type TradingFeesOrderByWithAggregationInput = {
+    id?: SortOrder
+    groupId?: SortOrder
+    userGroup?: SortOrder
+    maker?: SortOrder
+    taker?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    _count?: TradingFeesCountOrderByAggregateInput
+    _avg?: TradingFeesAvgOrderByAggregateInput
+    _max?: TradingFeesMaxOrderByAggregateInput
+    _min?: TradingFeesMinOrderByAggregateInput
+    _sum?: TradingFeesSumOrderByAggregateInput
+  }
+
+  export type TradingFeesScalarWhereWithAggregatesInput = {
+    AND?: TradingFeesScalarWhereWithAggregatesInput | TradingFeesScalarWhereWithAggregatesInput[]
+    OR?: TradingFeesScalarWhereWithAggregatesInput[]
+    NOT?: TradingFeesScalarWhereWithAggregatesInput | TradingFeesScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TradingFees"> | string
+    groupId?: StringWithAggregatesFilter<"TradingFees"> | string
+    userGroup?: StringWithAggregatesFilter<"TradingFees"> | string
+    maker?: FloatWithAggregatesFilter<"TradingFees"> | number
+    taker?: FloatWithAggregatesFilter<"TradingFees"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"TradingFees"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"TradingFees"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"TradingFees"> | Date | string | null
   }
 
   export type UsersCreateInput = {
@@ -16326,6 +22827,9 @@ export namespace Prisma {
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
+    Deposits?: DepositsCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateInput = {
@@ -16363,6 +22867,9 @@ export namespace Prisma {
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersUpdateInput = {
@@ -16400,6 +22907,9 @@ export namespace Prisma {
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateInput = {
@@ -16437,6 +22947,9 @@ export namespace Prisma {
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UsersCreateManyInput = {
@@ -16676,6 +23189,12 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -16683,6 +23202,9 @@ export namespace Prisma {
     tradingGroupQuote?: TradingGroupCreateNestedManyWithoutQuoteCoinInput
     coinDetails?: CoinDetailsCreateNestedManyWithoutCoinInput
     UserWallet?: UserWalletCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsUncheckedCreateInput = {
@@ -16702,6 +23224,12 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -16709,6 +23237,9 @@ export namespace Prisma {
     tradingGroupQuote?: TradingGroupUncheckedCreateNestedManyWithoutQuoteCoinInput
     coinDetails?: CoinDetailsUncheckedCreateNestedManyWithoutCoinInput
     UserWallet?: UserWalletUncheckedCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsUpdateInput = {
@@ -16728,6 +23259,12 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16735,6 +23272,9 @@ export namespace Prisma {
     tradingGroupQuote?: TradingGroupUpdateManyWithoutQuoteCoinNestedInput
     coinDetails?: CoinDetailsUpdateManyWithoutCoinNestedInput
     UserWallet?: UserWalletUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutCoinNestedInput
   }
 
   export type CoinsUncheckedUpdateInput = {
@@ -16754,6 +23294,12 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16761,6 +23307,9 @@ export namespace Prisma {
     tradingGroupQuote?: TradingGroupUncheckedUpdateManyWithoutQuoteCoinNestedInput
     coinDetails?: CoinDetailsUncheckedUpdateManyWithoutCoinNestedInput
     UserWallet?: UserWalletUncheckedUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
   }
 
   export type CoinsCreateManyInput = {
@@ -16780,6 +23329,12 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -16802,6 +23357,12 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16824,6 +23385,12 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16900,8 +23467,13 @@ export namespace Prisma {
 
   export type UserWalletCreateInput = {
     id?: string
-    amount: number
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -16913,9 +23485,14 @@ export namespace Prisma {
   export type UserWalletUncheckedCreateInput = {
     id?: string
     userId: string
-    amount: number
     coinId: string
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -16924,8 +23501,13 @@ export namespace Prisma {
 
   export type UserWalletUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16937,9 +23519,14 @@ export namespace Prisma {
   export type UserWalletUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     coinId?: StringFieldUpdateOperationsInput | string
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16949,9 +23536,14 @@ export namespace Prisma {
   export type UserWalletCreateManyInput = {
     id?: string
     userId: string
-    amount: number
     coinId: string
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -16959,8 +23551,13 @@ export namespace Prisma {
 
   export type UserWalletUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16969,9 +23566,14 @@ export namespace Prisma {
   export type UserWalletUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     coinId?: StringFieldUpdateOperationsInput | string
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -17050,12 +23652,19 @@ export namespace Prisma {
   export type TradingGroupCreateInput = {
     id?: string
     name: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
     quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
     trades?: GroupTradeCreateNestedManyWithoutGroupInput
+    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUncheckedCreateInput = {
@@ -17063,21 +23672,35 @@ export namespace Prisma {
     name: string
     baseCoinId: string
     quoteCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
+    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
     quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
     trades?: GroupTradeUpdateManyWithoutGroupNestedInput
+    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateInput = {
@@ -17085,10 +23708,17 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     baseCoinId?: StringFieldUpdateOperationsInput | string
     quoteCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
+    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupCreateManyInput = {
@@ -17096,6 +23726,12 @@ export namespace Prisma {
     name: string
     baseCoinId: string
     quoteCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -17104,6 +23740,12 @@ export namespace Prisma {
   export type TradingGroupUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -17114,6 +23756,12 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     baseCoinId?: StringFieldUpdateOperationsInput | string
     quoteCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -17204,7 +23852,6 @@ export namespace Prisma {
   export type CoinDetailsCreateInput = {
     id?: string
     chain?: string | null
-    platformContractAddress?: string | null
     platformDecimals?: string | null
     blockCainSites?: string | null
     assetPlatformId?: string | null
@@ -17222,7 +23869,6 @@ export namespace Prisma {
     id?: string
     coinId: string
     chain?: string | null
-    platformContractAddress?: string | null
     platformDecimals?: string | null
     blockCainSites?: string | null
     assetPlatformId?: string | null
@@ -17238,7 +23884,6 @@ export namespace Prisma {
   export type CoinDetailsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     chain?: NullableStringFieldUpdateOperationsInput | string | null
-    platformContractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     platformDecimals?: NullableStringFieldUpdateOperationsInput | string | null
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17256,7 +23901,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     coinId?: StringFieldUpdateOperationsInput | string
     chain?: NullableStringFieldUpdateOperationsInput | string | null
-    platformContractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     platformDecimals?: NullableStringFieldUpdateOperationsInput | string | null
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17273,7 +23917,6 @@ export namespace Prisma {
     id?: string
     coinId: string
     chain?: string | null
-    platformContractAddress?: string | null
     platformDecimals?: string | null
     blockCainSites?: string | null
     assetPlatformId?: string | null
@@ -17289,7 +23932,6 @@ export namespace Prisma {
   export type CoinDetailsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     chain?: NullableStringFieldUpdateOperationsInput | string | null
-    platformContractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     platformDecimals?: NullableStringFieldUpdateOperationsInput | string | null
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17306,7 +23948,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     coinId?: StringFieldUpdateOperationsInput | string
     chain?: NullableStringFieldUpdateOperationsInput | string | null
-    platformContractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     platformDecimals?: NullableStringFieldUpdateOperationsInput | string | null
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17323,6 +23964,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
+    orderId: string
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -17336,6 +23978,7 @@ export namespace Prisma {
     walletId: string
     operations: $Enums.OperationType
     isAddition: boolean
+    orderId: string
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -17347,6 +23990,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
+    orderId?: StringFieldUpdateOperationsInput | string
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17360,6 +24004,7 @@ export namespace Prisma {
     walletId?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
+    orderId?: StringFieldUpdateOperationsInput | string
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17372,6 +24017,7 @@ export namespace Prisma {
     walletId: string
     operations: $Enums.OperationType
     isAddition: boolean
+    orderId: string
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -17383,6 +24029,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
+    orderId?: StringFieldUpdateOperationsInput | string
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17395,8 +24042,411 @@ export namespace Prisma {
     walletId?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
+    orderId?: StringFieldUpdateOperationsInput | string
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DepositsCreateInput = {
+    id?: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutDepositsInput
+    coin: CoinsCreateNestedOneWithoutDepositsInput
+  }
+
+  export type DepositsUncheckedCreateInput = {
+    id?: string
+    userId: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type DepositsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutDepositsNestedInput
+    coin?: CoinsUpdateOneRequiredWithoutDepositsNestedInput
+  }
+
+  export type DepositsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DepositsCreateManyInput = {
+    id?: string
+    userId: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type DepositsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DepositsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WithdrawsCreateInput = {
+    id?: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutWithdrawsInput
+    coin: CoinsCreateNestedOneWithoutWithdrawsInput
+    beneficiary?: BeneficiariesCreateNestedOneWithoutWithdrawsInput
+  }
+
+  export type WithdrawsUncheckedCreateInput = {
+    id?: string
+    userId: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    beneficiaryId?: string | null
+  }
+
+  export type WithdrawsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutWithdrawsNestedInput
+    coin?: CoinsUpdateOneRequiredWithoutWithdrawsNestedInput
+    beneficiary?: BeneficiariesUpdateOneWithoutWithdrawsNestedInput
+  }
+
+  export type WithdrawsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    beneficiaryId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WithdrawsCreateManyInput = {
+    id?: string
+    userId: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    beneficiaryId?: string | null
+  }
+
+  export type WithdrawsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WithdrawsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    beneficiaryId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BeneficiariesCreateInput = {
+    id?: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutBeneficiariesInput
+    coin: CoinsCreateNestedOneWithoutBeneficiariesInput
+    withdraws?: WithdrawsCreateNestedManyWithoutBeneficiaryInput
+  }
+
+  export type BeneficiariesUncheckedCreateInput = {
+    id?: string
+    userId: string
+    coinId: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    withdraws?: WithdrawsUncheckedCreateNestedManyWithoutBeneficiaryInput
+  }
+
+  export type BeneficiariesUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutBeneficiariesNestedInput
+    coin?: CoinsUpdateOneRequiredWithoutBeneficiariesNestedInput
+    withdraws?: WithdrawsUpdateManyWithoutBeneficiaryNestedInput
+  }
+
+  export type BeneficiariesUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    withdraws?: WithdrawsUncheckedUpdateManyWithoutBeneficiaryNestedInput
+  }
+
+  export type BeneficiariesCreateManyInput = {
+    id?: string
+    userId: string
+    coinId: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type BeneficiariesUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type BeneficiariesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TradingFeesCreateInput = {
+    id?: string
+    userGroup?: string
+    maker?: number
+    taker?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    tradingGroup: TradingGroupCreateNestedOneWithoutTradingFeesInput
+  }
+
+  export type TradingFeesUncheckedCreateInput = {
+    id?: string
+    groupId: string
+    userGroup?: string
+    maker?: number
+    taker?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type TradingFeesUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userGroup?: StringFieldUpdateOperationsInput | string
+    maker?: FloatFieldUpdateOperationsInput | number
+    taker?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tradingGroup?: TradingGroupUpdateOneRequiredWithoutTradingFeesNestedInput
+  }
+
+  export type TradingFeesUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    groupId?: StringFieldUpdateOperationsInput | string
+    userGroup?: StringFieldUpdateOperationsInput | string
+    maker?: FloatFieldUpdateOperationsInput | number
+    taker?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TradingFeesCreateManyInput = {
+    id?: string
+    groupId: string
+    userGroup?: string
+    maker?: number
+    taker?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type TradingFeesUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userGroup?: StringFieldUpdateOperationsInput | string
+    maker?: FloatFieldUpdateOperationsInput | number
+    taker?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TradingFeesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    groupId?: StringFieldUpdateOperationsInput | string
+    userGroup?: StringFieldUpdateOperationsInput | string
+    maker?: FloatFieldUpdateOperationsInput | number
+    taker?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -17501,6 +24551,24 @@ export namespace Prisma {
     none?: GroupTradeWhereInput
   }
 
+  export type DepositsListRelationFilter = {
+    every?: DepositsWhereInput
+    some?: DepositsWhereInput
+    none?: DepositsWhereInput
+  }
+
+  export type WithdrawsListRelationFilter = {
+    every?: WithdrawsWhereInput
+    some?: WithdrawsWhereInput
+    none?: WithdrawsWhereInput
+  }
+
+  export type BeneficiariesListRelationFilter = {
+    every?: BeneficiariesWhereInput
+    some?: BeneficiariesWhereInput
+    none?: BeneficiariesWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -17519,6 +24587,18 @@ export namespace Prisma {
   }
 
   export type GroupTradeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DepositsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WithdrawsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BeneficiariesOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17821,6 +24901,17 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type TradingGroupListRelationFilter = {
     every?: TradingGroupWhereInput
     some?: TradingGroupWhereInput
@@ -17858,6 +24949,12 @@ export namespace Prisma {
     rank?: SortOrder
     volume?: SortOrder
     isVisible?: SortOrder
+    depositFee?: SortOrder
+    withdrawFee?: SortOrder
+    minDepositAmount?: SortOrder
+    minWithdrawAmount?: SortOrder
+    precision?: SortOrder
+    blockchainKey?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -17867,6 +24964,11 @@ export namespace Prisma {
     coinId?: SortOrder
     rank?: SortOrder
     volume?: SortOrder
+    depositFee?: SortOrder
+    withdrawFee?: SortOrder
+    minDepositAmount?: SortOrder
+    minWithdrawAmount?: SortOrder
+    precision?: SortOrder
   }
 
   export type CoinsMaxOrderByAggregateInput = {
@@ -17886,6 +24988,12 @@ export namespace Prisma {
     rank?: SortOrder
     volume?: SortOrder
     isVisible?: SortOrder
+    depositFee?: SortOrder
+    withdrawFee?: SortOrder
+    minDepositAmount?: SortOrder
+    minWithdrawAmount?: SortOrder
+    precision?: SortOrder
+    blockchainKey?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -17908,6 +25016,12 @@ export namespace Prisma {
     rank?: SortOrder
     volume?: SortOrder
     isVisible?: SortOrder
+    depositFee?: SortOrder
+    withdrawFee?: SortOrder
+    minDepositAmount?: SortOrder
+    minWithdrawAmount?: SortOrder
+    precision?: SortOrder
+    blockchainKey?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -17917,6 +25031,11 @@ export namespace Prisma {
     coinId?: SortOrder
     rank?: SortOrder
     volume?: SortOrder
+    depositFee?: SortOrder
+    withdrawFee?: SortOrder
+    minDepositAmount?: SortOrder
+    minWithdrawAmount?: SortOrder
+    precision?: SortOrder
   }
 
   export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -17941,6 +25060,22 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type DevicesCountOrderByAggregateInput = {
@@ -17973,6 +25108,13 @@ export namespace Prisma {
     deletedAt?: SortOrder
   }
 
+  export type EnumWalletStatusNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletStatus | EnumWalletStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWalletStatusNullableFilter<$PrismaModel> | $Enums.WalletStatus | null
+  }
+
   export type FloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -17982,6 +25124,36 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type EnumWalletKindFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletKind | EnumWalletKindFieldRefInput<$PrismaModel>
+    in?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumWalletKindFilter<$PrismaModel> | $Enums.WalletKind
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type CoinsScalarRelationFilter = {
@@ -18002,24 +25174,33 @@ export namespace Prisma {
   export type UserWalletCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    amount?: SortOrder
     coinId?: SortOrder
     currency?: SortOrder
+    status?: SortOrder
+    maxBalance?: SortOrder
+    blockchainKey?: SortOrder
+    address?: SortOrder
+    kind?: SortOrder
+    settings?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
   }
 
   export type UserWalletAvgOrderByAggregateInput = {
-    amount?: SortOrder
+    maxBalance?: SortOrder
   }
 
   export type UserWalletMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    amount?: SortOrder
     coinId?: SortOrder
     currency?: SortOrder
+    status?: SortOrder
+    maxBalance?: SortOrder
+    blockchainKey?: SortOrder
+    address?: SortOrder
+    kind?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -18028,16 +25209,30 @@ export namespace Prisma {
   export type UserWalletMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    amount?: SortOrder
     coinId?: SortOrder
     currency?: SortOrder
+    status?: SortOrder
+    maxBalance?: SortOrder
+    blockchainKey?: SortOrder
+    address?: SortOrder
+    kind?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
   }
 
   export type UserWalletSumOrderByAggregateInput = {
-    amount?: SortOrder
+    maxBalance?: SortOrder
+  }
+
+  export type EnumWalletStatusNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletStatus | EnumWalletStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWalletStatusNullableWithAggregatesFilter<$PrismaModel> | $Enums.WalletStatus | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumWalletStatusNullableFilter<$PrismaModel>
+    _max?: NestedEnumWalletStatusNullableFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -18054,6 +25249,42 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type EnumWalletKindWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletKind | EnumWalletKindFieldRefInput<$PrismaModel>
+    in?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumWalletKindWithAggregatesFilter<$PrismaModel> | $Enums.WalletKind
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumWalletKindFilter<$PrismaModel>
+    _max?: NestedEnumWalletKindFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type AppConfigCountOrderByAggregateInput = {
@@ -18086,14 +25317,56 @@ export namespace Prisma {
     deletedAt?: SortOrder
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type EnumTradingGroupStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.TradingGroupState | EnumTradingGroupStateFieldRefInput<$PrismaModel>
+    in?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumTradingGroupStateFilter<$PrismaModel> | $Enums.TradingGroupState
+  }
+
+  export type TradingFeesListRelationFilter = {
+    every?: TradingFeesWhereInput
+    some?: TradingFeesWhereInput
+    none?: TradingFeesWhereInput
+  }
+
+  export type TradingFeesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type TradingGroupCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     baseCoinId?: SortOrder
     quoteCoinId?: SortOrder
+    amountPrecision?: SortOrder
+    pricePrecision?: SortOrder
+    minPrice?: SortOrder
+    maxprice?: SortOrder
+    minAmount?: SortOrder
+    state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
+  }
+
+  export type TradingGroupAvgOrderByAggregateInput = {
+    amountPrecision?: SortOrder
+    pricePrecision?: SortOrder
+    minPrice?: SortOrder
+    maxprice?: SortOrder
+    minAmount?: SortOrder
   }
 
   export type TradingGroupMaxOrderByAggregateInput = {
@@ -18101,6 +25374,12 @@ export namespace Prisma {
     name?: SortOrder
     baseCoinId?: SortOrder
     quoteCoinId?: SortOrder
+    amountPrecision?: SortOrder
+    pricePrecision?: SortOrder
+    minPrice?: SortOrder
+    maxprice?: SortOrder
+    minAmount?: SortOrder
+    state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -18111,9 +25390,49 @@ export namespace Prisma {
     name?: SortOrder
     baseCoinId?: SortOrder
     quoteCoinId?: SortOrder
+    amountPrecision?: SortOrder
+    pricePrecision?: SortOrder
+    minPrice?: SortOrder
+    maxprice?: SortOrder
+    minAmount?: SortOrder
+    state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
+  }
+
+  export type TradingGroupSumOrderByAggregateInput = {
+    amountPrecision?: SortOrder
+    pricePrecision?: SortOrder
+    minPrice?: SortOrder
+    maxprice?: SortOrder
+    minAmount?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type EnumTradingGroupStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TradingGroupState | EnumTradingGroupStateFieldRefInput<$PrismaModel>
+    in?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumTradingGroupStateWithAggregatesFilter<$PrismaModel> | $Enums.TradingGroupState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTradingGroupStateFilter<$PrismaModel>
+    _max?: NestedEnumTradingGroupStateFilter<$PrismaModel>
   }
 
   export type TradingGroupScalarRelationFilter = {
@@ -18181,7 +25500,6 @@ export namespace Prisma {
     id?: SortOrder
     coinId?: SortOrder
     chain?: SortOrder
-    platformContractAddress?: SortOrder
     platformDecimals?: SortOrder
     blockCainSites?: SortOrder
     assetPlatformId?: SortOrder
@@ -18198,7 +25516,6 @@ export namespace Prisma {
     id?: SortOrder
     coinId?: SortOrder
     chain?: SortOrder
-    platformContractAddress?: SortOrder
     platformDecimals?: SortOrder
     blockCainSites?: SortOrder
     assetPlatformId?: SortOrder
@@ -18214,7 +25531,6 @@ export namespace Prisma {
     id?: SortOrder
     coinId?: SortOrder
     chain?: SortOrder
-    platformContractAddress?: SortOrder
     platformDecimals?: SortOrder
     blockCainSites?: SortOrder
     assetPlatformId?: SortOrder
@@ -18254,6 +25570,7 @@ export namespace Prisma {
     walletId?: SortOrder
     operations?: SortOrder
     isAddition?: SortOrder
+    orderId?: SortOrder
     value?: SortOrder
     signedValue?: SortOrder
     createdAt?: SortOrder
@@ -18271,6 +25588,7 @@ export namespace Prisma {
     walletId?: SortOrder
     operations?: SortOrder
     isAddition?: SortOrder
+    orderId?: SortOrder
     value?: SortOrder
     signedValue?: SortOrder
     createdAt?: SortOrder
@@ -18283,6 +25601,7 @@ export namespace Prisma {
     walletId?: SortOrder
     operations?: SortOrder
     isAddition?: SortOrder
+    orderId?: SortOrder
     value?: SortOrder
     signedValue?: SortOrder
     createdAt?: SortOrder
@@ -18321,6 +25640,283 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+  export type EnumDepositStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.DepositState | EnumDepositStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDepositStateFilter<$PrismaModel> | $Enums.DepositState
+  }
+
+  export type DepositsCoinIdTxidCompoundUniqueInput = {
+    coinId: string
+    txid: string
+  }
+
+  export type DepositsCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type DepositsAvgOrderByAggregateInput = {
+    amount?: SortOrder
+    fee?: SortOrder
+    blockNumber?: SortOrder
+  }
+
+  export type DepositsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type DepositsMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type DepositsSumOrderByAggregateInput = {
+    amount?: SortOrder
+    fee?: SortOrder
+    blockNumber?: SortOrder
+  }
+
+  export type EnumDepositStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DepositState | EnumDepositStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDepositStateWithAggregatesFilter<$PrismaModel> | $Enums.DepositState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumDepositStateFilter<$PrismaModel>
+    _max?: NestedEnumDepositStateFilter<$PrismaModel>
+  }
+
+  export type EnumWithdrawStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.WithdrawState | EnumWithdrawStateFieldRefInput<$PrismaModel>
+    in?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumWithdrawStateFilter<$PrismaModel> | $Enums.WithdrawState
+  }
+
+  export type BeneficiariesNullableScalarRelationFilter = {
+    is?: BeneficiariesWhereInput | null
+    isNot?: BeneficiariesWhereInput | null
+  }
+
+  export type WithdrawsCoinIdTxidCompoundUniqueInput = {
+    coinId: string
+    txid: string
+  }
+
+  export type WithdrawsCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+    completedAt?: SortOrder
+    beneficiaryId?: SortOrder
+  }
+
+  export type WithdrawsAvgOrderByAggregateInput = {
+    amount?: SortOrder
+    fee?: SortOrder
+    blockNumber?: SortOrder
+  }
+
+  export type WithdrawsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+    completedAt?: SortOrder
+    beneficiaryId?: SortOrder
+  }
+
+  export type WithdrawsMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    amount?: SortOrder
+    fee?: SortOrder
+    txid?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    blockNumber?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+    completedAt?: SortOrder
+    beneficiaryId?: SortOrder
+  }
+
+  export type WithdrawsSumOrderByAggregateInput = {
+    amount?: SortOrder
+    fee?: SortOrder
+    blockNumber?: SortOrder
+  }
+
+  export type EnumWithdrawStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WithdrawState | EnumWithdrawStateFieldRefInput<$PrismaModel>
+    in?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumWithdrawStateWithAggregatesFilter<$PrismaModel> | $Enums.WithdrawState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumWithdrawStateFilter<$PrismaModel>
+    _max?: NestedEnumWithdrawStateFilter<$PrismaModel>
+  }
+
+  export type EnumBeneficiaryStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.BeneficiaryState | EnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    in?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumBeneficiaryStateFilter<$PrismaModel> | $Enums.BeneficiaryState
+  }
+
+  export type BeneficiariesCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    pin?: SortOrder
+    data?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type BeneficiariesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    pin?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type BeneficiariesMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    coinId?: SortOrder
+    name?: SortOrder
+    address?: SortOrder
+    state?: SortOrder
+    pin?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type EnumBeneficiaryStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BeneficiaryState | EnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    in?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumBeneficiaryStateWithAggregatesFilter<$PrismaModel> | $Enums.BeneficiaryState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBeneficiaryStateFilter<$PrismaModel>
+    _max?: NestedEnumBeneficiaryStateFilter<$PrismaModel>
+  }
+
+  export type TradingFeesGroupIdUserGroupCompoundUniqueInput = {
+    groupId: string
+    userGroup: string
+  }
+
+  export type TradingFeesCountOrderByAggregateInput = {
+    id?: SortOrder
+    groupId?: SortOrder
+    userGroup?: SortOrder
+    maker?: SortOrder
+    taker?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type TradingFeesAvgOrderByAggregateInput = {
+    maker?: SortOrder
+    taker?: SortOrder
+  }
+
+  export type TradingFeesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    groupId?: SortOrder
+    userGroup?: SortOrder
+    maker?: SortOrder
+    taker?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type TradingFeesMinOrderByAggregateInput = {
+    id?: SortOrder
+    groupId?: SortOrder
+    userGroup?: SortOrder
+    maker?: SortOrder
+    taker?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type TradingFeesSumOrderByAggregateInput = {
+    maker?: SortOrder
+    taker?: SortOrder
+  }
+
   export type UserRoleMappingCreateNestedManyWithoutUsersInput = {
     create?: XOR<UserRoleMappingCreateWithoutUsersInput, UserRoleMappingUncheckedCreateWithoutUsersInput> | UserRoleMappingCreateWithoutUsersInput[] | UserRoleMappingUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: UserRoleMappingCreateOrConnectWithoutUsersInput | UserRoleMappingCreateOrConnectWithoutUsersInput[]
@@ -18349,6 +25945,27 @@ export namespace Prisma {
     connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
   }
 
+  export type DepositsCreateNestedManyWithoutUserInput = {
+    create?: XOR<DepositsCreateWithoutUserInput, DepositsUncheckedCreateWithoutUserInput> | DepositsCreateWithoutUserInput[] | DepositsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutUserInput | DepositsCreateOrConnectWithoutUserInput[]
+    createMany?: DepositsCreateManyUserInputEnvelope
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+  }
+
+  export type WithdrawsCreateNestedManyWithoutUserInput = {
+    create?: XOR<WithdrawsCreateWithoutUserInput, WithdrawsUncheckedCreateWithoutUserInput> | WithdrawsCreateWithoutUserInput[] | WithdrawsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutUserInput | WithdrawsCreateOrConnectWithoutUserInput[]
+    createMany?: WithdrawsCreateManyUserInputEnvelope
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+  }
+
+  export type BeneficiariesCreateNestedManyWithoutUserInput = {
+    create?: XOR<BeneficiariesCreateWithoutUserInput, BeneficiariesUncheckedCreateWithoutUserInput> | BeneficiariesCreateWithoutUserInput[] | BeneficiariesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutUserInput | BeneficiariesCreateOrConnectWithoutUserInput[]
+    createMany?: BeneficiariesCreateManyUserInputEnvelope
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+  }
+
   export type UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput = {
     create?: XOR<UserRoleMappingCreateWithoutUsersInput, UserRoleMappingUncheckedCreateWithoutUsersInput> | UserRoleMappingCreateWithoutUsersInput[] | UserRoleMappingUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: UserRoleMappingCreateOrConnectWithoutUsersInput | UserRoleMappingCreateOrConnectWithoutUsersInput[]
@@ -18375,6 +25992,27 @@ export namespace Prisma {
     connectOrCreate?: GroupTradeCreateOrConnectWithoutUserInput | GroupTradeCreateOrConnectWithoutUserInput[]
     createMany?: GroupTradeCreateManyUserInputEnvelope
     connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
+  }
+
+  export type DepositsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<DepositsCreateWithoutUserInput, DepositsUncheckedCreateWithoutUserInput> | DepositsCreateWithoutUserInput[] | DepositsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutUserInput | DepositsCreateOrConnectWithoutUserInput[]
+    createMany?: DepositsCreateManyUserInputEnvelope
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+  }
+
+  export type WithdrawsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<WithdrawsCreateWithoutUserInput, WithdrawsUncheckedCreateWithoutUserInput> | WithdrawsCreateWithoutUserInput[] | WithdrawsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutUserInput | WithdrawsCreateOrConnectWithoutUserInput[]
+    createMany?: WithdrawsCreateManyUserInputEnvelope
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+  }
+
+  export type BeneficiariesUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<BeneficiariesCreateWithoutUserInput, BeneficiariesUncheckedCreateWithoutUserInput> | BeneficiariesCreateWithoutUserInput[] | BeneficiariesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutUserInput | BeneficiariesCreateOrConnectWithoutUserInput[]
+    createMany?: BeneficiariesCreateManyUserInputEnvelope
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -18465,6 +26103,48 @@ export namespace Prisma {
     deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
   }
 
+  export type DepositsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DepositsCreateWithoutUserInput, DepositsUncheckedCreateWithoutUserInput> | DepositsCreateWithoutUserInput[] | DepositsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutUserInput | DepositsCreateOrConnectWithoutUserInput[]
+    upsert?: DepositsUpsertWithWhereUniqueWithoutUserInput | DepositsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DepositsCreateManyUserInputEnvelope
+    set?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    disconnect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    delete?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    update?: DepositsUpdateWithWhereUniqueWithoutUserInput | DepositsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DepositsUpdateManyWithWhereWithoutUserInput | DepositsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DepositsScalarWhereInput | DepositsScalarWhereInput[]
+  }
+
+  export type WithdrawsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WithdrawsCreateWithoutUserInput, WithdrawsUncheckedCreateWithoutUserInput> | WithdrawsCreateWithoutUserInput[] | WithdrawsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutUserInput | WithdrawsCreateOrConnectWithoutUserInput[]
+    upsert?: WithdrawsUpsertWithWhereUniqueWithoutUserInput | WithdrawsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WithdrawsCreateManyUserInputEnvelope
+    set?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    disconnect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    delete?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    update?: WithdrawsUpdateWithWhereUniqueWithoutUserInput | WithdrawsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WithdrawsUpdateManyWithWhereWithoutUserInput | WithdrawsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+  }
+
+  export type BeneficiariesUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BeneficiariesCreateWithoutUserInput, BeneficiariesUncheckedCreateWithoutUserInput> | BeneficiariesCreateWithoutUserInput[] | BeneficiariesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutUserInput | BeneficiariesCreateOrConnectWithoutUserInput[]
+    upsert?: BeneficiariesUpsertWithWhereUniqueWithoutUserInput | BeneficiariesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BeneficiariesCreateManyUserInputEnvelope
+    set?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    disconnect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    delete?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    update?: BeneficiariesUpdateWithWhereUniqueWithoutUserInput | BeneficiariesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BeneficiariesUpdateManyWithWhereWithoutUserInput | BeneficiariesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BeneficiariesScalarWhereInput | BeneficiariesScalarWhereInput[]
+  }
+
   export type UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput = {
     create?: XOR<UserRoleMappingCreateWithoutUsersInput, UserRoleMappingUncheckedCreateWithoutUsersInput> | UserRoleMappingCreateWithoutUsersInput[] | UserRoleMappingUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: UserRoleMappingCreateOrConnectWithoutUsersInput | UserRoleMappingCreateOrConnectWithoutUsersInput[]
@@ -18519,6 +26199,48 @@ export namespace Prisma {
     update?: GroupTradeUpdateWithWhereUniqueWithoutUserInput | GroupTradeUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: GroupTradeUpdateManyWithWhereWithoutUserInput | GroupTradeUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
+  }
+
+  export type DepositsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DepositsCreateWithoutUserInput, DepositsUncheckedCreateWithoutUserInput> | DepositsCreateWithoutUserInput[] | DepositsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutUserInput | DepositsCreateOrConnectWithoutUserInput[]
+    upsert?: DepositsUpsertWithWhereUniqueWithoutUserInput | DepositsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DepositsCreateManyUserInputEnvelope
+    set?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    disconnect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    delete?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    update?: DepositsUpdateWithWhereUniqueWithoutUserInput | DepositsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DepositsUpdateManyWithWhereWithoutUserInput | DepositsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DepositsScalarWhereInput | DepositsScalarWhereInput[]
+  }
+
+  export type WithdrawsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WithdrawsCreateWithoutUserInput, WithdrawsUncheckedCreateWithoutUserInput> | WithdrawsCreateWithoutUserInput[] | WithdrawsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutUserInput | WithdrawsCreateOrConnectWithoutUserInput[]
+    upsert?: WithdrawsUpsertWithWhereUniqueWithoutUserInput | WithdrawsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WithdrawsCreateManyUserInputEnvelope
+    set?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    disconnect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    delete?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    update?: WithdrawsUpdateWithWhereUniqueWithoutUserInput | WithdrawsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WithdrawsUpdateManyWithWhereWithoutUserInput | WithdrawsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+  }
+
+  export type BeneficiariesUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BeneficiariesCreateWithoutUserInput, BeneficiariesUncheckedCreateWithoutUserInput> | BeneficiariesCreateWithoutUserInput[] | BeneficiariesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutUserInput | BeneficiariesCreateOrConnectWithoutUserInput[]
+    upsert?: BeneficiariesUpsertWithWhereUniqueWithoutUserInput | BeneficiariesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BeneficiariesCreateManyUserInputEnvelope
+    set?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    disconnect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    delete?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    update?: BeneficiariesUpdateWithWhereUniqueWithoutUserInput | BeneficiariesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BeneficiariesUpdateManyWithWhereWithoutUserInput | BeneficiariesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BeneficiariesScalarWhereInput | BeneficiariesScalarWhereInput[]
   }
 
   export type UserRoleMappingCreateNestedManyWithoutRolesInput = {
@@ -18623,6 +26345,27 @@ export namespace Prisma {
     connect?: UserWalletWhereUniqueInput | UserWalletWhereUniqueInput[]
   }
 
+  export type DepositsCreateNestedManyWithoutCoinInput = {
+    create?: XOR<DepositsCreateWithoutCoinInput, DepositsUncheckedCreateWithoutCoinInput> | DepositsCreateWithoutCoinInput[] | DepositsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutCoinInput | DepositsCreateOrConnectWithoutCoinInput[]
+    createMany?: DepositsCreateManyCoinInputEnvelope
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+  }
+
+  export type WithdrawsCreateNestedManyWithoutCoinInput = {
+    create?: XOR<WithdrawsCreateWithoutCoinInput, WithdrawsUncheckedCreateWithoutCoinInput> | WithdrawsCreateWithoutCoinInput[] | WithdrawsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutCoinInput | WithdrawsCreateOrConnectWithoutCoinInput[]
+    createMany?: WithdrawsCreateManyCoinInputEnvelope
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+  }
+
+  export type BeneficiariesCreateNestedManyWithoutCoinInput = {
+    create?: XOR<BeneficiariesCreateWithoutCoinInput, BeneficiariesUncheckedCreateWithoutCoinInput> | BeneficiariesCreateWithoutCoinInput[] | BeneficiariesUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutCoinInput | BeneficiariesCreateOrConnectWithoutCoinInput[]
+    createMany?: BeneficiariesCreateManyCoinInputEnvelope
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+  }
+
   export type TradingGroupUncheckedCreateNestedManyWithoutBaseCoinInput = {
     create?: XOR<TradingGroupCreateWithoutBaseCoinInput, TradingGroupUncheckedCreateWithoutBaseCoinInput> | TradingGroupCreateWithoutBaseCoinInput[] | TradingGroupUncheckedCreateWithoutBaseCoinInput[]
     connectOrCreate?: TradingGroupCreateOrConnectWithoutBaseCoinInput | TradingGroupCreateOrConnectWithoutBaseCoinInput[]
@@ -18651,6 +26394,27 @@ export namespace Prisma {
     connect?: UserWalletWhereUniqueInput | UserWalletWhereUniqueInput[]
   }
 
+  export type DepositsUncheckedCreateNestedManyWithoutCoinInput = {
+    create?: XOR<DepositsCreateWithoutCoinInput, DepositsUncheckedCreateWithoutCoinInput> | DepositsCreateWithoutCoinInput[] | DepositsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutCoinInput | DepositsCreateOrConnectWithoutCoinInput[]
+    createMany?: DepositsCreateManyCoinInputEnvelope
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+  }
+
+  export type WithdrawsUncheckedCreateNestedManyWithoutCoinInput = {
+    create?: XOR<WithdrawsCreateWithoutCoinInput, WithdrawsUncheckedCreateWithoutCoinInput> | WithdrawsCreateWithoutCoinInput[] | WithdrawsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutCoinInput | WithdrawsCreateOrConnectWithoutCoinInput[]
+    createMany?: WithdrawsCreateManyCoinInputEnvelope
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+  }
+
+  export type BeneficiariesUncheckedCreateNestedManyWithoutCoinInput = {
+    create?: XOR<BeneficiariesCreateWithoutCoinInput, BeneficiariesUncheckedCreateWithoutCoinInput> | BeneficiariesCreateWithoutCoinInput[] | BeneficiariesUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutCoinInput | BeneficiariesCreateOrConnectWithoutCoinInput[]
+    createMany?: BeneficiariesCreateManyCoinInputEnvelope
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+  }
+
   export type NullableBigIntFieldUpdateOperationsInput = {
     set?: bigint | number | null
     increment?: bigint | number
@@ -18661,6 +26425,14 @@ export namespace Prisma {
 
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type TradingGroupUpdateManyWithoutBaseCoinNestedInput = {
@@ -18719,6 +26491,48 @@ export namespace Prisma {
     deleteMany?: UserWalletScalarWhereInput | UserWalletScalarWhereInput[]
   }
 
+  export type DepositsUpdateManyWithoutCoinNestedInput = {
+    create?: XOR<DepositsCreateWithoutCoinInput, DepositsUncheckedCreateWithoutCoinInput> | DepositsCreateWithoutCoinInput[] | DepositsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutCoinInput | DepositsCreateOrConnectWithoutCoinInput[]
+    upsert?: DepositsUpsertWithWhereUniqueWithoutCoinInput | DepositsUpsertWithWhereUniqueWithoutCoinInput[]
+    createMany?: DepositsCreateManyCoinInputEnvelope
+    set?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    disconnect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    delete?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    update?: DepositsUpdateWithWhereUniqueWithoutCoinInput | DepositsUpdateWithWhereUniqueWithoutCoinInput[]
+    updateMany?: DepositsUpdateManyWithWhereWithoutCoinInput | DepositsUpdateManyWithWhereWithoutCoinInput[]
+    deleteMany?: DepositsScalarWhereInput | DepositsScalarWhereInput[]
+  }
+
+  export type WithdrawsUpdateManyWithoutCoinNestedInput = {
+    create?: XOR<WithdrawsCreateWithoutCoinInput, WithdrawsUncheckedCreateWithoutCoinInput> | WithdrawsCreateWithoutCoinInput[] | WithdrawsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutCoinInput | WithdrawsCreateOrConnectWithoutCoinInput[]
+    upsert?: WithdrawsUpsertWithWhereUniqueWithoutCoinInput | WithdrawsUpsertWithWhereUniqueWithoutCoinInput[]
+    createMany?: WithdrawsCreateManyCoinInputEnvelope
+    set?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    disconnect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    delete?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    update?: WithdrawsUpdateWithWhereUniqueWithoutCoinInput | WithdrawsUpdateWithWhereUniqueWithoutCoinInput[]
+    updateMany?: WithdrawsUpdateManyWithWhereWithoutCoinInput | WithdrawsUpdateManyWithWhereWithoutCoinInput[]
+    deleteMany?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+  }
+
+  export type BeneficiariesUpdateManyWithoutCoinNestedInput = {
+    create?: XOR<BeneficiariesCreateWithoutCoinInput, BeneficiariesUncheckedCreateWithoutCoinInput> | BeneficiariesCreateWithoutCoinInput[] | BeneficiariesUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutCoinInput | BeneficiariesCreateOrConnectWithoutCoinInput[]
+    upsert?: BeneficiariesUpsertWithWhereUniqueWithoutCoinInput | BeneficiariesUpsertWithWhereUniqueWithoutCoinInput[]
+    createMany?: BeneficiariesCreateManyCoinInputEnvelope
+    set?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    disconnect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    delete?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    update?: BeneficiariesUpdateWithWhereUniqueWithoutCoinInput | BeneficiariesUpdateWithWhereUniqueWithoutCoinInput[]
+    updateMany?: BeneficiariesUpdateManyWithWhereWithoutCoinInput | BeneficiariesUpdateManyWithWhereWithoutCoinInput[]
+    deleteMany?: BeneficiariesScalarWhereInput | BeneficiariesScalarWhereInput[]
+  }
+
   export type TradingGroupUncheckedUpdateManyWithoutBaseCoinNestedInput = {
     create?: XOR<TradingGroupCreateWithoutBaseCoinInput, TradingGroupUncheckedCreateWithoutBaseCoinInput> | TradingGroupCreateWithoutBaseCoinInput[] | TradingGroupUncheckedCreateWithoutBaseCoinInput[]
     connectOrCreate?: TradingGroupCreateOrConnectWithoutBaseCoinInput | TradingGroupCreateOrConnectWithoutBaseCoinInput[]
@@ -18775,6 +26589,48 @@ export namespace Prisma {
     deleteMany?: UserWalletScalarWhereInput | UserWalletScalarWhereInput[]
   }
 
+  export type DepositsUncheckedUpdateManyWithoutCoinNestedInput = {
+    create?: XOR<DepositsCreateWithoutCoinInput, DepositsUncheckedCreateWithoutCoinInput> | DepositsCreateWithoutCoinInput[] | DepositsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: DepositsCreateOrConnectWithoutCoinInput | DepositsCreateOrConnectWithoutCoinInput[]
+    upsert?: DepositsUpsertWithWhereUniqueWithoutCoinInput | DepositsUpsertWithWhereUniqueWithoutCoinInput[]
+    createMany?: DepositsCreateManyCoinInputEnvelope
+    set?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    disconnect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    delete?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    connect?: DepositsWhereUniqueInput | DepositsWhereUniqueInput[]
+    update?: DepositsUpdateWithWhereUniqueWithoutCoinInput | DepositsUpdateWithWhereUniqueWithoutCoinInput[]
+    updateMany?: DepositsUpdateManyWithWhereWithoutCoinInput | DepositsUpdateManyWithWhereWithoutCoinInput[]
+    deleteMany?: DepositsScalarWhereInput | DepositsScalarWhereInput[]
+  }
+
+  export type WithdrawsUncheckedUpdateManyWithoutCoinNestedInput = {
+    create?: XOR<WithdrawsCreateWithoutCoinInput, WithdrawsUncheckedCreateWithoutCoinInput> | WithdrawsCreateWithoutCoinInput[] | WithdrawsUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutCoinInput | WithdrawsCreateOrConnectWithoutCoinInput[]
+    upsert?: WithdrawsUpsertWithWhereUniqueWithoutCoinInput | WithdrawsUpsertWithWhereUniqueWithoutCoinInput[]
+    createMany?: WithdrawsCreateManyCoinInputEnvelope
+    set?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    disconnect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    delete?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    update?: WithdrawsUpdateWithWhereUniqueWithoutCoinInput | WithdrawsUpdateWithWhereUniqueWithoutCoinInput[]
+    updateMany?: WithdrawsUpdateManyWithWhereWithoutCoinInput | WithdrawsUpdateManyWithWhereWithoutCoinInput[]
+    deleteMany?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+  }
+
+  export type BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput = {
+    create?: XOR<BeneficiariesCreateWithoutCoinInput, BeneficiariesUncheckedCreateWithoutCoinInput> | BeneficiariesCreateWithoutCoinInput[] | BeneficiariesUncheckedCreateWithoutCoinInput[]
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutCoinInput | BeneficiariesCreateOrConnectWithoutCoinInput[]
+    upsert?: BeneficiariesUpsertWithWhereUniqueWithoutCoinInput | BeneficiariesUpsertWithWhereUniqueWithoutCoinInput[]
+    createMany?: BeneficiariesCreateManyCoinInputEnvelope
+    set?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    disconnect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    delete?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    connect?: BeneficiariesWhereUniqueInput | BeneficiariesWhereUniqueInput[]
+    update?: BeneficiariesUpdateWithWhereUniqueWithoutCoinInput | BeneficiariesUpdateWithWhereUniqueWithoutCoinInput[]
+    updateMany?: BeneficiariesUpdateManyWithWhereWithoutCoinInput | BeneficiariesUpdateManyWithWhereWithoutCoinInput[]
+    deleteMany?: BeneficiariesScalarWhereInput | BeneficiariesScalarWhereInput[]
+  }
+
   export type UsersCreateNestedOneWithoutDevicesInput = {
     create?: XOR<UsersCreateWithoutDevicesInput, UsersUncheckedCreateWithoutDevicesInput>
     connectOrCreate?: UsersCreateOrConnectWithoutDevicesInput
@@ -18815,12 +26671,20 @@ export namespace Prisma {
     connect?: UserWalletTransactionWhereUniqueInput | UserWalletTransactionWhereUniqueInput[]
   }
 
+  export type NullableEnumWalletStatusFieldUpdateOperationsInput = {
+    set?: $Enums.WalletStatus | null
+  }
+
   export type FloatFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type EnumWalletKindFieldUpdateOperationsInput = {
+    set?: $Enums.WalletKind
   }
 
   export type CoinsUpdateOneRequiredWithoutUserWalletNestedInput = {
@@ -18886,11 +26750,37 @@ export namespace Prisma {
     connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
   }
 
+  export type TradingFeesCreateNestedManyWithoutTradingGroupInput = {
+    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
+    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
+    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
+    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+  }
+
   export type GroupTradeUncheckedCreateNestedManyWithoutGroupInput = {
     create?: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput> | GroupTradeCreateWithoutGroupInput[] | GroupTradeUncheckedCreateWithoutGroupInput[]
     connectOrCreate?: GroupTradeCreateOrConnectWithoutGroupInput | GroupTradeCreateOrConnectWithoutGroupInput[]
     createMany?: GroupTradeCreateManyGroupInputEnvelope
     connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
+  }
+
+  export type TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput = {
+    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
+    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
+    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
+    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type EnumTradingGroupStateFieldUpdateOperationsInput = {
+    set?: $Enums.TradingGroupState
   }
 
   export type CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput = {
@@ -18923,6 +26813,20 @@ export namespace Prisma {
     deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
   }
 
+  export type TradingFeesUpdateManyWithoutTradingGroupNestedInput = {
+    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
+    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
+    upsert?: TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput[]
+    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
+    set?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    disconnect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    delete?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    update?: TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput[]
+    updateMany?: TradingFeesUpdateManyWithWhereWithoutTradingGroupInput | TradingFeesUpdateManyWithWhereWithoutTradingGroupInput[]
+    deleteMany?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
+  }
+
   export type GroupTradeUncheckedUpdateManyWithoutGroupNestedInput = {
     create?: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput> | GroupTradeCreateWithoutGroupInput[] | GroupTradeUncheckedCreateWithoutGroupInput[]
     connectOrCreate?: GroupTradeCreateOrConnectWithoutGroupInput | GroupTradeCreateOrConnectWithoutGroupInput[]
@@ -18935,6 +26839,20 @@ export namespace Prisma {
     update?: GroupTradeUpdateWithWhereUniqueWithoutGroupInput | GroupTradeUpdateWithWhereUniqueWithoutGroupInput[]
     updateMany?: GroupTradeUpdateManyWithWhereWithoutGroupInput | GroupTradeUpdateManyWithWhereWithoutGroupInput[]
     deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
+  }
+
+  export type TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput = {
+    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
+    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
+    upsert?: TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput[]
+    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
+    set?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    disconnect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    delete?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
+    update?: TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput[]
+    updateMany?: TradingFeesUpdateManyWithWhereWithoutTradingGroupInput | TradingFeesUpdateManyWithWhereWithoutTradingGroupInput[]
+    deleteMany?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
   }
 
   export type TradingGroupCreateNestedOneWithoutTradesInput = {
@@ -19012,6 +26930,174 @@ export namespace Prisma {
     upsert?: UserWalletUpsertWithoutUserWalletTransactionInput
     connect?: UserWalletWhereUniqueInput
     update?: XOR<XOR<UserWalletUpdateToOneWithWhereWithoutUserWalletTransactionInput, UserWalletUpdateWithoutUserWalletTransactionInput>, UserWalletUncheckedUpdateWithoutUserWalletTransactionInput>
+  }
+
+  export type UsersCreateNestedOneWithoutDepositsInput = {
+    create?: XOR<UsersCreateWithoutDepositsInput, UsersUncheckedCreateWithoutDepositsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutDepositsInput
+    connect?: UsersWhereUniqueInput
+  }
+
+  export type CoinsCreateNestedOneWithoutDepositsInput = {
+    create?: XOR<CoinsCreateWithoutDepositsInput, CoinsUncheckedCreateWithoutDepositsInput>
+    connectOrCreate?: CoinsCreateOrConnectWithoutDepositsInput
+    connect?: CoinsWhereUniqueInput
+  }
+
+  export type EnumDepositStateFieldUpdateOperationsInput = {
+    set?: $Enums.DepositState
+  }
+
+  export type UsersUpdateOneRequiredWithoutDepositsNestedInput = {
+    create?: XOR<UsersCreateWithoutDepositsInput, UsersUncheckedCreateWithoutDepositsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutDepositsInput
+    upsert?: UsersUpsertWithoutDepositsInput
+    connect?: UsersWhereUniqueInput
+    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutDepositsInput, UsersUpdateWithoutDepositsInput>, UsersUncheckedUpdateWithoutDepositsInput>
+  }
+
+  export type CoinsUpdateOneRequiredWithoutDepositsNestedInput = {
+    create?: XOR<CoinsCreateWithoutDepositsInput, CoinsUncheckedCreateWithoutDepositsInput>
+    connectOrCreate?: CoinsCreateOrConnectWithoutDepositsInput
+    upsert?: CoinsUpsertWithoutDepositsInput
+    connect?: CoinsWhereUniqueInput
+    update?: XOR<XOR<CoinsUpdateToOneWithWhereWithoutDepositsInput, CoinsUpdateWithoutDepositsInput>, CoinsUncheckedUpdateWithoutDepositsInput>
+  }
+
+  export type UsersCreateNestedOneWithoutWithdrawsInput = {
+    create?: XOR<UsersCreateWithoutWithdrawsInput, UsersUncheckedCreateWithoutWithdrawsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutWithdrawsInput
+    connect?: UsersWhereUniqueInput
+  }
+
+  export type CoinsCreateNestedOneWithoutWithdrawsInput = {
+    create?: XOR<CoinsCreateWithoutWithdrawsInput, CoinsUncheckedCreateWithoutWithdrawsInput>
+    connectOrCreate?: CoinsCreateOrConnectWithoutWithdrawsInput
+    connect?: CoinsWhereUniqueInput
+  }
+
+  export type BeneficiariesCreateNestedOneWithoutWithdrawsInput = {
+    create?: XOR<BeneficiariesCreateWithoutWithdrawsInput, BeneficiariesUncheckedCreateWithoutWithdrawsInput>
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutWithdrawsInput
+    connect?: BeneficiariesWhereUniqueInput
+  }
+
+  export type EnumWithdrawStateFieldUpdateOperationsInput = {
+    set?: $Enums.WithdrawState
+  }
+
+  export type UsersUpdateOneRequiredWithoutWithdrawsNestedInput = {
+    create?: XOR<UsersCreateWithoutWithdrawsInput, UsersUncheckedCreateWithoutWithdrawsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutWithdrawsInput
+    upsert?: UsersUpsertWithoutWithdrawsInput
+    connect?: UsersWhereUniqueInput
+    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutWithdrawsInput, UsersUpdateWithoutWithdrawsInput>, UsersUncheckedUpdateWithoutWithdrawsInput>
+  }
+
+  export type CoinsUpdateOneRequiredWithoutWithdrawsNestedInput = {
+    create?: XOR<CoinsCreateWithoutWithdrawsInput, CoinsUncheckedCreateWithoutWithdrawsInput>
+    connectOrCreate?: CoinsCreateOrConnectWithoutWithdrawsInput
+    upsert?: CoinsUpsertWithoutWithdrawsInput
+    connect?: CoinsWhereUniqueInput
+    update?: XOR<XOR<CoinsUpdateToOneWithWhereWithoutWithdrawsInput, CoinsUpdateWithoutWithdrawsInput>, CoinsUncheckedUpdateWithoutWithdrawsInput>
+  }
+
+  export type BeneficiariesUpdateOneWithoutWithdrawsNestedInput = {
+    create?: XOR<BeneficiariesCreateWithoutWithdrawsInput, BeneficiariesUncheckedCreateWithoutWithdrawsInput>
+    connectOrCreate?: BeneficiariesCreateOrConnectWithoutWithdrawsInput
+    upsert?: BeneficiariesUpsertWithoutWithdrawsInput
+    disconnect?: BeneficiariesWhereInput | boolean
+    delete?: BeneficiariesWhereInput | boolean
+    connect?: BeneficiariesWhereUniqueInput
+    update?: XOR<XOR<BeneficiariesUpdateToOneWithWhereWithoutWithdrawsInput, BeneficiariesUpdateWithoutWithdrawsInput>, BeneficiariesUncheckedUpdateWithoutWithdrawsInput>
+  }
+
+  export type UsersCreateNestedOneWithoutBeneficiariesInput = {
+    create?: XOR<UsersCreateWithoutBeneficiariesInput, UsersUncheckedCreateWithoutBeneficiariesInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutBeneficiariesInput
+    connect?: UsersWhereUniqueInput
+  }
+
+  export type CoinsCreateNestedOneWithoutBeneficiariesInput = {
+    create?: XOR<CoinsCreateWithoutBeneficiariesInput, CoinsUncheckedCreateWithoutBeneficiariesInput>
+    connectOrCreate?: CoinsCreateOrConnectWithoutBeneficiariesInput
+    connect?: CoinsWhereUniqueInput
+  }
+
+  export type WithdrawsCreateNestedManyWithoutBeneficiaryInput = {
+    create?: XOR<WithdrawsCreateWithoutBeneficiaryInput, WithdrawsUncheckedCreateWithoutBeneficiaryInput> | WithdrawsCreateWithoutBeneficiaryInput[] | WithdrawsUncheckedCreateWithoutBeneficiaryInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutBeneficiaryInput | WithdrawsCreateOrConnectWithoutBeneficiaryInput[]
+    createMany?: WithdrawsCreateManyBeneficiaryInputEnvelope
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+  }
+
+  export type WithdrawsUncheckedCreateNestedManyWithoutBeneficiaryInput = {
+    create?: XOR<WithdrawsCreateWithoutBeneficiaryInput, WithdrawsUncheckedCreateWithoutBeneficiaryInput> | WithdrawsCreateWithoutBeneficiaryInput[] | WithdrawsUncheckedCreateWithoutBeneficiaryInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutBeneficiaryInput | WithdrawsCreateOrConnectWithoutBeneficiaryInput[]
+    createMany?: WithdrawsCreateManyBeneficiaryInputEnvelope
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+  }
+
+  export type EnumBeneficiaryStateFieldUpdateOperationsInput = {
+    set?: $Enums.BeneficiaryState
+  }
+
+  export type UsersUpdateOneRequiredWithoutBeneficiariesNestedInput = {
+    create?: XOR<UsersCreateWithoutBeneficiariesInput, UsersUncheckedCreateWithoutBeneficiariesInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutBeneficiariesInput
+    upsert?: UsersUpsertWithoutBeneficiariesInput
+    connect?: UsersWhereUniqueInput
+    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutBeneficiariesInput, UsersUpdateWithoutBeneficiariesInput>, UsersUncheckedUpdateWithoutBeneficiariesInput>
+  }
+
+  export type CoinsUpdateOneRequiredWithoutBeneficiariesNestedInput = {
+    create?: XOR<CoinsCreateWithoutBeneficiariesInput, CoinsUncheckedCreateWithoutBeneficiariesInput>
+    connectOrCreate?: CoinsCreateOrConnectWithoutBeneficiariesInput
+    upsert?: CoinsUpsertWithoutBeneficiariesInput
+    connect?: CoinsWhereUniqueInput
+    update?: XOR<XOR<CoinsUpdateToOneWithWhereWithoutBeneficiariesInput, CoinsUpdateWithoutBeneficiariesInput>, CoinsUncheckedUpdateWithoutBeneficiariesInput>
+  }
+
+  export type WithdrawsUpdateManyWithoutBeneficiaryNestedInput = {
+    create?: XOR<WithdrawsCreateWithoutBeneficiaryInput, WithdrawsUncheckedCreateWithoutBeneficiaryInput> | WithdrawsCreateWithoutBeneficiaryInput[] | WithdrawsUncheckedCreateWithoutBeneficiaryInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutBeneficiaryInput | WithdrawsCreateOrConnectWithoutBeneficiaryInput[]
+    upsert?: WithdrawsUpsertWithWhereUniqueWithoutBeneficiaryInput | WithdrawsUpsertWithWhereUniqueWithoutBeneficiaryInput[]
+    createMany?: WithdrawsCreateManyBeneficiaryInputEnvelope
+    set?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    disconnect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    delete?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    update?: WithdrawsUpdateWithWhereUniqueWithoutBeneficiaryInput | WithdrawsUpdateWithWhereUniqueWithoutBeneficiaryInput[]
+    updateMany?: WithdrawsUpdateManyWithWhereWithoutBeneficiaryInput | WithdrawsUpdateManyWithWhereWithoutBeneficiaryInput[]
+    deleteMany?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+  }
+
+  export type WithdrawsUncheckedUpdateManyWithoutBeneficiaryNestedInput = {
+    create?: XOR<WithdrawsCreateWithoutBeneficiaryInput, WithdrawsUncheckedCreateWithoutBeneficiaryInput> | WithdrawsCreateWithoutBeneficiaryInput[] | WithdrawsUncheckedCreateWithoutBeneficiaryInput[]
+    connectOrCreate?: WithdrawsCreateOrConnectWithoutBeneficiaryInput | WithdrawsCreateOrConnectWithoutBeneficiaryInput[]
+    upsert?: WithdrawsUpsertWithWhereUniqueWithoutBeneficiaryInput | WithdrawsUpsertWithWhereUniqueWithoutBeneficiaryInput[]
+    createMany?: WithdrawsCreateManyBeneficiaryInputEnvelope
+    set?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    disconnect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    delete?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    connect?: WithdrawsWhereUniqueInput | WithdrawsWhereUniqueInput[]
+    update?: WithdrawsUpdateWithWhereUniqueWithoutBeneficiaryInput | WithdrawsUpdateWithWhereUniqueWithoutBeneficiaryInput[]
+    updateMany?: WithdrawsUpdateManyWithWhereWithoutBeneficiaryInput | WithdrawsUpdateManyWithWhereWithoutBeneficiaryInput[]
+    deleteMany?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+  }
+
+  export type TradingGroupCreateNestedOneWithoutTradingFeesInput = {
+    create?: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
+    connectOrCreate?: TradingGroupCreateOrConnectWithoutTradingFeesInput
+    connect?: TradingGroupWhereUniqueInput
+  }
+
+  export type TradingGroupUpdateOneRequiredWithoutTradingFeesNestedInput = {
+    create?: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
+    connectOrCreate?: TradingGroupCreateOrConnectWithoutTradingFeesInput
+    upsert?: TradingGroupUpsertWithoutTradingFeesInput
+    connect?: TradingGroupWhereUniqueInput
+    update?: XOR<XOR<TradingGroupUpdateToOneWithWhereWithoutTradingFeesInput, TradingGroupUpdateWithoutTradingFeesInput>, TradingGroupUncheckedUpdateWithoutTradingFeesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -19262,6 +27348,29 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumWalletStatusNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletStatus | EnumWalletStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWalletStatusNullableFilter<$PrismaModel> | $Enums.WalletStatus | null
+  }
+
   export type NestedFloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -19271,6 +27380,23 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedEnumWalletKindFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletKind | EnumWalletKindFieldRefInput<$PrismaModel>
+    in?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumWalletKindFilter<$PrismaModel> | $Enums.WalletKind
+  }
+
+  export type NestedEnumWalletStatusNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletStatus | EnumWalletStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WalletStatus[] | ListEnumWalletStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWalletStatusNullableWithAggregatesFilter<$PrismaModel> | $Enums.WalletStatus | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumWalletStatusNullableFilter<$PrismaModel>
+    _max?: NestedEnumWalletStatusNullableFilter<$PrismaModel>
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -19287,6 +27413,72 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedEnumWalletKindWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WalletKind | EnumWalletKindFieldRefInput<$PrismaModel>
+    in?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WalletKind[] | ListEnumWalletKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumWalletKindWithAggregatesFilter<$PrismaModel> | $Enums.WalletKind
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumWalletKindFilter<$PrismaModel>
+    _max?: NestedEnumWalletKindFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedEnumTradingGroupStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.TradingGroupState | EnumTradingGroupStateFieldRefInput<$PrismaModel>
+    in?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumTradingGroupStateFilter<$PrismaModel> | $Enums.TradingGroupState
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedEnumTradingGroupStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TradingGroupState | EnumTradingGroupStateFieldRefInput<$PrismaModel>
+    in?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TradingGroupState[] | ListEnumTradingGroupStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumTradingGroupStateWithAggregatesFilter<$PrismaModel> | $Enums.TradingGroupState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTradingGroupStateFilter<$PrismaModel>
+    _max?: NestedEnumTradingGroupStateFilter<$PrismaModel>
   }
 
   export type NestedEnumOperationTypeFilter<$PrismaModel = never> = {
@@ -19331,6 +27523,57 @@ export namespace Prisma {
     _sum?: NestedDecimalFilter<$PrismaModel>
     _min?: NestedDecimalFilter<$PrismaModel>
     _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedEnumDepositStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.DepositState | EnumDepositStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDepositStateFilter<$PrismaModel> | $Enums.DepositState
+  }
+
+  export type NestedEnumDepositStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DepositState | EnumDepositStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DepositState[] | ListEnumDepositStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDepositStateWithAggregatesFilter<$PrismaModel> | $Enums.DepositState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumDepositStateFilter<$PrismaModel>
+    _max?: NestedEnumDepositStateFilter<$PrismaModel>
+  }
+
+  export type NestedEnumWithdrawStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.WithdrawState | EnumWithdrawStateFieldRefInput<$PrismaModel>
+    in?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumWithdrawStateFilter<$PrismaModel> | $Enums.WithdrawState
+  }
+
+  export type NestedEnumWithdrawStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WithdrawState | EnumWithdrawStateFieldRefInput<$PrismaModel>
+    in?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.WithdrawState[] | ListEnumWithdrawStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumWithdrawStateWithAggregatesFilter<$PrismaModel> | $Enums.WithdrawState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumWithdrawStateFilter<$PrismaModel>
+    _max?: NestedEnumWithdrawStateFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBeneficiaryStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.BeneficiaryState | EnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    in?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumBeneficiaryStateFilter<$PrismaModel> | $Enums.BeneficiaryState
+  }
+
+  export type NestedEnumBeneficiaryStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BeneficiaryState | EnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    in?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BeneficiaryState[] | ListEnumBeneficiaryStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumBeneficiaryStateWithAggregatesFilter<$PrismaModel> | $Enums.BeneficiaryState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBeneficiaryStateFilter<$PrismaModel>
+    _max?: NestedEnumBeneficiaryStateFilter<$PrismaModel>
   }
 
   export type UserRoleMappingCreateWithoutUsersInput = {
@@ -19389,8 +27632,13 @@ export namespace Prisma {
 
   export type UserWalletCreateWithoutUserInput = {
     id?: string
-    amount: number
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -19400,9 +27648,14 @@ export namespace Prisma {
 
   export type UserWalletUncheckedCreateWithoutUserInput = {
     id?: string
-    amount: number
     coinId: string
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -19448,6 +27701,126 @@ export namespace Prisma {
 
   export type GroupTradeCreateManyUserInputEnvelope = {
     data: GroupTradeCreateManyUserInput | GroupTradeCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DepositsCreateWithoutUserInput = {
+    id?: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    coin: CoinsCreateNestedOneWithoutDepositsInput
+  }
+
+  export type DepositsUncheckedCreateWithoutUserInput = {
+    id?: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type DepositsCreateOrConnectWithoutUserInput = {
+    where: DepositsWhereUniqueInput
+    create: XOR<DepositsCreateWithoutUserInput, DepositsUncheckedCreateWithoutUserInput>
+  }
+
+  export type DepositsCreateManyUserInputEnvelope = {
+    data: DepositsCreateManyUserInput | DepositsCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WithdrawsCreateWithoutUserInput = {
+    id?: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    coin: CoinsCreateNestedOneWithoutWithdrawsInput
+    beneficiary?: BeneficiariesCreateNestedOneWithoutWithdrawsInput
+  }
+
+  export type WithdrawsUncheckedCreateWithoutUserInput = {
+    id?: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    beneficiaryId?: string | null
+  }
+
+  export type WithdrawsCreateOrConnectWithoutUserInput = {
+    where: WithdrawsWhereUniqueInput
+    create: XOR<WithdrawsCreateWithoutUserInput, WithdrawsUncheckedCreateWithoutUserInput>
+  }
+
+  export type WithdrawsCreateManyUserInputEnvelope = {
+    data: WithdrawsCreateManyUserInput | WithdrawsCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BeneficiariesCreateWithoutUserInput = {
+    id?: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    coin: CoinsCreateNestedOneWithoutBeneficiariesInput
+    withdraws?: WithdrawsCreateNestedManyWithoutBeneficiaryInput
+  }
+
+  export type BeneficiariesUncheckedCreateWithoutUserInput = {
+    id?: string
+    coinId: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    withdraws?: WithdrawsUncheckedCreateNestedManyWithoutBeneficiaryInput
+  }
+
+  export type BeneficiariesCreateOrConnectWithoutUserInput = {
+    where: BeneficiariesWhereUniqueInput
+    create: XOR<BeneficiariesCreateWithoutUserInput, BeneficiariesUncheckedCreateWithoutUserInput>
+  }
+
+  export type BeneficiariesCreateManyUserInputEnvelope = {
+    data: BeneficiariesCreateManyUserInput | BeneficiariesCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -19530,9 +27903,14 @@ export namespace Prisma {
     NOT?: UserWalletScalarWhereInput | UserWalletScalarWhereInput[]
     id?: StringFilter<"UserWallet"> | string
     userId?: StringFilter<"UserWallet"> | string
-    amount?: FloatFilter<"UserWallet"> | number
     coinId?: StringFilter<"UserWallet"> | string
     currency?: StringFilter<"UserWallet"> | string
+    status?: EnumWalletStatusNullableFilter<"UserWallet"> | $Enums.WalletStatus | null
+    maxBalance?: FloatFilter<"UserWallet"> | number
+    blockchainKey?: StringNullableFilter<"UserWallet"> | string | null
+    address?: StringFilter<"UserWallet"> | string
+    kind?: EnumWalletKindFilter<"UserWallet"> | $Enums.WalletKind
+    settings?: JsonNullableFilter<"UserWallet">
     createdAt?: DateTimeFilter<"UserWallet"> | Date | string
     updatedAt?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
@@ -19567,6 +27945,110 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"GroupTrade"> | Date | string
     updatedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
+  }
+
+  export type DepositsUpsertWithWhereUniqueWithoutUserInput = {
+    where: DepositsWhereUniqueInput
+    update: XOR<DepositsUpdateWithoutUserInput, DepositsUncheckedUpdateWithoutUserInput>
+    create: XOR<DepositsCreateWithoutUserInput, DepositsUncheckedCreateWithoutUserInput>
+  }
+
+  export type DepositsUpdateWithWhereUniqueWithoutUserInput = {
+    where: DepositsWhereUniqueInput
+    data: XOR<DepositsUpdateWithoutUserInput, DepositsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type DepositsUpdateManyWithWhereWithoutUserInput = {
+    where: DepositsScalarWhereInput
+    data: XOR<DepositsUpdateManyMutationInput, DepositsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type DepositsScalarWhereInput = {
+    AND?: DepositsScalarWhereInput | DepositsScalarWhereInput[]
+    OR?: DepositsScalarWhereInput[]
+    NOT?: DepositsScalarWhereInput | DepositsScalarWhereInput[]
+    id?: StringFilter<"Deposits"> | string
+    userId?: StringFilter<"Deposits"> | string
+    coinId?: StringFilter<"Deposits"> | string
+    amount?: FloatFilter<"Deposits"> | number
+    fee?: FloatFilter<"Deposits"> | number
+    txid?: StringNullableFilter<"Deposits"> | string | null
+    address?: StringNullableFilter<"Deposits"> | string | null
+    state?: EnumDepositStateFilter<"Deposits"> | $Enums.DepositState
+    blockNumber?: IntNullableFilter<"Deposits"> | number | null
+    createdAt?: DateTimeFilter<"Deposits"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+    completedAt?: DateTimeNullableFilter<"Deposits"> | Date | string | null
+  }
+
+  export type WithdrawsUpsertWithWhereUniqueWithoutUserInput = {
+    where: WithdrawsWhereUniqueInput
+    update: XOR<WithdrawsUpdateWithoutUserInput, WithdrawsUncheckedUpdateWithoutUserInput>
+    create: XOR<WithdrawsCreateWithoutUserInput, WithdrawsUncheckedCreateWithoutUserInput>
+  }
+
+  export type WithdrawsUpdateWithWhereUniqueWithoutUserInput = {
+    where: WithdrawsWhereUniqueInput
+    data: XOR<WithdrawsUpdateWithoutUserInput, WithdrawsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type WithdrawsUpdateManyWithWhereWithoutUserInput = {
+    where: WithdrawsScalarWhereInput
+    data: XOR<WithdrawsUpdateManyMutationInput, WithdrawsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type WithdrawsScalarWhereInput = {
+    AND?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+    OR?: WithdrawsScalarWhereInput[]
+    NOT?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
+    id?: StringFilter<"Withdraws"> | string
+    userId?: StringFilter<"Withdraws"> | string
+    coinId?: StringFilter<"Withdraws"> | string
+    amount?: FloatFilter<"Withdraws"> | number
+    fee?: FloatFilter<"Withdraws"> | number
+    txid?: StringNullableFilter<"Withdraws"> | string | null
+    address?: StringFilter<"Withdraws"> | string
+    state?: EnumWithdrawStateFilter<"Withdraws"> | $Enums.WithdrawState
+    blockNumber?: IntNullableFilter<"Withdraws"> | number | null
+    createdAt?: DateTimeFilter<"Withdraws"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    completedAt?: DateTimeNullableFilter<"Withdraws"> | Date | string | null
+    beneficiaryId?: StringNullableFilter<"Withdraws"> | string | null
+  }
+
+  export type BeneficiariesUpsertWithWhereUniqueWithoutUserInput = {
+    where: BeneficiariesWhereUniqueInput
+    update: XOR<BeneficiariesUpdateWithoutUserInput, BeneficiariesUncheckedUpdateWithoutUserInput>
+    create: XOR<BeneficiariesCreateWithoutUserInput, BeneficiariesUncheckedCreateWithoutUserInput>
+  }
+
+  export type BeneficiariesUpdateWithWhereUniqueWithoutUserInput = {
+    where: BeneficiariesWhereUniqueInput
+    data: XOR<BeneficiariesUpdateWithoutUserInput, BeneficiariesUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BeneficiariesUpdateManyWithWhereWithoutUserInput = {
+    where: BeneficiariesScalarWhereInput
+    data: XOR<BeneficiariesUpdateManyMutationInput, BeneficiariesUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type BeneficiariesScalarWhereInput = {
+    AND?: BeneficiariesScalarWhereInput | BeneficiariesScalarWhereInput[]
+    OR?: BeneficiariesScalarWhereInput[]
+    NOT?: BeneficiariesScalarWhereInput | BeneficiariesScalarWhereInput[]
+    id?: StringFilter<"Beneficiaries"> | string
+    userId?: StringFilter<"Beneficiaries"> | string
+    coinId?: StringFilter<"Beneficiaries"> | string
+    name?: StringNullableFilter<"Beneficiaries"> | string | null
+    address?: StringNullableFilter<"Beneficiaries"> | string | null
+    state?: EnumBeneficiaryStateFilter<"Beneficiaries"> | $Enums.BeneficiaryState
+    pin?: StringNullableFilter<"Beneficiaries"> | string | null
+    data?: JsonNullableFilter<"Beneficiaries">
+    createdAt?: DateTimeFilter<"Beneficiaries"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Beneficiaries"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Beneficiaries"> | Date | string | null
   }
 
   export type UserRoleMappingCreateWithoutRolesInput = {
@@ -19645,6 +28127,9 @@ export namespace Prisma {
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
+    Deposits?: DepositsCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateWithoutUserRoleMappingInput = {
@@ -19681,6 +28166,9 @@ export namespace Prisma {
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersCreateOrConnectWithoutUserRoleMappingInput = {
@@ -19754,6 +28242,9 @@ export namespace Prisma {
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateWithoutUserRoleMappingInput = {
@@ -19790,6 +28281,9 @@ export namespace Prisma {
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type RolesUpsertWithoutUsersInput = {
@@ -19822,21 +28316,35 @@ export namespace Prisma {
   export type TradingGroupCreateWithoutBaseCoinInput = {
     id?: string
     name: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
     trades?: GroupTradeCreateNestedManyWithoutGroupInput
+    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUncheckedCreateWithoutBaseCoinInput = {
     id?: string
     name: string
     quoteCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
+    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupCreateOrConnectWithoutBaseCoinInput = {
@@ -19852,21 +28360,35 @@ export namespace Prisma {
   export type TradingGroupCreateWithoutQuoteCoinInput = {
     id?: string
     name: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
     trades?: GroupTradeCreateNestedManyWithoutGroupInput
+    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUncheckedCreateWithoutQuoteCoinInput = {
     id?: string
     name: string
     baseCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
+    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupCreateOrConnectWithoutQuoteCoinInput = {
@@ -19882,7 +28404,6 @@ export namespace Prisma {
   export type CoinDetailsCreateWithoutCoinInput = {
     id?: string
     chain?: string | null
-    platformContractAddress?: string | null
     platformDecimals?: string | null
     blockCainSites?: string | null
     assetPlatformId?: string | null
@@ -19898,7 +28419,6 @@ export namespace Prisma {
   export type CoinDetailsUncheckedCreateWithoutCoinInput = {
     id?: string
     chain?: string | null
-    platformContractAddress?: string | null
     platformDecimals?: string | null
     blockCainSites?: string | null
     assetPlatformId?: string | null
@@ -19923,8 +28443,13 @@ export namespace Prisma {
 
   export type UserWalletCreateWithoutCoinsInput = {
     id?: string
-    amount: number
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -19935,8 +28460,13 @@ export namespace Prisma {
   export type UserWalletUncheckedCreateWithoutCoinsInput = {
     id?: string
     userId: string
-    amount: number
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -19950,6 +28480,126 @@ export namespace Prisma {
 
   export type UserWalletCreateManyCoinsInputEnvelope = {
     data: UserWalletCreateManyCoinsInput | UserWalletCreateManyCoinsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DepositsCreateWithoutCoinInput = {
+    id?: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutDepositsInput
+  }
+
+  export type DepositsUncheckedCreateWithoutCoinInput = {
+    id?: string
+    userId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type DepositsCreateOrConnectWithoutCoinInput = {
+    where: DepositsWhereUniqueInput
+    create: XOR<DepositsCreateWithoutCoinInput, DepositsUncheckedCreateWithoutCoinInput>
+  }
+
+  export type DepositsCreateManyCoinInputEnvelope = {
+    data: DepositsCreateManyCoinInput | DepositsCreateManyCoinInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WithdrawsCreateWithoutCoinInput = {
+    id?: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutWithdrawsInput
+    beneficiary?: BeneficiariesCreateNestedOneWithoutWithdrawsInput
+  }
+
+  export type WithdrawsUncheckedCreateWithoutCoinInput = {
+    id?: string
+    userId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    beneficiaryId?: string | null
+  }
+
+  export type WithdrawsCreateOrConnectWithoutCoinInput = {
+    where: WithdrawsWhereUniqueInput
+    create: XOR<WithdrawsCreateWithoutCoinInput, WithdrawsUncheckedCreateWithoutCoinInput>
+  }
+
+  export type WithdrawsCreateManyCoinInputEnvelope = {
+    data: WithdrawsCreateManyCoinInput | WithdrawsCreateManyCoinInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BeneficiariesCreateWithoutCoinInput = {
+    id?: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutBeneficiariesInput
+    withdraws?: WithdrawsCreateNestedManyWithoutBeneficiaryInput
+  }
+
+  export type BeneficiariesUncheckedCreateWithoutCoinInput = {
+    id?: string
+    userId: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    withdraws?: WithdrawsUncheckedCreateNestedManyWithoutBeneficiaryInput
+  }
+
+  export type BeneficiariesCreateOrConnectWithoutCoinInput = {
+    where: BeneficiariesWhereUniqueInput
+    create: XOR<BeneficiariesCreateWithoutCoinInput, BeneficiariesUncheckedCreateWithoutCoinInput>
+  }
+
+  export type BeneficiariesCreateManyCoinInputEnvelope = {
+    data: BeneficiariesCreateManyCoinInput | BeneficiariesCreateManyCoinInput[]
     skipDuplicates?: boolean
   }
 
@@ -19977,6 +28627,12 @@ export namespace Prisma {
     name?: StringFilter<"TradingGroup"> | string
     baseCoinId?: StringFilter<"TradingGroup"> | string
     quoteCoinId?: StringFilter<"TradingGroup"> | string
+    amountPrecision?: IntFilter<"TradingGroup"> | number
+    pricePrecision?: IntFilter<"TradingGroup"> | number
+    minPrice?: FloatFilter<"TradingGroup"> | number
+    maxprice?: FloatFilter<"TradingGroup"> | number
+    minAmount?: FloatFilter<"TradingGroup"> | number
+    state?: EnumTradingGroupStateFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
     deletedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
@@ -20021,7 +28677,6 @@ export namespace Prisma {
     id?: StringFilter<"CoinDetails"> | string
     coinId?: StringFilter<"CoinDetails"> | string
     chain?: StringNullableFilter<"CoinDetails"> | string | null
-    platformContractAddress?: StringNullableFilter<"CoinDetails"> | string | null
     platformDecimals?: StringNullableFilter<"CoinDetails"> | string | null
     blockCainSites?: StringNullableFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableFilter<"CoinDetails"> | string | null
@@ -20048,6 +28703,54 @@ export namespace Prisma {
   export type UserWalletUpdateManyWithWhereWithoutCoinsInput = {
     where: UserWalletScalarWhereInput
     data: XOR<UserWalletUpdateManyMutationInput, UserWalletUncheckedUpdateManyWithoutCoinsInput>
+  }
+
+  export type DepositsUpsertWithWhereUniqueWithoutCoinInput = {
+    where: DepositsWhereUniqueInput
+    update: XOR<DepositsUpdateWithoutCoinInput, DepositsUncheckedUpdateWithoutCoinInput>
+    create: XOR<DepositsCreateWithoutCoinInput, DepositsUncheckedCreateWithoutCoinInput>
+  }
+
+  export type DepositsUpdateWithWhereUniqueWithoutCoinInput = {
+    where: DepositsWhereUniqueInput
+    data: XOR<DepositsUpdateWithoutCoinInput, DepositsUncheckedUpdateWithoutCoinInput>
+  }
+
+  export type DepositsUpdateManyWithWhereWithoutCoinInput = {
+    where: DepositsScalarWhereInput
+    data: XOR<DepositsUpdateManyMutationInput, DepositsUncheckedUpdateManyWithoutCoinInput>
+  }
+
+  export type WithdrawsUpsertWithWhereUniqueWithoutCoinInput = {
+    where: WithdrawsWhereUniqueInput
+    update: XOR<WithdrawsUpdateWithoutCoinInput, WithdrawsUncheckedUpdateWithoutCoinInput>
+    create: XOR<WithdrawsCreateWithoutCoinInput, WithdrawsUncheckedCreateWithoutCoinInput>
+  }
+
+  export type WithdrawsUpdateWithWhereUniqueWithoutCoinInput = {
+    where: WithdrawsWhereUniqueInput
+    data: XOR<WithdrawsUpdateWithoutCoinInput, WithdrawsUncheckedUpdateWithoutCoinInput>
+  }
+
+  export type WithdrawsUpdateManyWithWhereWithoutCoinInput = {
+    where: WithdrawsScalarWhereInput
+    data: XOR<WithdrawsUpdateManyMutationInput, WithdrawsUncheckedUpdateManyWithoutCoinInput>
+  }
+
+  export type BeneficiariesUpsertWithWhereUniqueWithoutCoinInput = {
+    where: BeneficiariesWhereUniqueInput
+    update: XOR<BeneficiariesUpdateWithoutCoinInput, BeneficiariesUncheckedUpdateWithoutCoinInput>
+    create: XOR<BeneficiariesCreateWithoutCoinInput, BeneficiariesUncheckedCreateWithoutCoinInput>
+  }
+
+  export type BeneficiariesUpdateWithWhereUniqueWithoutCoinInput = {
+    where: BeneficiariesWhereUniqueInput
+    data: XOR<BeneficiariesUpdateWithoutCoinInput, BeneficiariesUncheckedUpdateWithoutCoinInput>
+  }
+
+  export type BeneficiariesUpdateManyWithWhereWithoutCoinInput = {
+    where: BeneficiariesScalarWhereInput
+    data: XOR<BeneficiariesUpdateManyMutationInput, BeneficiariesUncheckedUpdateManyWithoutCoinInput>
   }
 
   export type UsersCreateWithoutDevicesInput = {
@@ -20084,6 +28787,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
+    Deposits?: DepositsCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateWithoutDevicesInput = {
@@ -20120,6 +28826,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersCreateOrConnectWithoutDevicesInput = {
@@ -20172,6 +28881,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateWithoutDevicesInput = {
@@ -20208,6 +28920,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CoinsCreateWithoutUserWalletInput = {
@@ -20227,12 +28942,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupBase?: TradingGroupCreateNestedManyWithoutBaseCoinInput
     tradingGroupQuote?: TradingGroupCreateNestedManyWithoutQuoteCoinInput
     coinDetails?: CoinDetailsCreateNestedManyWithoutCoinInput
+    Deposits?: DepositsCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsUncheckedCreateWithoutUserWalletInput = {
@@ -20252,12 +28976,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupBase?: TradingGroupUncheckedCreateNestedManyWithoutBaseCoinInput
     tradingGroupQuote?: TradingGroupUncheckedCreateNestedManyWithoutQuoteCoinInput
     coinDetails?: CoinDetailsUncheckedCreateNestedManyWithoutCoinInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsCreateOrConnectWithoutUserWalletInput = {
@@ -20299,6 +29032,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     devices?: DevicesCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
+    Deposits?: DepositsCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateWithoutUserWalletInput = {
@@ -20335,6 +29071,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersCreateOrConnectWithoutUserWalletInput = {
@@ -20346,6 +29085,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
+    orderId: string
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -20357,6 +29097,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
+    orderId: string
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -20402,12 +29143,21 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupBase?: TradingGroupUpdateManyWithoutBaseCoinNestedInput
     tradingGroupQuote?: TradingGroupUpdateManyWithoutQuoteCoinNestedInput
     coinDetails?: CoinDetailsUpdateManyWithoutCoinNestedInput
+    Deposits?: DepositsUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutCoinNestedInput
   }
 
   export type CoinsUncheckedUpdateWithoutUserWalletInput = {
@@ -20427,12 +29177,21 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupBase?: TradingGroupUncheckedUpdateManyWithoutBaseCoinNestedInput
     tradingGroupQuote?: TradingGroupUncheckedUpdateManyWithoutQuoteCoinNestedInput
     coinDetails?: CoinDetailsUncheckedUpdateManyWithoutCoinNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
   }
 
   export type UsersUpsertWithoutUserWalletInput = {
@@ -20480,6 +29239,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     devices?: DevicesUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateWithoutUserWalletInput = {
@@ -20516,6 +29278,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserWalletTransactionUpsertWithWhereUniqueWithoutUserWalletInput = {
@@ -20542,6 +29307,7 @@ export namespace Prisma {
     walletId?: StringFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolFilter<"UserWalletTransaction"> | boolean
+    orderId?: StringFilter<"UserWalletTransaction"> | string
     value?: FloatFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"UserWalletTransaction"> | Date | string
@@ -20566,12 +29332,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupQuote?: TradingGroupCreateNestedManyWithoutQuoteCoinInput
     coinDetails?: CoinDetailsCreateNestedManyWithoutCoinInput
     UserWallet?: UserWalletCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsUncheckedCreateWithoutTradingGroupBaseInput = {
@@ -20591,12 +29366,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupQuote?: TradingGroupUncheckedCreateNestedManyWithoutQuoteCoinInput
     coinDetails?: CoinDetailsUncheckedCreateNestedManyWithoutCoinInput
     UserWallet?: UserWalletUncheckedCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsCreateOrConnectWithoutTradingGroupBaseInput = {
@@ -20621,12 +29405,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupBase?: TradingGroupCreateNestedManyWithoutBaseCoinInput
     coinDetails?: CoinDetailsCreateNestedManyWithoutCoinInput
     UserWallet?: UserWalletCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsUncheckedCreateWithoutTradingGroupQuoteInput = {
@@ -20646,12 +29439,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupBase?: TradingGroupUncheckedCreateNestedManyWithoutBaseCoinInput
     coinDetails?: CoinDetailsUncheckedCreateNestedManyWithoutCoinInput
     UserWallet?: UserWalletUncheckedCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsCreateOrConnectWithoutTradingGroupQuoteInput = {
@@ -20691,6 +29493,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TradingFeesCreateWithoutTradingGroupInput = {
+    id?: string
+    userGroup?: string
+    maker?: number
+    taker?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type TradingFeesUncheckedCreateWithoutTradingGroupInput = {
+    id?: string
+    userGroup?: string
+    maker?: number
+    taker?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type TradingFeesCreateOrConnectWithoutTradingGroupInput = {
+    where: TradingFeesWhereUniqueInput
+    create: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput>
+  }
+
+  export type TradingFeesCreateManyTradingGroupInputEnvelope = {
+    data: TradingFeesCreateManyTradingGroupInput | TradingFeesCreateManyTradingGroupInput[]
+    skipDuplicates?: boolean
+  }
+
   export type CoinsUpsertWithoutTradingGroupBaseInput = {
     update: XOR<CoinsUpdateWithoutTradingGroupBaseInput, CoinsUncheckedUpdateWithoutTradingGroupBaseInput>
     create: XOR<CoinsCreateWithoutTradingGroupBaseInput, CoinsUncheckedCreateWithoutTradingGroupBaseInput>
@@ -20719,12 +29551,21 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupQuote?: TradingGroupUpdateManyWithoutQuoteCoinNestedInput
     coinDetails?: CoinDetailsUpdateManyWithoutCoinNestedInput
     UserWallet?: UserWalletUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutCoinNestedInput
   }
 
   export type CoinsUncheckedUpdateWithoutTradingGroupBaseInput = {
@@ -20744,12 +29585,21 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupQuote?: TradingGroupUncheckedUpdateManyWithoutQuoteCoinNestedInput
     coinDetails?: CoinDetailsUncheckedUpdateManyWithoutCoinNestedInput
     UserWallet?: UserWalletUncheckedUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
   }
 
   export type CoinsUpsertWithoutTradingGroupQuoteInput = {
@@ -20780,12 +29630,21 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupBase?: TradingGroupUpdateManyWithoutBaseCoinNestedInput
     coinDetails?: CoinDetailsUpdateManyWithoutCoinNestedInput
     UserWallet?: UserWalletUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutCoinNestedInput
   }
 
   export type CoinsUncheckedUpdateWithoutTradingGroupQuoteInput = {
@@ -20805,12 +29664,21 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupBase?: TradingGroupUncheckedUpdateManyWithoutBaseCoinNestedInput
     coinDetails?: CoinDetailsUncheckedUpdateManyWithoutCoinNestedInput
     UserWallet?: UserWalletUncheckedUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
   }
 
   export type GroupTradeUpsertWithWhereUniqueWithoutGroupInput = {
@@ -20829,14 +29697,51 @@ export namespace Prisma {
     data: XOR<GroupTradeUpdateManyMutationInput, GroupTradeUncheckedUpdateManyWithoutGroupInput>
   }
 
+  export type TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput = {
+    where: TradingFeesWhereUniqueInput
+    update: XOR<TradingFeesUpdateWithoutTradingGroupInput, TradingFeesUncheckedUpdateWithoutTradingGroupInput>
+    create: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput>
+  }
+
+  export type TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput = {
+    where: TradingFeesWhereUniqueInput
+    data: XOR<TradingFeesUpdateWithoutTradingGroupInput, TradingFeesUncheckedUpdateWithoutTradingGroupInput>
+  }
+
+  export type TradingFeesUpdateManyWithWhereWithoutTradingGroupInput = {
+    where: TradingFeesScalarWhereInput
+    data: XOR<TradingFeesUpdateManyMutationInput, TradingFeesUncheckedUpdateManyWithoutTradingGroupInput>
+  }
+
+  export type TradingFeesScalarWhereInput = {
+    AND?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
+    OR?: TradingFeesScalarWhereInput[]
+    NOT?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
+    id?: StringFilter<"TradingFees"> | string
+    groupId?: StringFilter<"TradingFees"> | string
+    userGroup?: StringFilter<"TradingFees"> | string
+    maker?: FloatFilter<"TradingFees"> | number
+    taker?: FloatFilter<"TradingFees"> | number
+    createdAt?: DateTimeFilter<"TradingFees"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
+  }
+
   export type TradingGroupCreateWithoutTradesInput = {
     id?: string
     name: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
     quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
+    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUncheckedCreateWithoutTradesInput = {
@@ -20844,9 +29749,16 @@ export namespace Prisma {
     name: string
     baseCoinId: string
     quoteCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
+    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupCreateOrConnectWithoutTradesInput = {
@@ -20888,6 +29800,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
+    Deposits?: DepositsCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateWithoutGroupTradesInput = {
@@ -20924,6 +29839,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersCreateOrConnectWithoutGroupTradesInput = {
@@ -20945,11 +29863,18 @@ export namespace Prisma {
   export type TradingGroupUpdateWithoutTradesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
     quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
+    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateWithoutTradesInput = {
@@ -20957,9 +29882,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     baseCoinId?: StringFieldUpdateOperationsInput | string
     quoteCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type UsersUpsertWithoutGroupTradesInput = {
@@ -21007,6 +29939,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateWithoutGroupTradesInput = {
@@ -21043,6 +29978,9 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CoinsCreateWithoutCoinDetailsInput = {
@@ -21062,12 +30000,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupBase?: TradingGroupCreateNestedManyWithoutBaseCoinInput
     tradingGroupQuote?: TradingGroupCreateNestedManyWithoutQuoteCoinInput
     UserWallet?: UserWalletCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsUncheckedCreateWithoutCoinDetailsInput = {
@@ -21087,12 +30034,21 @@ export namespace Prisma {
     rank?: number | null
     volume?: number | null
     isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     tradingGroupBase?: TradingGroupUncheckedCreateNestedManyWithoutBaseCoinInput
     tradingGroupQuote?: TradingGroupUncheckedCreateNestedManyWithoutQuoteCoinInput
     UserWallet?: UserWalletUncheckedCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutCoinInput
   }
 
   export type CoinsCreateOrConnectWithoutCoinDetailsInput = {
@@ -21128,12 +30084,21 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupBase?: TradingGroupUpdateManyWithoutBaseCoinNestedInput
     tradingGroupQuote?: TradingGroupUpdateManyWithoutQuoteCoinNestedInput
     UserWallet?: UserWalletUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutCoinNestedInput
   }
 
   export type CoinsUncheckedUpdateWithoutCoinDetailsInput = {
@@ -21153,18 +30118,32 @@ export namespace Prisma {
     rank?: NullableIntFieldUpdateOperationsInput | number | null
     volume?: NullableIntFieldUpdateOperationsInput | number | null
     isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     tradingGroupBase?: TradingGroupUncheckedUpdateManyWithoutBaseCoinNestedInput
     tradingGroupQuote?: TradingGroupUncheckedUpdateManyWithoutQuoteCoinNestedInput
     UserWallet?: UserWalletUncheckedUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
   }
 
   export type UserWalletCreateWithoutUserWalletTransactionInput = {
     id?: string
-    amount: number
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21175,9 +30154,14 @@ export namespace Prisma {
   export type UserWalletUncheckedCreateWithoutUserWalletTransactionInput = {
     id?: string
     userId: string
-    amount: number
     coinId: string
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21201,8 +30185,13 @@ export namespace Prisma {
 
   export type UserWalletUpdateWithoutUserWalletTransactionInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21213,12 +30202,1203 @@ export namespace Prisma {
   export type UserWalletUncheckedUpdateWithoutUserWalletTransactionInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     coinId?: StringFieldUpdateOperationsInput | string
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UsersCreateWithoutDepositsInput = {
+    id?: string
+    email: string
+    password: string
+    firstName?: string | null
+    lastName?: string | null
+    provider?: string | null
+    providerId?: string | null
+    referralCode?: string | null
+    countryId?: number | null
+    phone?: string | null
+    country?: string | null
+    address?: string | null
+    city?: string | null
+    pinCode?: string | null
+    dateOfBirth?: string | null
+    acceptedTerms?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    idProofFront?: string | null
+    idProofBack?: string | null
+    profilePicture?: string | null
+    selfiePicture?: string | null
+    isVerifid?: $Enums.Process
+    rejectionReason?: string | null
+    docSubmissionDate?: Date | string
+    isBlocked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    docType?: string | null
+    userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
+    devices?: DevicesCreateNestedManyWithoutUserInput
+    userWallet?: UserWalletCreateNestedManyWithoutUserInput
+    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersUncheckedCreateWithoutDepositsInput = {
+    id?: string
+    email: string
+    password: string
+    firstName?: string | null
+    lastName?: string | null
+    provider?: string | null
+    providerId?: string | null
+    referralCode?: string | null
+    countryId?: number | null
+    phone?: string | null
+    country?: string | null
+    address?: string | null
+    city?: string | null
+    pinCode?: string | null
+    dateOfBirth?: string | null
+    acceptedTerms?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    idProofFront?: string | null
+    idProofBack?: string | null
+    profilePicture?: string | null
+    selfiePicture?: string | null
+    isVerifid?: $Enums.Process
+    rejectionReason?: string | null
+    docSubmissionDate?: Date | string
+    isBlocked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    docType?: string | null
+    userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
+    devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
+    userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
+    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersCreateOrConnectWithoutDepositsInput = {
+    where: UsersWhereUniqueInput
+    create: XOR<UsersCreateWithoutDepositsInput, UsersUncheckedCreateWithoutDepositsInput>
+  }
+
+  export type CoinsCreateWithoutDepositsInput = {
+    id?: string
+    coinId?: bigint | number | null
+    nameId?: string | null
+    name?: string | null
+    priceUsd?: string | null
+    percentChange24h?: string | null
+    percentChange1h?: string | null
+    percentChange7d?: string | null
+    priceBtc?: string | null
+    volume24?: string | null
+    volume24a?: string | null
+    symbol?: string | null
+    marketCapUsd?: string | null
+    rank?: number | null
+    volume?: number | null
+    isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    tradingGroupBase?: TradingGroupCreateNestedManyWithoutBaseCoinInput
+    tradingGroupQuote?: TradingGroupCreateNestedManyWithoutQuoteCoinInput
+    coinDetails?: CoinDetailsCreateNestedManyWithoutCoinInput
+    UserWallet?: UserWalletCreateNestedManyWithoutCoinsInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutCoinInput
+  }
+
+  export type CoinsUncheckedCreateWithoutDepositsInput = {
+    id?: string
+    coinId?: bigint | number | null
+    nameId?: string | null
+    name?: string | null
+    priceUsd?: string | null
+    percentChange24h?: string | null
+    percentChange1h?: string | null
+    percentChange7d?: string | null
+    priceBtc?: string | null
+    volume24?: string | null
+    volume24a?: string | null
+    symbol?: string | null
+    marketCapUsd?: string | null
+    rank?: number | null
+    volume?: number | null
+    isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    tradingGroupBase?: TradingGroupUncheckedCreateNestedManyWithoutBaseCoinInput
+    tradingGroupQuote?: TradingGroupUncheckedCreateNestedManyWithoutQuoteCoinInput
+    coinDetails?: CoinDetailsUncheckedCreateNestedManyWithoutCoinInput
+    UserWallet?: UserWalletUncheckedCreateNestedManyWithoutCoinsInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutCoinInput
+  }
+
+  export type CoinsCreateOrConnectWithoutDepositsInput = {
+    where: CoinsWhereUniqueInput
+    create: XOR<CoinsCreateWithoutDepositsInput, CoinsUncheckedCreateWithoutDepositsInput>
+  }
+
+  export type UsersUpsertWithoutDepositsInput = {
+    update: XOR<UsersUpdateWithoutDepositsInput, UsersUncheckedUpdateWithoutDepositsInput>
+    create: XOR<UsersCreateWithoutDepositsInput, UsersUncheckedCreateWithoutDepositsInput>
+    where?: UsersWhereInput
+  }
+
+  export type UsersUpdateToOneWithWhereWithoutDepositsInput = {
+    where?: UsersWhereInput
+    data: XOR<UsersUpdateWithoutDepositsInput, UsersUncheckedUpdateWithoutDepositsInput>
+  }
+
+  export type UsersUpdateWithoutDepositsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    provider?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    countryId?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
+    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    docType?: NullableStringFieldUpdateOperationsInput | string | null
+    userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
+    devices?: DevicesUpdateManyWithoutUserNestedInput
+    userWallet?: UserWalletUpdateManyWithoutUserNestedInput
+    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
+  }
+
+  export type UsersUncheckedUpdateWithoutDepositsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    provider?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    countryId?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
+    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    docType?: NullableStringFieldUpdateOperationsInput | string | null
+    userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
+    devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
+    userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
+    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type CoinsUpsertWithoutDepositsInput = {
+    update: XOR<CoinsUpdateWithoutDepositsInput, CoinsUncheckedUpdateWithoutDepositsInput>
+    create: XOR<CoinsCreateWithoutDepositsInput, CoinsUncheckedCreateWithoutDepositsInput>
+    where?: CoinsWhereInput
+  }
+
+  export type CoinsUpdateToOneWithWhereWithoutDepositsInput = {
+    where?: CoinsWhereInput
+    data: XOR<CoinsUpdateWithoutDepositsInput, CoinsUncheckedUpdateWithoutDepositsInput>
+  }
+
+  export type CoinsUpdateWithoutDepositsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    nameId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    priceUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange24h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange1h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange7d?: NullableStringFieldUpdateOperationsInput | string | null
+    priceBtc?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24a?: NullableStringFieldUpdateOperationsInput | string | null
+    symbol?: NullableStringFieldUpdateOperationsInput | string | null
+    marketCapUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    rank?: NullableIntFieldUpdateOperationsInput | number | null
+    volume?: NullableIntFieldUpdateOperationsInput | number | null
+    isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tradingGroupBase?: TradingGroupUpdateManyWithoutBaseCoinNestedInput
+    tradingGroupQuote?: TradingGroupUpdateManyWithoutQuoteCoinNestedInput
+    coinDetails?: CoinDetailsUpdateManyWithoutCoinNestedInput
+    UserWallet?: UserWalletUpdateManyWithoutCoinsNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutCoinNestedInput
+  }
+
+  export type CoinsUncheckedUpdateWithoutDepositsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    nameId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    priceUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange24h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange1h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange7d?: NullableStringFieldUpdateOperationsInput | string | null
+    priceBtc?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24a?: NullableStringFieldUpdateOperationsInput | string | null
+    symbol?: NullableStringFieldUpdateOperationsInput | string | null
+    marketCapUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    rank?: NullableIntFieldUpdateOperationsInput | number | null
+    volume?: NullableIntFieldUpdateOperationsInput | number | null
+    isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tradingGroupBase?: TradingGroupUncheckedUpdateManyWithoutBaseCoinNestedInput
+    tradingGroupQuote?: TradingGroupUncheckedUpdateManyWithoutQuoteCoinNestedInput
+    coinDetails?: CoinDetailsUncheckedUpdateManyWithoutCoinNestedInput
+    UserWallet?: UserWalletUncheckedUpdateManyWithoutCoinsNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
+  }
+
+  export type UsersCreateWithoutWithdrawsInput = {
+    id?: string
+    email: string
+    password: string
+    firstName?: string | null
+    lastName?: string | null
+    provider?: string | null
+    providerId?: string | null
+    referralCode?: string | null
+    countryId?: number | null
+    phone?: string | null
+    country?: string | null
+    address?: string | null
+    city?: string | null
+    pinCode?: string | null
+    dateOfBirth?: string | null
+    acceptedTerms?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    idProofFront?: string | null
+    idProofBack?: string | null
+    profilePicture?: string | null
+    selfiePicture?: string | null
+    isVerifid?: $Enums.Process
+    rejectionReason?: string | null
+    docSubmissionDate?: Date | string
+    isBlocked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    docType?: string | null
+    userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
+    devices?: DevicesCreateNestedManyWithoutUserInput
+    userWallet?: UserWalletCreateNestedManyWithoutUserInput
+    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
+    Deposits?: DepositsCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersUncheckedCreateWithoutWithdrawsInput = {
+    id?: string
+    email: string
+    password: string
+    firstName?: string | null
+    lastName?: string | null
+    provider?: string | null
+    providerId?: string | null
+    referralCode?: string | null
+    countryId?: number | null
+    phone?: string | null
+    country?: string | null
+    address?: string | null
+    city?: string | null
+    pinCode?: string | null
+    dateOfBirth?: string | null
+    acceptedTerms?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    idProofFront?: string | null
+    idProofBack?: string | null
+    profilePicture?: string | null
+    selfiePicture?: string | null
+    isVerifid?: $Enums.Process
+    rejectionReason?: string | null
+    docSubmissionDate?: Date | string
+    isBlocked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    docType?: string | null
+    userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
+    devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
+    userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
+    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersCreateOrConnectWithoutWithdrawsInput = {
+    where: UsersWhereUniqueInput
+    create: XOR<UsersCreateWithoutWithdrawsInput, UsersUncheckedCreateWithoutWithdrawsInput>
+  }
+
+  export type CoinsCreateWithoutWithdrawsInput = {
+    id?: string
+    coinId?: bigint | number | null
+    nameId?: string | null
+    name?: string | null
+    priceUsd?: string | null
+    percentChange24h?: string | null
+    percentChange1h?: string | null
+    percentChange7d?: string | null
+    priceBtc?: string | null
+    volume24?: string | null
+    volume24a?: string | null
+    symbol?: string | null
+    marketCapUsd?: string | null
+    rank?: number | null
+    volume?: number | null
+    isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    tradingGroupBase?: TradingGroupCreateNestedManyWithoutBaseCoinInput
+    tradingGroupQuote?: TradingGroupCreateNestedManyWithoutQuoteCoinInput
+    coinDetails?: CoinDetailsCreateNestedManyWithoutCoinInput
+    UserWallet?: UserWalletCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesCreateNestedManyWithoutCoinInput
+  }
+
+  export type CoinsUncheckedCreateWithoutWithdrawsInput = {
+    id?: string
+    coinId?: bigint | number | null
+    nameId?: string | null
+    name?: string | null
+    priceUsd?: string | null
+    percentChange24h?: string | null
+    percentChange1h?: string | null
+    percentChange7d?: string | null
+    priceBtc?: string | null
+    volume24?: string | null
+    volume24a?: string | null
+    symbol?: string | null
+    marketCapUsd?: string | null
+    rank?: number | null
+    volume?: number | null
+    isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    tradingGroupBase?: TradingGroupUncheckedCreateNestedManyWithoutBaseCoinInput
+    tradingGroupQuote?: TradingGroupUncheckedCreateNestedManyWithoutQuoteCoinInput
+    coinDetails?: CoinDetailsUncheckedCreateNestedManyWithoutCoinInput
+    UserWallet?: UserWalletUncheckedCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutCoinInput
+    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutCoinInput
+  }
+
+  export type CoinsCreateOrConnectWithoutWithdrawsInput = {
+    where: CoinsWhereUniqueInput
+    create: XOR<CoinsCreateWithoutWithdrawsInput, CoinsUncheckedCreateWithoutWithdrawsInput>
+  }
+
+  export type BeneficiariesCreateWithoutWithdrawsInput = {
+    id?: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutBeneficiariesInput
+    coin: CoinsCreateNestedOneWithoutBeneficiariesInput
+  }
+
+  export type BeneficiariesUncheckedCreateWithoutWithdrawsInput = {
+    id?: string
+    userId: string
+    coinId: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type BeneficiariesCreateOrConnectWithoutWithdrawsInput = {
+    where: BeneficiariesWhereUniqueInput
+    create: XOR<BeneficiariesCreateWithoutWithdrawsInput, BeneficiariesUncheckedCreateWithoutWithdrawsInput>
+  }
+
+  export type UsersUpsertWithoutWithdrawsInput = {
+    update: XOR<UsersUpdateWithoutWithdrawsInput, UsersUncheckedUpdateWithoutWithdrawsInput>
+    create: XOR<UsersCreateWithoutWithdrawsInput, UsersUncheckedCreateWithoutWithdrawsInput>
+    where?: UsersWhereInput
+  }
+
+  export type UsersUpdateToOneWithWhereWithoutWithdrawsInput = {
+    where?: UsersWhereInput
+    data: XOR<UsersUpdateWithoutWithdrawsInput, UsersUncheckedUpdateWithoutWithdrawsInput>
+  }
+
+  export type UsersUpdateWithoutWithdrawsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    provider?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    countryId?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
+    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    docType?: NullableStringFieldUpdateOperationsInput | string | null
+    userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
+    devices?: DevicesUpdateManyWithoutUserNestedInput
+    userWallet?: UserWalletUpdateManyWithoutUserNestedInput
+    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
+  }
+
+  export type UsersUncheckedUpdateWithoutWithdrawsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    provider?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    countryId?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
+    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    docType?: NullableStringFieldUpdateOperationsInput | string | null
+    userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
+    devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
+    userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
+    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type CoinsUpsertWithoutWithdrawsInput = {
+    update: XOR<CoinsUpdateWithoutWithdrawsInput, CoinsUncheckedUpdateWithoutWithdrawsInput>
+    create: XOR<CoinsCreateWithoutWithdrawsInput, CoinsUncheckedCreateWithoutWithdrawsInput>
+    where?: CoinsWhereInput
+  }
+
+  export type CoinsUpdateToOneWithWhereWithoutWithdrawsInput = {
+    where?: CoinsWhereInput
+    data: XOR<CoinsUpdateWithoutWithdrawsInput, CoinsUncheckedUpdateWithoutWithdrawsInput>
+  }
+
+  export type CoinsUpdateWithoutWithdrawsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    nameId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    priceUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange24h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange1h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange7d?: NullableStringFieldUpdateOperationsInput | string | null
+    priceBtc?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24a?: NullableStringFieldUpdateOperationsInput | string | null
+    symbol?: NullableStringFieldUpdateOperationsInput | string | null
+    marketCapUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    rank?: NullableIntFieldUpdateOperationsInput | number | null
+    volume?: NullableIntFieldUpdateOperationsInput | number | null
+    isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tradingGroupBase?: TradingGroupUpdateManyWithoutBaseCoinNestedInput
+    tradingGroupQuote?: TradingGroupUpdateManyWithoutQuoteCoinNestedInput
+    coinDetails?: CoinDetailsUpdateManyWithoutCoinNestedInput
+    UserWallet?: UserWalletUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUpdateManyWithoutCoinNestedInput
+  }
+
+  export type CoinsUncheckedUpdateWithoutWithdrawsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    nameId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    priceUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange24h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange1h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange7d?: NullableStringFieldUpdateOperationsInput | string | null
+    priceBtc?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24a?: NullableStringFieldUpdateOperationsInput | string | null
+    symbol?: NullableStringFieldUpdateOperationsInput | string | null
+    marketCapUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    rank?: NullableIntFieldUpdateOperationsInput | number | null
+    volume?: NullableIntFieldUpdateOperationsInput | number | null
+    isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tradingGroupBase?: TradingGroupUncheckedUpdateManyWithoutBaseCoinNestedInput
+    tradingGroupQuote?: TradingGroupUncheckedUpdateManyWithoutQuoteCoinNestedInput
+    coinDetails?: CoinDetailsUncheckedUpdateManyWithoutCoinNestedInput
+    UserWallet?: UserWalletUncheckedUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
+    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
+  }
+
+  export type BeneficiariesUpsertWithoutWithdrawsInput = {
+    update: XOR<BeneficiariesUpdateWithoutWithdrawsInput, BeneficiariesUncheckedUpdateWithoutWithdrawsInput>
+    create: XOR<BeneficiariesCreateWithoutWithdrawsInput, BeneficiariesUncheckedCreateWithoutWithdrawsInput>
+    where?: BeneficiariesWhereInput
+  }
+
+  export type BeneficiariesUpdateToOneWithWhereWithoutWithdrawsInput = {
+    where?: BeneficiariesWhereInput
+    data: XOR<BeneficiariesUpdateWithoutWithdrawsInput, BeneficiariesUncheckedUpdateWithoutWithdrawsInput>
+  }
+
+  export type BeneficiariesUpdateWithoutWithdrawsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutBeneficiariesNestedInput
+    coin?: CoinsUpdateOneRequiredWithoutBeneficiariesNestedInput
+  }
+
+  export type BeneficiariesUncheckedUpdateWithoutWithdrawsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UsersCreateWithoutBeneficiariesInput = {
+    id?: string
+    email: string
+    password: string
+    firstName?: string | null
+    lastName?: string | null
+    provider?: string | null
+    providerId?: string | null
+    referralCode?: string | null
+    countryId?: number | null
+    phone?: string | null
+    country?: string | null
+    address?: string | null
+    city?: string | null
+    pinCode?: string | null
+    dateOfBirth?: string | null
+    acceptedTerms?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    idProofFront?: string | null
+    idProofBack?: string | null
+    profilePicture?: string | null
+    selfiePicture?: string | null
+    isVerifid?: $Enums.Process
+    rejectionReason?: string | null
+    docSubmissionDate?: Date | string
+    isBlocked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    docType?: string | null
+    userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
+    devices?: DevicesCreateNestedManyWithoutUserInput
+    userWallet?: UserWalletCreateNestedManyWithoutUserInput
+    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
+    Deposits?: DepositsCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersUncheckedCreateWithoutBeneficiariesInput = {
+    id?: string
+    email: string
+    password: string
+    firstName?: string | null
+    lastName?: string | null
+    provider?: string | null
+    providerId?: string | null
+    referralCode?: string | null
+    countryId?: number | null
+    phone?: string | null
+    country?: string | null
+    address?: string | null
+    city?: string | null
+    pinCode?: string | null
+    dateOfBirth?: string | null
+    acceptedTerms?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    idProofFront?: string | null
+    idProofBack?: string | null
+    profilePicture?: string | null
+    selfiePicture?: string | null
+    isVerifid?: $Enums.Process
+    rejectionReason?: string | null
+    docSubmissionDate?: Date | string
+    isBlocked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    docType?: string | null
+    userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
+    devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
+    userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
+    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersCreateOrConnectWithoutBeneficiariesInput = {
+    where: UsersWhereUniqueInput
+    create: XOR<UsersCreateWithoutBeneficiariesInput, UsersUncheckedCreateWithoutBeneficiariesInput>
+  }
+
+  export type CoinsCreateWithoutBeneficiariesInput = {
+    id?: string
+    coinId?: bigint | number | null
+    nameId?: string | null
+    name?: string | null
+    priceUsd?: string | null
+    percentChange24h?: string | null
+    percentChange1h?: string | null
+    percentChange7d?: string | null
+    priceBtc?: string | null
+    volume24?: string | null
+    volume24a?: string | null
+    symbol?: string | null
+    marketCapUsd?: string | null
+    rank?: number | null
+    volume?: number | null
+    isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    tradingGroupBase?: TradingGroupCreateNestedManyWithoutBaseCoinInput
+    tradingGroupQuote?: TradingGroupCreateNestedManyWithoutQuoteCoinInput
+    coinDetails?: CoinDetailsCreateNestedManyWithoutCoinInput
+    UserWallet?: UserWalletCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsCreateNestedManyWithoutCoinInput
+  }
+
+  export type CoinsUncheckedCreateWithoutBeneficiariesInput = {
+    id?: string
+    coinId?: bigint | number | null
+    nameId?: string | null
+    name?: string | null
+    priceUsd?: string | null
+    percentChange24h?: string | null
+    percentChange1h?: string | null
+    percentChange7d?: string | null
+    priceBtc?: string | null
+    volume24?: string | null
+    volume24a?: string | null
+    symbol?: string | null
+    marketCapUsd?: string | null
+    rank?: number | null
+    volume?: number | null
+    isVisible?: boolean | null
+    depositFee?: number | null
+    withdrawFee?: number | null
+    minDepositAmount?: number | null
+    minWithdrawAmount?: number | null
+    precision?: number | null
+    blockchainKey?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    tradingGroupBase?: TradingGroupUncheckedCreateNestedManyWithoutBaseCoinInput
+    tradingGroupQuote?: TradingGroupUncheckedCreateNestedManyWithoutQuoteCoinInput
+    coinDetails?: CoinDetailsUncheckedCreateNestedManyWithoutCoinInput
+    UserWallet?: UserWalletUncheckedCreateNestedManyWithoutCoinsInput
+    Deposits?: DepositsUncheckedCreateNestedManyWithoutCoinInput
+    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutCoinInput
+  }
+
+  export type CoinsCreateOrConnectWithoutBeneficiariesInput = {
+    where: CoinsWhereUniqueInput
+    create: XOR<CoinsCreateWithoutBeneficiariesInput, CoinsUncheckedCreateWithoutBeneficiariesInput>
+  }
+
+  export type WithdrawsCreateWithoutBeneficiaryInput = {
+    id?: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    user: UsersCreateNestedOneWithoutWithdrawsInput
+    coin: CoinsCreateNestedOneWithoutWithdrawsInput
+  }
+
+  export type WithdrawsUncheckedCreateWithoutBeneficiaryInput = {
+    id?: string
+    userId: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type WithdrawsCreateOrConnectWithoutBeneficiaryInput = {
+    where: WithdrawsWhereUniqueInput
+    create: XOR<WithdrawsCreateWithoutBeneficiaryInput, WithdrawsUncheckedCreateWithoutBeneficiaryInput>
+  }
+
+  export type WithdrawsCreateManyBeneficiaryInputEnvelope = {
+    data: WithdrawsCreateManyBeneficiaryInput | WithdrawsCreateManyBeneficiaryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UsersUpsertWithoutBeneficiariesInput = {
+    update: XOR<UsersUpdateWithoutBeneficiariesInput, UsersUncheckedUpdateWithoutBeneficiariesInput>
+    create: XOR<UsersCreateWithoutBeneficiariesInput, UsersUncheckedCreateWithoutBeneficiariesInput>
+    where?: UsersWhereInput
+  }
+
+  export type UsersUpdateToOneWithWhereWithoutBeneficiariesInput = {
+    where?: UsersWhereInput
+    data: XOR<UsersUpdateWithoutBeneficiariesInput, UsersUncheckedUpdateWithoutBeneficiariesInput>
+  }
+
+  export type UsersUpdateWithoutBeneficiariesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    provider?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    countryId?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
+    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    docType?: NullableStringFieldUpdateOperationsInput | string | null
+    userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
+    devices?: DevicesUpdateManyWithoutUserNestedInput
+    userWallet?: UserWalletUpdateManyWithoutUserNestedInput
+    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
+  }
+
+  export type UsersUncheckedUpdateWithoutBeneficiariesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    provider?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    countryId?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
+    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
+    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
+    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    docType?: NullableStringFieldUpdateOperationsInput | string | null
+    userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
+    devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
+    userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
+    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type CoinsUpsertWithoutBeneficiariesInput = {
+    update: XOR<CoinsUpdateWithoutBeneficiariesInput, CoinsUncheckedUpdateWithoutBeneficiariesInput>
+    create: XOR<CoinsCreateWithoutBeneficiariesInput, CoinsUncheckedCreateWithoutBeneficiariesInput>
+    where?: CoinsWhereInput
+  }
+
+  export type CoinsUpdateToOneWithWhereWithoutBeneficiariesInput = {
+    where?: CoinsWhereInput
+    data: XOR<CoinsUpdateWithoutBeneficiariesInput, CoinsUncheckedUpdateWithoutBeneficiariesInput>
+  }
+
+  export type CoinsUpdateWithoutBeneficiariesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    nameId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    priceUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange24h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange1h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange7d?: NullableStringFieldUpdateOperationsInput | string | null
+    priceBtc?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24a?: NullableStringFieldUpdateOperationsInput | string | null
+    symbol?: NullableStringFieldUpdateOperationsInput | string | null
+    marketCapUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    rank?: NullableIntFieldUpdateOperationsInput | number | null
+    volume?: NullableIntFieldUpdateOperationsInput | number | null
+    isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tradingGroupBase?: TradingGroupUpdateManyWithoutBaseCoinNestedInput
+    tradingGroupQuote?: TradingGroupUpdateManyWithoutQuoteCoinNestedInput
+    coinDetails?: CoinDetailsUpdateManyWithoutCoinNestedInput
+    UserWallet?: UserWalletUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUpdateManyWithoutCoinNestedInput
+  }
+
+  export type CoinsUncheckedUpdateWithoutBeneficiariesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    nameId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    priceUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange24h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange1h?: NullableStringFieldUpdateOperationsInput | string | null
+    percentChange7d?: NullableStringFieldUpdateOperationsInput | string | null
+    priceBtc?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24?: NullableStringFieldUpdateOperationsInput | string | null
+    volume24a?: NullableStringFieldUpdateOperationsInput | string | null
+    symbol?: NullableStringFieldUpdateOperationsInput | string | null
+    marketCapUsd?: NullableStringFieldUpdateOperationsInput | string | null
+    rank?: NullableIntFieldUpdateOperationsInput | number | null
+    volume?: NullableIntFieldUpdateOperationsInput | number | null
+    isVisible?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    depositFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    withdrawFee?: NullableFloatFieldUpdateOperationsInput | number | null
+    minDepositAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    minWithdrawAmount?: NullableFloatFieldUpdateOperationsInput | number | null
+    precision?: NullableIntFieldUpdateOperationsInput | number | null
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tradingGroupBase?: TradingGroupUncheckedUpdateManyWithoutBaseCoinNestedInput
+    tradingGroupQuote?: TradingGroupUncheckedUpdateManyWithoutQuoteCoinNestedInput
+    coinDetails?: CoinDetailsUncheckedUpdateManyWithoutCoinNestedInput
+    UserWallet?: UserWalletUncheckedUpdateManyWithoutCoinsNestedInput
+    Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
+    Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
+  }
+
+  export type WithdrawsUpsertWithWhereUniqueWithoutBeneficiaryInput = {
+    where: WithdrawsWhereUniqueInput
+    update: XOR<WithdrawsUpdateWithoutBeneficiaryInput, WithdrawsUncheckedUpdateWithoutBeneficiaryInput>
+    create: XOR<WithdrawsCreateWithoutBeneficiaryInput, WithdrawsUncheckedCreateWithoutBeneficiaryInput>
+  }
+
+  export type WithdrawsUpdateWithWhereUniqueWithoutBeneficiaryInput = {
+    where: WithdrawsWhereUniqueInput
+    data: XOR<WithdrawsUpdateWithoutBeneficiaryInput, WithdrawsUncheckedUpdateWithoutBeneficiaryInput>
+  }
+
+  export type WithdrawsUpdateManyWithWhereWithoutBeneficiaryInput = {
+    where: WithdrawsScalarWhereInput
+    data: XOR<WithdrawsUpdateManyMutationInput, WithdrawsUncheckedUpdateManyWithoutBeneficiaryInput>
+  }
+
+  export type TradingGroupCreateWithoutTradingFeesInput = {
+    id?: string
+    name: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
+    quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
+    trades?: GroupTradeCreateNestedManyWithoutGroupInput
+  }
+
+  export type TradingGroupUncheckedCreateWithoutTradingFeesInput = {
+    id?: string
+    name: string
+    baseCoinId: string
+    quoteCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
+  }
+
+  export type TradingGroupCreateOrConnectWithoutTradingFeesInput = {
+    where: TradingGroupWhereUniqueInput
+    create: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
+  }
+
+  export type TradingGroupUpsertWithoutTradingFeesInput = {
+    update: XOR<TradingGroupUpdateWithoutTradingFeesInput, TradingGroupUncheckedUpdateWithoutTradingFeesInput>
+    create: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
+    where?: TradingGroupWhereInput
+  }
+
+  export type TradingGroupUpdateToOneWithWhereWithoutTradingFeesInput = {
+    where?: TradingGroupWhereInput
+    data: XOR<TradingGroupUpdateWithoutTradingFeesInput, TradingGroupUncheckedUpdateWithoutTradingFeesInput>
+  }
+
+  export type TradingGroupUpdateWithoutTradingFeesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
+    quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
+    trades?: GroupTradeUpdateManyWithoutGroupNestedInput
+  }
+
+  export type TradingGroupUncheckedUpdateWithoutTradingFeesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    baseCoinId?: StringFieldUpdateOperationsInput | string
+    quoteCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
   }
 
   export type UserRoleMappingCreateManyUsersInput = {
@@ -21240,9 +31420,14 @@ export namespace Prisma {
 
   export type UserWalletCreateManyUserInput = {
     id?: string
-    amount: number
     coinId: string
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21254,6 +31439,50 @@ export namespace Prisma {
     amountBase: number
     amountQuote: number
     price: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type DepositsCreateManyUserInput = {
+    id?: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type WithdrawsCreateManyUserInput = {
+    id?: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    beneficiaryId?: string | null
+  }
+
+  export type BeneficiariesCreateManyUserInput = {
+    id?: string
+    coinId: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21312,8 +31541,13 @@ export namespace Prisma {
 
   export type UserWalletUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21323,9 +31557,14 @@ export namespace Prisma {
 
   export type UserWalletUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     coinId?: StringFieldUpdateOperationsInput | string
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21334,9 +31573,14 @@ export namespace Prisma {
 
   export type UserWalletUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     coinId?: StringFieldUpdateOperationsInput | string
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21370,6 +31614,140 @@ export namespace Prisma {
     amountBase?: FloatFieldUpdateOperationsInput | number
     amountQuote?: FloatFieldUpdateOperationsInput | number
     price?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DepositsUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    coin?: CoinsUpdateOneRequiredWithoutDepositsNestedInput
+  }
+
+  export type DepositsUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DepositsUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WithdrawsUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    coin?: CoinsUpdateOneRequiredWithoutWithdrawsNestedInput
+    beneficiary?: BeneficiariesUpdateOneWithoutWithdrawsNestedInput
+  }
+
+  export type WithdrawsUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    beneficiaryId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WithdrawsUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    beneficiaryId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BeneficiariesUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    coin?: CoinsUpdateOneRequiredWithoutBeneficiariesNestedInput
+    withdraws?: WithdrawsUpdateManyWithoutBeneficiaryNestedInput
+  }
+
+  export type BeneficiariesUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    withdraws?: WithdrawsUncheckedUpdateManyWithoutBeneficiaryNestedInput
+  }
+
+  export type BeneficiariesUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21411,6 +31789,12 @@ export namespace Prisma {
     id?: string
     name: string
     quoteCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21420,6 +31804,12 @@ export namespace Prisma {
     id?: string
     name: string
     baseCoinId: string
+    amountPrecision?: number
+    pricePrecision?: number
+    minPrice?: number
+    maxprice?: number
+    minAmount?: number
+    state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21428,7 +31818,6 @@ export namespace Prisma {
   export type CoinDetailsCreateManyCoinInput = {
     id?: string
     chain?: string | null
-    platformContractAddress?: string | null
     platformDecimals?: string | null
     blockCainSites?: string | null
     assetPlatformId?: string | null
@@ -21444,8 +31833,57 @@ export namespace Prisma {
   export type UserWalletCreateManyCoinsInput = {
     id?: string
     userId: string
-    amount: number
     currency?: string
+    status?: $Enums.WalletStatus | null
+    maxBalance?: number
+    blockchainKey?: string | null
+    address: string
+    kind: $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type DepositsCreateManyCoinInput = {
+    id?: string
+    userId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address?: string | null
+    state?: $Enums.DepositState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type WithdrawsCreateManyCoinInput = {
+    id?: string
+    userId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+    beneficiaryId?: string | null
+  }
+
+  export type BeneficiariesCreateManyCoinInput = {
+    id?: string
+    userId: string
+    name?: string | null
+    address?: string | null
+    state?: $Enums.BeneficiaryState
+    pin?: string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21454,27 +31892,47 @@ export namespace Prisma {
   export type TradingGroupUpdateWithoutBaseCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
     trades?: GroupTradeUpdateManyWithoutGroupNestedInput
+    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateWithoutBaseCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     quoteCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
+    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateManyWithoutBaseCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     quoteCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21483,27 +31941,47 @@ export namespace Prisma {
   export type TradingGroupUpdateWithoutQuoteCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
     trades?: GroupTradeUpdateManyWithoutGroupNestedInput
+    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateWithoutQuoteCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     baseCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
+    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateManyWithoutQuoteCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     baseCoinId?: StringFieldUpdateOperationsInput | string
+    amountPrecision?: IntFieldUpdateOperationsInput | number
+    pricePrecision?: IntFieldUpdateOperationsInput | number
+    minPrice?: FloatFieldUpdateOperationsInput | number
+    maxprice?: FloatFieldUpdateOperationsInput | number
+    minAmount?: FloatFieldUpdateOperationsInput | number
+    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21512,7 +31990,6 @@ export namespace Prisma {
   export type CoinDetailsUpdateWithoutCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     chain?: NullableStringFieldUpdateOperationsInput | string | null
-    platformContractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     platformDecimals?: NullableStringFieldUpdateOperationsInput | string | null
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21528,7 +32005,6 @@ export namespace Prisma {
   export type CoinDetailsUncheckedUpdateWithoutCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     chain?: NullableStringFieldUpdateOperationsInput | string | null
-    platformContractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     platformDecimals?: NullableStringFieldUpdateOperationsInput | string | null
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21544,7 +32020,6 @@ export namespace Prisma {
   export type CoinDetailsUncheckedUpdateManyWithoutCoinInput = {
     id?: StringFieldUpdateOperationsInput | string
     chain?: NullableStringFieldUpdateOperationsInput | string | null
-    platformContractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     platformDecimals?: NullableStringFieldUpdateOperationsInput | string | null
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21559,8 +32034,13 @@ export namespace Prisma {
 
   export type UserWalletUpdateWithoutCoinsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21571,8 +32051,13 @@ export namespace Prisma {
   export type UserWalletUncheckedUpdateWithoutCoinsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21582,8 +32067,147 @@ export namespace Prisma {
   export type UserWalletUncheckedUpdateManyWithoutCoinsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumWalletStatusFieldUpdateOperationsInput | $Enums.WalletStatus | null
+    maxBalance?: FloatFieldUpdateOperationsInput | number
+    blockchainKey?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
+    settings?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DepositsUpdateWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutDepositsNestedInput
+  }
+
+  export type DepositsUncheckedUpdateWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DepositsUncheckedUpdateManyWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumDepositStateFieldUpdateOperationsInput | $Enums.DepositState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WithdrawsUpdateWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutWithdrawsNestedInput
+    beneficiary?: BeneficiariesUpdateOneWithoutWithdrawsNestedInput
+  }
+
+  export type WithdrawsUncheckedUpdateWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    beneficiaryId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WithdrawsUncheckedUpdateManyWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    beneficiaryId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BeneficiariesUpdateWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutBeneficiariesNestedInput
+    withdraws?: WithdrawsUpdateManyWithoutBeneficiaryNestedInput
+  }
+
+  export type BeneficiariesUncheckedUpdateWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    withdraws?: WithdrawsUncheckedUpdateManyWithoutBeneficiaryNestedInput
+  }
+
+  export type BeneficiariesUncheckedUpdateManyWithoutCoinInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: EnumBeneficiaryStateFieldUpdateOperationsInput | $Enums.BeneficiaryState
+    pin?: NullableStringFieldUpdateOperationsInput | string | null
+    data?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21593,6 +32217,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
+    orderId: string
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -21604,6 +32229,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
+    orderId?: StringFieldUpdateOperationsInput | string
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21615,6 +32241,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
+    orderId?: StringFieldUpdateOperationsInput | string
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21626,6 +32253,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
+    orderId?: StringFieldUpdateOperationsInput | string
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21639,6 +32267,16 @@ export namespace Prisma {
     amountBase: number
     amountQuote: number
     price: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+  }
+
+  export type TradingFeesCreateManyTradingGroupInput = {
+    id?: string
+    userGroup?: string
+    maker?: number
+    taker?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -21675,6 +32313,100 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TradingFeesUpdateWithoutTradingGroupInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userGroup?: StringFieldUpdateOperationsInput | string
+    maker?: FloatFieldUpdateOperationsInput | number
+    taker?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TradingFeesUncheckedUpdateWithoutTradingGroupInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userGroup?: StringFieldUpdateOperationsInput | string
+    maker?: FloatFieldUpdateOperationsInput | number
+    taker?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TradingFeesUncheckedUpdateManyWithoutTradingGroupInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userGroup?: StringFieldUpdateOperationsInput | string
+    maker?: FloatFieldUpdateOperationsInput | number
+    taker?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WithdrawsCreateManyBeneficiaryInput = {
+    id?: string
+    userId: string
+    coinId: string
+    amount: number
+    fee?: number
+    txid?: string | null
+    address: string
+    state?: $Enums.WithdrawState
+    blockNumber?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    deletedAt?: Date | string | null
+    completedAt?: Date | string | null
+  }
+
+  export type WithdrawsUpdateWithoutBeneficiaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UsersUpdateOneRequiredWithoutWithdrawsNestedInput
+    coin?: CoinsUpdateOneRequiredWithoutWithdrawsNestedInput
+  }
+
+  export type WithdrawsUncheckedUpdateWithoutBeneficiaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WithdrawsUncheckedUpdateManyWithoutBeneficiaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    coinId?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    fee?: FloatFieldUpdateOperationsInput | number
+    txid?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    state?: EnumWithdrawStateFieldUpdateOperationsInput | $Enums.WithdrawState
+    blockNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
 

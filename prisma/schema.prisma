@@ -12,11 +12,75 @@ datasource db {
   url      = "postgres://postgres:123456@localhost:5432/coinservice?sslmode=disabled"
 }
 
+// Enums
 enum Process {
   PENDING
   APPROVED
   NOTREADY
   REJECTED
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum OperationType {
+  DEPOSIT
+  WITHDRAW
+  BUY
+  SELL
+}
+
+enum DepositState {
+  PENDING
+  ACCEPTED
+  REJECTED
+  COMPLETED
+}
+
+enum WithdrawState {
+  PENDING
+  PROCESSING
+  COMPLETED
+  REJECTED
+}
+
+enum TradingGroupState {
+  ENABLED
+  DISABLED
+}
+
+enum BeneficiaryState {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+enum WalletKind {
+  HOT
+  COLD
+  WARM
+}
+
+enum WalletStatus {
+  ACTIVE
+  DISABLED
+}
+
+enum OrderStatus {
+  PENDING
+  PARTIALLY_FILLED
+  FILLED
+  CANCELED
+  REJECTED
+}
+
+enum OrderType {
+  LIMIT
+  MARKET
+  STOP_LIMIT
+  STOP_MARKET
 }
 
 model Users {
@@ -54,13 +118,11 @@ model Users {
   devices           Devices[]
   userWallet        UserWallet[]
   groupTrades       GroupTrade[]
+  Deposits          Deposits[]
+  Withdraws         Withdraws[]
+  Beneficiaries     Beneficiaries[]
 
   @@index([email])
-}
-
-enum Role {
-  ADMIN
-  USER
 }
 
 model Roles {
@@ -84,31 +146,40 @@ model UserRoleMapping {
 }
 
 model Coins {
-  id               String    @id @default(uuid())
-  coinId           BigInt?   @unique
-  nameId           String?
-  name             String?
-  priceUsd         String?
-  percentChange24h String?
-  percentChange1h  String?
-  percentChange7d  String?
-  priceBtc         String?
-  volume24         String?
-  volume24a        String?
-  symbol           String?
-  marketCapUsd     String?
-  rank             Int?
-  volume           Int?      @default(10000)
-  isVisible        Boolean?  @default(true)
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime? @updatedAt
-  deletedAt        DateTime?
+  id                String    @id @default(uuid())
+  coinId            BigInt?   @unique
+  nameId            String?
+  name              String?
+  priceUsd          String?
+  percentChange24h  String?
+  percentChange1h   String?
+  percentChange7d   String?
+  priceBtc          String?
+  volume24          String?
+  volume24a         String?
+  symbol            String?
+  marketCapUsd      String?
+  rank              Int?
+  volume            Int?      @default(10000)
+  isVisible         Boolean?  @default(true)
+  depositFee        Float?    @default(0.0)
+  withdrawFee       Float?    @default(0.0)
+  minDepositAmount  Float?    @default(0.0)
+  minWithdrawAmount Float?    @default(0.0)
+  precision         Int?      @default(8)
+  blockchainKey     String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime? @updatedAt
+  deletedAt         DateTime?
 
   tradingGroupBase  TradingGroup[] @relation("BaseCoin")
   tradingGroupQuote TradingGroup[] @relation("QuoteCoin")
 
-  coinDetails CoinDetails[]
-  UserWallet  UserWallet[]
+  coinDetails   CoinDetails[]
+  UserWallet    UserWallet[]
+  Deposits      Deposits[]
+  Withdraws     Withdraws[]
+  Beneficiaries Beneficiaries[]
 
   @@index([coinId])
 }
@@ -131,14 +202,19 @@ model Devices {
 }
 
 model UserWallet {
-  id        String    @id @default(uuid())
-  userId    String
-  amount    Float
-  coinId    String
-  currency  String    @default("USD")
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
-  deletedAt DateTime?
+  id            String        @id @default(uuid())
+  userId        String
+  coinId        String
+  currency      String        @default("USD")
+  status        WalletStatus? @default(ACTIVE)
+  maxBalance    Float         @default(0.0)
+  blockchainKey String?
+  address       String
+  kind          WalletKind
+  settings      Json?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime?     @updatedAt
+  deletedAt     DateTime?
 
   coins                 Coins                   @relation(fields: [coinId], references: [id])
   user                  Users                   @relation(fields: [userId], references: [id])
@@ -157,17 +233,24 @@ model AppConfig {
 }
 
 model TradingGroup {
-  id          String    @id @default(uuid())
-  name        String    @unique
-  baseCoinId  String
-  quoteCoinId String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime? @updatedAt
-  deletedAt   DateTime?
+  id              String            @id @default(uuid())
+  name            String            @unique
+  baseCoinId      String
+  quoteCoinId     String
+  amountPrecision Int               @default(4)
+  pricePrecision  Int               @default(4)
+  minPrice        Float             @default(0.0)
+  maxprice        Float             @default(0.0)
+  minAmount       Float             @default(0.0)
+  state           TradingGroupState @default(ENABLED)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime?         @updatedAt
+  deletedAt       DateTime?
 
-  baseCoin  Coins        @relation("BaseCoin", fields: [baseCoinId], references: [id])
-  quoteCoin Coins        @relation("QuoteCoin", fields: [quoteCoinId], references: [id])
-  trades    GroupTrade[]
+  baseCoin    Coins         @relation("BaseCoin", fields: [baseCoinId], references: [id])
+  quoteCoin   Coins         @relation("QuoteCoin", fields: [quoteCoinId], references: [id])
+  trades      GroupTrade[]
+  TradingFees TradingFees[]
 
   @@index([name])
 }
@@ -190,28 +273,20 @@ model GroupTrade {
 }
 
 model CoinDetails {
-  id                      String    @id @default(uuid())
-  coinId                  String
-  chain                   String?
-  platformContractAddress String?
-  platformDecimals        String?
-  blockCainSites          String?
-  assetPlatformId         String?
-  imageUrl                String?
-  descripionId            String?
-  contractAddress         String?
-  categories              String[]
-  coin                    Coins     @relation(fields: [coinId], references: [id])
-  createdAt               DateTime  @default(now())
-  updatedAt               DateTime? @updatedAt
-  deletedAt               DateTime?
-}
-
-enum OperationType {
-  DEPOSIT
-  WITHDRAW
-  BUY
-  SELL
+  id               String    @id @default(uuid())
+  coinId           String
+  chain            String?
+  platformDecimals String?
+  blockCainSites   String?
+  assetPlatformId  String?
+  imageUrl         String?
+  descripionId     String?
+  contractAddress  String?
+  categories       String[]
+  coin             Coins     @relation(fields: [coinId], references: [id])
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime? @updatedAt
+  deletedAt        DateTime?
 }
 
 model UserWalletTransaction {
@@ -219,6 +294,7 @@ model UserWalletTransaction {
   walletId    String
   operations  OperationType
   isAddition  Boolean
+  orderId     String
   value       Float
   signedValue Decimal
   createdAt   DateTime      @default(now())
@@ -226,4 +302,94 @@ model UserWalletTransaction {
   deletedAt   DateTime?
 
   userWallet UserWallet @relation(fields: [walletId], references: [id])
+}
+
+model Deposits {
+  id          String       @id @default(uuid())
+  userId      String
+  coinId      String
+  amount      Float
+  fee         Float        @default(0.0)
+  txid        String?
+  address     String?
+  state       DepositState @default(PENDING)
+  blockNumber Int?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime?    @updatedAt
+  deletedAt   DateTime?
+  completedAt DateTime?
+
+  user Users @relation(fields: [userId], references: [id])
+  coin Coins @relation(fields: [coinId], references: [id])
+
+  @@unique([coinId, txid])
+  @@index([userId])
+  @@index([coinId])
+  @@index([state])
+}
+
+model Withdraws {
+  id          String        @id @default(uuid())
+  userId      String
+  coinId      String
+  amount      Float
+  fee         Float         @default(0.0)
+  txid        String?
+  address     String
+  state       WithdrawState @default(PENDING)
+  blockNumber Int?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime?     @updatedAt
+  deletedAt   DateTime?
+  completedAt DateTime?
+
+  user          Users          @relation(fields: [userId], references: [id])
+  coin          Coins          @relation(fields: [coinId], references: [id])
+  beneficiary   Beneficiaries? @relation(fields: [beneficiaryId], references: [id])
+  beneficiaryId String?
+
+  @@unique([coinId, txid])
+  @@index([userId])
+  @@index([coinId])
+  @@index([state])
+  @@index([beneficiaryId])
+}
+
+model Beneficiaries {
+  id        String           @id @default(uuid())
+  userId    String
+  coinId    String
+  name      String?
+  address   String?
+  state     BeneficiaryState @default(PENDING)
+  pin       String?
+  data      Json?
+  createdAt DateTime         @default(now())
+  updatedAt DateTime?        @updatedAt
+  deletedAt DateTime?
+
+  user      Users       @relation(fields: [userId], references: [id])
+  coin      Coins       @relation(fields: [coinId], references: [id])
+  withdraws Withdraws[]
+
+  @@index([userId])
+  @@index([coinId])
+  @@index([state])
+}
+
+model TradingFees {
+  id        String    @id @default(uuid())
+  groupId   String
+  userGroup String    @default("any")
+  maker     Float     @default(0.0)
+  taker     Float     @default(0.0)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+
+  tradingGroup TradingGroup @relation(fields: [groupId], references: [id])
+
+  @@unique([groupId, userGroup])
+  @@index([groupId])
+  @@index([userGroup])
 }

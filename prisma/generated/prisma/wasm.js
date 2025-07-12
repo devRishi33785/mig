@@ -187,6 +187,12 @@ exports.Prisma.CoinsScalarFieldEnum = {
   rank: 'rank',
   volume: 'volume',
   isVisible: 'isVisible',
+  depositFee: 'depositFee',
+  withdrawFee: 'withdrawFee',
+  minDepositAmount: 'minDepositAmount',
+  minWithdrawAmount: 'minWithdrawAmount',
+  precision: 'precision',
+  blockchainKey: 'blockchainKey',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -205,9 +211,14 @@ exports.Prisma.DevicesScalarFieldEnum = {
 exports.Prisma.UserWalletScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  amount: 'amount',
   coinId: 'coinId',
   currency: 'currency',
+  status: 'status',
+  maxBalance: 'maxBalance',
+  blockchainKey: 'blockchainKey',
+  address: 'address',
+  kind: 'kind',
+  settings: 'settings',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -228,6 +239,12 @@ exports.Prisma.TradingGroupScalarFieldEnum = {
   name: 'name',
   baseCoinId: 'baseCoinId',
   quoteCoinId: 'quoteCoinId',
+  amountPrecision: 'amountPrecision',
+  pricePrecision: 'pricePrecision',
+  minPrice: 'minPrice',
+  maxprice: 'maxprice',
+  minAmount: 'minAmount',
+  state: 'state',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -249,7 +266,6 @@ exports.Prisma.CoinDetailsScalarFieldEnum = {
   id: 'id',
   coinId: 'coinId',
   chain: 'chain',
-  platformContractAddress: 'platformContractAddress',
   platformDecimals: 'platformDecimals',
   blockCainSites: 'blockCainSites',
   assetPlatformId: 'assetPlatformId',
@@ -267,8 +283,67 @@ exports.Prisma.UserWalletTransactionScalarFieldEnum = {
   walletId: 'walletId',
   operations: 'operations',
   isAddition: 'isAddition',
+  orderId: 'orderId',
   value: 'value',
   signedValue: 'signedValue',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.DepositsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  coinId: 'coinId',
+  amount: 'amount',
+  fee: 'fee',
+  txid: 'txid',
+  address: 'address',
+  state: 'state',
+  blockNumber: 'blockNumber',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt',
+  completedAt: 'completedAt'
+};
+
+exports.Prisma.WithdrawsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  coinId: 'coinId',
+  amount: 'amount',
+  fee: 'fee',
+  txid: 'txid',
+  address: 'address',
+  state: 'state',
+  blockNumber: 'blockNumber',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt',
+  completedAt: 'completedAt',
+  beneficiaryId: 'beneficiaryId'
+};
+
+exports.Prisma.BeneficiariesScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  coinId: 'coinId',
+  name: 'name',
+  address: 'address',
+  state: 'state',
+  pin: 'pin',
+  data: 'data',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.TradingFeesScalarFieldEnum = {
+  id: 'id',
+  groupId: 'groupId',
+  userGroup: 'userGroup',
+  maker: 'maker',
+  taker: 'taker',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -279,6 +354,11 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
+};
+
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
@@ -287,6 +367,12 @@ exports.Prisma.QueryMode = {
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
 };
 exports.Process = exports.$Enums.Process = {
   PENDING: 'PENDING',
@@ -300,11 +386,47 @@ exports.Role = exports.$Enums.Role = {
   USER: 'USER'
 };
 
+exports.WalletStatus = exports.$Enums.WalletStatus = {
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED'
+};
+
+exports.WalletKind = exports.$Enums.WalletKind = {
+  HOT: 'HOT',
+  COLD: 'COLD',
+  WARM: 'WARM'
+};
+
+exports.TradingGroupState = exports.$Enums.TradingGroupState = {
+  ENABLED: 'ENABLED',
+  DISABLED: 'DISABLED'
+};
+
 exports.OperationType = exports.$Enums.OperationType = {
   DEPOSIT: 'DEPOSIT',
   WITHDRAW: 'WITHDRAW',
   BUY: 'BUY',
   SELL: 'SELL'
+};
+
+exports.DepositState = exports.$Enums.DepositState = {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  REJECTED: 'REJECTED',
+  COMPLETED: 'COMPLETED'
+};
+
+exports.WithdrawState = exports.$Enums.WithdrawState = {
+  PENDING: 'PENDING',
+  PROCESSING: 'PROCESSING',
+  COMPLETED: 'COMPLETED',
+  REJECTED: 'REJECTED'
+};
+
+exports.BeneficiaryState = exports.$Enums.BeneficiaryState = {
+  PENDING: 'PENDING',
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED'
 };
 
 exports.Prisma.ModelName = {
@@ -318,7 +440,11 @@ exports.Prisma.ModelName = {
   TradingGroup: 'TradingGroup',
   GroupTrade: 'GroupTrade',
   CoinDetails: 'CoinDetails',
-  UserWalletTransaction: 'UserWalletTransaction'
+  UserWalletTransaction: 'UserWalletTransaction',
+  Deposits: 'Deposits',
+  Withdraws: 'Withdraws',
+  Beneficiaries: 'Beneficiaries',
+  TradingFees: 'TradingFees'
 };
 
 /**
