@@ -294,7 +294,7 @@ model UserWalletTransaction {
   walletId    String
   operations  OperationType
   isAddition  Boolean
-  orderId     String
+  orderId     String?
   value       Float
   signedValue Decimal
   createdAt   DateTime      @default(now())

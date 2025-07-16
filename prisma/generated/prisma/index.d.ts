@@ -573,8 +573,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.8.1
-   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
+   * Prisma Client JS version: 6.7.0
+   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
    */
   export type PrismaVersion = {
     client: string
@@ -15038,7 +15038,7 @@ export namespace Prisma {
     walletId: string
     operations: $Enums.OperationType
     isAddition: boolean
-    orderId: string
+    orderId: string | null
     value: number
     signedValue: Decimal
     createdAt: Date
@@ -15141,7 +15141,7 @@ export namespace Prisma {
       walletId: string
       operations: $Enums.OperationType
       isAddition: boolean
-      orderId: string
+      orderId: string | null
       value: number
       signedValue: Prisma.Decimal
       createdAt: Date
@@ -22344,7 +22344,7 @@ export namespace Prisma {
     walletId?: StringFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolFilter<"UserWalletTransaction"> | boolean
-    orderId?: StringFilter<"UserWalletTransaction"> | string
+    orderId?: StringNullableFilter<"UserWalletTransaction"> | string | null
     value?: FloatFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"UserWalletTransaction"> | Date | string
@@ -22358,7 +22358,7 @@ export namespace Prisma {
     walletId?: SortOrder
     operations?: SortOrder
     isAddition?: SortOrder
-    orderId?: SortOrder
+    orderId?: SortOrderInput | SortOrder
     value?: SortOrder
     signedValue?: SortOrder
     createdAt?: SortOrder
@@ -22375,7 +22375,7 @@ export namespace Prisma {
     walletId?: StringFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolFilter<"UserWalletTransaction"> | boolean
-    orderId?: StringFilter<"UserWalletTransaction"> | string
+    orderId?: StringNullableFilter<"UserWalletTransaction"> | string | null
     value?: FloatFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"UserWalletTransaction"> | Date | string
@@ -22389,7 +22389,7 @@ export namespace Prisma {
     walletId?: SortOrder
     operations?: SortOrder
     isAddition?: SortOrder
-    orderId?: SortOrder
+    orderId?: SortOrderInput | SortOrder
     value?: SortOrder
     signedValue?: SortOrder
     createdAt?: SortOrder
@@ -22410,7 +22410,7 @@ export namespace Prisma {
     walletId?: StringWithAggregatesFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeWithAggregatesFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolWithAggregatesFilter<"UserWalletTransaction"> | boolean
-    orderId?: StringWithAggregatesFilter<"UserWalletTransaction"> | string
+    orderId?: StringNullableWithAggregatesFilter<"UserWalletTransaction"> | string | null
     value?: FloatWithAggregatesFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalWithAggregatesFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeWithAggregatesFilter<"UserWalletTransaction"> | Date | string
@@ -23964,7 +23964,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
-    orderId: string
+    orderId?: string | null
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -23978,7 +23978,7 @@ export namespace Prisma {
     walletId: string
     operations: $Enums.OperationType
     isAddition: boolean
-    orderId: string
+    orderId?: string | null
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -23990,7 +23990,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
-    orderId?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24004,7 +24004,7 @@ export namespace Prisma {
     walletId?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
-    orderId?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24017,7 +24017,7 @@ export namespace Prisma {
     walletId: string
     operations: $Enums.OperationType
     isAddition: boolean
-    orderId: string
+    orderId?: string | null
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -24029,7 +24029,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
-    orderId?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24042,7 +24042,7 @@ export namespace Prisma {
     walletId?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
-    orderId?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29085,7 +29085,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
-    orderId: string
+    orderId?: string | null
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -29097,7 +29097,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
-    orderId: string
+    orderId?: string | null
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -29307,7 +29307,7 @@ export namespace Prisma {
     walletId?: StringFilter<"UserWalletTransaction"> | string
     operations?: EnumOperationTypeFilter<"UserWalletTransaction"> | $Enums.OperationType
     isAddition?: BoolFilter<"UserWalletTransaction"> | boolean
-    orderId?: StringFilter<"UserWalletTransaction"> | string
+    orderId?: StringNullableFilter<"UserWalletTransaction"> | string | null
     value?: FloatFilter<"UserWalletTransaction"> | number
     signedValue?: DecimalFilter<"UserWalletTransaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"UserWalletTransaction"> | Date | string
@@ -32217,7 +32217,7 @@ export namespace Prisma {
     id?: string
     operations: $Enums.OperationType
     isAddition: boolean
-    orderId: string
+    orderId?: string | null
     value: number
     signedValue: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
@@ -32229,7 +32229,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
-    orderId?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32241,7 +32241,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
-    orderId?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32253,7 +32253,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     operations?: EnumOperationTypeFieldUpdateOperationsInput | $Enums.OperationType
     isAddition?: BoolFieldUpdateOperationsInput | boolean
-    orderId?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
