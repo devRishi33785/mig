@@ -242,6 +242,7 @@ model TradingGroup {
   minPrice        Float             @default(0.0)
   maxprice        Float             @default(0.0)
   minAmount       Float             @default(0.0)
+  tradingFees     Float?
   state           TradingGroupState @default(ENABLED)
   createdAt       DateTime          @default(now())
   updatedAt       DateTime?         @updatedAt

@@ -11256,6 +11256,7 @@ export namespace Prisma {
     minPrice: number | null
     maxprice: number | null
     minAmount: number | null
+    tradingFees: number | null
   }
 
   export type TradingGroupSumAggregateOutputType = {
@@ -11264,6 +11265,7 @@ export namespace Prisma {
     minPrice: number | null
     maxprice: number | null
     minAmount: number | null
+    tradingFees: number | null
   }
 
   export type TradingGroupMinAggregateOutputType = {
@@ -11276,6 +11278,7 @@ export namespace Prisma {
     minPrice: number | null
     maxprice: number | null
     minAmount: number | null
+    tradingFees: number | null
     state: $Enums.TradingGroupState | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -11292,6 +11295,7 @@ export namespace Prisma {
     minPrice: number | null
     maxprice: number | null
     minAmount: number | null
+    tradingFees: number | null
     state: $Enums.TradingGroupState | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -11308,6 +11312,7 @@ export namespace Prisma {
     minPrice: number
     maxprice: number
     minAmount: number
+    tradingFees: number
     state: number
     createdAt: number
     updatedAt: number
@@ -11322,6 +11327,7 @@ export namespace Prisma {
     minPrice?: true
     maxprice?: true
     minAmount?: true
+    tradingFees?: true
   }
 
   export type TradingGroupSumAggregateInputType = {
@@ -11330,6 +11336,7 @@ export namespace Prisma {
     minPrice?: true
     maxprice?: true
     minAmount?: true
+    tradingFees?: true
   }
 
   export type TradingGroupMinAggregateInputType = {
@@ -11342,6 +11349,7 @@ export namespace Prisma {
     minPrice?: true
     maxprice?: true
     minAmount?: true
+    tradingFees?: true
     state?: true
     createdAt?: true
     updatedAt?: true
@@ -11358,6 +11366,7 @@ export namespace Prisma {
     minPrice?: true
     maxprice?: true
     minAmount?: true
+    tradingFees?: true
     state?: true
     createdAt?: true
     updatedAt?: true
@@ -11374,6 +11383,7 @@ export namespace Prisma {
     minPrice?: true
     maxprice?: true
     minAmount?: true
+    tradingFees?: true
     state?: true
     createdAt?: true
     updatedAt?: true
@@ -11477,6 +11487,7 @@ export namespace Prisma {
     minPrice: number
     maxprice: number
     minAmount: number
+    tradingFees: number | null
     state: $Enums.TradingGroupState
     createdAt: Date
     updatedAt: Date | null
@@ -11512,6 +11523,7 @@ export namespace Prisma {
     minPrice?: boolean
     maxprice?: boolean
     minAmount?: boolean
+    tradingFees?: boolean
     state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11533,6 +11545,7 @@ export namespace Prisma {
     minPrice?: boolean
     maxprice?: boolean
     minAmount?: boolean
+    tradingFees?: boolean
     state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11551,6 +11564,7 @@ export namespace Prisma {
     minPrice?: boolean
     maxprice?: boolean
     minAmount?: boolean
+    tradingFees?: boolean
     state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11569,13 +11583,14 @@ export namespace Prisma {
     minPrice?: boolean
     maxprice?: boolean
     minAmount?: boolean
+    tradingFees?: boolean
     state?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
   }
 
-  export type TradingGroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "baseCoinId" | "quoteCoinId" | "amountPrecision" | "pricePrecision" | "minPrice" | "maxprice" | "minAmount" | "state" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["tradingGroup"]>
+  export type TradingGroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "baseCoinId" | "quoteCoinId" | "amountPrecision" | "pricePrecision" | "minPrice" | "maxprice" | "minAmount" | "tradingFees" | "state" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["tradingGroup"]>
   export type TradingGroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     baseCoin?: boolean | CoinsDefaultArgs<ExtArgs>
     quoteCoin?: boolean | CoinsDefaultArgs<ExtArgs>
@@ -11610,6 +11625,7 @@ export namespace Prisma {
       minPrice: number
       maxprice: number
       minAmount: number
+      tradingFees: number | null
       state: $Enums.TradingGroupState
       createdAt: Date
       updatedAt: Date | null
@@ -12050,6 +12066,7 @@ export namespace Prisma {
     readonly minPrice: FieldRef<"TradingGroup", 'Float'>
     readonly maxprice: FieldRef<"TradingGroup", 'Float'>
     readonly minAmount: FieldRef<"TradingGroup", 'Float'>
+    readonly tradingFees: FieldRef<"TradingGroup", 'Float'>
     readonly state: FieldRef<"TradingGroup", 'TradingGroupState'>
     readonly createdAt: FieldRef<"TradingGroup", 'DateTime'>
     readonly updatedAt: FieldRef<"TradingGroup", 'DateTime'>
@@ -20923,6 +20940,7 @@ export namespace Prisma {
     minPrice: 'minPrice',
     maxprice: 'maxprice',
     minAmount: 'minAmount',
+    tradingFees: 'tradingFees',
     state: 'state',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -22068,6 +22086,7 @@ export namespace Prisma {
     minPrice?: FloatFilter<"TradingGroup"> | number
     maxprice?: FloatFilter<"TradingGroup"> | number
     minAmount?: FloatFilter<"TradingGroup"> | number
+    tradingFees?: FloatNullableFilter<"TradingGroup"> | number | null
     state?: EnumTradingGroupStateFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
@@ -22088,6 +22107,7 @@ export namespace Prisma {
     minPrice?: SortOrder
     maxprice?: SortOrder
     minAmount?: SortOrder
+    tradingFees?: SortOrderInput | SortOrder
     state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -22111,6 +22131,7 @@ export namespace Prisma {
     minPrice?: FloatFilter<"TradingGroup"> | number
     maxprice?: FloatFilter<"TradingGroup"> | number
     minAmount?: FloatFilter<"TradingGroup"> | number
+    tradingFees?: FloatNullableFilter<"TradingGroup"> | number | null
     state?: EnumTradingGroupStateFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
@@ -22131,6 +22152,7 @@ export namespace Prisma {
     minPrice?: SortOrder
     maxprice?: SortOrder
     minAmount?: SortOrder
+    tradingFees?: SortOrderInput | SortOrder
     state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -22155,6 +22177,7 @@ export namespace Prisma {
     minPrice?: FloatWithAggregatesFilter<"TradingGroup"> | number
     maxprice?: FloatWithAggregatesFilter<"TradingGroup"> | number
     minAmount?: FloatWithAggregatesFilter<"TradingGroup"> | number
+    tradingFees?: FloatNullableWithAggregatesFilter<"TradingGroup"> | number | null
     state?: EnumTradingGroupStateWithAggregatesFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeWithAggregatesFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"TradingGroup"> | Date | string | null
@@ -23657,6 +23680,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -23677,6 +23701,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -23693,6 +23718,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -23713,6 +23739,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -23731,6 +23758,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -23745,6 +23773,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -23761,6 +23790,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -25355,6 +25385,7 @@ export namespace Prisma {
     minPrice?: SortOrder
     maxprice?: SortOrder
     minAmount?: SortOrder
+    tradingFees?: SortOrder
     state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -25367,6 +25398,7 @@ export namespace Prisma {
     minPrice?: SortOrder
     maxprice?: SortOrder
     minAmount?: SortOrder
+    tradingFees?: SortOrder
   }
 
   export type TradingGroupMaxOrderByAggregateInput = {
@@ -25379,6 +25411,7 @@ export namespace Prisma {
     minPrice?: SortOrder
     maxprice?: SortOrder
     minAmount?: SortOrder
+    tradingFees?: SortOrder
     state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -25395,6 +25428,7 @@ export namespace Prisma {
     minPrice?: SortOrder
     maxprice?: SortOrder
     minAmount?: SortOrder
+    tradingFees?: SortOrder
     state?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -25407,6 +25441,7 @@ export namespace Prisma {
     minPrice?: SortOrder
     maxprice?: SortOrder
     minAmount?: SortOrder
+    tradingFees?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -28321,6 +28356,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -28339,6 +28375,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -28365,6 +28402,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -28383,6 +28421,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -28632,6 +28671,7 @@ export namespace Prisma {
     minPrice?: FloatFilter<"TradingGroup"> | number
     maxprice?: FloatFilter<"TradingGroup"> | number
     minAmount?: FloatFilter<"TradingGroup"> | number
+    tradingFees?: FloatNullableFilter<"TradingGroup"> | number | null
     state?: EnumTradingGroupStateFilter<"TradingGroup"> | $Enums.TradingGroupState
     createdAt?: DateTimeFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
@@ -29735,6 +29775,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -29754,6 +29795,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -29868,6 +29910,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -29887,6 +29930,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31325,6 +31369,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -31344,6 +31389,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -31375,6 +31421,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31394,6 +31441,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31794,6 +31842,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -31809,6 +31858,7 @@ export namespace Prisma {
     minPrice?: number
     maxprice?: number
     minAmount?: number
+    tradingFees?: number | null
     state?: $Enums.TradingGroupState
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -31897,6 +31947,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31915,6 +31966,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31932,6 +31984,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31946,6 +31999,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31964,6 +32018,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31981,6 +32036,7 @@ export namespace Prisma {
     minPrice?: FloatFieldUpdateOperationsInput | number
     maxprice?: FloatFieldUpdateOperationsInput | number
     minAmount?: FloatFieldUpdateOperationsInput | number
+    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

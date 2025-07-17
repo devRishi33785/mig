@@ -244,6 +244,7 @@ exports.Prisma.TradingGroupScalarFieldEnum = {
   minPrice: 'minPrice',
   maxprice: 'maxprice',
   minAmount: 'minAmount',
+  tradingFees: 'tradingFees',
   state: 'state',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
