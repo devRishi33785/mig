@@ -106,7 +106,7 @@ model Users {
   idProofBack       String?
   profilePicture    String?
   selfiePicture     String?
-  isVerifid         Process           @default(NOTREADY)
+  isVerified        Process           @default(NOTREADY)
   rejectionReason   String?
   docSubmissionDate DateTime          @default(now())
   isBlocked         Boolean           @default(false)

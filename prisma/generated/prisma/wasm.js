@@ -143,7 +143,7 @@ exports.Prisma.UsersScalarFieldEnum = {
   idProofBack: 'idProofBack',
   profilePicture: 'profilePicture',
   selfiePicture: 'selfiePicture',
-  isVerifid: 'isVerifid',
+  isVerified: 'isVerified',
   rejectionReason: 'rejectionReason',
   docSubmissionDate: 'docSubmissionDate',
   isBlocked: 'isBlocked',

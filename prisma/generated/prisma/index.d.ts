@@ -2640,7 +2640,7 @@ export namespace Prisma {
     idProofBack: string | null
     profilePicture: string | null
     selfiePicture: string | null
-    isVerifid: $Enums.Process | null
+    isVerified: $Enums.Process | null
     rejectionReason: string | null
     docSubmissionDate: Date | null
     isBlocked: boolean | null
@@ -2673,7 +2673,7 @@ export namespace Prisma {
     idProofBack: string | null
     profilePicture: string | null
     selfiePicture: string | null
-    isVerifid: $Enums.Process | null
+    isVerified: $Enums.Process | null
     rejectionReason: string | null
     docSubmissionDate: Date | null
     isBlocked: boolean | null
@@ -2706,7 +2706,7 @@ export namespace Prisma {
     idProofBack: number
     profilePicture: number
     selfiePicture: number
-    isVerifid: number
+    isVerified: number
     rejectionReason: number
     docSubmissionDate: number
     isBlocked: number
@@ -2749,7 +2749,7 @@ export namespace Prisma {
     idProofBack?: true
     profilePicture?: true
     selfiePicture?: true
-    isVerifid?: true
+    isVerified?: true
     rejectionReason?: true
     docSubmissionDate?: true
     isBlocked?: true
@@ -2782,7 +2782,7 @@ export namespace Prisma {
     idProofBack?: true
     profilePicture?: true
     selfiePicture?: true
-    isVerifid?: true
+    isVerified?: true
     rejectionReason?: true
     docSubmissionDate?: true
     isBlocked?: true
@@ -2815,7 +2815,7 @@ export namespace Prisma {
     idProofBack?: true
     profilePicture?: true
     selfiePicture?: true
-    isVerifid?: true
+    isVerified?: true
     rejectionReason?: true
     docSubmissionDate?: true
     isBlocked?: true
@@ -2935,7 +2935,7 @@ export namespace Prisma {
     idProofBack: string | null
     profilePicture: string | null
     selfiePicture: string | null
-    isVerifid: $Enums.Process
+    isVerified: $Enums.Process
     rejectionReason: string | null
     docSubmissionDate: Date
     isBlocked: boolean
@@ -2987,7 +2987,7 @@ export namespace Prisma {
     idProofBack?: boolean
     profilePicture?: boolean
     selfiePicture?: boolean
-    isVerifid?: boolean
+    isVerified?: boolean
     rejectionReason?: boolean
     docSubmissionDate?: boolean
     isBlocked?: boolean
@@ -3028,7 +3028,7 @@ export namespace Prisma {
     idProofBack?: boolean
     profilePicture?: boolean
     selfiePicture?: boolean
-    isVerifid?: boolean
+    isVerified?: boolean
     rejectionReason?: boolean
     docSubmissionDate?: boolean
     isBlocked?: boolean
@@ -3061,7 +3061,7 @@ export namespace Prisma {
     idProofBack?: boolean
     profilePicture?: boolean
     selfiePicture?: boolean
-    isVerifid?: boolean
+    isVerified?: boolean
     rejectionReason?: boolean
     docSubmissionDate?: boolean
     isBlocked?: boolean
@@ -3094,7 +3094,7 @@ export namespace Prisma {
     idProofBack?: boolean
     profilePicture?: boolean
     selfiePicture?: boolean
-    isVerifid?: boolean
+    isVerified?: boolean
     rejectionReason?: boolean
     docSubmissionDate?: boolean
     isBlocked?: boolean
@@ -3104,7 +3104,7 @@ export namespace Prisma {
     docType?: boolean
   }
 
-  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "firstName" | "lastName" | "provider" | "providerId" | "referralCode" | "countryId" | "phone" | "country" | "address" | "city" | "pinCode" | "dateOfBirth" | "acceptedTerms" | "mfaEnabled" | "mfaSecret" | "idProofFront" | "idProofBack" | "profilePicture" | "selfiePicture" | "isVerifid" | "rejectionReason" | "docSubmissionDate" | "isBlocked" | "createdAt" | "updatedAt" | "deletedAt" | "docType", ExtArgs["result"]["users"]>
+  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "firstName" | "lastName" | "provider" | "providerId" | "referralCode" | "countryId" | "phone" | "country" | "address" | "city" | "pinCode" | "dateOfBirth" | "acceptedTerms" | "mfaEnabled" | "mfaSecret" | "idProofFront" | "idProofBack" | "profilePicture" | "selfiePicture" | "isVerified" | "rejectionReason" | "docSubmissionDate" | "isBlocked" | "createdAt" | "updatedAt" | "deletedAt" | "docType", ExtArgs["result"]["users"]>
   export type UsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userRoleMapping?: boolean | Users$userRoleMappingArgs<ExtArgs>
     devices?: boolean | Users$devicesArgs<ExtArgs>
@@ -3152,7 +3152,7 @@ export namespace Prisma {
       idProofBack: string | null
       profilePicture: string | null
       selfiePicture: string | null
-      isVerifid: $Enums.Process
+      isVerified: $Enums.Process
       rejectionReason: string | null
       docSubmissionDate: Date
       isBlocked: boolean
@@ -3612,7 +3612,7 @@ export namespace Prisma {
     readonly idProofBack: FieldRef<"Users", 'String'>
     readonly profilePicture: FieldRef<"Users", 'String'>
     readonly selfiePicture: FieldRef<"Users", 'String'>
-    readonly isVerifid: FieldRef<"Users", 'Process'>
+    readonly isVerified: FieldRef<"Users", 'Process'>
     readonly rejectionReason: FieldRef<"Users", 'String'>
     readonly docSubmissionDate: FieldRef<"Users", 'DateTime'>
     readonly isBlocked: FieldRef<"Users", 'Boolean'>
@@ -20801,7 +20801,7 @@ export namespace Prisma {
     idProofBack: 'idProofBack',
     profilePicture: 'profilePicture',
     selfiePicture: 'selfiePicture',
-    isVerifid: 'isVerifid',
+    isVerified: 'isVerified',
     rejectionReason: 'rejectionReason',
     docSubmissionDate: 'docSubmissionDate',
     isBlocked: 'isBlocked',
@@ -21358,7 +21358,7 @@ export namespace Prisma {
     idProofBack?: StringNullableFilter<"Users"> | string | null
     profilePicture?: StringNullableFilter<"Users"> | string | null
     selfiePicture?: StringNullableFilter<"Users"> | string | null
-    isVerifid?: EnumProcessFilter<"Users"> | $Enums.Process
+    isVerified?: EnumProcessFilter<"Users"> | $Enums.Process
     rejectionReason?: StringNullableFilter<"Users"> | string | null
     docSubmissionDate?: DateTimeFilter<"Users"> | Date | string
     isBlocked?: BoolFilter<"Users"> | boolean
@@ -21398,7 +21398,7 @@ export namespace Prisma {
     idProofBack?: SortOrderInput | SortOrder
     profilePicture?: SortOrderInput | SortOrder
     selfiePicture?: SortOrderInput | SortOrder
-    isVerifid?: SortOrder
+    isVerified?: SortOrder
     rejectionReason?: SortOrderInput | SortOrder
     docSubmissionDate?: SortOrder
     isBlocked?: SortOrder
@@ -21441,7 +21441,7 @@ export namespace Prisma {
     idProofBack?: StringNullableFilter<"Users"> | string | null
     profilePicture?: StringNullableFilter<"Users"> | string | null
     selfiePicture?: StringNullableFilter<"Users"> | string | null
-    isVerifid?: EnumProcessFilter<"Users"> | $Enums.Process
+    isVerified?: EnumProcessFilter<"Users"> | $Enums.Process
     rejectionReason?: StringNullableFilter<"Users"> | string | null
     docSubmissionDate?: DateTimeFilter<"Users"> | Date | string
     isBlocked?: BoolFilter<"Users"> | boolean
@@ -21481,7 +21481,7 @@ export namespace Prisma {
     idProofBack?: SortOrderInput | SortOrder
     profilePicture?: SortOrderInput | SortOrder
     selfiePicture?: SortOrderInput | SortOrder
-    isVerifid?: SortOrder
+    isVerified?: SortOrder
     rejectionReason?: SortOrderInput | SortOrder
     docSubmissionDate?: SortOrder
     isBlocked?: SortOrder
@@ -21522,7 +21522,7 @@ export namespace Prisma {
     idProofBack?: StringNullableWithAggregatesFilter<"Users"> | string | null
     profilePicture?: StringNullableWithAggregatesFilter<"Users"> | string | null
     selfiePicture?: StringNullableWithAggregatesFilter<"Users"> | string | null
-    isVerifid?: EnumProcessWithAggregatesFilter<"Users"> | $Enums.Process
+    isVerified?: EnumProcessWithAggregatesFilter<"Users"> | $Enums.Process
     rejectionReason?: StringNullableWithAggregatesFilter<"Users"> | string | null
     docSubmissionDate?: DateTimeWithAggregatesFilter<"Users"> | Date | string
     isBlocked?: BoolWithAggregatesFilter<"Users"> | boolean
@@ -22815,7 +22815,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -22855,7 +22855,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -22895,7 +22895,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -22935,7 +22935,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -22975,7 +22975,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -23008,7 +23008,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -23041,7 +23041,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -24625,7 +24625,7 @@ export namespace Prisma {
     idProofBack?: SortOrder
     profilePicture?: SortOrder
     selfiePicture?: SortOrder
-    isVerifid?: SortOrder
+    isVerified?: SortOrder
     rejectionReason?: SortOrder
     docSubmissionDate?: SortOrder
     isBlocked?: SortOrder
@@ -24662,7 +24662,7 @@ export namespace Prisma {
     idProofBack?: SortOrder
     profilePicture?: SortOrder
     selfiePicture?: SortOrder
-    isVerifid?: SortOrder
+    isVerified?: SortOrder
     rejectionReason?: SortOrder
     docSubmissionDate?: SortOrder
     isBlocked?: SortOrder
@@ -24695,7 +24695,7 @@ export namespace Prisma {
     idProofBack?: SortOrder
     profilePicture?: SortOrder
     selfiePicture?: SortOrder
-    isVerifid?: SortOrder
+    isVerified?: SortOrder
     rejectionReason?: SortOrder
     docSubmissionDate?: SortOrder
     isBlocked?: SortOrder
@@ -28116,7 +28116,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -28155,7 +28155,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -28231,7 +28231,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -28270,7 +28270,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -28776,7 +28776,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -28815,7 +28815,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -28870,7 +28870,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -28909,7 +28909,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -29021,7 +29021,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -29060,7 +29060,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -29228,7 +29228,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -29267,7 +29267,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -29789,7 +29789,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -29828,7 +29828,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -29928,7 +29928,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -29967,7 +29967,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -30238,7 +30238,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -30277,7 +30277,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -30405,7 +30405,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -30444,7 +30444,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -30562,7 +30562,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -30601,7 +30601,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -30762,7 +30762,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -30801,7 +30801,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -30958,7 +30958,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -30997,7 +30997,7 @@ export namespace Prisma {
     idProofBack?: string | null
     profilePicture?: string | null
     selfiePicture?: string | null
-    isVerifid?: $Enums.Process
+    isVerified?: $Enums.Process
     rejectionReason?: string | null
     docSubmissionDate?: Date | string
     isBlocked?: boolean
@@ -31167,7 +31167,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
@@ -31206,7 +31206,7 @@ export namespace Prisma {
     idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
     profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
     selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerifid?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
+    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
     rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
     docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
     isBlocked?: BoolFieldUpdateOperationsInput | boolean
