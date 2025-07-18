@@ -251,18 +251,6 @@ exports.Prisma.TradingGroupScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.GroupTradeScalarFieldEnum = {
-  id: 'id',
-  groupId: 'groupId',
-  userId: 'userId',
-  amountBase: 'amountBase',
-  amountQuote: 'amountQuote',
-  price: 'price',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
-};
-
 exports.Prisma.CoinDetailsScalarFieldEnum = {
   id: 'id',
   coinId: 'coinId',
@@ -334,17 +322,6 @@ exports.Prisma.BeneficiariesScalarFieldEnum = {
   state: 'state',
   pin: 'pin',
   data: 'data',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
-};
-
-exports.Prisma.TradingFeesScalarFieldEnum = {
-  id: 'id',
-  groupId: 'groupId',
-  userGroup: 'userGroup',
-  maker: 'maker',
-  taker: 'taker',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -439,13 +416,11 @@ exports.Prisma.ModelName = {
   UserWallet: 'UserWallet',
   AppConfig: 'AppConfig',
   TradingGroup: 'TradingGroup',
-  GroupTrade: 'GroupTrade',
   CoinDetails: 'CoinDetails',
   UserWalletTransaction: 'UserWalletTransaction',
   Deposits: 'Deposits',
   Withdraws: 'Withdraws',
-  Beneficiaries: 'Beneficiaries',
-  TradingFees: 'TradingFees'
+  Beneficiaries: 'Beneficiaries'
 };
 
 /**

@@ -54,11 +54,6 @@ export type AppConfig = $Result.DefaultSelection<Prisma.$AppConfigPayload>
  */
 export type TradingGroup = $Result.DefaultSelection<Prisma.$TradingGroupPayload>
 /**
- * Model GroupTrade
- * 
- */
-export type GroupTrade = $Result.DefaultSelection<Prisma.$GroupTradePayload>
-/**
  * Model CoinDetails
  * 
  */
@@ -83,11 +78,6 @@ export type Withdraws = $Result.DefaultSelection<Prisma.$WithdrawsPayload>
  * 
  */
 export type Beneficiaries = $Result.DefaultSelection<Prisma.$BeneficiariesPayload>
-/**
- * Model TradingFees
- * 
- */
-export type TradingFees = $Result.DefaultSelection<Prisma.$TradingFeesPayload>
 
 /**
  * Enums
@@ -447,16 +437,6 @@ export class PrismaClient<
   get tradingGroup(): Prisma.TradingGroupDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.groupTrade`: Exposes CRUD operations for the **GroupTrade** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more GroupTrades
-    * const groupTrades = await prisma.groupTrade.findMany()
-    * ```
-    */
-  get groupTrade(): Prisma.GroupTradeDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.coinDetails`: Exposes CRUD operations for the **CoinDetails** model.
     * Example usage:
     * ```ts
@@ -505,16 +485,6 @@ export class PrismaClient<
     * ```
     */
   get beneficiaries(): Prisma.BeneficiariesDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.tradingFees`: Exposes CRUD operations for the **TradingFees** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more TradingFees
-    * const tradingFees = await prisma.tradingFees.findMany()
-    * ```
-    */
-  get tradingFees(): Prisma.TradingFeesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -963,13 +933,11 @@ export namespace Prisma {
     UserWallet: 'UserWallet',
     AppConfig: 'AppConfig',
     TradingGroup: 'TradingGroup',
-    GroupTrade: 'GroupTrade',
     CoinDetails: 'CoinDetails',
     UserWalletTransaction: 'UserWalletTransaction',
     Deposits: 'Deposits',
     Withdraws: 'Withdraws',
-    Beneficiaries: 'Beneficiaries',
-    TradingFees: 'TradingFees'
+    Beneficiaries: 'Beneficiaries'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -988,7 +956,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "roles" | "userRoleMapping" | "coins" | "devices" | "userWallet" | "appConfig" | "tradingGroup" | "groupTrade" | "coinDetails" | "userWalletTransaction" | "deposits" | "withdraws" | "beneficiaries" | "tradingFees"
+      modelProps: "users" | "roles" | "userRoleMapping" | "coins" | "devices" | "userWallet" | "appConfig" | "tradingGroup" | "coinDetails" | "userWalletTransaction" | "deposits" | "withdraws" | "beneficiaries"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1584,80 +1552,6 @@ export namespace Prisma {
           }
         }
       }
-      GroupTrade: {
-        payload: Prisma.$GroupTradePayload<ExtArgs>
-        fields: Prisma.GroupTradeFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.GroupTradeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.GroupTradeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>
-          }
-          findFirst: {
-            args: Prisma.GroupTradeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.GroupTradeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>
-          }
-          findMany: {
-            args: Prisma.GroupTradeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>[]
-          }
-          create: {
-            args: Prisma.GroupTradeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>
-          }
-          createMany: {
-            args: Prisma.GroupTradeCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.GroupTradeCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>[]
-          }
-          delete: {
-            args: Prisma.GroupTradeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>
-          }
-          update: {
-            args: Prisma.GroupTradeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>
-          }
-          deleteMany: {
-            args: Prisma.GroupTradeDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.GroupTradeUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.GroupTradeUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>[]
-          }
-          upsert: {
-            args: Prisma.GroupTradeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupTradePayload>
-          }
-          aggregate: {
-            args: Prisma.GroupTradeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateGroupTrade>
-          }
-          groupBy: {
-            args: Prisma.GroupTradeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<GroupTradeGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.GroupTradeCountArgs<ExtArgs>
-            result: $Utils.Optional<GroupTradeCountAggregateOutputType> | number
-          }
-        }
-      }
       CoinDetails: {
         payload: Prisma.$CoinDetailsPayload<ExtArgs>
         fields: Prisma.CoinDetailsFieldRefs
@@ -2028,80 +1922,6 @@ export namespace Prisma {
           }
         }
       }
-      TradingFees: {
-        payload: Prisma.$TradingFeesPayload<ExtArgs>
-        fields: Prisma.TradingFeesFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.TradingFeesFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.TradingFeesFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
-          }
-          findFirst: {
-            args: Prisma.TradingFeesFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.TradingFeesFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
-          }
-          findMany: {
-            args: Prisma.TradingFeesFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>[]
-          }
-          create: {
-            args: Prisma.TradingFeesCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
-          }
-          createMany: {
-            args: Prisma.TradingFeesCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.TradingFeesCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>[]
-          }
-          delete: {
-            args: Prisma.TradingFeesDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
-          }
-          update: {
-            args: Prisma.TradingFeesUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
-          }
-          deleteMany: {
-            args: Prisma.TradingFeesDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.TradingFeesUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.TradingFeesUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>[]
-          }
-          upsert: {
-            args: Prisma.TradingFeesUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TradingFeesPayload>
-          }
-          aggregate: {
-            args: Prisma.TradingFeesAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTradingFees>
-          }
-          groupBy: {
-            args: Prisma.TradingFeesGroupByArgs<ExtArgs>
-            result: $Utils.Optional<TradingFeesGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.TradingFeesCountArgs<ExtArgs>
-            result: $Utils.Optional<TradingFeesCountAggregateOutputType> | number
-          }
-        }
-      }
     }
   } & {
     other: {
@@ -2194,13 +2014,11 @@ export namespace Prisma {
     userWallet?: UserWalletOmit
     appConfig?: AppConfigOmit
     tradingGroup?: TradingGroupOmit
-    groupTrade?: GroupTradeOmit
     coinDetails?: CoinDetailsOmit
     userWalletTransaction?: UserWalletTransactionOmit
     deposits?: DepositsOmit
     withdraws?: WithdrawsOmit
     beneficiaries?: BeneficiariesOmit
-    tradingFees?: TradingFeesOmit
   }
 
   /* Types for Logging */
@@ -2298,7 +2116,6 @@ export namespace Prisma {
     userRoleMapping: number
     devices: number
     userWallet: number
-    groupTrades: number
     Deposits: number
     Withdraws: number
     Beneficiaries: number
@@ -2308,7 +2125,6 @@ export namespace Prisma {
     userRoleMapping?: boolean | UsersCountOutputTypeCountUserRoleMappingArgs
     devices?: boolean | UsersCountOutputTypeCountDevicesArgs
     userWallet?: boolean | UsersCountOutputTypeCountUserWalletArgs
-    groupTrades?: boolean | UsersCountOutputTypeCountGroupTradesArgs
     Deposits?: boolean | UsersCountOutputTypeCountDepositsArgs
     Withdraws?: boolean | UsersCountOutputTypeCountWithdrawsArgs
     Beneficiaries?: boolean | UsersCountOutputTypeCountBeneficiariesArgs
@@ -2344,13 +2160,6 @@ export namespace Prisma {
    */
   export type UsersCountOutputTypeCountUserWalletArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserWalletWhereInput
-  }
-
-  /**
-   * UsersCountOutputType without action
-   */
-  export type UsersCountOutputTypeCountGroupTradesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GroupTradeWhereInput
   }
 
   /**
@@ -2519,46 +2328,6 @@ export namespace Prisma {
    */
   export type UserWalletCountOutputTypeCountUserWalletTransactionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserWalletTransactionWhereInput
-  }
-
-
-  /**
-   * Count Type TradingGroupCountOutputType
-   */
-
-  export type TradingGroupCountOutputType = {
-    trades: number
-    TradingFees: number
-  }
-
-  export type TradingGroupCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    trades?: boolean | TradingGroupCountOutputTypeCountTradesArgs
-    TradingFees?: boolean | TradingGroupCountOutputTypeCountTradingFeesArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * TradingGroupCountOutputType without action
-   */
-  export type TradingGroupCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingGroupCountOutputType
-     */
-    select?: TradingGroupCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * TradingGroupCountOutputType without action
-   */
-  export type TradingGroupCountOutputTypeCountTradesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GroupTradeWhereInput
-  }
-
-  /**
-   * TradingGroupCountOutputType without action
-   */
-  export type TradingGroupCountOutputTypeCountTradingFeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TradingFeesWhereInput
   }
 
 
@@ -2998,7 +2767,6 @@ export namespace Prisma {
     userRoleMapping?: boolean | Users$userRoleMappingArgs<ExtArgs>
     devices?: boolean | Users$devicesArgs<ExtArgs>
     userWallet?: boolean | Users$userWalletArgs<ExtArgs>
-    groupTrades?: boolean | Users$groupTradesArgs<ExtArgs>
     Deposits?: boolean | Users$DepositsArgs<ExtArgs>
     Withdraws?: boolean | Users$WithdrawsArgs<ExtArgs>
     Beneficiaries?: boolean | Users$BeneficiariesArgs<ExtArgs>
@@ -3109,7 +2877,6 @@ export namespace Prisma {
     userRoleMapping?: boolean | Users$userRoleMappingArgs<ExtArgs>
     devices?: boolean | Users$devicesArgs<ExtArgs>
     userWallet?: boolean | Users$userWalletArgs<ExtArgs>
-    groupTrades?: boolean | Users$groupTradesArgs<ExtArgs>
     Deposits?: boolean | Users$DepositsArgs<ExtArgs>
     Withdraws?: boolean | Users$WithdrawsArgs<ExtArgs>
     Beneficiaries?: boolean | Users$BeneficiariesArgs<ExtArgs>
@@ -3124,7 +2891,6 @@ export namespace Prisma {
       userRoleMapping: Prisma.$UserRoleMappingPayload<ExtArgs>[]
       devices: Prisma.$DevicesPayload<ExtArgs>[]
       userWallet: Prisma.$UserWalletPayload<ExtArgs>[]
-      groupTrades: Prisma.$GroupTradePayload<ExtArgs>[]
       Deposits: Prisma.$DepositsPayload<ExtArgs>[]
       Withdraws: Prisma.$WithdrawsPayload<ExtArgs>[]
       Beneficiaries: Prisma.$BeneficiariesPayload<ExtArgs>[]
@@ -3557,7 +3323,6 @@ export namespace Prisma {
     userRoleMapping<T extends Users$userRoleMappingArgs<ExtArgs> = {}>(args?: Subset<T, Users$userRoleMappingArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserRoleMappingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     devices<T extends Users$devicesArgs<ExtArgs> = {}>(args?: Subset<T, Users$devicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DevicesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userWallet<T extends Users$userWalletArgs<ExtArgs> = {}>(args?: Subset<T, Users$userWalletArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserWalletPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    groupTrades<T extends Users$groupTradesArgs<ExtArgs> = {}>(args?: Subset<T, Users$groupTradesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Deposits<T extends Users$DepositsArgs<ExtArgs> = {}>(args?: Subset<T, Users$DepositsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepositsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Withdraws<T extends Users$WithdrawsArgs<ExtArgs> = {}>(args?: Subset<T, Users$WithdrawsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WithdrawsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Beneficiaries<T extends Users$BeneficiariesArgs<ExtArgs> = {}>(args?: Subset<T, Users$BeneficiariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BeneficiariesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -4077,30 +3842,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserWalletScalarFieldEnum | UserWalletScalarFieldEnum[]
-  }
-
-  /**
-   * Users.groupTrades
-   */
-  export type Users$groupTradesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    where?: GroupTradeWhereInput
-    orderBy?: GroupTradeOrderByWithRelationInput | GroupTradeOrderByWithRelationInput[]
-    cursor?: GroupTradeWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: GroupTradeScalarFieldEnum | GroupTradeScalarFieldEnum[]
   }
 
   /**
@@ -11530,9 +11271,6 @@ export namespace Prisma {
     deletedAt?: boolean
     baseCoin?: boolean | CoinsDefaultArgs<ExtArgs>
     quoteCoin?: boolean | CoinsDefaultArgs<ExtArgs>
-    trades?: boolean | TradingGroup$tradesArgs<ExtArgs>
-    TradingFees?: boolean | TradingGroup$TradingFeesArgs<ExtArgs>
-    _count?: boolean | TradingGroupCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tradingGroup"]>
 
   export type TradingGroupSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11594,9 +11332,6 @@ export namespace Prisma {
   export type TradingGroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     baseCoin?: boolean | CoinsDefaultArgs<ExtArgs>
     quoteCoin?: boolean | CoinsDefaultArgs<ExtArgs>
-    trades?: boolean | TradingGroup$tradesArgs<ExtArgs>
-    TradingFees?: boolean | TradingGroup$TradingFeesArgs<ExtArgs>
-    _count?: boolean | TradingGroupCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TradingGroupIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     baseCoin?: boolean | CoinsDefaultArgs<ExtArgs>
@@ -11612,8 +11347,6 @@ export namespace Prisma {
     objects: {
       baseCoin: Prisma.$CoinsPayload<ExtArgs>
       quoteCoin: Prisma.$CoinsPayload<ExtArgs>
-      trades: Prisma.$GroupTradePayload<ExtArgs>[]
-      TradingFees: Prisma.$TradingFeesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -12026,8 +11759,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     baseCoin<T extends CoinsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CoinsDefaultArgs<ExtArgs>>): Prisma__CoinsClient<$Result.GetResult<Prisma.$CoinsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     quoteCoin<T extends CoinsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CoinsDefaultArgs<ExtArgs>>): Prisma__CoinsClient<$Result.GetResult<Prisma.$CoinsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    trades<T extends TradingGroup$tradesArgs<ExtArgs> = {}>(args?: Subset<T, TradingGroup$tradesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    TradingFees<T extends TradingGroup$TradingFeesArgs<ExtArgs> = {}>(args?: Subset<T, TradingGroup$TradingFeesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12467,54 +12198,6 @@ export namespace Prisma {
   }
 
   /**
-   * TradingGroup.trades
-   */
-  export type TradingGroup$tradesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    where?: GroupTradeWhereInput
-    orderBy?: GroupTradeOrderByWithRelationInput | GroupTradeOrderByWithRelationInput[]
-    cursor?: GroupTradeWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: GroupTradeScalarFieldEnum | GroupTradeScalarFieldEnum[]
-  }
-
-  /**
-   * TradingGroup.TradingFees
-   */
-  export type TradingGroup$TradingFeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    where?: TradingFeesWhereInput
-    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
-    cursor?: TradingFeesWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
-  }
-
-  /**
    * TradingGroup without action
    */
   export type TradingGroupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12530,1166 +12213,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: TradingGroupInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model GroupTrade
-   */
-
-  export type AggregateGroupTrade = {
-    _count: GroupTradeCountAggregateOutputType | null
-    _avg: GroupTradeAvgAggregateOutputType | null
-    _sum: GroupTradeSumAggregateOutputType | null
-    _min: GroupTradeMinAggregateOutputType | null
-    _max: GroupTradeMaxAggregateOutputType | null
-  }
-
-  export type GroupTradeAvgAggregateOutputType = {
-    amountBase: number | null
-    amountQuote: number | null
-    price: number | null
-  }
-
-  export type GroupTradeSumAggregateOutputType = {
-    amountBase: number | null
-    amountQuote: number | null
-    price: number | null
-  }
-
-  export type GroupTradeMinAggregateOutputType = {
-    id: string | null
-    groupId: string | null
-    userId: string | null
-    amountBase: number | null
-    amountQuote: number | null
-    price: number | null
-    createdAt: Date | null
-    updatedAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type GroupTradeMaxAggregateOutputType = {
-    id: string | null
-    groupId: string | null
-    userId: string | null
-    amountBase: number | null
-    amountQuote: number | null
-    price: number | null
-    createdAt: Date | null
-    updatedAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type GroupTradeCountAggregateOutputType = {
-    id: number
-    groupId: number
-    userId: number
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt: number
-    updatedAt: number
-    deletedAt: number
-    _all: number
-  }
-
-
-  export type GroupTradeAvgAggregateInputType = {
-    amountBase?: true
-    amountQuote?: true
-    price?: true
-  }
-
-  export type GroupTradeSumAggregateInputType = {
-    amountBase?: true
-    amountQuote?: true
-    price?: true
-  }
-
-  export type GroupTradeMinAggregateInputType = {
-    id?: true
-    groupId?: true
-    userId?: true
-    amountBase?: true
-    amountQuote?: true
-    price?: true
-    createdAt?: true
-    updatedAt?: true
-    deletedAt?: true
-  }
-
-  export type GroupTradeMaxAggregateInputType = {
-    id?: true
-    groupId?: true
-    userId?: true
-    amountBase?: true
-    amountQuote?: true
-    price?: true
-    createdAt?: true
-    updatedAt?: true
-    deletedAt?: true
-  }
-
-  export type GroupTradeCountAggregateInputType = {
-    id?: true
-    groupId?: true
-    userId?: true
-    amountBase?: true
-    amountQuote?: true
-    price?: true
-    createdAt?: true
-    updatedAt?: true
-    deletedAt?: true
-    _all?: true
-  }
-
-  export type GroupTradeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which GroupTrade to aggregate.
-     */
-    where?: GroupTradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of GroupTrades to fetch.
-     */
-    orderBy?: GroupTradeOrderByWithRelationInput | GroupTradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: GroupTradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` GroupTrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` GroupTrades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned GroupTrades
-    **/
-    _count?: true | GroupTradeCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: GroupTradeAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: GroupTradeSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: GroupTradeMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: GroupTradeMaxAggregateInputType
-  }
-
-  export type GetGroupTradeAggregateType<T extends GroupTradeAggregateArgs> = {
-        [P in keyof T & keyof AggregateGroupTrade]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateGroupTrade[P]>
-      : GetScalarType<T[P], AggregateGroupTrade[P]>
-  }
-
-
-
-
-  export type GroupTradeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GroupTradeWhereInput
-    orderBy?: GroupTradeOrderByWithAggregationInput | GroupTradeOrderByWithAggregationInput[]
-    by: GroupTradeScalarFieldEnum[] | GroupTradeScalarFieldEnum
-    having?: GroupTradeScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: GroupTradeCountAggregateInputType | true
-    _avg?: GroupTradeAvgAggregateInputType
-    _sum?: GroupTradeSumAggregateInputType
-    _min?: GroupTradeMinAggregateInputType
-    _max?: GroupTradeMaxAggregateInputType
-  }
-
-  export type GroupTradeGroupByOutputType = {
-    id: string
-    groupId: string
-    userId: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt: Date
-    updatedAt: Date | null
-    deletedAt: Date | null
-    _count: GroupTradeCountAggregateOutputType | null
-    _avg: GroupTradeAvgAggregateOutputType | null
-    _sum: GroupTradeSumAggregateOutputType | null
-    _min: GroupTradeMinAggregateOutputType | null
-    _max: GroupTradeMaxAggregateOutputType | null
-  }
-
-  type GetGroupTradeGroupByPayload<T extends GroupTradeGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<GroupTradeGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof GroupTradeGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], GroupTradeGroupByOutputType[P]>
-            : GetScalarType<T[P], GroupTradeGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type GroupTradeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    groupId?: boolean
-    userId?: boolean
-    amountBase?: boolean
-    amountQuote?: boolean
-    price?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-    group?: boolean | TradingGroupDefaultArgs<ExtArgs>
-    user?: boolean | UsersDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["groupTrade"]>
-
-  export type GroupTradeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    groupId?: boolean
-    userId?: boolean
-    amountBase?: boolean
-    amountQuote?: boolean
-    price?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-    group?: boolean | TradingGroupDefaultArgs<ExtArgs>
-    user?: boolean | UsersDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["groupTrade"]>
-
-  export type GroupTradeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    groupId?: boolean
-    userId?: boolean
-    amountBase?: boolean
-    amountQuote?: boolean
-    price?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-    group?: boolean | TradingGroupDefaultArgs<ExtArgs>
-    user?: boolean | UsersDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["groupTrade"]>
-
-  export type GroupTradeSelectScalar = {
-    id?: boolean
-    groupId?: boolean
-    userId?: boolean
-    amountBase?: boolean
-    amountQuote?: boolean
-    price?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-  }
-
-  export type GroupTradeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "groupId" | "userId" | "amountBase" | "amountQuote" | "price" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["groupTrade"]>
-  export type GroupTradeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    group?: boolean | TradingGroupDefaultArgs<ExtArgs>
-    user?: boolean | UsersDefaultArgs<ExtArgs>
-  }
-  export type GroupTradeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    group?: boolean | TradingGroupDefaultArgs<ExtArgs>
-    user?: boolean | UsersDefaultArgs<ExtArgs>
-  }
-  export type GroupTradeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    group?: boolean | TradingGroupDefaultArgs<ExtArgs>
-    user?: boolean | UsersDefaultArgs<ExtArgs>
-  }
-
-  export type $GroupTradePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "GroupTrade"
-    objects: {
-      group: Prisma.$TradingGroupPayload<ExtArgs>
-      user: Prisma.$UsersPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      groupId: string
-      userId: string
-      amountBase: number
-      amountQuote: number
-      price: number
-      createdAt: Date
-      updatedAt: Date | null
-      deletedAt: Date | null
-    }, ExtArgs["result"]["groupTrade"]>
-    composites: {}
-  }
-
-  type GroupTradeGetPayload<S extends boolean | null | undefined | GroupTradeDefaultArgs> = $Result.GetResult<Prisma.$GroupTradePayload, S>
-
-  type GroupTradeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<GroupTradeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: GroupTradeCountAggregateInputType | true
-    }
-
-  export interface GroupTradeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GroupTrade'], meta: { name: 'GroupTrade' } }
-    /**
-     * Find zero or one GroupTrade that matches the filter.
-     * @param {GroupTradeFindUniqueArgs} args - Arguments to find a GroupTrade
-     * @example
-     * // Get one GroupTrade
-     * const groupTrade = await prisma.groupTrade.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends GroupTradeFindUniqueArgs>(args: SelectSubset<T, GroupTradeFindUniqueArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one GroupTrade that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {GroupTradeFindUniqueOrThrowArgs} args - Arguments to find a GroupTrade
-     * @example
-     * // Get one GroupTrade
-     * const groupTrade = await prisma.groupTrade.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends GroupTradeFindUniqueOrThrowArgs>(args: SelectSubset<T, GroupTradeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first GroupTrade that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupTradeFindFirstArgs} args - Arguments to find a GroupTrade
-     * @example
-     * // Get one GroupTrade
-     * const groupTrade = await prisma.groupTrade.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends GroupTradeFindFirstArgs>(args?: SelectSubset<T, GroupTradeFindFirstArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first GroupTrade that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupTradeFindFirstOrThrowArgs} args - Arguments to find a GroupTrade
-     * @example
-     * // Get one GroupTrade
-     * const groupTrade = await prisma.groupTrade.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends GroupTradeFindFirstOrThrowArgs>(args?: SelectSubset<T, GroupTradeFindFirstOrThrowArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more GroupTrades that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupTradeFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all GroupTrades
-     * const groupTrades = await prisma.groupTrade.findMany()
-     * 
-     * // Get first 10 GroupTrades
-     * const groupTrades = await prisma.groupTrade.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const groupTradeWithIdOnly = await prisma.groupTrade.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends GroupTradeFindManyArgs>(args?: SelectSubset<T, GroupTradeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a GroupTrade.
-     * @param {GroupTradeCreateArgs} args - Arguments to create a GroupTrade.
-     * @example
-     * // Create one GroupTrade
-     * const GroupTrade = await prisma.groupTrade.create({
-     *   data: {
-     *     // ... data to create a GroupTrade
-     *   }
-     * })
-     * 
-     */
-    create<T extends GroupTradeCreateArgs>(args: SelectSubset<T, GroupTradeCreateArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many GroupTrades.
-     * @param {GroupTradeCreateManyArgs} args - Arguments to create many GroupTrades.
-     * @example
-     * // Create many GroupTrades
-     * const groupTrade = await prisma.groupTrade.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends GroupTradeCreateManyArgs>(args?: SelectSubset<T, GroupTradeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many GroupTrades and returns the data saved in the database.
-     * @param {GroupTradeCreateManyAndReturnArgs} args - Arguments to create many GroupTrades.
-     * @example
-     * // Create many GroupTrades
-     * const groupTrade = await prisma.groupTrade.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many GroupTrades and only return the `id`
-     * const groupTradeWithIdOnly = await prisma.groupTrade.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends GroupTradeCreateManyAndReturnArgs>(args?: SelectSubset<T, GroupTradeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a GroupTrade.
-     * @param {GroupTradeDeleteArgs} args - Arguments to delete one GroupTrade.
-     * @example
-     * // Delete one GroupTrade
-     * const GroupTrade = await prisma.groupTrade.delete({
-     *   where: {
-     *     // ... filter to delete one GroupTrade
-     *   }
-     * })
-     * 
-     */
-    delete<T extends GroupTradeDeleteArgs>(args: SelectSubset<T, GroupTradeDeleteArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one GroupTrade.
-     * @param {GroupTradeUpdateArgs} args - Arguments to update one GroupTrade.
-     * @example
-     * // Update one GroupTrade
-     * const groupTrade = await prisma.groupTrade.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends GroupTradeUpdateArgs>(args: SelectSubset<T, GroupTradeUpdateArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more GroupTrades.
-     * @param {GroupTradeDeleteManyArgs} args - Arguments to filter GroupTrades to delete.
-     * @example
-     * // Delete a few GroupTrades
-     * const { count } = await prisma.groupTrade.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends GroupTradeDeleteManyArgs>(args?: SelectSubset<T, GroupTradeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more GroupTrades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupTradeUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many GroupTrades
-     * const groupTrade = await prisma.groupTrade.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends GroupTradeUpdateManyArgs>(args: SelectSubset<T, GroupTradeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more GroupTrades and returns the data updated in the database.
-     * @param {GroupTradeUpdateManyAndReturnArgs} args - Arguments to update many GroupTrades.
-     * @example
-     * // Update many GroupTrades
-     * const groupTrade = await prisma.groupTrade.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more GroupTrades and only return the `id`
-     * const groupTradeWithIdOnly = await prisma.groupTrade.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends GroupTradeUpdateManyAndReturnArgs>(args: SelectSubset<T, GroupTradeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one GroupTrade.
-     * @param {GroupTradeUpsertArgs} args - Arguments to update or create a GroupTrade.
-     * @example
-     * // Update or create a GroupTrade
-     * const groupTrade = await prisma.groupTrade.upsert({
-     *   create: {
-     *     // ... data to create a GroupTrade
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the GroupTrade we want to update
-     *   }
-     * })
-     */
-    upsert<T extends GroupTradeUpsertArgs>(args: SelectSubset<T, GroupTradeUpsertArgs<ExtArgs>>): Prisma__GroupTradeClient<$Result.GetResult<Prisma.$GroupTradePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of GroupTrades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupTradeCountArgs} args - Arguments to filter GroupTrades to count.
-     * @example
-     * // Count the number of GroupTrades
-     * const count = await prisma.groupTrade.count({
-     *   where: {
-     *     // ... the filter for the GroupTrades we want to count
-     *   }
-     * })
-    **/
-    count<T extends GroupTradeCountArgs>(
-      args?: Subset<T, GroupTradeCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], GroupTradeCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a GroupTrade.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupTradeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends GroupTradeAggregateArgs>(args: Subset<T, GroupTradeAggregateArgs>): Prisma.PrismaPromise<GetGroupTradeAggregateType<T>>
-
-    /**
-     * Group by GroupTrade.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupTradeGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends GroupTradeGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: GroupTradeGroupByArgs['orderBy'] }
-        : { orderBy?: GroupTradeGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, GroupTradeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGroupTradeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the GroupTrade model
-   */
-  readonly fields: GroupTradeFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for GroupTrade.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__GroupTradeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    group<T extends TradingGroupDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TradingGroupDefaultArgs<ExtArgs>>): Prisma__TradingGroupClient<$Result.GetResult<Prisma.$TradingGroupPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the GroupTrade model
-   */
-  interface GroupTradeFieldRefs {
-    readonly id: FieldRef<"GroupTrade", 'String'>
-    readonly groupId: FieldRef<"GroupTrade", 'String'>
-    readonly userId: FieldRef<"GroupTrade", 'String'>
-    readonly amountBase: FieldRef<"GroupTrade", 'Float'>
-    readonly amountQuote: FieldRef<"GroupTrade", 'Float'>
-    readonly price: FieldRef<"GroupTrade", 'Float'>
-    readonly createdAt: FieldRef<"GroupTrade", 'DateTime'>
-    readonly updatedAt: FieldRef<"GroupTrade", 'DateTime'>
-    readonly deletedAt: FieldRef<"GroupTrade", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * GroupTrade findUnique
-   */
-  export type GroupTradeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * Filter, which GroupTrade to fetch.
-     */
-    where: GroupTradeWhereUniqueInput
-  }
-
-  /**
-   * GroupTrade findUniqueOrThrow
-   */
-  export type GroupTradeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * Filter, which GroupTrade to fetch.
-     */
-    where: GroupTradeWhereUniqueInput
-  }
-
-  /**
-   * GroupTrade findFirst
-   */
-  export type GroupTradeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * Filter, which GroupTrade to fetch.
-     */
-    where?: GroupTradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of GroupTrades to fetch.
-     */
-    orderBy?: GroupTradeOrderByWithRelationInput | GroupTradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for GroupTrades.
-     */
-    cursor?: GroupTradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` GroupTrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` GroupTrades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of GroupTrades.
-     */
-    distinct?: GroupTradeScalarFieldEnum | GroupTradeScalarFieldEnum[]
-  }
-
-  /**
-   * GroupTrade findFirstOrThrow
-   */
-  export type GroupTradeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * Filter, which GroupTrade to fetch.
-     */
-    where?: GroupTradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of GroupTrades to fetch.
-     */
-    orderBy?: GroupTradeOrderByWithRelationInput | GroupTradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for GroupTrades.
-     */
-    cursor?: GroupTradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` GroupTrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` GroupTrades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of GroupTrades.
-     */
-    distinct?: GroupTradeScalarFieldEnum | GroupTradeScalarFieldEnum[]
-  }
-
-  /**
-   * GroupTrade findMany
-   */
-  export type GroupTradeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * Filter, which GroupTrades to fetch.
-     */
-    where?: GroupTradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of GroupTrades to fetch.
-     */
-    orderBy?: GroupTradeOrderByWithRelationInput | GroupTradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing GroupTrades.
-     */
-    cursor?: GroupTradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` GroupTrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` GroupTrades.
-     */
-    skip?: number
-    distinct?: GroupTradeScalarFieldEnum | GroupTradeScalarFieldEnum[]
-  }
-
-  /**
-   * GroupTrade create
-   */
-  export type GroupTradeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * The data needed to create a GroupTrade.
-     */
-    data: XOR<GroupTradeCreateInput, GroupTradeUncheckedCreateInput>
-  }
-
-  /**
-   * GroupTrade createMany
-   */
-  export type GroupTradeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many GroupTrades.
-     */
-    data: GroupTradeCreateManyInput | GroupTradeCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * GroupTrade createManyAndReturn
-   */
-  export type GroupTradeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * The data used to create many GroupTrades.
-     */
-    data: GroupTradeCreateManyInput | GroupTradeCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * GroupTrade update
-   */
-  export type GroupTradeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * The data needed to update a GroupTrade.
-     */
-    data: XOR<GroupTradeUpdateInput, GroupTradeUncheckedUpdateInput>
-    /**
-     * Choose, which GroupTrade to update.
-     */
-    where: GroupTradeWhereUniqueInput
-  }
-
-  /**
-   * GroupTrade updateMany
-   */
-  export type GroupTradeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update GroupTrades.
-     */
-    data: XOR<GroupTradeUpdateManyMutationInput, GroupTradeUncheckedUpdateManyInput>
-    /**
-     * Filter which GroupTrades to update
-     */
-    where?: GroupTradeWhereInput
-    /**
-     * Limit how many GroupTrades to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * GroupTrade updateManyAndReturn
-   */
-  export type GroupTradeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * The data used to update GroupTrades.
-     */
-    data: XOR<GroupTradeUpdateManyMutationInput, GroupTradeUncheckedUpdateManyInput>
-    /**
-     * Filter which GroupTrades to update
-     */
-    where?: GroupTradeWhereInput
-    /**
-     * Limit how many GroupTrades to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * GroupTrade upsert
-   */
-  export type GroupTradeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * The filter to search for the GroupTrade to update in case it exists.
-     */
-    where: GroupTradeWhereUniqueInput
-    /**
-     * In case the GroupTrade found by the `where` argument doesn't exist, create a new GroupTrade with this data.
-     */
-    create: XOR<GroupTradeCreateInput, GroupTradeUncheckedCreateInput>
-    /**
-     * In case the GroupTrade was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<GroupTradeUpdateInput, GroupTradeUncheckedUpdateInput>
-  }
-
-  /**
-   * GroupTrade delete
-   */
-  export type GroupTradeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
-    /**
-     * Filter which GroupTrade to delete.
-     */
-    where: GroupTradeWhereUniqueInput
-  }
-
-  /**
-   * GroupTrade deleteMany
-   */
-  export type GroupTradeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which GroupTrades to delete
-     */
-    where?: GroupTradeWhereInput
-    /**
-     * Limit how many GroupTrades to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * GroupTrade without action
-   */
-  export type GroupTradeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupTrade
-     */
-    select?: GroupTradeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GroupTrade
-     */
-    omit?: GroupTradeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GroupTradeInclude<ExtArgs> | null
   }
 
 
@@ -19647,1141 +18170,6 @@ export namespace Prisma {
 
 
   /**
-   * Model TradingFees
-   */
-
-  export type AggregateTradingFees = {
-    _count: TradingFeesCountAggregateOutputType | null
-    _avg: TradingFeesAvgAggregateOutputType | null
-    _sum: TradingFeesSumAggregateOutputType | null
-    _min: TradingFeesMinAggregateOutputType | null
-    _max: TradingFeesMaxAggregateOutputType | null
-  }
-
-  export type TradingFeesAvgAggregateOutputType = {
-    maker: number | null
-    taker: number | null
-  }
-
-  export type TradingFeesSumAggregateOutputType = {
-    maker: number | null
-    taker: number | null
-  }
-
-  export type TradingFeesMinAggregateOutputType = {
-    id: string | null
-    groupId: string | null
-    userGroup: string | null
-    maker: number | null
-    taker: number | null
-    createdAt: Date | null
-    updatedAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type TradingFeesMaxAggregateOutputType = {
-    id: string | null
-    groupId: string | null
-    userGroup: string | null
-    maker: number | null
-    taker: number | null
-    createdAt: Date | null
-    updatedAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type TradingFeesCountAggregateOutputType = {
-    id: number
-    groupId: number
-    userGroup: number
-    maker: number
-    taker: number
-    createdAt: number
-    updatedAt: number
-    deletedAt: number
-    _all: number
-  }
-
-
-  export type TradingFeesAvgAggregateInputType = {
-    maker?: true
-    taker?: true
-  }
-
-  export type TradingFeesSumAggregateInputType = {
-    maker?: true
-    taker?: true
-  }
-
-  export type TradingFeesMinAggregateInputType = {
-    id?: true
-    groupId?: true
-    userGroup?: true
-    maker?: true
-    taker?: true
-    createdAt?: true
-    updatedAt?: true
-    deletedAt?: true
-  }
-
-  export type TradingFeesMaxAggregateInputType = {
-    id?: true
-    groupId?: true
-    userGroup?: true
-    maker?: true
-    taker?: true
-    createdAt?: true
-    updatedAt?: true
-    deletedAt?: true
-  }
-
-  export type TradingFeesCountAggregateInputType = {
-    id?: true
-    groupId?: true
-    userGroup?: true
-    maker?: true
-    taker?: true
-    createdAt?: true
-    updatedAt?: true
-    deletedAt?: true
-    _all?: true
-  }
-
-  export type TradingFeesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which TradingFees to aggregate.
-     */
-    where?: TradingFeesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TradingFees to fetch.
-     */
-    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: TradingFeesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TradingFees from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TradingFees.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned TradingFees
-    **/
-    _count?: true | TradingFeesCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: TradingFeesAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: TradingFeesSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: TradingFeesMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: TradingFeesMaxAggregateInputType
-  }
-
-  export type GetTradingFeesAggregateType<T extends TradingFeesAggregateArgs> = {
-        [P in keyof T & keyof AggregateTradingFees]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateTradingFees[P]>
-      : GetScalarType<T[P], AggregateTradingFees[P]>
-  }
-
-
-
-
-  export type TradingFeesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TradingFeesWhereInput
-    orderBy?: TradingFeesOrderByWithAggregationInput | TradingFeesOrderByWithAggregationInput[]
-    by: TradingFeesScalarFieldEnum[] | TradingFeesScalarFieldEnum
-    having?: TradingFeesScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: TradingFeesCountAggregateInputType | true
-    _avg?: TradingFeesAvgAggregateInputType
-    _sum?: TradingFeesSumAggregateInputType
-    _min?: TradingFeesMinAggregateInputType
-    _max?: TradingFeesMaxAggregateInputType
-  }
-
-  export type TradingFeesGroupByOutputType = {
-    id: string
-    groupId: string
-    userGroup: string
-    maker: number
-    taker: number
-    createdAt: Date
-    updatedAt: Date | null
-    deletedAt: Date | null
-    _count: TradingFeesCountAggregateOutputType | null
-    _avg: TradingFeesAvgAggregateOutputType | null
-    _sum: TradingFeesSumAggregateOutputType | null
-    _min: TradingFeesMinAggregateOutputType | null
-    _max: TradingFeesMaxAggregateOutputType | null
-  }
-
-  type GetTradingFeesGroupByPayload<T extends TradingFeesGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<TradingFeesGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof TradingFeesGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], TradingFeesGroupByOutputType[P]>
-            : GetScalarType<T[P], TradingFeesGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type TradingFeesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    groupId?: boolean
-    userGroup?: boolean
-    maker?: boolean
-    taker?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["tradingFees"]>
-
-  export type TradingFeesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    groupId?: boolean
-    userGroup?: boolean
-    maker?: boolean
-    taker?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["tradingFees"]>
-
-  export type TradingFeesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    groupId?: boolean
-    userGroup?: boolean
-    maker?: boolean
-    taker?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["tradingFees"]>
-
-  export type TradingFeesSelectScalar = {
-    id?: boolean
-    groupId?: boolean
-    userGroup?: boolean
-    maker?: boolean
-    taker?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    deletedAt?: boolean
-  }
-
-  export type TradingFeesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "groupId" | "userGroup" | "maker" | "taker" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["tradingFees"]>
-  export type TradingFeesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
-  }
-  export type TradingFeesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
-  }
-  export type TradingFeesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tradingGroup?: boolean | TradingGroupDefaultArgs<ExtArgs>
-  }
-
-  export type $TradingFeesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "TradingFees"
-    objects: {
-      tradingGroup: Prisma.$TradingGroupPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      groupId: string
-      userGroup: string
-      maker: number
-      taker: number
-      createdAt: Date
-      updatedAt: Date | null
-      deletedAt: Date | null
-    }, ExtArgs["result"]["tradingFees"]>
-    composites: {}
-  }
-
-  type TradingFeesGetPayload<S extends boolean | null | undefined | TradingFeesDefaultArgs> = $Result.GetResult<Prisma.$TradingFeesPayload, S>
-
-  type TradingFeesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<TradingFeesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: TradingFeesCountAggregateInputType | true
-    }
-
-  export interface TradingFeesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TradingFees'], meta: { name: 'TradingFees' } }
-    /**
-     * Find zero or one TradingFees that matches the filter.
-     * @param {TradingFeesFindUniqueArgs} args - Arguments to find a TradingFees
-     * @example
-     * // Get one TradingFees
-     * const tradingFees = await prisma.tradingFees.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends TradingFeesFindUniqueArgs>(args: SelectSubset<T, TradingFeesFindUniqueArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one TradingFees that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {TradingFeesFindUniqueOrThrowArgs} args - Arguments to find a TradingFees
-     * @example
-     * // Get one TradingFees
-     * const tradingFees = await prisma.tradingFees.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends TradingFeesFindUniqueOrThrowArgs>(args: SelectSubset<T, TradingFeesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first TradingFees that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TradingFeesFindFirstArgs} args - Arguments to find a TradingFees
-     * @example
-     * // Get one TradingFees
-     * const tradingFees = await prisma.tradingFees.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends TradingFeesFindFirstArgs>(args?: SelectSubset<T, TradingFeesFindFirstArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first TradingFees that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TradingFeesFindFirstOrThrowArgs} args - Arguments to find a TradingFees
-     * @example
-     * // Get one TradingFees
-     * const tradingFees = await prisma.tradingFees.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends TradingFeesFindFirstOrThrowArgs>(args?: SelectSubset<T, TradingFeesFindFirstOrThrowArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more TradingFees that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TradingFeesFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all TradingFees
-     * const tradingFees = await prisma.tradingFees.findMany()
-     * 
-     * // Get first 10 TradingFees
-     * const tradingFees = await prisma.tradingFees.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const tradingFeesWithIdOnly = await prisma.tradingFees.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends TradingFeesFindManyArgs>(args?: SelectSubset<T, TradingFeesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a TradingFees.
-     * @param {TradingFeesCreateArgs} args - Arguments to create a TradingFees.
-     * @example
-     * // Create one TradingFees
-     * const TradingFees = await prisma.tradingFees.create({
-     *   data: {
-     *     // ... data to create a TradingFees
-     *   }
-     * })
-     * 
-     */
-    create<T extends TradingFeesCreateArgs>(args: SelectSubset<T, TradingFeesCreateArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many TradingFees.
-     * @param {TradingFeesCreateManyArgs} args - Arguments to create many TradingFees.
-     * @example
-     * // Create many TradingFees
-     * const tradingFees = await prisma.tradingFees.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends TradingFeesCreateManyArgs>(args?: SelectSubset<T, TradingFeesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many TradingFees and returns the data saved in the database.
-     * @param {TradingFeesCreateManyAndReturnArgs} args - Arguments to create many TradingFees.
-     * @example
-     * // Create many TradingFees
-     * const tradingFees = await prisma.tradingFees.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many TradingFees and only return the `id`
-     * const tradingFeesWithIdOnly = await prisma.tradingFees.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends TradingFeesCreateManyAndReturnArgs>(args?: SelectSubset<T, TradingFeesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a TradingFees.
-     * @param {TradingFeesDeleteArgs} args - Arguments to delete one TradingFees.
-     * @example
-     * // Delete one TradingFees
-     * const TradingFees = await prisma.tradingFees.delete({
-     *   where: {
-     *     // ... filter to delete one TradingFees
-     *   }
-     * })
-     * 
-     */
-    delete<T extends TradingFeesDeleteArgs>(args: SelectSubset<T, TradingFeesDeleteArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one TradingFees.
-     * @param {TradingFeesUpdateArgs} args - Arguments to update one TradingFees.
-     * @example
-     * // Update one TradingFees
-     * const tradingFees = await prisma.tradingFees.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends TradingFeesUpdateArgs>(args: SelectSubset<T, TradingFeesUpdateArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more TradingFees.
-     * @param {TradingFeesDeleteManyArgs} args - Arguments to filter TradingFees to delete.
-     * @example
-     * // Delete a few TradingFees
-     * const { count } = await prisma.tradingFees.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends TradingFeesDeleteManyArgs>(args?: SelectSubset<T, TradingFeesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more TradingFees.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TradingFeesUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many TradingFees
-     * const tradingFees = await prisma.tradingFees.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends TradingFeesUpdateManyArgs>(args: SelectSubset<T, TradingFeesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more TradingFees and returns the data updated in the database.
-     * @param {TradingFeesUpdateManyAndReturnArgs} args - Arguments to update many TradingFees.
-     * @example
-     * // Update many TradingFees
-     * const tradingFees = await prisma.tradingFees.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more TradingFees and only return the `id`
-     * const tradingFeesWithIdOnly = await prisma.tradingFees.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends TradingFeesUpdateManyAndReturnArgs>(args: SelectSubset<T, TradingFeesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one TradingFees.
-     * @param {TradingFeesUpsertArgs} args - Arguments to update or create a TradingFees.
-     * @example
-     * // Update or create a TradingFees
-     * const tradingFees = await prisma.tradingFees.upsert({
-     *   create: {
-     *     // ... data to create a TradingFees
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the TradingFees we want to update
-     *   }
-     * })
-     */
-    upsert<T extends TradingFeesUpsertArgs>(args: SelectSubset<T, TradingFeesUpsertArgs<ExtArgs>>): Prisma__TradingFeesClient<$Result.GetResult<Prisma.$TradingFeesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of TradingFees.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TradingFeesCountArgs} args - Arguments to filter TradingFees to count.
-     * @example
-     * // Count the number of TradingFees
-     * const count = await prisma.tradingFees.count({
-     *   where: {
-     *     // ... the filter for the TradingFees we want to count
-     *   }
-     * })
-    **/
-    count<T extends TradingFeesCountArgs>(
-      args?: Subset<T, TradingFeesCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], TradingFeesCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a TradingFees.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TradingFeesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends TradingFeesAggregateArgs>(args: Subset<T, TradingFeesAggregateArgs>): Prisma.PrismaPromise<GetTradingFeesAggregateType<T>>
-
-    /**
-     * Group by TradingFees.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TradingFeesGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends TradingFeesGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TradingFeesGroupByArgs['orderBy'] }
-        : { orderBy?: TradingFeesGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, TradingFeesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTradingFeesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the TradingFees model
-   */
-  readonly fields: TradingFeesFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for TradingFees.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__TradingFeesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    tradingGroup<T extends TradingGroupDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TradingGroupDefaultArgs<ExtArgs>>): Prisma__TradingGroupClient<$Result.GetResult<Prisma.$TradingGroupPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the TradingFees model
-   */
-  interface TradingFeesFieldRefs {
-    readonly id: FieldRef<"TradingFees", 'String'>
-    readonly groupId: FieldRef<"TradingFees", 'String'>
-    readonly userGroup: FieldRef<"TradingFees", 'String'>
-    readonly maker: FieldRef<"TradingFees", 'Float'>
-    readonly taker: FieldRef<"TradingFees", 'Float'>
-    readonly createdAt: FieldRef<"TradingFees", 'DateTime'>
-    readonly updatedAt: FieldRef<"TradingFees", 'DateTime'>
-    readonly deletedAt: FieldRef<"TradingFees", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * TradingFees findUnique
-   */
-  export type TradingFeesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * Filter, which TradingFees to fetch.
-     */
-    where: TradingFeesWhereUniqueInput
-  }
-
-  /**
-   * TradingFees findUniqueOrThrow
-   */
-  export type TradingFeesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * Filter, which TradingFees to fetch.
-     */
-    where: TradingFeesWhereUniqueInput
-  }
-
-  /**
-   * TradingFees findFirst
-   */
-  export type TradingFeesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * Filter, which TradingFees to fetch.
-     */
-    where?: TradingFeesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TradingFees to fetch.
-     */
-    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for TradingFees.
-     */
-    cursor?: TradingFeesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TradingFees from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TradingFees.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of TradingFees.
-     */
-    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
-  }
-
-  /**
-   * TradingFees findFirstOrThrow
-   */
-  export type TradingFeesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * Filter, which TradingFees to fetch.
-     */
-    where?: TradingFeesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TradingFees to fetch.
-     */
-    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for TradingFees.
-     */
-    cursor?: TradingFeesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TradingFees from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TradingFees.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of TradingFees.
-     */
-    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
-  }
-
-  /**
-   * TradingFees findMany
-   */
-  export type TradingFeesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * Filter, which TradingFees to fetch.
-     */
-    where?: TradingFeesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TradingFees to fetch.
-     */
-    orderBy?: TradingFeesOrderByWithRelationInput | TradingFeesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing TradingFees.
-     */
-    cursor?: TradingFeesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TradingFees from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TradingFees.
-     */
-    skip?: number
-    distinct?: TradingFeesScalarFieldEnum | TradingFeesScalarFieldEnum[]
-  }
-
-  /**
-   * TradingFees create
-   */
-  export type TradingFeesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * The data needed to create a TradingFees.
-     */
-    data: XOR<TradingFeesCreateInput, TradingFeesUncheckedCreateInput>
-  }
-
-  /**
-   * TradingFees createMany
-   */
-  export type TradingFeesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many TradingFees.
-     */
-    data: TradingFeesCreateManyInput | TradingFeesCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * TradingFees createManyAndReturn
-   */
-  export type TradingFeesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * The data used to create many TradingFees.
-     */
-    data: TradingFeesCreateManyInput | TradingFeesCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * TradingFees update
-   */
-  export type TradingFeesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * The data needed to update a TradingFees.
-     */
-    data: XOR<TradingFeesUpdateInput, TradingFeesUncheckedUpdateInput>
-    /**
-     * Choose, which TradingFees to update.
-     */
-    where: TradingFeesWhereUniqueInput
-  }
-
-  /**
-   * TradingFees updateMany
-   */
-  export type TradingFeesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update TradingFees.
-     */
-    data: XOR<TradingFeesUpdateManyMutationInput, TradingFeesUncheckedUpdateManyInput>
-    /**
-     * Filter which TradingFees to update
-     */
-    where?: TradingFeesWhereInput
-    /**
-     * Limit how many TradingFees to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * TradingFees updateManyAndReturn
-   */
-  export type TradingFeesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * The data used to update TradingFees.
-     */
-    data: XOR<TradingFeesUpdateManyMutationInput, TradingFeesUncheckedUpdateManyInput>
-    /**
-     * Filter which TradingFees to update
-     */
-    where?: TradingFeesWhereInput
-    /**
-     * Limit how many TradingFees to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * TradingFees upsert
-   */
-  export type TradingFeesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * The filter to search for the TradingFees to update in case it exists.
-     */
-    where: TradingFeesWhereUniqueInput
-    /**
-     * In case the TradingFees found by the `where` argument doesn't exist, create a new TradingFees with this data.
-     */
-    create: XOR<TradingFeesCreateInput, TradingFeesUncheckedCreateInput>
-    /**
-     * In case the TradingFees was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<TradingFeesUpdateInput, TradingFeesUncheckedUpdateInput>
-  }
-
-  /**
-   * TradingFees delete
-   */
-  export type TradingFeesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-    /**
-     * Filter which TradingFees to delete.
-     */
-    where: TradingFeesWhereUniqueInput
-  }
-
-  /**
-   * TradingFees deleteMany
-   */
-  export type TradingFeesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which TradingFees to delete
-     */
-    where?: TradingFeesWhereInput
-    /**
-     * Limit how many TradingFees to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * TradingFees without action
-   */
-  export type TradingFeesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TradingFees
-     */
-    select?: TradingFeesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TradingFees
-     */
-    omit?: TradingFeesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TradingFeesInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Enums
    */
 
@@ -20950,21 +18338,6 @@ export namespace Prisma {
   export type TradingGroupScalarFieldEnum = (typeof TradingGroupScalarFieldEnum)[keyof typeof TradingGroupScalarFieldEnum]
 
 
-  export const GroupTradeScalarFieldEnum: {
-    id: 'id',
-    groupId: 'groupId',
-    userId: 'userId',
-    amountBase: 'amountBase',
-    amountQuote: 'amountQuote',
-    price: 'price',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
-  };
-
-  export type GroupTradeScalarFieldEnum = (typeof GroupTradeScalarFieldEnum)[keyof typeof GroupTradeScalarFieldEnum]
-
-
   export const CoinDetailsScalarFieldEnum: {
     id: 'id',
     coinId: 'coinId',
@@ -21054,20 +18427,6 @@ export namespace Prisma {
   };
 
   export type BeneficiariesScalarFieldEnum = (typeof BeneficiariesScalarFieldEnum)[keyof typeof BeneficiariesScalarFieldEnum]
-
-
-  export const TradingFeesScalarFieldEnum: {
-    id: 'id',
-    groupId: 'groupId',
-    userGroup: 'userGroup',
-    maker: 'maker',
-    taker: 'taker',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
-  };
-
-  export type TradingFeesScalarFieldEnum = (typeof TradingFeesScalarFieldEnum)[keyof typeof TradingFeesScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -21387,7 +18746,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingListRelationFilter
     devices?: DevicesListRelationFilter
     userWallet?: UserWalletListRelationFilter
-    groupTrades?: GroupTradeListRelationFilter
     Deposits?: DepositsListRelationFilter
     Withdraws?: WithdrawsListRelationFilter
     Beneficiaries?: BeneficiariesListRelationFilter
@@ -21427,7 +18785,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingOrderByRelationAggregateInput
     devices?: DevicesOrderByRelationAggregateInput
     userWallet?: UserWalletOrderByRelationAggregateInput
-    groupTrades?: GroupTradeOrderByRelationAggregateInput
     Deposits?: DepositsOrderByRelationAggregateInput
     Withdraws?: WithdrawsOrderByRelationAggregateInput
     Beneficiaries?: BeneficiariesOrderByRelationAggregateInput
@@ -21470,7 +18827,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingListRelationFilter
     devices?: DevicesListRelationFilter
     userWallet?: UserWalletListRelationFilter
-    groupTrades?: GroupTradeListRelationFilter
     Deposits?: DepositsListRelationFilter
     Withdraws?: WithdrawsListRelationFilter
     Beneficiaries?: BeneficiariesListRelationFilter
@@ -22093,8 +19449,6 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
     baseCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
     quoteCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
-    trades?: GroupTradeListRelationFilter
-    TradingFees?: TradingFeesListRelationFilter
   }
 
   export type TradingGroupOrderByWithRelationInput = {
@@ -22114,8 +19468,6 @@ export namespace Prisma {
     deletedAt?: SortOrderInput | SortOrder
     baseCoin?: CoinsOrderByWithRelationInput
     quoteCoin?: CoinsOrderByWithRelationInput
-    trades?: GroupTradeOrderByRelationAggregateInput
-    TradingFees?: TradingFeesOrderByRelationAggregateInput
   }
 
   export type TradingGroupWhereUniqueInput = Prisma.AtLeast<{
@@ -22138,8 +19490,6 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"TradingGroup"> | Date | string | null
     baseCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
     quoteCoin?: XOR<CoinsScalarRelationFilter, CoinsWhereInput>
-    trades?: GroupTradeListRelationFilter
-    TradingFees?: TradingFeesListRelationFilter
   }, "id" | "name">
 
   export type TradingGroupOrderByWithAggregationInput = {
@@ -22182,86 +19532,6 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"TradingGroup"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"TradingGroup"> | Date | string | null
     deletedAt?: DateTimeNullableWithAggregatesFilter<"TradingGroup"> | Date | string | null
-  }
-
-  export type GroupTradeWhereInput = {
-    AND?: GroupTradeWhereInput | GroupTradeWhereInput[]
-    OR?: GroupTradeWhereInput[]
-    NOT?: GroupTradeWhereInput | GroupTradeWhereInput[]
-    id?: StringFilter<"GroupTrade"> | string
-    groupId?: StringFilter<"GroupTrade"> | string
-    userId?: StringFilter<"GroupTrade"> | string
-    amountBase?: FloatFilter<"GroupTrade"> | number
-    amountQuote?: FloatFilter<"GroupTrade"> | number
-    price?: FloatFilter<"GroupTrade"> | number
-    createdAt?: DateTimeFilter<"GroupTrade"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
-    deletedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
-    group?: XOR<TradingGroupScalarRelationFilter, TradingGroupWhereInput>
-    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
-  }
-
-  export type GroupTradeOrderByWithRelationInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userId?: SortOrder
-    amountBase?: SortOrder
-    amountQuote?: SortOrder
-    price?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    group?: TradingGroupOrderByWithRelationInput
-    user?: UsersOrderByWithRelationInput
-  }
-
-  export type GroupTradeWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: GroupTradeWhereInput | GroupTradeWhereInput[]
-    OR?: GroupTradeWhereInput[]
-    NOT?: GroupTradeWhereInput | GroupTradeWhereInput[]
-    groupId?: StringFilter<"GroupTrade"> | string
-    userId?: StringFilter<"GroupTrade"> | string
-    amountBase?: FloatFilter<"GroupTrade"> | number
-    amountQuote?: FloatFilter<"GroupTrade"> | number
-    price?: FloatFilter<"GroupTrade"> | number
-    createdAt?: DateTimeFilter<"GroupTrade"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
-    deletedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
-    group?: XOR<TradingGroupScalarRelationFilter, TradingGroupWhereInput>
-    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
-  }, "id">
-
-  export type GroupTradeOrderByWithAggregationInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userId?: SortOrder
-    amountBase?: SortOrder
-    amountQuote?: SortOrder
-    price?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    _count?: GroupTradeCountOrderByAggregateInput
-    _avg?: GroupTradeAvgOrderByAggregateInput
-    _max?: GroupTradeMaxOrderByAggregateInput
-    _min?: GroupTradeMinOrderByAggregateInput
-    _sum?: GroupTradeSumOrderByAggregateInput
-  }
-
-  export type GroupTradeScalarWhereWithAggregatesInput = {
-    AND?: GroupTradeScalarWhereWithAggregatesInput | GroupTradeScalarWhereWithAggregatesInput[]
-    OR?: GroupTradeScalarWhereWithAggregatesInput[]
-    NOT?: GroupTradeScalarWhereWithAggregatesInput | GroupTradeScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"GroupTrade"> | string
-    groupId?: StringWithAggregatesFilter<"GroupTrade"> | string
-    userId?: StringWithAggregatesFilter<"GroupTrade"> | string
-    amountBase?: FloatWithAggregatesFilter<"GroupTrade"> | number
-    amountQuote?: FloatWithAggregatesFilter<"GroupTrade"> | number
-    price?: FloatWithAggregatesFilter<"GroupTrade"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"GroupTrade"> | Date | string
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"GroupTrade"> | Date | string | null
-    deletedAt?: DateTimeNullableWithAggregatesFilter<"GroupTrade"> | Date | string | null
   }
 
   export type CoinDetailsWhereInput = {
@@ -22742,79 +20012,6 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Beneficiaries"> | Date | string | null
   }
 
-  export type TradingFeesWhereInput = {
-    AND?: TradingFeesWhereInput | TradingFeesWhereInput[]
-    OR?: TradingFeesWhereInput[]
-    NOT?: TradingFeesWhereInput | TradingFeesWhereInput[]
-    id?: StringFilter<"TradingFees"> | string
-    groupId?: StringFilter<"TradingFees"> | string
-    userGroup?: StringFilter<"TradingFees"> | string
-    maker?: FloatFilter<"TradingFees"> | number
-    taker?: FloatFilter<"TradingFees"> | number
-    createdAt?: DateTimeFilter<"TradingFees"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
-    deletedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
-    tradingGroup?: XOR<TradingGroupScalarRelationFilter, TradingGroupWhereInput>
-  }
-
-  export type TradingFeesOrderByWithRelationInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userGroup?: SortOrder
-    maker?: SortOrder
-    taker?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    tradingGroup?: TradingGroupOrderByWithRelationInput
-  }
-
-  export type TradingFeesWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    groupId_userGroup?: TradingFeesGroupIdUserGroupCompoundUniqueInput
-    AND?: TradingFeesWhereInput | TradingFeesWhereInput[]
-    OR?: TradingFeesWhereInput[]
-    NOT?: TradingFeesWhereInput | TradingFeesWhereInput[]
-    groupId?: StringFilter<"TradingFees"> | string
-    userGroup?: StringFilter<"TradingFees"> | string
-    maker?: FloatFilter<"TradingFees"> | number
-    taker?: FloatFilter<"TradingFees"> | number
-    createdAt?: DateTimeFilter<"TradingFees"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
-    deletedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
-    tradingGroup?: XOR<TradingGroupScalarRelationFilter, TradingGroupWhereInput>
-  }, "id" | "groupId_userGroup">
-
-  export type TradingFeesOrderByWithAggregationInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userGroup?: SortOrder
-    maker?: SortOrder
-    taker?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    _count?: TradingFeesCountOrderByAggregateInput
-    _avg?: TradingFeesAvgOrderByAggregateInput
-    _max?: TradingFeesMaxOrderByAggregateInput
-    _min?: TradingFeesMinOrderByAggregateInput
-    _sum?: TradingFeesSumOrderByAggregateInput
-  }
-
-  export type TradingFeesScalarWhereWithAggregatesInput = {
-    AND?: TradingFeesScalarWhereWithAggregatesInput | TradingFeesScalarWhereWithAggregatesInput[]
-    OR?: TradingFeesScalarWhereWithAggregatesInput[]
-    NOT?: TradingFeesScalarWhereWithAggregatesInput | TradingFeesScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"TradingFees"> | string
-    groupId?: StringWithAggregatesFilter<"TradingFees"> | string
-    userGroup?: StringWithAggregatesFilter<"TradingFees"> | string
-    maker?: FloatWithAggregatesFilter<"TradingFees"> | number
-    taker?: FloatWithAggregatesFilter<"TradingFees"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"TradingFees"> | Date | string
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"TradingFees"> | Date | string | null
-    deletedAt?: DateTimeNullableWithAggregatesFilter<"TradingFees"> | Date | string | null
-  }
-
   export type UsersCreateInput = {
     id?: string
     email: string
@@ -22849,7 +20046,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
     Deposits?: DepositsCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
@@ -22889,7 +20085,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
     Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
@@ -22929,7 +20124,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
@@ -22969,7 +20163,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
@@ -23687,8 +20880,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
     quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
-    trades?: GroupTradeCreateNestedManyWithoutGroupInput
-    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUncheckedCreateInput = {
@@ -23706,8 +20897,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
-    trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
-    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUpdateInput = {
@@ -23725,8 +20914,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
     quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
-    trades?: GroupTradeUpdateManyWithoutGroupNestedInput
-    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateInput = {
@@ -23744,8 +20931,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
-    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupCreateManyInput = {
@@ -23792,88 +20977,6 @@ export namespace Prisma {
     minAmount?: FloatFieldUpdateOperationsInput | number
     tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
     state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type GroupTradeCreateInput = {
-    id?: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    group: TradingGroupCreateNestedOneWithoutTradesInput
-    user: UsersCreateNestedOneWithoutGroupTradesInput
-  }
-
-  export type GroupTradeUncheckedCreateInput = {
-    id?: string
-    groupId: string
-    userId: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type GroupTradeUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    group?: TradingGroupUpdateOneRequiredWithoutTradesNestedInput
-    user?: UsersUpdateOneRequiredWithoutGroupTradesNestedInput
-  }
-
-  export type GroupTradeUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    groupId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type GroupTradeCreateManyInput = {
-    id?: string
-    groupId: string
-    userId: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type GroupTradeUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type GroupTradeUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    groupId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -24406,82 +21509,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type TradingFeesCreateInput = {
-    id?: string
-    userGroup?: string
-    maker?: number
-    taker?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    tradingGroup: TradingGroupCreateNestedOneWithoutTradingFeesInput
-  }
-
-  export type TradingFeesUncheckedCreateInput = {
-    id?: string
-    groupId: string
-    userGroup?: string
-    maker?: number
-    taker?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type TradingFeesUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userGroup?: StringFieldUpdateOperationsInput | string
-    maker?: FloatFieldUpdateOperationsInput | number
-    taker?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    tradingGroup?: TradingGroupUpdateOneRequiredWithoutTradingFeesNestedInput
-  }
-
-  export type TradingFeesUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    groupId?: StringFieldUpdateOperationsInput | string
-    userGroup?: StringFieldUpdateOperationsInput | string
-    maker?: FloatFieldUpdateOperationsInput | number
-    taker?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TradingFeesCreateManyInput = {
-    id?: string
-    groupId: string
-    userGroup?: string
-    maker?: number
-    taker?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type TradingFeesUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userGroup?: StringFieldUpdateOperationsInput | string
-    maker?: FloatFieldUpdateOperationsInput | number
-    taker?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TradingFeesUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    groupId?: StringFieldUpdateOperationsInput | string
-    userGroup?: StringFieldUpdateOperationsInput | string
-    maker?: FloatFieldUpdateOperationsInput | number
-    taker?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -24575,12 +21602,6 @@ export namespace Prisma {
     none?: UserWalletWhereInput
   }
 
-  export type GroupTradeListRelationFilter = {
-    every?: GroupTradeWhereInput
-    some?: GroupTradeWhereInput
-    none?: GroupTradeWhereInput
-  }
-
   export type DepositsListRelationFilter = {
     every?: DepositsWhereInput
     some?: DepositsWhereInput
@@ -24613,10 +21634,6 @@ export namespace Prisma {
   }
 
   export type UserWalletOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type GroupTradeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -25365,16 +22382,6 @@ export namespace Prisma {
     not?: NestedEnumTradingGroupStateFilter<$PrismaModel> | $Enums.TradingGroupState
   }
 
-  export type TradingFeesListRelationFilter = {
-    every?: TradingFeesWhereInput
-    some?: TradingFeesWhereInput
-    none?: TradingFeesWhereInput
-  }
-
-  export type TradingFeesOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type TradingGroupCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -25468,59 +22475,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumTradingGroupStateFilter<$PrismaModel>
     _max?: NestedEnumTradingGroupStateFilter<$PrismaModel>
-  }
-
-  export type TradingGroupScalarRelationFilter = {
-    is?: TradingGroupWhereInput
-    isNot?: TradingGroupWhereInput
-  }
-
-  export type GroupTradeCountOrderByAggregateInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userId?: SortOrder
-    amountBase?: SortOrder
-    amountQuote?: SortOrder
-    price?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type GroupTradeAvgOrderByAggregateInput = {
-    amountBase?: SortOrder
-    amountQuote?: SortOrder
-    price?: SortOrder
-  }
-
-  export type GroupTradeMaxOrderByAggregateInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userId?: SortOrder
-    amountBase?: SortOrder
-    amountQuote?: SortOrder
-    price?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type GroupTradeMinOrderByAggregateInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userId?: SortOrder
-    amountBase?: SortOrder
-    amountQuote?: SortOrder
-    price?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type GroupTradeSumOrderByAggregateInput = {
-    amountBase?: SortOrder
-    amountQuote?: SortOrder
-    price?: SortOrder
   }
 
   export type StringNullableListFilter<$PrismaModel = never> = {
@@ -25904,54 +22858,6 @@ export namespace Prisma {
     _max?: NestedEnumBeneficiaryStateFilter<$PrismaModel>
   }
 
-  export type TradingFeesGroupIdUserGroupCompoundUniqueInput = {
-    groupId: string
-    userGroup: string
-  }
-
-  export type TradingFeesCountOrderByAggregateInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userGroup?: SortOrder
-    maker?: SortOrder
-    taker?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type TradingFeesAvgOrderByAggregateInput = {
-    maker?: SortOrder
-    taker?: SortOrder
-  }
-
-  export type TradingFeesMaxOrderByAggregateInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userGroup?: SortOrder
-    maker?: SortOrder
-    taker?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type TradingFeesMinOrderByAggregateInput = {
-    id?: SortOrder
-    groupId?: SortOrder
-    userGroup?: SortOrder
-    maker?: SortOrder
-    taker?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type TradingFeesSumOrderByAggregateInput = {
-    maker?: SortOrder
-    taker?: SortOrder
-  }
-
   export type UserRoleMappingCreateNestedManyWithoutUsersInput = {
     create?: XOR<UserRoleMappingCreateWithoutUsersInput, UserRoleMappingUncheckedCreateWithoutUsersInput> | UserRoleMappingCreateWithoutUsersInput[] | UserRoleMappingUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: UserRoleMappingCreateOrConnectWithoutUsersInput | UserRoleMappingCreateOrConnectWithoutUsersInput[]
@@ -25971,13 +22877,6 @@ export namespace Prisma {
     connectOrCreate?: UserWalletCreateOrConnectWithoutUserInput | UserWalletCreateOrConnectWithoutUserInput[]
     createMany?: UserWalletCreateManyUserInputEnvelope
     connect?: UserWalletWhereUniqueInput | UserWalletWhereUniqueInput[]
-  }
-
-  export type GroupTradeCreateNestedManyWithoutUserInput = {
-    create?: XOR<GroupTradeCreateWithoutUserInput, GroupTradeUncheckedCreateWithoutUserInput> | GroupTradeCreateWithoutUserInput[] | GroupTradeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutUserInput | GroupTradeCreateOrConnectWithoutUserInput[]
-    createMany?: GroupTradeCreateManyUserInputEnvelope
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
   }
 
   export type DepositsCreateNestedManyWithoutUserInput = {
@@ -26020,13 +22919,6 @@ export namespace Prisma {
     connectOrCreate?: UserWalletCreateOrConnectWithoutUserInput | UserWalletCreateOrConnectWithoutUserInput[]
     createMany?: UserWalletCreateManyUserInputEnvelope
     connect?: UserWalletWhereUniqueInput | UserWalletWhereUniqueInput[]
-  }
-
-  export type GroupTradeUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<GroupTradeCreateWithoutUserInput, GroupTradeUncheckedCreateWithoutUserInput> | GroupTradeCreateWithoutUserInput[] | GroupTradeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutUserInput | GroupTradeCreateOrConnectWithoutUserInput[]
-    createMany?: GroupTradeCreateManyUserInputEnvelope
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
   }
 
   export type DepositsUncheckedCreateNestedManyWithoutUserInput = {
@@ -26124,20 +23016,6 @@ export namespace Prisma {
     deleteMany?: UserWalletScalarWhereInput | UserWalletScalarWhereInput[]
   }
 
-  export type GroupTradeUpdateManyWithoutUserNestedInput = {
-    create?: XOR<GroupTradeCreateWithoutUserInput, GroupTradeUncheckedCreateWithoutUserInput> | GroupTradeCreateWithoutUserInput[] | GroupTradeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutUserInput | GroupTradeCreateOrConnectWithoutUserInput[]
-    upsert?: GroupTradeUpsertWithWhereUniqueWithoutUserInput | GroupTradeUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: GroupTradeCreateManyUserInputEnvelope
-    set?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    disconnect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    delete?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    update?: GroupTradeUpdateWithWhereUniqueWithoutUserInput | GroupTradeUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: GroupTradeUpdateManyWithWhereWithoutUserInput | GroupTradeUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
-  }
-
   export type DepositsUpdateManyWithoutUserNestedInput = {
     create?: XOR<DepositsCreateWithoutUserInput, DepositsUncheckedCreateWithoutUserInput> | DepositsCreateWithoutUserInput[] | DepositsUncheckedCreateWithoutUserInput[]
     connectOrCreate?: DepositsCreateOrConnectWithoutUserInput | DepositsCreateOrConnectWithoutUserInput[]
@@ -26220,20 +23098,6 @@ export namespace Prisma {
     update?: UserWalletUpdateWithWhereUniqueWithoutUserInput | UserWalletUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserWalletUpdateManyWithWhereWithoutUserInput | UserWalletUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserWalletScalarWhereInput | UserWalletScalarWhereInput[]
-  }
-
-  export type GroupTradeUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<GroupTradeCreateWithoutUserInput, GroupTradeUncheckedCreateWithoutUserInput> | GroupTradeCreateWithoutUserInput[] | GroupTradeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutUserInput | GroupTradeCreateOrConnectWithoutUserInput[]
-    upsert?: GroupTradeUpsertWithWhereUniqueWithoutUserInput | GroupTradeUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: GroupTradeCreateManyUserInputEnvelope
-    set?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    disconnect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    delete?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    update?: GroupTradeUpdateWithWhereUniqueWithoutUserInput | GroupTradeUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: GroupTradeUpdateManyWithWhereWithoutUserInput | GroupTradeUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
   }
 
   export type DepositsUncheckedUpdateManyWithoutUserNestedInput = {
@@ -26778,34 +23642,6 @@ export namespace Prisma {
     connect?: CoinsWhereUniqueInput
   }
 
-  export type GroupTradeCreateNestedManyWithoutGroupInput = {
-    create?: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput> | GroupTradeCreateWithoutGroupInput[] | GroupTradeUncheckedCreateWithoutGroupInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutGroupInput | GroupTradeCreateOrConnectWithoutGroupInput[]
-    createMany?: GroupTradeCreateManyGroupInputEnvelope
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-  }
-
-  export type TradingFeesCreateNestedManyWithoutTradingGroupInput = {
-    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
-    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
-    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
-    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-  }
-
-  export type GroupTradeUncheckedCreateNestedManyWithoutGroupInput = {
-    create?: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput> | GroupTradeCreateWithoutGroupInput[] | GroupTradeUncheckedCreateWithoutGroupInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutGroupInput | GroupTradeCreateOrConnectWithoutGroupInput[]
-    createMany?: GroupTradeCreateManyGroupInputEnvelope
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-  }
-
-  export type TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput = {
-    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
-    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
-    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
-    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-  }
-
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -26832,90 +23668,6 @@ export namespace Prisma {
     upsert?: CoinsUpsertWithoutTradingGroupQuoteInput
     connect?: CoinsWhereUniqueInput
     update?: XOR<XOR<CoinsUpdateToOneWithWhereWithoutTradingGroupQuoteInput, CoinsUpdateWithoutTradingGroupQuoteInput>, CoinsUncheckedUpdateWithoutTradingGroupQuoteInput>
-  }
-
-  export type GroupTradeUpdateManyWithoutGroupNestedInput = {
-    create?: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput> | GroupTradeCreateWithoutGroupInput[] | GroupTradeUncheckedCreateWithoutGroupInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutGroupInput | GroupTradeCreateOrConnectWithoutGroupInput[]
-    upsert?: GroupTradeUpsertWithWhereUniqueWithoutGroupInput | GroupTradeUpsertWithWhereUniqueWithoutGroupInput[]
-    createMany?: GroupTradeCreateManyGroupInputEnvelope
-    set?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    disconnect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    delete?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    update?: GroupTradeUpdateWithWhereUniqueWithoutGroupInput | GroupTradeUpdateWithWhereUniqueWithoutGroupInput[]
-    updateMany?: GroupTradeUpdateManyWithWhereWithoutGroupInput | GroupTradeUpdateManyWithWhereWithoutGroupInput[]
-    deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
-  }
-
-  export type TradingFeesUpdateManyWithoutTradingGroupNestedInput = {
-    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
-    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
-    upsert?: TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput[]
-    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
-    set?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    disconnect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    delete?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    update?: TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput[]
-    updateMany?: TradingFeesUpdateManyWithWhereWithoutTradingGroupInput | TradingFeesUpdateManyWithWhereWithoutTradingGroupInput[]
-    deleteMany?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
-  }
-
-  export type GroupTradeUncheckedUpdateManyWithoutGroupNestedInput = {
-    create?: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput> | GroupTradeCreateWithoutGroupInput[] | GroupTradeUncheckedCreateWithoutGroupInput[]
-    connectOrCreate?: GroupTradeCreateOrConnectWithoutGroupInput | GroupTradeCreateOrConnectWithoutGroupInput[]
-    upsert?: GroupTradeUpsertWithWhereUniqueWithoutGroupInput | GroupTradeUpsertWithWhereUniqueWithoutGroupInput[]
-    createMany?: GroupTradeCreateManyGroupInputEnvelope
-    set?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    disconnect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    delete?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    connect?: GroupTradeWhereUniqueInput | GroupTradeWhereUniqueInput[]
-    update?: GroupTradeUpdateWithWhereUniqueWithoutGroupInput | GroupTradeUpdateWithWhereUniqueWithoutGroupInput[]
-    updateMany?: GroupTradeUpdateManyWithWhereWithoutGroupInput | GroupTradeUpdateManyWithWhereWithoutGroupInput[]
-    deleteMany?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
-  }
-
-  export type TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput = {
-    create?: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput> | TradingFeesCreateWithoutTradingGroupInput[] | TradingFeesUncheckedCreateWithoutTradingGroupInput[]
-    connectOrCreate?: TradingFeesCreateOrConnectWithoutTradingGroupInput | TradingFeesCreateOrConnectWithoutTradingGroupInput[]
-    upsert?: TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput[]
-    createMany?: TradingFeesCreateManyTradingGroupInputEnvelope
-    set?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    disconnect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    delete?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    connect?: TradingFeesWhereUniqueInput | TradingFeesWhereUniqueInput[]
-    update?: TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput | TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput[]
-    updateMany?: TradingFeesUpdateManyWithWhereWithoutTradingGroupInput | TradingFeesUpdateManyWithWhereWithoutTradingGroupInput[]
-    deleteMany?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
-  }
-
-  export type TradingGroupCreateNestedOneWithoutTradesInput = {
-    create?: XOR<TradingGroupCreateWithoutTradesInput, TradingGroupUncheckedCreateWithoutTradesInput>
-    connectOrCreate?: TradingGroupCreateOrConnectWithoutTradesInput
-    connect?: TradingGroupWhereUniqueInput
-  }
-
-  export type UsersCreateNestedOneWithoutGroupTradesInput = {
-    create?: XOR<UsersCreateWithoutGroupTradesInput, UsersUncheckedCreateWithoutGroupTradesInput>
-    connectOrCreate?: UsersCreateOrConnectWithoutGroupTradesInput
-    connect?: UsersWhereUniqueInput
-  }
-
-  export type TradingGroupUpdateOneRequiredWithoutTradesNestedInput = {
-    create?: XOR<TradingGroupCreateWithoutTradesInput, TradingGroupUncheckedCreateWithoutTradesInput>
-    connectOrCreate?: TradingGroupCreateOrConnectWithoutTradesInput
-    upsert?: TradingGroupUpsertWithoutTradesInput
-    connect?: TradingGroupWhereUniqueInput
-    update?: XOR<XOR<TradingGroupUpdateToOneWithWhereWithoutTradesInput, TradingGroupUpdateWithoutTradesInput>, TradingGroupUncheckedUpdateWithoutTradesInput>
-  }
-
-  export type UsersUpdateOneRequiredWithoutGroupTradesNestedInput = {
-    create?: XOR<UsersCreateWithoutGroupTradesInput, UsersUncheckedCreateWithoutGroupTradesInput>
-    connectOrCreate?: UsersCreateOrConnectWithoutGroupTradesInput
-    upsert?: UsersUpsertWithoutGroupTradesInput
-    connect?: UsersWhereUniqueInput
-    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutGroupTradesInput, UsersUpdateWithoutGroupTradesInput>, UsersUncheckedUpdateWithoutGroupTradesInput>
   }
 
   export type CoinDetailsCreatecategoriesInput = {
@@ -27119,20 +23871,6 @@ export namespace Prisma {
     update?: WithdrawsUpdateWithWhereUniqueWithoutBeneficiaryInput | WithdrawsUpdateWithWhereUniqueWithoutBeneficiaryInput[]
     updateMany?: WithdrawsUpdateManyWithWhereWithoutBeneficiaryInput | WithdrawsUpdateManyWithWhereWithoutBeneficiaryInput[]
     deleteMany?: WithdrawsScalarWhereInput | WithdrawsScalarWhereInput[]
-  }
-
-  export type TradingGroupCreateNestedOneWithoutTradingFeesInput = {
-    create?: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
-    connectOrCreate?: TradingGroupCreateOrConnectWithoutTradingFeesInput
-    connect?: TradingGroupWhereUniqueInput
-  }
-
-  export type TradingGroupUpdateOneRequiredWithoutTradingFeesNestedInput = {
-    create?: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
-    connectOrCreate?: TradingGroupCreateOrConnectWithoutTradingFeesInput
-    upsert?: TradingGroupUpsertWithoutTradingFeesInput
-    connect?: TradingGroupWhereUniqueInput
-    update?: XOR<XOR<TradingGroupUpdateToOneWithWhereWithoutTradingFeesInput, TradingGroupUpdateWithoutTradingFeesInput>, TradingGroupUncheckedUpdateWithoutTradingFeesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -27707,38 +24445,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type GroupTradeCreateWithoutUserInput = {
-    id?: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    group: TradingGroupCreateNestedOneWithoutTradesInput
-  }
-
-  export type GroupTradeUncheckedCreateWithoutUserInput = {
-    id?: string
-    groupId: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type GroupTradeCreateOrConnectWithoutUserInput = {
-    where: GroupTradeWhereUniqueInput
-    create: XOR<GroupTradeCreateWithoutUserInput, GroupTradeUncheckedCreateWithoutUserInput>
-  }
-
-  export type GroupTradeCreateManyUserInputEnvelope = {
-    data: GroupTradeCreateManyUserInput | GroupTradeCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type DepositsCreateWithoutUserInput = {
     id?: string
     amount: number
@@ -27951,37 +24657,6 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"UserWallet"> | Date | string | null
   }
 
-  export type GroupTradeUpsertWithWhereUniqueWithoutUserInput = {
-    where: GroupTradeWhereUniqueInput
-    update: XOR<GroupTradeUpdateWithoutUserInput, GroupTradeUncheckedUpdateWithoutUserInput>
-    create: XOR<GroupTradeCreateWithoutUserInput, GroupTradeUncheckedCreateWithoutUserInput>
-  }
-
-  export type GroupTradeUpdateWithWhereUniqueWithoutUserInput = {
-    where: GroupTradeWhereUniqueInput
-    data: XOR<GroupTradeUpdateWithoutUserInput, GroupTradeUncheckedUpdateWithoutUserInput>
-  }
-
-  export type GroupTradeUpdateManyWithWhereWithoutUserInput = {
-    where: GroupTradeScalarWhereInput
-    data: XOR<GroupTradeUpdateManyMutationInput, GroupTradeUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type GroupTradeScalarWhereInput = {
-    AND?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
-    OR?: GroupTradeScalarWhereInput[]
-    NOT?: GroupTradeScalarWhereInput | GroupTradeScalarWhereInput[]
-    id?: StringFilter<"GroupTrade"> | string
-    groupId?: StringFilter<"GroupTrade"> | string
-    userId?: StringFilter<"GroupTrade"> | string
-    amountBase?: FloatFilter<"GroupTrade"> | number
-    amountQuote?: FloatFilter<"GroupTrade"> | number
-    price?: FloatFilter<"GroupTrade"> | number
-    createdAt?: DateTimeFilter<"GroupTrade"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
-    deletedAt?: DateTimeNullableFilter<"GroupTrade"> | Date | string | null
-  }
-
   export type DepositsUpsertWithWhereUniqueWithoutUserInput = {
     where: DepositsWhereUniqueInput
     update: XOR<DepositsUpdateWithoutUserInput, DepositsUncheckedUpdateWithoutUserInput>
@@ -28161,7 +24836,6 @@ export namespace Prisma {
     docType?: string | null
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
     Deposits?: DepositsCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
@@ -28200,7 +24874,6 @@ export namespace Prisma {
     docType?: string | null
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
     Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
@@ -28276,7 +24949,6 @@ export namespace Prisma {
     docType?: NullableStringFieldUpdateOperationsInput | string | null
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
@@ -28315,7 +24987,6 @@ export namespace Prisma {
     docType?: NullableStringFieldUpdateOperationsInput | string | null
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
@@ -28362,8 +25033,6 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
-    trades?: GroupTradeCreateNestedManyWithoutGroupInput
-    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUncheckedCreateWithoutBaseCoinInput = {
@@ -28380,8 +25049,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
-    trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
-    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupCreateOrConnectWithoutBaseCoinInput = {
@@ -28408,8 +25075,6 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
     baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
-    trades?: GroupTradeCreateNestedManyWithoutGroupInput
-    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupUncheckedCreateWithoutQuoteCoinInput = {
@@ -28426,8 +25091,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
-    trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
-    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
   }
 
   export type TradingGroupCreateOrConnectWithoutQuoteCoinInput = {
@@ -28826,7 +25489,6 @@ export namespace Prisma {
     docType?: string | null
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
     Deposits?: DepositsCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
@@ -28865,7 +25527,6 @@ export namespace Prisma {
     docType?: string | null
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
     Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
@@ -28920,7 +25581,6 @@ export namespace Prisma {
     docType?: NullableStringFieldUpdateOperationsInput | string | null
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
@@ -28959,7 +25619,6 @@ export namespace Prisma {
     docType?: NullableStringFieldUpdateOperationsInput | string | null
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
@@ -29071,7 +25730,6 @@ export namespace Prisma {
     docType?: string | null
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     devices?: DevicesCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
     Deposits?: DepositsCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
@@ -29110,7 +25768,6 @@ export namespace Prisma {
     docType?: string | null
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
     Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
@@ -29278,7 +25935,6 @@ export namespace Prisma {
     docType?: NullableStringFieldUpdateOperationsInput | string | null
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     devices?: DevicesUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
@@ -29317,7 +25973,6 @@ export namespace Prisma {
     docType?: NullableStringFieldUpdateOperationsInput | string | null
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
@@ -29501,68 +26156,6 @@ export namespace Prisma {
     create: XOR<CoinsCreateWithoutTradingGroupQuoteInput, CoinsUncheckedCreateWithoutTradingGroupQuoteInput>
   }
 
-  export type GroupTradeCreateWithoutGroupInput = {
-    id?: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    user: UsersCreateNestedOneWithoutGroupTradesInput
-  }
-
-  export type GroupTradeUncheckedCreateWithoutGroupInput = {
-    id?: string
-    userId: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type GroupTradeCreateOrConnectWithoutGroupInput = {
-    where: GroupTradeWhereUniqueInput
-    create: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput>
-  }
-
-  export type GroupTradeCreateManyGroupInputEnvelope = {
-    data: GroupTradeCreateManyGroupInput | GroupTradeCreateManyGroupInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type TradingFeesCreateWithoutTradingGroupInput = {
-    id?: string
-    userGroup?: string
-    maker?: number
-    taker?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type TradingFeesUncheckedCreateWithoutTradingGroupInput = {
-    id?: string
-    userGroup?: string
-    maker?: number
-    taker?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type TradingFeesCreateOrConnectWithoutTradingGroupInput = {
-    where: TradingFeesWhereUniqueInput
-    create: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput>
-  }
-
-  export type TradingFeesCreateManyTradingGroupInputEnvelope = {
-    data: TradingFeesCreateManyTradingGroupInput | TradingFeesCreateManyTradingGroupInput[]
-    skipDuplicates?: boolean
-  }
-
   export type CoinsUpsertWithoutTradingGroupBaseInput = {
     update: XOR<CoinsUpdateWithoutTradingGroupBaseInput, CoinsUncheckedUpdateWithoutTradingGroupBaseInput>
     create: XOR<CoinsCreateWithoutTradingGroupBaseInput, CoinsUncheckedCreateWithoutTradingGroupBaseInput>
@@ -29719,312 +26312,6 @@ export namespace Prisma {
     Deposits?: DepositsUncheckedUpdateManyWithoutCoinNestedInput
     Withdraws?: WithdrawsUncheckedUpdateManyWithoutCoinNestedInput
     Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutCoinNestedInput
-  }
-
-  export type GroupTradeUpsertWithWhereUniqueWithoutGroupInput = {
-    where: GroupTradeWhereUniqueInput
-    update: XOR<GroupTradeUpdateWithoutGroupInput, GroupTradeUncheckedUpdateWithoutGroupInput>
-    create: XOR<GroupTradeCreateWithoutGroupInput, GroupTradeUncheckedCreateWithoutGroupInput>
-  }
-
-  export type GroupTradeUpdateWithWhereUniqueWithoutGroupInput = {
-    where: GroupTradeWhereUniqueInput
-    data: XOR<GroupTradeUpdateWithoutGroupInput, GroupTradeUncheckedUpdateWithoutGroupInput>
-  }
-
-  export type GroupTradeUpdateManyWithWhereWithoutGroupInput = {
-    where: GroupTradeScalarWhereInput
-    data: XOR<GroupTradeUpdateManyMutationInput, GroupTradeUncheckedUpdateManyWithoutGroupInput>
-  }
-
-  export type TradingFeesUpsertWithWhereUniqueWithoutTradingGroupInput = {
-    where: TradingFeesWhereUniqueInput
-    update: XOR<TradingFeesUpdateWithoutTradingGroupInput, TradingFeesUncheckedUpdateWithoutTradingGroupInput>
-    create: XOR<TradingFeesCreateWithoutTradingGroupInput, TradingFeesUncheckedCreateWithoutTradingGroupInput>
-  }
-
-  export type TradingFeesUpdateWithWhereUniqueWithoutTradingGroupInput = {
-    where: TradingFeesWhereUniqueInput
-    data: XOR<TradingFeesUpdateWithoutTradingGroupInput, TradingFeesUncheckedUpdateWithoutTradingGroupInput>
-  }
-
-  export type TradingFeesUpdateManyWithWhereWithoutTradingGroupInput = {
-    where: TradingFeesScalarWhereInput
-    data: XOR<TradingFeesUpdateManyMutationInput, TradingFeesUncheckedUpdateManyWithoutTradingGroupInput>
-  }
-
-  export type TradingFeesScalarWhereInput = {
-    AND?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
-    OR?: TradingFeesScalarWhereInput[]
-    NOT?: TradingFeesScalarWhereInput | TradingFeesScalarWhereInput[]
-    id?: StringFilter<"TradingFees"> | string
-    groupId?: StringFilter<"TradingFees"> | string
-    userGroup?: StringFilter<"TradingFees"> | string
-    maker?: FloatFilter<"TradingFees"> | number
-    taker?: FloatFilter<"TradingFees"> | number
-    createdAt?: DateTimeFilter<"TradingFees"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
-    deletedAt?: DateTimeNullableFilter<"TradingFees"> | Date | string | null
-  }
-
-  export type TradingGroupCreateWithoutTradesInput = {
-    id?: string
-    name: string
-    amountPrecision?: number
-    pricePrecision?: number
-    minPrice?: number
-    maxprice?: number
-    minAmount?: number
-    tradingFees?: number | null
-    state?: $Enums.TradingGroupState
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
-    quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
-    TradingFees?: TradingFeesCreateNestedManyWithoutTradingGroupInput
-  }
-
-  export type TradingGroupUncheckedCreateWithoutTradesInput = {
-    id?: string
-    name: string
-    baseCoinId: string
-    quoteCoinId: string
-    amountPrecision?: number
-    pricePrecision?: number
-    minPrice?: number
-    maxprice?: number
-    minAmount?: number
-    tradingFees?: number | null
-    state?: $Enums.TradingGroupState
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    TradingFees?: TradingFeesUncheckedCreateNestedManyWithoutTradingGroupInput
-  }
-
-  export type TradingGroupCreateOrConnectWithoutTradesInput = {
-    where: TradingGroupWhereUniqueInput
-    create: XOR<TradingGroupCreateWithoutTradesInput, TradingGroupUncheckedCreateWithoutTradesInput>
-  }
-
-  export type UsersCreateWithoutGroupTradesInput = {
-    id?: string
-    email: string
-    password: string
-    firstName?: string | null
-    lastName?: string | null
-    provider?: string | null
-    providerId?: string | null
-    referralCode?: string | null
-    countryId?: number | null
-    phone?: string | null
-    country?: string | null
-    address?: string | null
-    city?: string | null
-    pinCode?: string | null
-    dateOfBirth?: string | null
-    acceptedTerms?: boolean
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    idProofFront?: string | null
-    idProofBack?: string | null
-    profilePicture?: string | null
-    selfiePicture?: string | null
-    isVerified?: $Enums.Process
-    rejectionReason?: string | null
-    docSubmissionDate?: Date | string
-    isBlocked?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    docType?: string | null
-    userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
-    devices?: DevicesCreateNestedManyWithoutUserInput
-    userWallet?: UserWalletCreateNestedManyWithoutUserInput
-    Deposits?: DepositsCreateNestedManyWithoutUserInput
-    Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
-    Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
-  }
-
-  export type UsersUncheckedCreateWithoutGroupTradesInput = {
-    id?: string
-    email: string
-    password: string
-    firstName?: string | null
-    lastName?: string | null
-    provider?: string | null
-    providerId?: string | null
-    referralCode?: string | null
-    countryId?: number | null
-    phone?: string | null
-    country?: string | null
-    address?: string | null
-    city?: string | null
-    pinCode?: string | null
-    dateOfBirth?: string | null
-    acceptedTerms?: boolean
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    idProofFront?: string | null
-    idProofBack?: string | null
-    profilePicture?: string | null
-    selfiePicture?: string | null
-    isVerified?: $Enums.Process
-    rejectionReason?: string | null
-    docSubmissionDate?: Date | string
-    isBlocked?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    docType?: string | null
-    userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
-    devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
-    userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
-    Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
-    Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
-    Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UsersCreateOrConnectWithoutGroupTradesInput = {
-    where: UsersWhereUniqueInput
-    create: XOR<UsersCreateWithoutGroupTradesInput, UsersUncheckedCreateWithoutGroupTradesInput>
-  }
-
-  export type TradingGroupUpsertWithoutTradesInput = {
-    update: XOR<TradingGroupUpdateWithoutTradesInput, TradingGroupUncheckedUpdateWithoutTradesInput>
-    create: XOR<TradingGroupCreateWithoutTradesInput, TradingGroupUncheckedCreateWithoutTradesInput>
-    where?: TradingGroupWhereInput
-  }
-
-  export type TradingGroupUpdateToOneWithWhereWithoutTradesInput = {
-    where?: TradingGroupWhereInput
-    data: XOR<TradingGroupUpdateWithoutTradesInput, TradingGroupUncheckedUpdateWithoutTradesInput>
-  }
-
-  export type TradingGroupUpdateWithoutTradesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    amountPrecision?: IntFieldUpdateOperationsInput | number
-    pricePrecision?: IntFieldUpdateOperationsInput | number
-    minPrice?: FloatFieldUpdateOperationsInput | number
-    maxprice?: FloatFieldUpdateOperationsInput | number
-    minAmount?: FloatFieldUpdateOperationsInput | number
-    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
-    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
-    quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
-    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
-  }
-
-  export type TradingGroupUncheckedUpdateWithoutTradesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    baseCoinId?: StringFieldUpdateOperationsInput | string
-    quoteCoinId?: StringFieldUpdateOperationsInput | string
-    amountPrecision?: IntFieldUpdateOperationsInput | number
-    pricePrecision?: IntFieldUpdateOperationsInput | number
-    minPrice?: FloatFieldUpdateOperationsInput | number
-    maxprice?: FloatFieldUpdateOperationsInput | number
-    minAmount?: FloatFieldUpdateOperationsInput | number
-    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
-    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
-  }
-
-  export type UsersUpsertWithoutGroupTradesInput = {
-    update: XOR<UsersUpdateWithoutGroupTradesInput, UsersUncheckedUpdateWithoutGroupTradesInput>
-    create: XOR<UsersCreateWithoutGroupTradesInput, UsersUncheckedCreateWithoutGroupTradesInput>
-    where?: UsersWhereInput
-  }
-
-  export type UsersUpdateToOneWithWhereWithoutGroupTradesInput = {
-    where?: UsersWhereInput
-    data: XOR<UsersUpdateWithoutGroupTradesInput, UsersUncheckedUpdateWithoutGroupTradesInput>
-  }
-
-  export type UsersUpdateWithoutGroupTradesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: NullableStringFieldUpdateOperationsInput | string | null
-    providerId?: NullableStringFieldUpdateOperationsInput | string | null
-    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
-    countryId?: NullableIntFieldUpdateOperationsInput | number | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
-    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
-    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
-    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
-    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
-    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    isBlocked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    docType?: NullableStringFieldUpdateOperationsInput | string | null
-    userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
-    devices?: DevicesUpdateManyWithoutUserNestedInput
-    userWallet?: UserWalletUpdateManyWithoutUserNestedInput
-    Deposits?: DepositsUpdateManyWithoutUserNestedInput
-    Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
-    Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
-  }
-
-  export type UsersUncheckedUpdateWithoutGroupTradesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: NullableStringFieldUpdateOperationsInput | string | null
-    providerId?: NullableStringFieldUpdateOperationsInput | string | null
-    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
-    countryId?: NullableIntFieldUpdateOperationsInput | number | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    pinCode?: NullableStringFieldUpdateOperationsInput | string | null
-    dateOfBirth?: NullableStringFieldUpdateOperationsInput | string | null
-    acceptedTerms?: BoolFieldUpdateOperationsInput | boolean
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    idProofFront?: NullableStringFieldUpdateOperationsInput | string | null
-    idProofBack?: NullableStringFieldUpdateOperationsInput | string | null
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    selfiePicture?: NullableStringFieldUpdateOperationsInput | string | null
-    isVerified?: EnumProcessFieldUpdateOperationsInput | $Enums.Process
-    rejectionReason?: NullableStringFieldUpdateOperationsInput | string | null
-    docSubmissionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    isBlocked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    docType?: NullableStringFieldUpdateOperationsInput | string | null
-    userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
-    devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
-    userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
-    Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
-    Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
-    Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CoinsCreateWithoutCoinDetailsInput = {
@@ -30293,7 +26580,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
   }
@@ -30332,7 +26618,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
   }
@@ -30460,7 +26745,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
   }
@@ -30499,7 +26783,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -30617,7 +26900,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
     Deposits?: DepositsCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesCreateNestedManyWithoutUserInput
   }
@@ -30656,7 +26938,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
     Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
     Beneficiaries?: BeneficiariesUncheckedCreateNestedManyWithoutUserInput
   }
@@ -30817,7 +27098,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUpdateManyWithoutUserNestedInput
   }
@@ -30856,7 +27136,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
     Beneficiaries?: BeneficiariesUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -31013,7 +27292,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingCreateNestedManyWithoutUsersInput
     devices?: DevicesCreateNestedManyWithoutUserInput
     userWallet?: UserWalletCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeCreateNestedManyWithoutUserInput
     Deposits?: DepositsCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsCreateNestedManyWithoutUserInput
   }
@@ -31052,7 +27330,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedCreateNestedManyWithoutUsersInput
     devices?: DevicesUncheckedCreateNestedManyWithoutUserInput
     userWallet?: UserWalletUncheckedCreateNestedManyWithoutUserInput
-    groupTrades?: GroupTradeUncheckedCreateNestedManyWithoutUserInput
     Deposits?: DepositsUncheckedCreateNestedManyWithoutUserInput
     Withdraws?: WithdrawsUncheckedCreateNestedManyWithoutUserInput
   }
@@ -31222,7 +27499,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUpdateManyWithoutUsersNestedInput
     devices?: DevicesUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUpdateManyWithoutUserNestedInput
   }
@@ -31261,7 +27537,6 @@ export namespace Prisma {
     userRoleMapping?: UserRoleMappingUncheckedUpdateManyWithoutUsersNestedInput
     devices?: DevicesUncheckedUpdateManyWithoutUserNestedInput
     userWallet?: UserWalletUncheckedUpdateManyWithoutUserNestedInput
-    groupTrades?: GroupTradeUncheckedUpdateManyWithoutUserNestedInput
     Deposits?: DepositsUncheckedUpdateManyWithoutUserNestedInput
     Withdraws?: WithdrawsUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -31361,94 +27636,6 @@ export namespace Prisma {
     data: XOR<WithdrawsUpdateManyMutationInput, WithdrawsUncheckedUpdateManyWithoutBeneficiaryInput>
   }
 
-  export type TradingGroupCreateWithoutTradingFeesInput = {
-    id?: string
-    name: string
-    amountPrecision?: number
-    pricePrecision?: number
-    minPrice?: number
-    maxprice?: number
-    minAmount?: number
-    tradingFees?: number | null
-    state?: $Enums.TradingGroupState
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    baseCoin: CoinsCreateNestedOneWithoutTradingGroupBaseInput
-    quoteCoin: CoinsCreateNestedOneWithoutTradingGroupQuoteInput
-    trades?: GroupTradeCreateNestedManyWithoutGroupInput
-  }
-
-  export type TradingGroupUncheckedCreateWithoutTradingFeesInput = {
-    id?: string
-    name: string
-    baseCoinId: string
-    quoteCoinId: string
-    amountPrecision?: number
-    pricePrecision?: number
-    minPrice?: number
-    maxprice?: number
-    minAmount?: number
-    tradingFees?: number | null
-    state?: $Enums.TradingGroupState
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-    trades?: GroupTradeUncheckedCreateNestedManyWithoutGroupInput
-  }
-
-  export type TradingGroupCreateOrConnectWithoutTradingFeesInput = {
-    where: TradingGroupWhereUniqueInput
-    create: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
-  }
-
-  export type TradingGroupUpsertWithoutTradingFeesInput = {
-    update: XOR<TradingGroupUpdateWithoutTradingFeesInput, TradingGroupUncheckedUpdateWithoutTradingFeesInput>
-    create: XOR<TradingGroupCreateWithoutTradingFeesInput, TradingGroupUncheckedCreateWithoutTradingFeesInput>
-    where?: TradingGroupWhereInput
-  }
-
-  export type TradingGroupUpdateToOneWithWhereWithoutTradingFeesInput = {
-    where?: TradingGroupWhereInput
-    data: XOR<TradingGroupUpdateWithoutTradingFeesInput, TradingGroupUncheckedUpdateWithoutTradingFeesInput>
-  }
-
-  export type TradingGroupUpdateWithoutTradingFeesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    amountPrecision?: IntFieldUpdateOperationsInput | number
-    pricePrecision?: IntFieldUpdateOperationsInput | number
-    minPrice?: FloatFieldUpdateOperationsInput | number
-    maxprice?: FloatFieldUpdateOperationsInput | number
-    minAmount?: FloatFieldUpdateOperationsInput | number
-    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
-    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
-    quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
-    trades?: GroupTradeUpdateManyWithoutGroupNestedInput
-  }
-
-  export type TradingGroupUncheckedUpdateWithoutTradingFeesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    baseCoinId?: StringFieldUpdateOperationsInput | string
-    quoteCoinId?: StringFieldUpdateOperationsInput | string
-    amountPrecision?: IntFieldUpdateOperationsInput | number
-    pricePrecision?: IntFieldUpdateOperationsInput | number
-    minPrice?: FloatFieldUpdateOperationsInput | number
-    maxprice?: FloatFieldUpdateOperationsInput | number
-    minAmount?: FloatFieldUpdateOperationsInput | number
-    tradingFees?: NullableFloatFieldUpdateOperationsInput | number | null
-    state?: EnumTradingGroupStateFieldUpdateOperationsInput | $Enums.TradingGroupState
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
-  }
-
   export type UserRoleMappingCreateManyUsersInput = {
     id?: string
     roleId: string
@@ -31476,17 +27663,6 @@ export namespace Prisma {
     address: string
     kind: $Enums.WalletKind
     settings?: NullableJsonNullValueInput | InputJsonValue
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type GroupTradeCreateManyUserInput = {
-    id?: string
-    groupId: string
-    amountBase: number
-    amountQuote: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
     deletedAt?: Date | string | null
@@ -31629,39 +27805,6 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     kind?: EnumWalletKindFieldUpdateOperationsInput | $Enums.WalletKind
     settings?: NullableJsonNullValueInput | InputJsonValue
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type GroupTradeUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    group?: TradingGroupUpdateOneRequiredWithoutTradesNestedInput
-  }
-
-  export type GroupTradeUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    groupId?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type GroupTradeUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    groupId?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31953,8 +28096,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quoteCoin?: CoinsUpdateOneRequiredWithoutTradingGroupQuoteNestedInput
-    trades?: GroupTradeUpdateManyWithoutGroupNestedInput
-    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateWithoutBaseCoinInput = {
@@ -31971,8 +28112,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
-    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateManyWithoutBaseCoinInput = {
@@ -32005,8 +28144,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     baseCoin?: CoinsUpdateOneRequiredWithoutTradingGroupBaseNestedInput
-    trades?: GroupTradeUpdateManyWithoutGroupNestedInput
-    TradingFees?: TradingFeesUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateWithoutQuoteCoinInput = {
@@ -32023,8 +28160,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trades?: GroupTradeUncheckedUpdateManyWithoutGroupNestedInput
-    TradingFees?: TradingFeesUncheckedUpdateManyWithoutTradingGroupNestedInput
   }
 
   export type TradingGroupUncheckedUpdateManyWithoutQuoteCoinInput = {
@@ -32312,90 +28447,6 @@ export namespace Prisma {
     orderId?: NullableStringFieldUpdateOperationsInput | string | null
     value?: FloatFieldUpdateOperationsInput | number
     signedValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type GroupTradeCreateManyGroupInput = {
-    id?: string
-    userId: string
-    amountBase: number
-    amountQuote: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type TradingFeesCreateManyTradingGroupInput = {
-    id?: string
-    userGroup?: string
-    maker?: number
-    taker?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    deletedAt?: Date | string | null
-  }
-
-  export type GroupTradeUpdateWithoutGroupInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: UsersUpdateOneRequiredWithoutGroupTradesNestedInput
-  }
-
-  export type GroupTradeUncheckedUpdateWithoutGroupInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type GroupTradeUncheckedUpdateManyWithoutGroupInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    amountBase?: FloatFieldUpdateOperationsInput | number
-    amountQuote?: FloatFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TradingFeesUpdateWithoutTradingGroupInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userGroup?: StringFieldUpdateOperationsInput | string
-    maker?: FloatFieldUpdateOperationsInput | number
-    taker?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TradingFeesUncheckedUpdateWithoutTradingGroupInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userGroup?: StringFieldUpdateOperationsInput | string
-    maker?: FloatFieldUpdateOperationsInput | number
-    taker?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TradingFeesUncheckedUpdateManyWithoutTradingGroupInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userGroup?: StringFieldUpdateOperationsInput | string
-    maker?: FloatFieldUpdateOperationsInput | number
-    taker?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
