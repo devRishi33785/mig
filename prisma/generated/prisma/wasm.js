@@ -259,7 +259,7 @@ exports.Prisma.CoinDetailsScalarFieldEnum = {
   blockCainSites: 'blockCainSites',
   assetPlatformId: 'assetPlatformId',
   imageUrl: 'imageUrl',
-  descripionId: 'descripionId',
+  descriptionId: 'descriptionId',
   contractAddress: 'contractAddress',
   categories: 'categories',
   createdAt: 'createdAt',

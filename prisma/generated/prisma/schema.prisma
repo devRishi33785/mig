@@ -261,7 +261,7 @@ model CoinDetails {
   blockCainSites   String?
   assetPlatformId  String?
   imageUrl         String?
-  descripionId     String?
+  descriptionId    String?
   contractAddress  String?
   categories       String[]
   coin             Coins     @relation(fields: [coinId], references: [id])

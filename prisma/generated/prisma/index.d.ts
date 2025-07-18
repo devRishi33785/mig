@@ -12234,7 +12234,7 @@ export namespace Prisma {
     blockCainSites: string | null
     assetPlatformId: string | null
     imageUrl: string | null
-    descripionId: string | null
+    descriptionId: string | null
     contractAddress: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -12249,7 +12249,7 @@ export namespace Prisma {
     blockCainSites: string | null
     assetPlatformId: string | null
     imageUrl: string | null
-    descripionId: string | null
+    descriptionId: string | null
     contractAddress: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -12264,7 +12264,7 @@ export namespace Prisma {
     blockCainSites: number
     assetPlatformId: number
     imageUrl: number
-    descripionId: number
+    descriptionId: number
     contractAddress: number
     categories: number
     createdAt: number
@@ -12282,7 +12282,7 @@ export namespace Prisma {
     blockCainSites?: true
     assetPlatformId?: true
     imageUrl?: true
-    descripionId?: true
+    descriptionId?: true
     contractAddress?: true
     createdAt?: true
     updatedAt?: true
@@ -12297,7 +12297,7 @@ export namespace Prisma {
     blockCainSites?: true
     assetPlatformId?: true
     imageUrl?: true
-    descripionId?: true
+    descriptionId?: true
     contractAddress?: true
     createdAt?: true
     updatedAt?: true
@@ -12312,7 +12312,7 @@ export namespace Prisma {
     blockCainSites?: true
     assetPlatformId?: true
     imageUrl?: true
-    descripionId?: true
+    descriptionId?: true
     contractAddress?: true
     categories?: true
     createdAt?: true
@@ -12401,7 +12401,7 @@ export namespace Prisma {
     blockCainSites: string | null
     assetPlatformId: string | null
     imageUrl: string | null
-    descripionId: string | null
+    descriptionId: string | null
     contractAddress: string | null
     categories: string[]
     createdAt: Date
@@ -12434,7 +12434,7 @@ export namespace Prisma {
     blockCainSites?: boolean
     assetPlatformId?: boolean
     imageUrl?: boolean
-    descripionId?: boolean
+    descriptionId?: boolean
     contractAddress?: boolean
     categories?: boolean
     createdAt?: boolean
@@ -12451,7 +12451,7 @@ export namespace Prisma {
     blockCainSites?: boolean
     assetPlatformId?: boolean
     imageUrl?: boolean
-    descripionId?: boolean
+    descriptionId?: boolean
     contractAddress?: boolean
     categories?: boolean
     createdAt?: boolean
@@ -12468,7 +12468,7 @@ export namespace Prisma {
     blockCainSites?: boolean
     assetPlatformId?: boolean
     imageUrl?: boolean
-    descripionId?: boolean
+    descriptionId?: boolean
     contractAddress?: boolean
     categories?: boolean
     createdAt?: boolean
@@ -12485,7 +12485,7 @@ export namespace Prisma {
     blockCainSites?: boolean
     assetPlatformId?: boolean
     imageUrl?: boolean
-    descripionId?: boolean
+    descriptionId?: boolean
     contractAddress?: boolean
     categories?: boolean
     createdAt?: boolean
@@ -12493,7 +12493,7 @@ export namespace Prisma {
     deletedAt?: boolean
   }
 
-  export type CoinDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "coinId" | "chain" | "platformDecimals" | "blockCainSites" | "assetPlatformId" | "imageUrl" | "descripionId" | "contractAddress" | "categories" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["coinDetails"]>
+  export type CoinDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "coinId" | "chain" | "platformDecimals" | "blockCainSites" | "assetPlatformId" | "imageUrl" | "descriptionId" | "contractAddress" | "categories" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["coinDetails"]>
   export type CoinDetailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     coin?: boolean | CoinsDefaultArgs<ExtArgs>
   }
@@ -12517,7 +12517,7 @@ export namespace Prisma {
       blockCainSites: string | null
       assetPlatformId: string | null
       imageUrl: string | null
-      descripionId: string | null
+      descriptionId: string | null
       contractAddress: string | null
       categories: string[]
       createdAt: Date
@@ -12954,7 +12954,7 @@ export namespace Prisma {
     readonly blockCainSites: FieldRef<"CoinDetails", 'String'>
     readonly assetPlatformId: FieldRef<"CoinDetails", 'String'>
     readonly imageUrl: FieldRef<"CoinDetails", 'String'>
-    readonly descripionId: FieldRef<"CoinDetails", 'String'>
+    readonly descriptionId: FieldRef<"CoinDetails", 'String'>
     readonly contractAddress: FieldRef<"CoinDetails", 'String'>
     readonly categories: FieldRef<"CoinDetails", 'String[]'>
     readonly createdAt: FieldRef<"CoinDetails", 'DateTime'>
@@ -18346,7 +18346,7 @@ export namespace Prisma {
     blockCainSites: 'blockCainSites',
     assetPlatformId: 'assetPlatformId',
     imageUrl: 'imageUrl',
-    descripionId: 'descripionId',
+    descriptionId: 'descriptionId',
     contractAddress: 'contractAddress',
     categories: 'categories',
     createdAt: 'createdAt',
@@ -19545,7 +19545,7 @@ export namespace Prisma {
     blockCainSites?: StringNullableFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableFilter<"CoinDetails"> | string | null
     imageUrl?: StringNullableFilter<"CoinDetails"> | string | null
-    descripionId?: StringNullableFilter<"CoinDetails"> | string | null
+    descriptionId?: StringNullableFilter<"CoinDetails"> | string | null
     contractAddress?: StringNullableFilter<"CoinDetails"> | string | null
     categories?: StringNullableListFilter<"CoinDetails">
     createdAt?: DateTimeFilter<"CoinDetails"> | Date | string
@@ -19562,7 +19562,7 @@ export namespace Prisma {
     blockCainSites?: SortOrderInput | SortOrder
     assetPlatformId?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
-    descripionId?: SortOrderInput | SortOrder
+    descriptionId?: SortOrderInput | SortOrder
     contractAddress?: SortOrderInput | SortOrder
     categories?: SortOrder
     createdAt?: SortOrder
@@ -19582,7 +19582,7 @@ export namespace Prisma {
     blockCainSites?: StringNullableFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableFilter<"CoinDetails"> | string | null
     imageUrl?: StringNullableFilter<"CoinDetails"> | string | null
-    descripionId?: StringNullableFilter<"CoinDetails"> | string | null
+    descriptionId?: StringNullableFilter<"CoinDetails"> | string | null
     contractAddress?: StringNullableFilter<"CoinDetails"> | string | null
     categories?: StringNullableListFilter<"CoinDetails">
     createdAt?: DateTimeFilter<"CoinDetails"> | Date | string
@@ -19599,7 +19599,7 @@ export namespace Prisma {
     blockCainSites?: SortOrderInput | SortOrder
     assetPlatformId?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
-    descripionId?: SortOrderInput | SortOrder
+    descriptionId?: SortOrderInput | SortOrder
     contractAddress?: SortOrderInput | SortOrder
     categories?: SortOrder
     createdAt?: SortOrder
@@ -19621,7 +19621,7 @@ export namespace Prisma {
     blockCainSites?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
     imageUrl?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
-    descripionId?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
+    descriptionId?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
     contractAddress?: StringNullableWithAggregatesFilter<"CoinDetails"> | string | null
     categories?: StringNullableListFilter<"CoinDetails">
     createdAt?: DateTimeWithAggregatesFilter<"CoinDetails"> | Date | string
@@ -20989,7 +20989,7 @@ export namespace Prisma {
     blockCainSites?: string | null
     assetPlatformId?: string | null
     imageUrl?: string | null
-    descripionId?: string | null
+    descriptionId?: string | null
     contractAddress?: string | null
     categories?: CoinDetailsCreatecategoriesInput | string[]
     createdAt?: Date | string
@@ -21006,7 +21006,7 @@ export namespace Prisma {
     blockCainSites?: string | null
     assetPlatformId?: string | null
     imageUrl?: string | null
-    descripionId?: string | null
+    descriptionId?: string | null
     contractAddress?: string | null
     categories?: CoinDetailsCreatecategoriesInput | string[]
     createdAt?: Date | string
@@ -21021,7 +21021,7 @@ export namespace Prisma {
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descripionId?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     contractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: CoinDetailsUpdatecategoriesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21038,7 +21038,7 @@ export namespace Prisma {
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descripionId?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     contractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: CoinDetailsUpdatecategoriesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21054,7 +21054,7 @@ export namespace Prisma {
     blockCainSites?: string | null
     assetPlatformId?: string | null
     imageUrl?: string | null
-    descripionId?: string | null
+    descriptionId?: string | null
     contractAddress?: string | null
     categories?: CoinDetailsCreatecategoriesInput | string[]
     createdAt?: Date | string
@@ -21069,7 +21069,7 @@ export namespace Prisma {
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descripionId?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     contractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: CoinDetailsUpdatecategoriesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21085,7 +21085,7 @@ export namespace Prisma {
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descripionId?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     contractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: CoinDetailsUpdatecategoriesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22493,7 +22493,7 @@ export namespace Prisma {
     blockCainSites?: SortOrder
     assetPlatformId?: SortOrder
     imageUrl?: SortOrder
-    descripionId?: SortOrder
+    descriptionId?: SortOrder
     contractAddress?: SortOrder
     categories?: SortOrder
     createdAt?: SortOrder
@@ -22509,7 +22509,7 @@ export namespace Prisma {
     blockCainSites?: SortOrder
     assetPlatformId?: SortOrder
     imageUrl?: SortOrder
-    descripionId?: SortOrder
+    descriptionId?: SortOrder
     contractAddress?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -22524,7 +22524,7 @@ export namespace Prisma {
     blockCainSites?: SortOrder
     assetPlatformId?: SortOrder
     imageUrl?: SortOrder
-    descripionId?: SortOrder
+    descriptionId?: SortOrder
     contractAddress?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -25110,7 +25110,7 @@ export namespace Prisma {
     blockCainSites?: string | null
     assetPlatformId?: string | null
     imageUrl?: string | null
-    descripionId?: string | null
+    descriptionId?: string | null
     contractAddress?: string | null
     categories?: CoinDetailsCreatecategoriesInput | string[]
     createdAt?: Date | string
@@ -25125,7 +25125,7 @@ export namespace Prisma {
     blockCainSites?: string | null
     assetPlatformId?: string | null
     imageUrl?: string | null
-    descripionId?: string | null
+    descriptionId?: string | null
     contractAddress?: string | null
     categories?: CoinDetailsCreatecategoriesInput | string[]
     createdAt?: Date | string
@@ -25384,7 +25384,7 @@ export namespace Prisma {
     blockCainSites?: StringNullableFilter<"CoinDetails"> | string | null
     assetPlatformId?: StringNullableFilter<"CoinDetails"> | string | null
     imageUrl?: StringNullableFilter<"CoinDetails"> | string | null
-    descripionId?: StringNullableFilter<"CoinDetails"> | string | null
+    descriptionId?: StringNullableFilter<"CoinDetails"> | string | null
     contractAddress?: StringNullableFilter<"CoinDetails"> | string | null
     categories?: StringNullableListFilter<"CoinDetails">
     createdAt?: DateTimeFilter<"CoinDetails"> | Date | string
@@ -28015,7 +28015,7 @@ export namespace Prisma {
     blockCainSites?: string | null
     assetPlatformId?: string | null
     imageUrl?: string | null
-    descripionId?: string | null
+    descriptionId?: string | null
     contractAddress?: string | null
     categories?: CoinDetailsCreatecategoriesInput | string[]
     createdAt?: Date | string
@@ -28185,7 +28185,7 @@ export namespace Prisma {
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descripionId?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     contractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: CoinDetailsUpdatecategoriesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28200,7 +28200,7 @@ export namespace Prisma {
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descripionId?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     contractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: CoinDetailsUpdatecategoriesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28215,7 +28215,7 @@ export namespace Prisma {
     blockCainSites?: NullableStringFieldUpdateOperationsInput | string | null
     assetPlatformId?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descripionId?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     contractAddress?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: CoinDetailsUpdatecategoriesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
